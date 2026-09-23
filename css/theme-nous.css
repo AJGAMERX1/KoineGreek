@@ -1,0 +1,47 @@
+/*
+  theme-nous.css — "Nous" skin: minimal editorial styling.
+  White/black/electric-blue, no ornament, Space Grotesk + Noto Sans.
+  Only CSS custom properties are defined here — no layout rules.
+  See css/base.css for how these tokens are consumed.
+*/
+
+[data-theme="nous"] {
+  --bg: #FFFFFF;
+  --surface: #F5F5F5;
+  --ink: #111111;
+  --muted: #767676;
+  --border: #E4E4E4;
+
+  --primary: #0047FF;
+  --primary-dark: #0033B8;
+  --primary-tint: #EAF0FF;
+
+  --gold: #C9A227;
+  --gold-dark: #8C7015;
+
+  --accent: #FF5A36;
+  --accent-dark: #CC4529;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Noto Sans', sans-serif;
+
+  --radius-lg: 2px;
+}
+
+[data-theme="nous"][data-mode="dark"] {
+  --bg: #0D0D0D;
+  --surface: #1A1A1A;
+  --ink: #F2F2F2;
+  --muted: #9A9A9A;
+  --border: #2E2E2E;
+
+  --primary: #5C8AFF;
+  --primary-dark: #0047FF;
+  --primary-tint: #131B33;
+
+  --gold: #D9B84A;
+  --gold-dark: #8C7015;
+
+  --accent: #FF7A5C;
+  --accent-dark: #FF5A36;
+}

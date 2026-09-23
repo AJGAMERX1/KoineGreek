@@ -1,0 +1,47 @@
+/*
+  theme-classic.css — "Classic" skin: chunky, bright, Duolingo-genre-inspired.
+  Green/gold/coral, rounded shapes, Baloo 2 + Noto Sans.
+  Only CSS custom properties are defined here — no layout rules.
+  See css/base.css for how these tokens are consumed.
+*/
+
+[data-theme="classic"] {
+  --bg: #FFFDF8;
+  --surface: #FFFFFF;
+  --ink: #2B2420;
+  --muted: #8C8073;
+  --border: #EDE6D9;
+
+  --primary: #16795A;
+  --primary-dark: #0F5A41;
+  --primary-tint: #E4F3EC;
+
+  --gold: #D9A521;
+  --gold-dark: #A97D0E;
+
+  --accent: #E25C4B;
+  --accent-dark: #B8402F;
+
+  --font-display: 'Baloo 2', sans-serif;
+  --font-body: 'Noto Sans', sans-serif;
+
+  --radius-lg: 16px;
+}
+
+[data-theme="classic"][data-mode="dark"] {
+  --bg: #1B2420;
+  --surface: #22302A;
+  --ink: #F2ECDD;
+  --muted: #8FA396;
+  --border: #2E3D36;
+
+  --primary: #3FCB94;
+  --primary-dark: #16795A;
+  --primary-tint: #1E3830;
+
+  --gold: #E8C24A;
+  --gold-dark: #B08A2F;
+
+  --accent: #F17E6C;
+  --accent-dark: #E25C4B;
+}

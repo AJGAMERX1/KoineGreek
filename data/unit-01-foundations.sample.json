@@ -1,0 +1,63 @@
+{
+  "_comment": "Sample only — one unit with a handful of lesson nodes, matching the lesson-path UI in index.html. Real content should follow the curriculum order in README.md > Curriculum structure.",
+  "_schema": {
+    "id": "unit id",
+    "kicker": "small label above the title, e.g. 'Book I'",
+    "title": "unit title, may include Greek",
+    "lessons": "ordered array of lesson nodes",
+    "lessons[].state": "'complete' | 'active' | 'locked' — normally derived from progress.unitsCompleted at runtime; hardcoded here only for the sample/demo"
+  },
+  "id": "unit-01-foundations",
+  "kicker": "Book I",
+  "title": "Ὁ Λόγος — Foundations",
+  "lessons": [
+    {
+      "id": "lesson-alphabet",
+      "label": "Α Β Γ",
+      "sub": "The Alphabet",
+      "type": "alphabet",
+      "state": "complete",
+      "vocabIds": []
+    },
+    {
+      "id": "lesson-eimi",
+      "label": "εἰμί",
+      "sub": "To Be",
+      "type": "verb",
+      "state": "complete",
+      "vocabIds": ["eimi"]
+    },
+    {
+      "id": "lesson-nouns-cases",
+      "label": "ὁ λόγος",
+      "sub": "Nouns & Cases",
+      "type": "grammar",
+      "state": "active",
+      "vocabIds": ["ho", "logos", "theos"]
+    },
+    {
+      "id": "lesson-present-verbs",
+      "label": "λύω",
+      "sub": "Present Verbs",
+      "type": "verb",
+      "state": "locked",
+      "vocabIds": []
+    },
+    {
+      "id": "lesson-aorist",
+      "label": "ἔλυσα",
+      "sub": "The Aorist",
+      "type": "verb",
+      "state": "locked",
+      "vocabIds": []
+    },
+    {
+      "id": "lesson-read-john-1",
+      "label": "Κατὰ Ἰωάννην",
+      "sub": "Read: John 1",
+      "type": "reading",
+      "state": "locked",
+      "vocabIds": []
+    }
+  ]
+}

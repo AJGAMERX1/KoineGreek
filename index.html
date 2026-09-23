@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rhema — Learn Koine Greek</title>
+<meta name="description" content="A Duolingo-style app for learning New Testament Koine Greek.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="topbar">
+    <div class="app-name" id="appName">Rhema</div>
+    <div class="stat-group">
+      <div class="stat accent">
+        <svg class="stat-icon" viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a4 4 0 0 0 8 0c0-1-.5-2-1-3 2 1 3 4 3 6a6 6 0 0 1-12 0c0-4 2-6 4-10z" fill="currentColor"/></svg>
+        <span id="streakStat">0</span>
+      </div>
+      <div class="stat gold">
+        <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+        <span id="xpStat">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    This panel is a WORKING demo of the theming decision from README.md
+    (style is a user Settings preference, not a fixed choice) — not a
+    placeholder. It should graduate into the real Settings screen rather
+    than being thrown away once one exists.
+  -->
+  <div class="theme-panel">
+    <span class="theme-panel-label">Style</span>
+    <div class="theme-option-group" id="themeOptions">
+      <button class="theme-option" data-theme="classic">Classic</button>
+      <button class="theme-option" data-theme="lexis">Lexis</button>
+      <button class="theme-option" data-theme="nous">Nous</button>
+    </div>
+    <button class="mode-toggle" id="modeToggle">
+      <span id="modeLabel">Dark mode</span>
+    </button>
+  </div>
+
+  <div class="unit-header">
+    <div class="unit-kicker" id="unitKicker">&nbsp;</div>
+    <div class="unit-title" id="unitTitle">&nbsp;</div>
+  </div>
+
+  <div class="lesson-path" id="lessonPath">
+    <p style="padding:8px 4px;color:var(--muted);font-size:13px">Loading unit…</p>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item active" type="button">
+      <svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z" fill="currentColor"/></svg>
+      <span class="nav-item-label">Path</span>
+    </button>
+    <button class="nav-item" type="button">
+      <svg viewBox="0 0 24 24"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H12v18H5.5A1.5 1.5 0 0 1 4 19.5v-15zM20 4.5A1.5 1.5 0 0 0 18.5 3H12v18h6.5a1.5 1.5 0 0 0 1.5-1.5v-15z" fill="currentColor"/></svg>
+      <span class="nav-item-label">Lexicon</span>
+    </button>
+    <button class="nav-item" type="button">
+      <svg viewBox="0 0 24 24"><path d="M6 4h12v3a5 5 0 0 1-4.5 5v2h1.5a1 1 0 0 1 0 2h-6a1 1 0 0 1 0-2H10v-2A5 5 0 0 1 6 7V4zM4 5h2v2a3 3 0 0 1-2-2V5zm16 0h-2v2a3 3 0 0 0 2-2V5zM8 20h8v2H8v-2z" fill="currentColor"/></svg>
+      <span class="nav-item-label">Ranks</span>
+    </button>
+    <button class="nav-item" type="button">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" fill="currentColor"/></svg>
+      <span class="nav-item-label">Profile</span>
+    </button>
+  </div>
+
+</div>
+
+<script type="module">
+  import { initTheme, setTheme, toggleMode, APP_NAME } from './js/theme.js';
+  import { getProgress } from './js/storage.js';
+
+  // ---- app name ----
+  document.getElementById('appName').textContent = APP_NAME;
+  document.title = `${APP_NAME} — Learn Koine Greek`;
+
+  // ---- theme + mode, wired to js/theme.js + js/storage.js ----
+  initTheme();
+  refreshThemeUI();
+
+  document.querySelectorAll('.theme-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setTheme(btn.dataset.theme);
+      refreshThemeUI();
+    });
+  });
+
+  document.getElementById('modeToggle').addEventListener('click', () => {
+    toggleMode();
+    refreshThemeUI();
+  });
+
+  function refreshThemeUI() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const mode = document.documentElement.getAttribute('data-mode');
+    document.querySelectorAll('.theme-option').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.theme === current);
+    });
+    document.getElementById('modeLabel').textContent =
+      mode === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+
+  // ---- progress stats, read from real storage (starts at 0 for a new learner) ----
+  const progress = getProgress();
+  document.getElementById('streakStat').textContent = progress.streak;
+  document.getElementById('xpStat').textContent = progress.xp;
+
+  // ---- lesson path, loaded from data/unit-01-foundations.sample.json ----
+  loadUnit();
+
+  async function loadUnit() {
+    try {
+      const res = await fetch('./data/unit-01-foundations.sample.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      renderUnit(await res.json());
+    } catch (err) {
+      console.warn('Could not load unit data:', err);
+      document.getElementById('lessonPath').innerHTML =
+        '<p style="padding:8px 4px;color:var(--muted);font-size:13px">' +
+        'Could not load lesson data. If you opened this file directly (file://), ' +
+        'run it from a local server instead — see README.md &gt; Running locally.' +
+        '</p>';
+    }
+  }
+
+  function renderUnit(unit) {
+    document.getElementById('unitKicker').textContent = unit.kicker;
+    document.getElementById('unitTitle').textContent = unit.title;
+
+    const container = document.getElementById('lessonPath');
+    container.innerHTML = '';
+    unit.lessons.forEach((lesson) => container.appendChild(renderNode(lesson)));
+  }
+
+  function renderNode(lesson) {
+    const el = document.createElement('button');
+    el.type = 'button';
+    el.className = 'lesson-node';
+    el.dataset.state = lesson.state;
+    el.innerHTML = `
+      <div class="node-dot">${nodeIcon(lesson.state)}</div>
+      <div class="node-text">
+        <div class="node-label">${escapeHtml(lesson.label)}</div>
+        <div class="node-sub">${escapeHtml(lesson.sub)}</div>
+      </div>
+      <div class="node-status">${statusLabel(lesson.state)}</div>
+    `;
+    return el;
+  }
+
+  function statusLabel(state) {
+    if (state === 'complete') return 'Completed';
+    if (state === 'active') return 'In progress';
+    return 'Locked';
+  }
+
+  function nodeIcon(state) {
+    if (state === 'complete') {
+      return '<svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6.1 3.6 1.4-6.8-5.1-4.7 6.9-.8L12 2z" fill="currentColor"/></svg>';
+    }
+    if (state === 'active') {
+      return '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>';
+    }
+    return '<svg viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h1zm2 0h8V8a4 4 0 1 0-8 0v2z" fill="currentColor"/></svg>';
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+</script>
+
+</body>
+</html>

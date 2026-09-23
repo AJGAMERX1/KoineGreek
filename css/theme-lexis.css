@@ -1,0 +1,47 @@
+/*
+  theme-lexis.css — "Lexis" skin: illuminated-manuscript styling.
+  Parchment/oxblood/gold, serif type, EB Garamond + Noto Serif.
+  Only CSS custom properties are defined here — no layout rules.
+  See css/base.css for how these tokens are consumed.
+*/
+
+[data-theme="lexis"] {
+  --bg: #F3E9D2;
+  --surface: #FBF3E3;
+  --ink: #3B2417;
+  --muted: #8A7358;
+  --border: #D8C6A0;
+
+  --primary: #7A1F1F;
+  --primary-dark: #5C1616;
+  --primary-tint: #EAD9C4;
+
+  --gold: #B8860B;
+  --gold-dark: #8C6508;
+
+  --accent: #2F6B5E;
+  --accent-dark: #204A41;
+
+  --font-display: 'EB Garamond', serif;
+  --font-body: 'Noto Serif', serif;
+
+  --radius-lg: 6px;
+}
+
+[data-theme="lexis"][data-mode="dark"] {
+  --bg: #241811;
+  --surface: #2E1F17;
+  --ink: #F3E9D2;
+  --muted: #B0987A;
+  --border: #4A3423;
+
+  --primary: #C25B5B;
+  --primary-dark: #7A1F1F;
+  --primary-tint: #3A2419;
+
+  --gold: #D9AE3F;
+  --gold-dark: #8C6508;
+
+  --accent: #5FA394;
+  --accent-dark: #2F6B5E;
+}

@@ -1,0 +1,38 @@
+{
+  "_comment": "Sample only — one verse, in the shape the Read & Translate screen consumes. Text is SBLGNT-style (verify exact SBLGNT punctuation/text when replacing this sample); translations are public domain (KJV/YLT/WEB) — never add copyrighted translations here.",
+  "_schema": {
+    "id": "verse id, used as the readingHistory key",
+    "reference": "human-readable reference, Greek + English",
+    "words": "ordered array of { text, lemma, known } — 'known' should be computed at runtime from which lexicon items the learner has studied, not hardcoded; included here only for the static sample",
+    "translations": "public-domain reference translations only"
+  },
+  "id": "john-1-1",
+  "reference": {
+    "greek": "Κατὰ Ἰωάννην 1:1",
+    "english": "John 1:1"
+  },
+  "words": [
+    { "text": "Ἐν",      "lemma": "en",    "known": true },
+    { "text": "ἀρχῇ",    "lemma": "archē", "known": false },
+    { "text": "ἦν",      "lemma": "eimi",  "known": true },
+    { "text": "ὁ",       "lemma": "ho",    "known": true },
+    { "text": "λόγος,",  "lemma": "logos", "known": true },
+    { "text": "καὶ",     "lemma": "kai",   "known": true },
+    { "text": "ὁ",       "lemma": "ho",    "known": true },
+    { "text": "λόγος",   "lemma": "logos", "known": true },
+    { "text": "ἦν",      "lemma": "eimi",  "known": true },
+    { "text": "πρὸς",    "lemma": "pros",  "known": false },
+    { "text": "τὸν",     "lemma": "ho",    "known": true },
+    { "text": "θεόν,",   "lemma": "theos", "known": false },
+    { "text": "καὶ",     "lemma": "kai",   "known": true },
+    { "text": "θεὸς",    "lemma": "theos", "known": false },
+    { "text": "ἦν",      "lemma": "eimi",  "known": true },
+    { "text": "ὁ",       "lemma": "ho",    "known": true },
+    { "text": "λόγος.",  "lemma": "logos", "known": true }
+  ],
+  "translations": {
+    "kjv": "In the beginning was the Word, and the Word was with God, and the Word was God.",
+    "ylt": "In the beginning was the Word, and the Word was with God, and the Word was God.",
+    "web": "In the beginning was the Word, and the Word was with God, and the Word was God."
+  }
+}
