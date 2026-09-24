@@ -75,6 +75,21 @@
     </section>
 
     <section class="settings-section">
+      <div class="settings-title">Voice</div>
+      <div class="settings-row">
+        <div><div class="settings-label">Speak new words and verses</div><div class="settings-help">Speaker buttons always work; this reads new words and each verse aloud automatically.</div></div>
+        <label class="switch"><input type="checkbox" id="autoSpeak"><span class="switch-track"></span></label>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Try it</div><div class="settings-help" id="voiceHelp"></div></div>
+        <div class="theme-option-group">
+          <button class="theme-option" type="button" data-say="λόγος">λόγος</button>
+          <button class="theme-option" type="button" data-say="Ἐν ἀρχῇ ἦν ὁ λόγος">John 1:1</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
       <div class="settings-title">Progress</div>
       <div class="settings-row" style="border-top:0;padding-top:0">
         <div><div class="settings-label">Show Progress tab</div><div class="settings-help">Adds an achievements board to the bottom bar. Single-player: this is a static site, so there is no leaderboard.</div></div>
@@ -123,6 +138,7 @@
   import { initTheme, setTheme, setMode } from './js/theme.js';
   import { getSettings, setSettings, getProgress, getAllVocabRecords, readStore, exportStore, importStore, resetProgress } from './js/storage.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
+  import { available as speechAvailable, greekVoice, speak, respell } from './js/speech.js';
 
   initTheme();
   initPwa();
@@ -134,6 +150,8 @@
   function refresh() {
     const s = getSettings();
     document.getElementById('showProgress').checked = !!s.showProgress;
+    document.getElementById('autoSpeak').checked = s.autoSpeak !== false;
+    refreshVoiceHelp(s);
     document.querySelectorAll('#themeOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.theme === s.theme));
     document.querySelectorAll('#modeOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.mode === s.mode));
     document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.pron === s.pronunciation));
@@ -148,6 +166,21 @@
   document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ pronunciation: b.dataset.pron }); refresh(); }));
   document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ translation: b.dataset.tr }); refresh(); }));
   document.getElementById('showProgress').addEventListener('change', (e) => { setSettings({ showProgress: e.target.checked }); refresh(); });
+  document.getElementById('autoSpeak').addEventListener('change', (e) => { setSettings({ autoSpeak: e.target.checked }); refresh(); });
+  document.querySelectorAll('[data-say]').forEach((b) => b.addEventListener('click', () => speak(b.dataset.say)));
+
+  function refreshVoiceHelp(s) {
+    const el = document.getElementById('voiceHelp');
+    if (!speechAvailable()) { el.textContent = 'This browser has no speech voices, so speaker buttons are hidden.'; return; }
+    const gv = greekVoice();
+    if (s.pronunciation === 'koine') {
+      el.textContent = gv ? `Koine: read by your device’s Greek voice (${gv.name}). Modern Greek is the closest living pronunciation to reconstructed Koine.`
+        : `Koine: no Greek voice on this device, so words are respelled for an English voice (λόγος → ${respell('λόγος', 'koine')}). Install a Greek voice in your system settings for better sound.`;
+    } else {
+      el.textContent = `Erasmian: no Erasmian voice exists, so words are respelled for an English voice (λόγος → ${respell('λόγος', 'erasmian')}). An approximation; the Koine scheme uses a real Greek voice.`;
+    }
+  }
+  if (speechAvailable()) window.speechSynthesis.addEventListener('voiceschanged', () => refreshVoiceHelp(getSettings()));
 
   function renderProgress() {
     const p = getProgress();

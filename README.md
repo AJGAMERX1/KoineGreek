@@ -190,6 +190,8 @@ koine-greek-app/
 │   ├── nav.js             — shared bottom navigation (Path · Read · Lexicon · [Progress] · Profile)
 │   ├── lexicon.js         — lexicon search/filter + per-word status (no DOM)
 │   ├── achievements.js    — achievement definitions + evaluation (no DOM)
+│   ├── chain.js           — the daily review chain (drill → grammar → reading due modes)
+│   ├── speech.js          — pronunciation via the Web Speech API (Greek voice / phonetic respelling)
 │   ├── pwa.js             — service-worker registration + install-prompt capture
 │   ├── session-view.js    — shared session UI: progress, intro / question / feedback / summary cards, Greek keyboard
 │   ├── data.js            — cached loaders for data/*.json (the only module that fetches content)
@@ -232,6 +234,7 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 
 **Phase 2 — Core loop**
 - [x] Alphabet lesson screen (`alphabet.html` + `js/alphabet.js`): letters in blocks of four with intro → recall, name / shape / sound / transliteration formats with confusable distractors, diphthongs, breathing, iota subscript, accents, syllables and punctuation, "read the word" typed transliteration of real GNT words, pronunciation-scheme toggle (Erasmian / Koine) saved to settings
+- [x] Daily review chain (`js/chain.js`): the path's one "Review now" button runs due words → due forms → due verses as a single chained session (PEDAGOGY M3)
 - [x] Vocab drill screen (`drill.html` + `js/drill.js`): due-first sessions, intro → recall for new words, MC → typed → produced formats by strength, diagnostic distractors, answer + one-line reason feedback, misses requeue and reset the SRS, XP by retrieval difficulty, streak counted only for real work
 - [~] Lesson path screen wired to real progress data — now reads `curriculum.json` and derives lesson state from `progress.lessonsCompleted`; lesson screens themselves are still to build
 - [x] Settings screen (`settings.html`, Profile tab): style + light/dark, pronunciation, reference translation, progress stats, install button, backup download / restore / reset, credits. The lesson-path theme switcher graduated here.
@@ -248,7 +251,7 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 - [x] Expand verse dataset: all 27 NT books are bundled in `data/gnt/` with KJV/YLT/WEB
 
 **Phase 5 — Polish / stretch**
-- [ ] Audio pronunciation (Erasmian + reconstructed Koine)
+- [x] Pronunciation (`js/speech.js`): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
 - [x] Progress tab (single-player achievement board — a static site has no leaderboard): coverage meters, 73 achievements for words, verses, endings, streaks, Books and XP; opt-in via Settings → "Show Progress tab"
 - [x] Read tab: parallel Greek / English reader over the whole NT (SBLGNT + WEB/KJV/YLT), verse-aligned columns on wide screens, tap-to-gloss, "Study this chapter" hand-off to the curriculum
 - [x] Lexicon tab: all 5,461 lemmas searchable in Greek (accent-insensitive) or English, status per word, detail with attested forms and "add to my words"

@@ -73,7 +73,8 @@
   import { initTheme, APP_NAME } from './js/theme.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
-  import { getProgress, getAllVocabRecords, getDueVocabItems, getDueFormIds } from './js/storage.js';
+  import { getProgress, getAllVocabRecords, getDueVocabItems, getDueFormIds, getDueVerseIds } from './js/storage.js';
+  import { chainHref } from './js/chain.js';
 
   // ---- app name ----
   document.getElementById('appName').textContent = APP_NAME;
@@ -98,22 +99,25 @@
   document.getElementById('xpStat').textContent = progress.xp;
 
   // ---- due reviews banner (PEDAGOGY M3: "due today" is the primary unit of a session) ----
-  // Vocab and forms (paradigm cells, principal parts) are both SRS objects; one button runs the
-  // vocab review and chains straight into the forms review.
+  // Words, forms (paradigm cells, principal parts) and verses are all SRS objects; one button
+  // runs everything due as a single chained session: words → forms → verses (PEDAGOGY M3).
   const dueIds = getDueVocabItems(Object.keys(getAllVocabRecords()));
   const dueForms = getDueFormIds();
-  if (dueIds.length || dueForms.length) {
+  const dueVerses = getDueVerseIds();
+  const chain = [];
+  if (dueIds.length) chain.push('drill');
+  if (dueForms.length) chain.push('grammar');
+  if (dueVerses.length) chain.push('reading');
+  if (chain.length) {
     const bits = [];
     if (dueIds.length) bits.push(`${dueIds.length} word${dueIds.length === 1 ? '' : 's'}`);
     if (dueForms.length) bits.push(`${dueForms.length} form${dueForms.length === 1 ? '' : 's'}`);
+    if (dueVerses.length) bits.push(`${dueVerses.length} verse${dueVerses.length === 1 ? '' : 's'}`);
     document.getElementById('dueCount').textContent = bits.join(' · ');
     document.getElementById('dueLabel').textContent = 'due for review';
     document.getElementById('dueBanner').hidden = false;
   }
-  document.getElementById('dueBtn').addEventListener('click', () => {
-    if (dueIds.length) location.href = dueForms.length ? 'drill.html?mode=due&return=grammar.html%3Fmode%3Ddue' : 'drill.html?mode=due';
-    else location.href = 'grammar.html?mode=due';
-  });
+  document.getElementById('dueBtn').addEventListener('click', () => { location.href = chainHref(chain); });
 
   // ---- lesson path, driven by data/curriculum.json + progress.lessonsCompleted ----
   // The curriculum index lists every Book (unit) and its lessons; full lesson

@@ -58,10 +58,12 @@
   import { loadLesson, loadLexicon, loadAlphabet, loadParadigms, loadBook } from './js/data.js';
   import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
   import { buildAlphabetSession, gradeAlphabet, requeueAlphabet, transliterate, hasSubscript, syllabify, stripMarks } from './js/alphabet.js';
-  import { SessionView, escapeHtml } from './js/session-view.js';
+  import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSpeech, autoSpeak } from './js/speech.js';
 
   initTheme();
   initPwa();
+  initSpeech();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -131,7 +133,7 @@
             <div class="letter-facts">
               <div><span class="k">Sounds like</span>${escapeHtml(l[s])}</div>
               <div><span class="k">Written</span>${escapeHtml(l.translit)}</div>
-              ${step.example ? `<div><span class="k">Example</span><span class="greek" style="font-family:var(--font-display);font-weight:700">${escapeHtml(step.example.lemma)}</span> — ${escapeHtml(step.example.gloss)}</div>` : ''}
+              ${step.example ? `<div><span class="k">Example</span><span class="greek" style="font-family:var(--font-display);font-weight:700">${escapeHtml(step.example.lemma)}</span> — ${escapeHtml(step.example.gloss)}${speakerHtml(step.example.lemma, { small: true })}</div>` : ''}
             </div>
           </div>`, note: 'Say the name and the sound out loud, then continue.' }, next);
       }
@@ -147,7 +149,7 @@
       case 'intro-diphthong': {
         const d = step.d;
         return view.renderIntro({ kicker: 'Diphthong', html: `<div class="card prompt">
-          <div class="prompt-main letter">${escapeHtml(d.text)}</div>
+          <div class="prompt-row"><div class="prompt-main letter">${escapeHtml(d.text)}</div>${speakerHtml(d.example.split(' ')[0])}</div>
           <div class="letter-facts" style="margin-top:16px">
             <div><span class="k">Sounds like</span>${escapeHtml(d[s])}</div>
             <div><span class="k">Example</span>${escapeHtml(d.example)}</div>
@@ -204,7 +206,7 @@
   function renderQuestion(step) {
     const spec = { kicker: kickerFor(step), hint: step.hint || '' };
     if (step.format === 'read-word') {
-      spec.prompt = step.word; spec.hint = 'Read it aloud, then type what you said in English letters';
+      spec.prompt = step.word; spec.hint = 'Read it aloud, then type what you said in English letters'; spec.speak = step.word;
       spec.typed = { placeholder: 'e.g. logos' };
     } else if (step.typed) {
       spec.promptHtml = `<div class="prompt-main letter">${escapeHtml(step.prompt)}</div>`;

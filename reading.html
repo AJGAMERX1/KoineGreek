@@ -51,20 +51,26 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadBook } from './js/data.js';
-  import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, getDueVerseIds, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { nextInChain, chainLabel } from './js/chain.js';
   import { scheduleReview } from './js/srs.js';
   import { annotate, coverage, xpForVerse, rateVerse, startIndex, suggestWords, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
   import { describeParse, describePos } from './js/morph.js';
-  import { SessionView, escapeHtml } from './js/session-view.js';
+  import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSpeech, autoSpeak } from './js/speech.js';
 
   initTheme();
   initPwa();
+  initSpeech();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
   document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
 
-  const lessonId = new URLSearchParams(location.search).get('lesson');
+  const params = new URLSearchParams(location.search);
+  const lessonId = params.get('lesson');
+  const mode = params.get('mode') || (lessonId ? 'lesson' : 'due');
+  const MAX_DUE_VERSES = 20;
   const state = {
     lesson: null, lexicon: null, verses: [], index: 0, records: {}, translation: getSettings().translation || 'web',
     reveals: [], allReveals: [], rated: 0, xpEarned: 0, coverages: [], revealed: false, active: null,
@@ -73,7 +79,7 @@
   main().catch((err) => { console.error(err); view.renderError(`Could not load this reading: ${err.message}. Run from a local server (see README).`); });
 
   async function main() {
-    if (!lessonId) throw new Error('no lesson given');
+    if (mode === 'due') { await mainDue(); return; }
     const [{ lesson }, lexicon] = await Promise.all([loadLesson(lessonId), loadLexicon()]);
     if (!lesson.reading) throw new Error(`${lessonId} has no reading`);
     state.lesson = lesson; state.lexicon = lexicon;
@@ -87,11 +93,36 @@
     const chapter = book.chapters[String(lesson.reading.chapter)];
     state.verses = lesson.reading.verseIds.map((id) => {
       const v = Object.values(chapter).find((x) => x.id === id);
-      return { ...v, number: Number(id.split('-').pop()), bookName: book.book, greekTitle: book.greekTitle };
+      return { ...v, number: Number(id.split('-').pop()), chapter: lesson.reading.chapter, bookName: book.book, greekTitle: book.greekTitle };
     });
     state.records = getAllVocabRecords();
     state.index = startIndex(lesson.reading.verseIds, readStore().readingHistory);
     renderVerse();
+  }
+
+  /** Due-verse review (part of the daily chain): every verse whose reading record is due, oldest first. */
+  async function mainDue() {
+    document.title = 'Rhema — Review verses';
+    state.lexicon = await loadLexicon();
+    state.records = getAllVocabRecords();
+    const ids = getDueVerseIds().slice(0, MAX_DUE_VERSES);
+    if (!ids.length) { renderEmpty(); return; }
+    const slugOf = (id) => id.split('-').slice(0, -2).join('-');
+    const books = {};
+    for (const slug of new Set(ids.map(slugOf))) books[slug] = await loadBook(slug);
+    state.verses = ids.map((id) => {
+      const [ch, v] = id.split('-').slice(-2).map(Number);
+      const book = books[slugOf(id)];
+      const verse = Object.values(book.chapters[String(ch)] || {}).find((x) => x.id === id);
+      return verse && { ...verse, number: v, chapter: ch, bookName: book.book, greekTitle: book.greekTitle };
+    }).filter(Boolean);
+    state.index = 0;
+    renderVerse();
+  }
+
+  function renderEmpty() {
+    view.renderSummary({ kicker: 'Review', html: `<div class="card"><div class="rule-title">No verses are due</div><p class="rule-body" style="color:var(--muted)">Verses you have rated come back on their own schedule.</p></div>`,
+      buttonLabel: nextInChain(params) ? chainLabel(params) : 'Back to path' }, () => { location.href = nextInChain(params) || 'index.html'; });
   }
 
   // ------------------------------------------------------------ prep vocab gate
@@ -120,25 +151,28 @@
     state.words = words;
     const cov = coverage(words);
     state.coverages.push(cov);
-    const rule = state.index === 0 && state.lesson.rule ? `
+    const rule = state.index === 0 && state.lesson && state.lesson.rule ? `
       <div class="card">
         <div class="rule-title">${escapeHtml(state.lesson.rule.title)}</div>
         <p class="rule-body">${escapeHtml(state.lesson.rule.body)}</p>
       </div>` : '';
 
     view.body.innerHTML = `
-      <div class="drill-kicker">${escapeHtml(verse.greekTitle)} · ${escapeHtml(verse.bookName)} ${escapeHtml(state.lesson.reading.chapter)}:${verse.number} · ${state.index + 1} of ${state.verses.length}</div>
+      <div class="drill-kicker">${state.lesson ? '' : 'Review · '}${escapeHtml(verse.greekTitle)} · ${escapeHtml(verse.bookName)} ${verse.chapter}:${verse.number} · ${state.index + 1} of ${state.verses.length}</div>
       ${rule}
       <div class="card">
         <div class="verse" id="verse" lang="grc">${words.map((w, i) => wordHtml(w, i)).join(' ')}</div>
-        <div class="verse-meta"><span>${Math.round(cov.knownShare * 100)}% of these words are in your vocabulary</span><span class="legend"><span class="w unknown">dotted</span> = tap for meaning</span></div>
+        <div class="verse-meta"><span>${Math.round(cov.knownShare * 100)}% of these words are in your vocabulary${speakerHtml(verseText(verse), { small: true })}</span><span class="legend"><span class="w unknown">dotted</span> = tap for meaning</span></div>
       </div>
       <div class="gloss-panel" id="gloss" hidden></div>
       <div id="reveal"></div>`;
     view.body.scrollTop = 0;
     view.body.querySelectorAll('.w[data-i]').forEach((el) => el.addEventListener('click', () => tapWord(Number(el.dataset.i))));
     view.showFooter('Reveal the translation', reveal);
+    autoSpeak(verseText(verse));
   }
+
+  function verseText(verse) { return verse.words.map((w) => w.t).join(' '); }
 
   function wordHtml(w, i) {
     if (!isWordToken(w)) return `<span class="punct">${escapeHtml(w.t)}</span>`;
@@ -214,16 +248,15 @@
   // ------------------------------------------------------------ summary
 
   function renderSummary() {
-    if (state.rated > 0) { recordActivity(); markLessonCompleted(state.lesson.id); }
+    if (state.rated > 0) { recordActivity(); if (state.lesson) markLessonCompleted(state.lesson.id); }
     const progress = getProgress();
     const tokens = state.coverages.reduce((a, c) => a + c.tokens, 0);
     const known = state.coverages.reduce((a, c) => a + c.known, 0);
     const suggestions = suggestWords(state.allReveals);
     const tapped = [...new Map(state.allReveals.map((w) => [w.l, w])).values()];
     view.renderSummary({
-      kicker: 'Reading complete',
       html: `<div class="card">
-        <div class="rule-title">${escapeHtml(state.lesson.reading.reference)}</div>
+        <div class="rule-title">${state.lesson ? escapeHtml(state.lesson.reading.reference) : 'Due verses'}</div>
         <div class="summary-stats">
           <div class="summary-stat"><b>${state.rated}</b><span>verses</span></div>
           <div class="summary-stat"><b>${tokens ? Math.round((known / tokens) * 100) : 0}%</b><span>words known</span></div>
@@ -234,7 +267,9 @@
           tapped.map((w) => `<div><span class="greek">${escapeHtml(w.item.lemma)}</span> — ${escapeHtml(w.item.gloss)}${w.glossOnly ? ' <span style="color:var(--muted)">(rare)</span>' : ''}</div>`).join('') + `</div>` : ''}
         ${suggestions.length ? `<div style="margin-top:14px"><button class="btn secondary" id="addWords" type="button">Add ${suggestions.length} looked-up word${suggestions.length === 1 ? '' : 's'} to my vocabulary</button></div>` : ''}
       </div>`,
-    }, () => { location.href = 'index.html'; });
+      kicker: state.lesson ? 'Reading complete' : 'Review complete',
+      buttonLabel: nextInChain(params) ? chainLabel(params) : 'Back to path',
+    }, () => { location.href = nextInChain(params) || 'index.html'; });
     const addBtn = document.getElementById('addWords');
     if (addBtn) addBtn.addEventListener('click', () => {
       // Enter the words into the SRS as brand-new items due tomorrow (M24: the known set grows from reading).

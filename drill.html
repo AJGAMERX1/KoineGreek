@@ -55,10 +55,13 @@
   import { getProgress, getAllVocabRecords, getVocabItem, updateVocabItem, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
   import { scheduleReview } from './js/srs.js';
   import { buildSession, makeQuestion, grade, ratingFor, xpFor, feedback, requeue } from './js/drill.js';
-  import { SessionView, escapeHtml } from './js/session-view.js';
+  import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSpeech, autoSpeak } from './js/speech.js';
+  import { nextInChain, chainLabel } from './js/chain.js';
 
   initTheme();
   initPwa();
+  initSpeech();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -125,19 +128,20 @@
       kicker: kicker(step),
       html: `
         <div class="card prompt">
-          <div class="prompt-main">${escapeHtml(it.lemma)}</div>
+          <div class="prompt-row"><div class="prompt-main">${escapeHtml(it.lemma)}</div>${speakerHtml(it.lemma)}</div>
           <div class="intro-citation">${escapeHtml(it.citation)}</div>
           <div class="intro-gloss">${escapeHtml(it.gloss)}</div>
           <div class="intro-meta">${escapeHtml(it.pos)} · ${it.count}× in the New Testament · rank ${it.rank}</div>
         </div>`,
       note: 'Say it aloud, then continue — you will be asked for it right away.',
     }, () => { state.index++; renderStep(); });
+    autoSpeak(it.lemma);
   }
 
   function renderQuestion(step) {
     const q = makeQuestion(step, state.lexicon, Math.random, state.preferIds);
     const greekPrompt = q.format === 'gloss-mc' || q.format === 'gloss-type';
-    const spec = { kicker: `${kicker(step)} · ${formatLabel(q.format)}`, prompt: q.prompt, promptGreek: greekPrompt, hint: q.hint };
+    const spec = { kicker: `${kicker(step)} · ${formatLabel(q.format)}`, prompt: q.prompt, promptGreek: greekPrompt, hint: q.hint, speak: greekPrompt ? q.item.lemma : null };
     if (q.options) spec.options = q.options.map((o) => ({ id: o.id, text: o.text, greek: q.format === 'greek-mc' }));
     else spec.typed = { greek: q.format === 'greek-type', placeholder: q.format === 'greek-type' ? 'type in Greek' : 'type the meaning' };
     view.renderQuestion(spec, (input) => answer(q, input));
@@ -176,7 +180,8 @@
         <div class="rule-title">Nothing is due right now</div>
         <p class="rule-body" style="color:var(--muted)">Spaced repetition works by waiting. Start the next lesson on the path, or come back when words come due.</p>
       </div>`,
-    }, () => { location.href = 'index.html'; });
+      buttonLabel: nextInChain(params) ? chainLabel(params) : 'Back to path',
+    }, () => { location.href = nextInChain(params) || 'index.html'; });
   }
 
   function renderSummary() {
@@ -200,8 +205,8 @@
         ${missed.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Missed this session</div>` +
           missed.map((m) => `<div><span class="greek">${escapeHtml(m.lemma)}</span> — ${escapeHtml(m.gloss)}</div>`).join('') + `</div>` : ''}
       </div>`,
-      buttonLabel: returnTo === 'index.html' ? 'Back to path' : returnTo.startsWith('reading.html') ? 'Continue to the reading' : 'Continue',
-    }, () => { location.href = returnTo; });
+      buttonLabel: nextInChain(params) ? chainLabel(params) : returnTo === 'index.html' ? 'Back to path' : returnTo.startsWith('reading.html') ? 'Continue to the reading' : 'Continue',
+    }, () => { location.href = nextInChain(params) || returnTo; });
   }
 </script>
 

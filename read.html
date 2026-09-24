@@ -69,10 +69,12 @@
   import { getSettings, setSettings, getAllVocabRecords } from './js/storage.js';
   import { annotate, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
   import { describeParse, describePos } from './js/morph.js';
-  import { escapeHtml } from './js/session-view.js';
+  import { escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSpeech } from './js/speech.js';
 
   initTheme();
   initPwa();
+  initSpeech();
   renderNav(document.getElementById('nav'), 'read');
 
   const params = new URLSearchParams(location.search);
@@ -154,7 +156,7 @@
         : `<span class="punct">${escapeHtml(w.t)}</span>`).join(' ');
       const en = v.translations[state.translation] || Object.values(v.translations)[0] || '';
       const num = v.id.split('-').pop();
-      return `<div class="pv-row" id="${v.id}"><div class="pv-num">${num}</div><div class="pv-gr" lang="grc">${gr}</div><div class="pv-en">${escapeHtml(en)}</div></div>`;
+      return `<div class="pv-row" id="${v.id}"><div class="pv-num">${num}</div><div class="pv-gr" lang="grc">${gr}${speakerHtml(v.words.map((w) => w.t).join(' '), { small: true })}</div><div class="pv-en">${escapeHtml(en)}</div></div>`;
     }).join('');
     body.innerHTML = `
       <div class="reader-head">

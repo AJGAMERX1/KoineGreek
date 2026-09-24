@@ -22,6 +22,7 @@ function defaultStore() {
       mode: 'light',           // 'light' | 'dark'
       pronunciation: 'erasmian', // 'erasmian' | 'koine'
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
+      autoSpeak: true,           // speak new words / verses automatically (speaker buttons always work)
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in
       lastRead: null,            // { book, chapter } — where the Read tab reopens
     },
@@ -255,6 +256,13 @@ export function getDueFormIds(now = new Date()) {
 }
 
 // ---------- Reading history ----------
+
+export function getDueVerseIds(now = new Date()) {
+  return Object.entries(readStore().readingHistory)
+    .filter(([, r]) => r.dueDate && new Date(r.dueDate) <= now)
+    .sort((a, b) => new Date(a[1].dueDate) - new Date(b[1].dueDate))
+    .map(([id]) => id);
+}
 
 export function getReadingRecord(verseId) {
   return readStore().readingHistory[verseId] || null;

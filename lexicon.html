@@ -66,10 +66,12 @@
   import { scheduleReview } from './js/srs.js';
   import { searchLexicon, statusOf } from './js/lexicon.js';
   import { describeParse } from './js/morph.js';
-  import { escapeHtml } from './js/session-view.js';
+  import { escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSpeech } from './js/speech.js';
 
   initTheme();
   initPwa();
+  initSpeech();
   renderNav(document.getElementById('nav'), 'lexicon');
 
   const PAGE = 120;
@@ -132,7 +134,7 @@
     const forms = (state.forms && state.forms[it.id]) || [];
     const schedulable = it.count >= 10;
     document.getElementById('sheetBody').innerHTML = `
-      <div class="gloss-head"><span class="gloss-form">${escapeHtml(it.citation)}</span><span class="gloss-pos">${escapeHtml(it.pos)}</span></div>
+      <div class="gloss-head"><span class="gloss-form">${escapeHtml(it.citation)}${speakerHtml(it.lemma, { small: true })}</span><span class="gloss-pos">${escapeHtml(it.pos)}</span></div>
       <div class="gloss-lemma" style="margin-top:6px;font-size:17px">${escapeHtml(it.gloss)}</div>
       <div class="gloss-status">${it.count}× in the New Testament · rank ${it.rank} of ${state.lexicon.items.length}${it.strongs ? ` · Strong's ${Array.isArray(it.strongs) ? it.strongs.join('/') : it.strongs}` : ''}${it.gk ? ` · GK ${Array.isArray(it.gk) ? it.gk.join('/') : it.gk}` : ''}</div>
       <div class="gloss-status">${rec ? `<span class="status ${st}">${STATUS_LABEL[st]}</span> · reviewed ${rec.repetitions} time${rec.repetitions === 1 ? '' : 's'} in a row · next ${rec.dueDate ? new Date(rec.dueDate).toLocaleDateString() : '—'}` : schedulable ? 'not yet in your vocabulary' : 'rare: glossed when you meet it, never drilled'}</div>

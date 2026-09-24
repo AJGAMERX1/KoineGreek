@@ -1620,3 +1620,52 @@ button {
 .switch input:checked + .switch-track::after {
   transform: translateX(20px);
 }
+
+/* ---------- Speaker buttons (pronunciation) ---------- */
+
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--primary);
+  vertical-align: middle;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.speak-btn.small {
+  width: 28px;
+  height: 28px;
+  margin-left: 6px;
+}
+
+.speak-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.speak-btn.small svg {
+  width: 14px;
+  height: 14px;
+}
+
+.speak-btn.speaking {
+  background: var(--primary-tint);
+  border-color: var(--primary);
+}
+
+.no-speech .speak-btn {
+  display: none;
+}
+
+.prompt-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}

@@ -13,7 +13,7 @@
   All paths are relative to this file so the app works at any GitHub Pages sub-path.
 */
 
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const SHELL_CACHE = `koine-shell-${CACHE_VERSION}`;
 const CONTENT_CACHE = `koine-content-${CACHE_VERSION}`;
 const FONT_CACHE = `koine-fonts-${CACHE_VERSION}`;
@@ -46,6 +46,8 @@ const SHELL = [
   './js/nav.js',
   './js/lexicon.js',
   './js/achievements.js',
+  './js/chain.js',
+  './js/speech.js',
   './js/session-view.js',
   './js/pwa.js',
   './icons/icon.svg',

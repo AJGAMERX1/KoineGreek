@@ -15,6 +15,14 @@ export function escapeHtml(str) {
   return div.innerHTML;
 }
 
+/** Speaker button markup (same as js/speech.js's; duplicated here so the view stays dependency-free). */
+export function speakerHtml(text, { small = false } = {}) {
+  const esc = String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  return `<button class="speak-btn ${small ? 'small' : ''}" type="button" data-speak="${esc}" aria-label="Listen" title="Listen">
+    <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7.5 7.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>`;
+}
+
 export function greekKeyboardHtml() {
   const letters = 'αβγδεζηθικλμνξοπρστυφχψω'.split('');
   return `<div class="kbd" id="kbd">` +
@@ -74,12 +82,13 @@ export class SessionView {
    * A retrieval step. Either `options` (multiple choice: [{id, text, greek?}]) or
    * `typed` ({greek, placeholder}). onAnswer(input) gets the option id or the text.
    */
-  renderQuestion({ kicker, prompt, promptGreek = true, promptHtml = null, hint = '', options = null, typed = null }, onAnswer) {
+  renderQuestion({ kicker, prompt, promptGreek = true, promptHtml = null, hint = '', options = null, typed = null, speak = null }, onAnswer) {
     this.hideFooter();
+    const main = promptHtml || `<div class="prompt-main ${promptGreek ? '' : 'english'}">${escapeHtml(prompt)}</div>`;
     let html = `
       <div class="drill-kicker">${escapeHtml(kicker)}</div>
       <div class="card prompt">
-        ${promptHtml || `<div class="prompt-main ${promptGreek ? '' : 'english'}">${escapeHtml(prompt)}</div>`}
+        ${speak ? `<div class="prompt-row">${main}${speakerHtml(speak)}</div>` : main}
         ${hint ? `<div class="prompt-hint">${escapeHtml(hint)}</div>` : ''}
       </div>`;
     if (options) {

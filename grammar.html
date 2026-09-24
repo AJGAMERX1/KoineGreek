@@ -57,9 +57,12 @@
   import { buildGrammarSession, buildDueFormsSession, gradeGrammar, xpForGrammar, ratingForGrammar, requeueGrammar, PART_NAMES } from './js/grammar.js';
   import { parseSlots } from './js/morph.js';
   import { SessionView, escapeHtml } from './js/session-view.js';
+  import { initSpeech } from './js/speech.js';
+  import { nextInChain, chainLabel } from './js/chain.js';
 
   initTheme();
   initPwa();
+  initSpeech();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -162,7 +165,7 @@
   }
 
   function renderQuestion(step) {
-    const spec = { kicker: kickerFor(step), prompt: step.prompt, promptGreek: step.promptGreek !== false, hint: step.hint || '' };
+    const spec = { kicker: kickerFor(step), prompt: step.prompt, promptGreek: step.promptGreek !== false, hint: step.hint || '', speak: step.promptGreek !== false ? step.prompt : null };
     if (step.typed) spec.typed = step.typed; else spec.options = step.options;
     view.renderQuestion(spec, (input) => answer(step, input));
   }
@@ -186,7 +189,8 @@
   // ------------------------------------------------------------ end states
 
   function renderEmpty() {
-    view.renderSummary({ kicker: 'Review', html: `<div class="card"><div class="rule-title">No forms are due</div><p class="rule-body" style="color:var(--muted)">Endings come back on their own schedule. Keep going on the path.</p></div>` }, () => { location.href = returnTo; });
+    view.renderSummary({ kicker: 'Review', html: `<div class="card"><div class="rule-title">No forms are due</div><p class="rule-body" style="color:var(--muted)">Endings come back on their own schedule. Keep going on the path.</p></div>`,
+      buttonLabel: nextInChain(params) ? chainLabel(params) : 'Back to path' }, () => { location.href = nextInChain(params) || returnTo; });
   }
 
   function renderSummary() {
@@ -210,8 +214,8 @@
         <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Every ending you answered is now scheduled like a word.${hasVocab ? ' Next: the lesson’s words.' : ''}</p>
         ${missed.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Missed</div>` + missed.map((m) => `<div>${escapeHtml(m.answer)}</div>`).join('') + `</div>` : ''}
       </div>`,
-      buttonLabel: hasVocab ? 'Continue to the words' : (returnTo === 'index.html' ? 'Back to path' : 'Continue'),
-    }, () => { location.href = hasVocab ? `drill.html?lesson=${encodeURIComponent(state.lesson.id)}` : returnTo; });
+      buttonLabel: hasVocab ? 'Continue to the words' : nextInChain(params) ? chainLabel(params) : (returnTo === 'index.html' ? 'Back to path' : 'Continue'),
+    }, () => { location.href = hasVocab ? `drill.html?lesson=${encodeURIComponent(state.lesson.id)}` : (nextInChain(params) || returnTo); });
   }
 </script>
 
