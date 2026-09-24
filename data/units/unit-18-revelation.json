@@ -1,0 +1,1431 @@
+{
+ "id": "unit-18-revelation",
+ "index": 18,
+ "kicker": "Book XVIII",
+ "title": "Ἀποκάλυψις Ἰωάννου",
+ "sub": "Read Revelation",
+ "track": "reading",
+ "summary": "Read Revelation chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u18-vocab-1-1",
+   "type": "vocab",
+   "label": "χρυσοῦς",
+   "sub": "New words for Revelation 1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "χρυσοῦς",
+     "lemma": "χρυσοῦς",
+     "citation": "χρυσοῦς, ῆ, οῦν",
+     "gloss": "golden",
+     "pos": "adjective",
+     "count": 17,
+     "rank": 703
+    },
+    {
+     "id": "κράτος",
+     "lemma": "κράτος",
+     "citation": "κράτος, ους, τό",
+     "gloss": "dominion, strength, power",
+     "pos": "noun",
+     "count": 12,
+     "rank": 920
+    },
+    {
+     "id": "παντοκράτωρ",
+     "lemma": "παντοκράτωρ",
+     "citation": "παντοκράτωρ, ορος, ὁ",
+     "gloss": "ruler of the universe",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1061
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-1",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 1,
+    "from": 1,
+    "to": 20,
+    "verseIds": [
+     "revelation-1-1",
+     "revelation-1-2",
+     "revelation-1-3",
+     "revelation-1-4",
+     "revelation-1-5",
+     "revelation-1-6",
+     "revelation-1-7",
+     "revelation-1-8",
+     "revelation-1-9",
+     "revelation-1-10",
+     "revelation-1-11",
+     "revelation-1-12",
+     "revelation-1-13",
+     "revelation-1-14",
+     "revelation-1-15",
+     "revelation-1-16",
+     "revelation-1-17",
+     "revelation-1-18",
+     "revelation-1-19",
+     "revelation-1-20"
+    ],
+    "reference": "Revelation 1:1–20",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 469,
+     "known": 0.932,
+     "schedulable": 0.932
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-2-1",
+   "type": "vocab",
+   "label": "ὅδε",
+   "sub": "New words for Revelation 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ὅδε",
+     "lemma": "ὅδε",
+     "citation": "ὅδε, ἥδε, τόδε",
+     "gloss": "this here, this",
+     "pos": "demonstrative pronoun",
+     "count": 10,
+     "rank": 1121
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-2",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 2,
+    "from": 1,
+    "to": 29,
+    "verseIds": [
+     "revelation-2-1",
+     "revelation-2-2",
+     "revelation-2-3",
+     "revelation-2-4",
+     "revelation-2-5",
+     "revelation-2-6",
+     "revelation-2-7",
+     "revelation-2-8",
+     "revelation-2-9",
+     "revelation-2-10",
+     "revelation-2-11",
+     "revelation-2-12",
+     "revelation-2-13",
+     "revelation-2-14",
+     "revelation-2-15",
+     "revelation-2-16",
+     "revelation-2-17",
+     "revelation-2-18",
+     "revelation-2-19",
+     "revelation-2-20",
+     "revelation-2-21",
+     "revelation-2-22",
+     "revelation-2-23",
+     "revelation-2-24",
+     "revelation-2-25",
+     "revelation-2-26",
+     "revelation-2-27",
+     "revelation-2-28",
+     "revelation-2-29"
+    ],
+    "reference": "Revelation 2:1–29",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 621,
+     "known": 0.937,
+     "schedulable": 0.937
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-3-1",
+   "type": "vocab",
+   "label": "χρυσίον",
+   "sub": "New words for Revelation 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "χρυσίον",
+     "lemma": "χρυσίον",
+     "citation": "χρυσίον, ου, τό",
+     "gloss": "a golden ornament",
+     "pos": "noun",
+     "count": 12,
+     "rank": 947
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-3",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 3,
+    "from": 1,
+    "to": 22,
+    "verseIds": [
+     "revelation-3-1",
+     "revelation-3-2",
+     "revelation-3-3",
+     "revelation-3-4",
+     "revelation-3-5",
+     "revelation-3-6",
+     "revelation-3-7",
+     "revelation-3-8",
+     "revelation-3-9",
+     "revelation-3-10",
+     "revelation-3-11",
+     "revelation-3-12",
+     "revelation-3-13",
+     "revelation-3-14",
+     "revelation-3-15",
+     "revelation-3-16",
+     "revelation-3-17",
+     "revelation-3-18",
+     "revelation-3-19",
+     "revelation-3-20",
+     "revelation-3-21",
+     "revelation-3-22"
+    ],
+    "reference": "Revelation 3:1–22",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 525,
+     "known": 0.945,
+     "schedulable": 0.945
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-4-1",
+   "type": "vocab",
+   "label": "ζῷον",
+   "sub": "New words for Revelation 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ζῷον",
+     "lemma": "ζῷον",
+     "citation": "ζῷον, ου, τό",
+     "gloss": "an animal",
+     "pos": "noun",
+     "count": 23,
+     "rank": 559
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-4",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 4,
+    "from": 1,
+    "to": 11,
+    "verseIds": [
+     "revelation-4-1",
+     "revelation-4-2",
+     "revelation-4-3",
+     "revelation-4-4",
+     "revelation-4-5",
+     "revelation-4-6",
+     "revelation-4-7",
+     "revelation-4-8",
+     "revelation-4-9",
+     "revelation-4-10",
+     "revelation-4-11"
+    ],
+    "reference": "Revelation 4:1–11",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 293,
+     "known": 0.928,
+     "schedulable": 0.928
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-5-1",
+   "type": "vocab",
+   "label": "φιάλη",
+   "sub": "New words for Revelation 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "φιάλη",
+     "lemma": "φιάλη",
+     "citation": "φιάλη, ης, ἡ",
+     "gloss": "a shallow and flat bowl",
+     "pos": "noun",
+     "count": 12,
+     "rank": 944
+    },
+    {
+     "id": "κέρας",
+     "lemma": "κέρας",
+     "citation": "κέρας, ατος, τό",
+     "gloss": "a horn",
+     "pos": "noun",
+     "count": 11,
+     "rank": 981
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-5",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 5,
+    "from": 1,
+    "to": 14,
+    "verseIds": [
+     "revelation-5-1",
+     "revelation-5-2",
+     "revelation-5-3",
+     "revelation-5-4",
+     "revelation-5-5",
+     "revelation-5-6",
+     "revelation-5-7",
+     "revelation-5-8",
+     "revelation-5-9",
+     "revelation-5-10",
+     "revelation-5-11",
+     "revelation-5-12",
+     "revelation-5-13",
+     "revelation-5-14"
+    ],
+    "reference": "Revelation 5:1–14",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 339,
+     "known": 0.968,
+     "schedulable": 0.968
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-6-1",
+   "type": "vocab",
+   "label": "ἵππος",
+   "sub": "New words for Revelation 6",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἵππος",
+     "lemma": "ἵππος",
+     "citation": "ἵππος, ου, ὁ",
+     "gloss": "a horse",
+     "pos": "noun",
+     "count": 17,
+     "rank": 715
+    },
+    {
+     "id": "δεσπότης",
+     "lemma": "δεσπότης",
+     "citation": "δεσπότης, ου, ὁ",
+     "gloss": "a lord, master, or prince",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1046
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-6",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 6,
+    "from": 1,
+    "to": 17,
+    "verseIds": [
+     "revelation-6-1",
+     "revelation-6-2",
+     "revelation-6-3",
+     "revelation-6-4",
+     "revelation-6-5",
+     "revelation-6-6",
+     "revelation-6-7",
+     "revelation-6-8",
+     "revelation-6-9",
+     "revelation-6-10",
+     "revelation-6-11",
+     "revelation-6-12",
+     "revelation-6-13",
+     "revelation-6-14",
+     "revelation-6-15",
+     "revelation-6-16",
+     "revelation-6-17"
+    ],
+    "reference": "Revelation 6:1–17",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 417,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-7-1",
+   "type": "vocab",
+   "label": "δάκρυον",
+   "sub": "New words for Revelation 7",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δάκρυον",
+     "lemma": "δάκρυον",
+     "citation": "δάκρυον, ου, τό",
+     "gloss": "a tear",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1045
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-7",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 7",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 7,
+    "from": 1,
+    "to": 17,
+    "verseIds": [
+     "revelation-7-1",
+     "revelation-7-2",
+     "revelation-7-3",
+     "revelation-7-4",
+     "revelation-7-5",
+     "revelation-7-6",
+     "revelation-7-7",
+     "revelation-7-8",
+     "revelation-7-9",
+     "revelation-7-10",
+     "revelation-7-11",
+     "revelation-7-12",
+     "revelation-7-13",
+     "revelation-7-14",
+     "revelation-7-15",
+     "revelation-7-16",
+     "revelation-7-17"
+    ],
+    "reference": "Revelation 7:1–17",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 398,
+     "known": 0.937,
+     "schedulable": 0.937
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-8-1",
+   "type": "vocab",
+   "label": "καπνός",
+   "sub": "New words for Revelation 8",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "καπνός",
+     "lemma": "καπνός",
+     "citation": "καπνός, οῦ, ὁ",
+     "gloss": "smoke",
+     "pos": "noun",
+     "count": 13,
+     "rank": 872
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-8",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 8",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 8,
+    "from": 1,
+    "to": 13,
+    "verseIds": [
+     "revelation-8-1",
+     "revelation-8-2",
+     "revelation-8-3",
+     "revelation-8-4",
+     "revelation-8-5",
+     "revelation-8-6",
+     "revelation-8-7",
+     "revelation-8-8",
+     "revelation-8-9",
+     "revelation-8-10",
+     "revelation-8-11",
+     "revelation-8-12",
+     "revelation-8-13"
+    ],
+    "reference": "Revelation 8:1–13",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 319,
+     "known": 0.925,
+     "schedulable": 0.925
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-9-1",
+   "type": "vocab",
+   "label": "πληγή",
+   "sub": "New words for Revelation 9",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πληγή",
+     "lemma": "πληγή",
+     "citation": "πληγή, ῆς, ἡ",
+     "gloss": "a blow, stripe, wound",
+     "pos": "noun",
+     "count": 22,
+     "rank": 588
+    },
+    {
+     "id": "μήν",
+     "lemma": "μήν",
+     "citation": "μήν",
+     "gloss": "surely, indeed (particle)",
+     "pos": "noun",
+     "count": 19,
+     "rank": 645
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-9",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 9",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 9,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "revelation-9-1",
+     "revelation-9-2",
+     "revelation-9-3",
+     "revelation-9-4",
+     "revelation-9-5",
+     "revelation-9-6",
+     "revelation-9-7",
+     "revelation-9-8",
+     "revelation-9-9",
+     "revelation-9-10",
+     "revelation-9-11",
+     "revelation-9-12",
+     "revelation-9-13",
+     "revelation-9-14",
+     "revelation-9-15",
+     "revelation-9-16",
+     "revelation-9-17",
+     "revelation-9-18",
+     "revelation-9-19",
+     "revelation-9-20",
+     "revelation-9-21"
+    ],
+    "reference": "Revelation 9:1–21",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 496,
+     "known": 0.883,
+     "schedulable": 0.883
+    }
+   }
+  },
+  {
+   "id": "u18-read-10",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 10",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 10,
+    "from": 1,
+    "to": 11,
+    "verseIds": [
+     "revelation-10-1",
+     "revelation-10-2",
+     "revelation-10-3",
+     "revelation-10-4",
+     "revelation-10-5",
+     "revelation-10-6",
+     "revelation-10-7",
+     "revelation-10-8",
+     "revelation-10-9",
+     "revelation-10-10",
+     "revelation-10-11"
+    ],
+    "reference": "Revelation 10:1–11",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 291,
+     "known": 0.948,
+     "schedulable": 0.948
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-11-1",
+   "type": "vocab",
+   "label": "εὐφραίνω",
+   "sub": "New words for Revelation 11",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "εὐφραίνω",
+     "lemma": "εὐφραίνω",
+     "citation": "εὐφραίνω",
+     "gloss": "I cheer, am glad, make merry",
+     "pos": "verb",
+     "count": 14,
+     "rank": 808
+    },
+    {
+     "id": "χίλιοι",
+     "lemma": "χίλιοι",
+     "citation": "χίλιοι, αι, α",
+     "gloss": "a thousand",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1012
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-11",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 11",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 11,
+    "from": 1,
+    "to": 19,
+    "verseIds": [
+     "revelation-11-1",
+     "revelation-11-2",
+     "revelation-11-3",
+     "revelation-11-4",
+     "revelation-11-5",
+     "revelation-11-6",
+     "revelation-11-7",
+     "revelation-11-8",
+     "revelation-11-9",
+     "revelation-11-10",
+     "revelation-11-11",
+     "revelation-11-12",
+     "revelation-11-13",
+     "revelation-11-14",
+     "revelation-11-15",
+     "revelation-11-16",
+     "revelation-11-17",
+     "revelation-11-18",
+     "revelation-11-19"
+    ],
+    "reference": "Revelation 11:1–19",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 495,
+     "known": 0.945,
+     "schedulable": 0.945
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-12-1",
+   "type": "vocab",
+   "label": "θυμός",
+   "sub": "New words for Revelation 12",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "θυμός",
+     "lemma": "θυμός",
+     "citation": "θυμός, οῦ, ὁ",
+     "gloss": "an outburst of passion, wrath",
+     "pos": "noun",
+     "count": 18,
+     "rank": 662
+    },
+    {
+     "id": "δράκων",
+     "lemma": "δράκων",
+     "citation": "δράκων, οντος, ὁ",
+     "gloss": "a dragon or huge serpent",
+     "pos": "noun",
+     "count": 13,
+     "rank": 867
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-12",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 12",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 12,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "revelation-12-1",
+     "revelation-12-2",
+     "revelation-12-3",
+     "revelation-12-4",
+     "revelation-12-5",
+     "revelation-12-6",
+     "revelation-12-7",
+     "revelation-12-8",
+     "revelation-12-9",
+     "revelation-12-10",
+     "revelation-12-11",
+     "revelation-12-12",
+     "revelation-12-13",
+     "revelation-12-14",
+     "revelation-12-15",
+     "revelation-12-16",
+     "revelation-12-17",
+     "revelation-12-18"
+    ],
+    "reference": "Revelation 12:1–18",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 438,
+     "known": 0.934,
+     "schedulable": 0.934
+    }
+   }
+  },
+  {
+   "id": "u18-read-13",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 13,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "revelation-13-1",
+     "revelation-13-2",
+     "revelation-13-3",
+     "revelation-13-4",
+     "revelation-13-5",
+     "revelation-13-6",
+     "revelation-13-7",
+     "revelation-13-8",
+     "revelation-13-9",
+     "revelation-13-10",
+     "revelation-13-11",
+     "revelation-13-12",
+     "revelation-13-13",
+     "revelation-13-14",
+     "revelation-13-15",
+     "revelation-13-16",
+     "revelation-13-17",
+     "revelation-13-18"
+    ],
+    "reference": "Revelation 13:1–18",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 446,
+     "known": 0.969,
+     "schedulable": 0.969
+    }
+   }
+  },
+  {
+   "id": "u18-read-14",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 14",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 14,
+    "from": 1,
+    "to": 20,
+    "verseIds": [
+     "revelation-14-1",
+     "revelation-14-2",
+     "revelation-14-3",
+     "revelation-14-4",
+     "revelation-14-5",
+     "revelation-14-6",
+     "revelation-14-7",
+     "revelation-14-8",
+     "revelation-14-9",
+     "revelation-14-10",
+     "revelation-14-11",
+     "revelation-14-12",
+     "revelation-14-13",
+     "revelation-14-14",
+     "revelation-14-15",
+     "revelation-14-16",
+     "revelation-14-17",
+     "revelation-14-18",
+     "revelation-14-19",
+     "revelation-14-20"
+    ],
+    "reference": "Revelation 14:1–20",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 548,
+     "known": 0.916,
+     "schedulable": 0.916
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-15-1",
+   "type": "vocab",
+   "label": "δικαίωμα",
+   "sub": "New words for Revelation 15",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δικαίωμα",
+     "lemma": "δικαίωμα",
+     "citation": "δικαίωμα, ατος, τό",
+     "gloss": "a thing pronounced to be just",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1047
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-15",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 15",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 15,
+    "from": 1,
+    "to": 8,
+    "verseIds": [
+     "revelation-15-1",
+     "revelation-15-2",
+     "revelation-15-3",
+     "revelation-15-4",
+     "revelation-15-5",
+     "revelation-15-6",
+     "revelation-15-7",
+     "revelation-15-8"
+    ],
+    "reference": "Revelation 15:1–8",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 217,
+     "known": 0.926,
+     "schedulable": 0.926
+    }
+   }
+  },
+  {
+   "id": "u18-read-16",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 16",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 16,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "revelation-16-1",
+     "revelation-16-2",
+     "revelation-16-3",
+     "revelation-16-4",
+     "revelation-16-5",
+     "revelation-16-6",
+     "revelation-16-7",
+     "revelation-16-8",
+     "revelation-16-9",
+     "revelation-16-10",
+     "revelation-16-11",
+     "revelation-16-12",
+     "revelation-16-13",
+     "revelation-16-14",
+     "revelation-16-15",
+     "revelation-16-16",
+     "revelation-16-17",
+     "revelation-16-18",
+     "revelation-16-19",
+     "revelation-16-20",
+     "revelation-16-21"
+    ],
+    "reference": "Revelation 16:1–21",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 470,
+     "known": 0.947,
+     "schedulable": 0.947
+    }
+   }
+  },
+  {
+   "id": "u18-read-17",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 17",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 17,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "revelation-17-1",
+     "revelation-17-2",
+     "revelation-17-3",
+     "revelation-17-4",
+     "revelation-17-5",
+     "revelation-17-6",
+     "revelation-17-7",
+     "revelation-17-8",
+     "revelation-17-9",
+     "revelation-17-10",
+     "revelation-17-11",
+     "revelation-17-12",
+     "revelation-17-13",
+     "revelation-17-14",
+     "revelation-17-15",
+     "revelation-17-16",
+     "revelation-17-17",
+     "revelation-17-18"
+    ],
+    "reference": "Revelation 17:1–18",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 442,
+     "known": 0.952,
+     "schedulable": 0.952
+    }
+   }
+  },
+  {
+   "id": "u18-read-18",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 18",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 18,
+    "from": 1,
+    "to": 24,
+    "verseIds": [
+     "revelation-18-1",
+     "revelation-18-2",
+     "revelation-18-3",
+     "revelation-18-4",
+     "revelation-18-5",
+     "revelation-18-6",
+     "revelation-18-7",
+     "revelation-18-8",
+     "revelation-18-9",
+     "revelation-18-10",
+     "revelation-18-11",
+     "revelation-18-12",
+     "revelation-18-13",
+     "revelation-18-14",
+     "revelation-18-15",
+     "revelation-18-16",
+     "revelation-18-17",
+     "revelation-18-18",
+     "revelation-18-19",
+     "revelation-18-20",
+     "revelation-18-21",
+     "revelation-18-22",
+     "revelation-18-23",
+     "revelation-18-24"
+    ],
+    "reference": "Revelation 18:1–24",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 625,
+     "known": 0.88,
+     "schedulable": 0.88
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-19-1",
+   "type": "vocab",
+   "label": "λίμνη",
+   "sub": "New words for Revelation 19",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "λίμνη",
+     "lemma": "λίμνη",
+     "citation": "λίμνη, ης, ἡ",
+     "gloss": "a lake",
+     "pos": "noun",
+     "count": 11,
+     "rank": 992
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-19",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 19",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 19,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "revelation-19-1",
+     "revelation-19-2",
+     "revelation-19-3",
+     "revelation-19-4",
+     "revelation-19-5",
+     "revelation-19-6",
+     "revelation-19-7",
+     "revelation-19-8",
+     "revelation-19-9",
+     "revelation-19-10",
+     "revelation-19-11",
+     "revelation-19-12",
+     "revelation-19-13",
+     "revelation-19-14",
+     "revelation-19-15",
+     "revelation-19-16",
+     "revelation-19-17",
+     "revelation-19-18",
+     "revelation-19-19",
+     "revelation-19-20",
+     "revelation-19-21"
+    ],
+    "reference": "Revelation 19:1–21",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 523,
+     "known": 0.941,
+     "schedulable": 0.941
+    }
+   }
+  },
+  {
+   "id": "u18-vocab-20-1",
+   "type": "vocab",
+   "label": "παρεμβολή",
+   "sub": "New words for Revelation 20",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "παρεμβολή",
+     "lemma": "παρεμβολή",
+     "citation": "παρεμβολή, ῆς, ἡ",
+     "gloss": "a camp, barracks, army in battle array",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1064
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u18-read-20",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 20",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 20,
+    "from": 1,
+    "to": 15,
+    "verseIds": [
+     "revelation-20-1",
+     "revelation-20-2",
+     "revelation-20-3",
+     "revelation-20-4",
+     "revelation-20-5",
+     "revelation-20-6",
+     "revelation-20-7",
+     "revelation-20-8",
+     "revelation-20-9",
+     "revelation-20-10",
+     "revelation-20-11",
+     "revelation-20-12",
+     "revelation-20-13",
+     "revelation-20-14",
+     "revelation-20-15"
+    ],
+    "reference": "Revelation 20:1–15",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 406,
+     "known": 0.966,
+     "schedulable": 0.966
+    }
+   }
+  },
+  {
+   "id": "u18-read-21",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 21",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 21,
+    "from": 1,
+    "to": 27,
+    "verseIds": [
+     "revelation-21-1",
+     "revelation-21-2",
+     "revelation-21-3",
+     "revelation-21-4",
+     "revelation-21-5",
+     "revelation-21-6",
+     "revelation-21-7",
+     "revelation-21-8",
+     "revelation-21-9",
+     "revelation-21-10",
+     "revelation-21-11",
+     "revelation-21-12",
+     "revelation-21-13",
+     "revelation-21-14",
+     "revelation-21-15",
+     "revelation-21-16",
+     "revelation-21-17",
+     "revelation-21-18",
+     "revelation-21-19",
+     "revelation-21-20",
+     "revelation-21-21",
+     "revelation-21-22",
+     "revelation-21-23",
+     "revelation-21-24",
+     "revelation-21-25",
+     "revelation-21-26",
+     "revelation-21-27"
+    ],
+    "reference": "Revelation 21:1–27",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 603,
+     "known": 0.886,
+     "schedulable": 0.886
+    }
+   }
+  },
+  {
+   "id": "u18-read-22",
+   "type": "reading",
+   "label": "Ἀποκάλυψις Ἰωάννου",
+   "sub": "Read: Revelation 22",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "revelation",
+    "chapter": 22,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "revelation-22-1",
+     "revelation-22-2",
+     "revelation-22-3",
+     "revelation-22-4",
+     "revelation-22-5",
+     "revelation-22-6",
+     "revelation-22-7",
+     "revelation-22-8",
+     "revelation-22-9",
+     "revelation-22-10",
+     "revelation-22-11",
+     "revelation-22-12",
+     "revelation-22-13",
+     "revelation-22-14",
+     "revelation-22-15",
+     "revelation-22-16",
+     "revelation-22-17",
+     "revelation-22-18",
+     "revelation-22-19",
+     "revelation-22-20",
+     "revelation-22-21"
+    ],
+    "reference": "Revelation 22:1–21",
+    "greekTitle": "Ἀποκάλυψις Ἰωάννου",
+    "coverage": {
+     "tokens": 452,
+     "known": 0.945,
+     "schedulable": 0.945
+    }
+   }
+  }
+ ]
+}

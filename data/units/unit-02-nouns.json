@@ -1,0 +1,1228 @@
+{
+ "id": "unit-02-nouns",
+ "index": 2,
+ "kicker": "Book II",
+ "title": "Ὁ Λόγος καὶ ὁ Θεός",
+ "sub": "Nouns, cases and agreement",
+ "summary": "The first and second declensions, prepositions with their cases, adjectives that agree, the personal pronouns, and John 1:3–5.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u02-decl2-masc",
+   "type": "grammar",
+   "label": "λόγος",
+   "sub": "Second declension masculine nouns",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Nouns in -ος",
+    "body": "Most masculine nouns end in -ος and follow λόγος: -ος -ου -ῳ -ον in the singular, -οι -ων -οις -ους in the plural. Notice how each ending echoes the article (ὁ λόγος, τοῦ λόγου, τῷ λόγῳ, τὸν λόγον). A vocative (-ε) is used for direct address: κύριε, Lord!",
+    "examples": [
+     {
+      "gr": "οἱ μαθηταὶ τοῦ κυρίου",
+      "en": "the disciples of the Lord"
+     },
+     {
+      "gr": "ἐν τῷ οἴκῳ",
+      "en": "in the house"
+     },
+     {
+      "gr": "τοὺς ἀδελφούς",
+      "en": "the brothers (object)"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "κύριος",
+     "lemma": "κύριος",
+     "citation": "κύριος, ου, ὁ",
+     "gloss": "lord, Lord, master, sir",
+     "pos": "noun",
+     "count": 713,
+     "rank": 22
+    },
+    {
+     "id": "υἱός",
+     "lemma": "υἱός",
+     "citation": "υἱός, οῦ, ὁ",
+     "gloss": "a son, descendent",
+     "pos": "noun",
+     "count": 375,
+     "rank": 48
+    },
+    {
+     "id": "ἀδελφός",
+     "lemma": "ἀδελφός",
+     "citation": "ἀδελφός, οῦ, ὁ",
+     "gloss": "a brother",
+     "pos": "noun",
+     "count": 342,
+     "rank": 51
+    },
+    {
+     "id": "οὐρανός",
+     "lemma": "οὐρανός",
+     "citation": "οὐρανός, οῦ, ὁ",
+     "gloss": "the sky, the heaven",
+     "pos": "noun",
+     "count": 273,
+     "rank": 58
+    },
+    {
+     "id": "νόμος",
+     "lemma": "νόμος",
+     "citation": "νόμος, ου, ὁ",
+     "gloss": "a law, the Mosaic Law",
+     "pos": "noun",
+     "count": 193,
+     "rank": 82
+    },
+    {
+     "id": "ἄγγελος",
+     "lemma": "ἄγγελος",
+     "citation": "ἄγγελος, ου, ὁ",
+     "gloss": "an angel, messenger",
+     "pos": "noun",
+     "count": 175,
+     "rank": 90
+    },
+    {
+     "id": "ὄχλος",
+     "lemma": "ὄχλος",
+     "citation": "ὄχλος, ου, ὁ",
+     "gloss": "a crowd",
+     "pos": "noun",
+     "count": 174,
+     "rank": 91
+    },
+    {
+     "id": "δοῦλος",
+     "lemma": "δοῦλος",
+     "citation": "δοῦλος, ου, ὁ",
+     "gloss": "a male slave",
+     "pos": "noun",
+     "count": 126,
+     "rank": 134
+    },
+    {
+     "id": "θάνατος",
+     "lemma": "θάνατος",
+     "citation": "θάνατος, ου, ὁ",
+     "gloss": "death",
+     "pos": "noun",
+     "count": 120,
+     "rank": 139
+    },
+    {
+     "id": "οἶκος",
+     "lemma": "οἶκος",
+     "citation": "οἶκος, ου, ὁ",
+     "gloss": "a house, household",
+     "pos": "noun",
+     "count": 112,
+     "rank": 150
+    },
+    {
+     "id": "ὀφθαλμός",
+     "lemma": "ὀφθαλμός",
+     "citation": "ὀφθαλμός, οῦ, ὁ",
+     "gloss": "the eye",
+     "pos": "noun",
+     "count": 100,
+     "rank": 171
+    },
+    {
+     "id": "ἄρτος",
+     "lemma": "ἄρτος",
+     "citation": "ἄρτος, ου, ὁ",
+     "gloss": "bread, a loaf, food",
+     "pos": "noun",
+     "count": 97,
+     "rank": 175
+    }
+   ],
+   "paradigms": [
+    "decl2-masc"
+   ]
+  },
+  {
+   "id": "u02-decl2-neut",
+   "type": "grammar",
+   "label": "ἔργον",
+   "sub": "Second declension neuter nouns",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Nouns in -ον",
+    "body": "Neuter nouns use the same genitive and dative as λόγος, but nominative and accusative are identical: -ον singular, -α plural. So τὰ ἔργα can be subject or object; let the verb and context decide. A neuter plural subject regularly takes a singular verb.",
+    "examples": [
+     {
+      "gr": "τὰ ἔργα τοῦ θεοῦ",
+      "en": "the works of God"
+     },
+     {
+      "gr": "τὸ εὐαγγέλιον τῆς βασιλείας",
+      "en": "the gospel of the kingdom"
+     },
+     {
+      "gr": "τὰ τέκνα ἐστίν …",
+      "en": "the children are … (singular verb!)"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἔργον",
+     "lemma": "ἔργον",
+     "citation": "ἔργον, ου, τό",
+     "gloss": "work, labor, action, deed",
+     "pos": "noun",
+     "count": 169,
+     "rank": 94
+    },
+    {
+     "id": "τέκνον",
+     "lemma": "τέκνον",
+     "citation": "τέκνον, ου, τό",
+     "gloss": "a child, descendent, inhabitant",
+     "pos": "noun",
+     "count": 99,
+     "rank": 172
+    },
+    {
+     "id": "εὐαγγέλιον",
+     "lemma": "εὐαγγέλιον",
+     "citation": "εὐαγγέλιον, ου, τό",
+     "gloss": "the good news, the gospel",
+     "pos": "noun",
+     "count": 75,
+     "rank": 228
+    },
+    {
+     "id": "σημεῖον",
+     "lemma": "σημεῖον",
+     "citation": "σημεῖον, ου, τό",
+     "gloss": "a sign, miracle, indication",
+     "pos": "noun",
+     "count": 77,
+     "rank": 219
+    },
+    {
+     "id": "πρόσωπον",
+     "lemma": "πρόσωπον",
+     "citation": "πρόσωπον, ου, τό",
+     "gloss": "the face, countenance, surface",
+     "pos": "noun",
+     "count": 76,
+     "rank": 222
+    },
+    {
+     "id": "δαιμόνιον",
+     "lemma": "δαιμόνιον",
+     "citation": "δαιμόνιον, ου, τό",
+     "gloss": "an evil-spirit, demon",
+     "pos": "noun",
+     "count": 63,
+     "rank": 254
+    },
+    {
+     "id": "πλοῖον",
+     "lemma": "πλοῖον",
+     "citation": "πλοῖον, ου, τό",
+     "gloss": "a ship, vessel",
+     "pos": "noun",
+     "count": 67,
+     "rank": 244
+    },
+    {
+     "id": "ἱμάτιον",
+     "lemma": "ἱμάτιον",
+     "citation": "ἱμάτιον, ου, τό",
+     "gloss": "outer garment",
+     "pos": "noun",
+     "count": 60,
+     "rank": 271
+    },
+    {
+     "id": "σάββατον",
+     "lemma": "σάββατον",
+     "citation": "σάββατον, ου, τό",
+     "gloss": "the Sabbath, a week",
+     "pos": "noun",
+     "count": 68,
+     "rank": 240
+    },
+    {
+     "id": "παιδίον",
+     "lemma": "παιδίον",
+     "citation": "παιδίον, ου, τό",
+     "gloss": "a little child, an infant",
+     "pos": "noun",
+     "count": 52,
+     "rank": 299
+    }
+   ],
+   "paradigms": [
+    "decl2-neut"
+   ]
+  },
+  {
+   "id": "u02-decl1-fem",
+   "type": "grammar",
+   "label": "ἡ ἀρχή",
+   "sub": "First declension feminine nouns",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Nouns in -η and -α",
+    "body": "Feminine nouns follow ἡ, τῆς, τῇ, τήν. Three flavours differ only in the singular: -η all the way (ἀρχή), -α all the way when the stem ends in ε ι ρ (ἡμέρα), or -α that turns to η in the genitive and dative (δόξα, δόξης). Every plural is the same: -αι -ων -αις -ας.",
+    "examples": [
+     {
+      "gr": "ἡ βασιλεία τοῦ θεοῦ",
+      "en": "the kingdom of God"
+     },
+     {
+      "gr": "ἐν τῇ καρδίᾳ",
+      "en": "in the heart"
+     },
+     {
+      "gr": "τὰς ἡμέρας",
+      "en": "the days (object)"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἡμέρα",
+     "lemma": "ἡμέρα",
+     "citation": "ἡμέρα, ας, ἡ",
+     "gloss": "a day",
+     "pos": "noun",
+     "count": 389,
+     "rank": 46
+    },
+    {
+     "id": "γῆ",
+     "lemma": "γῆ",
+     "citation": "γῆ, ῆς, ἡ",
+     "gloss": "the earth, soil, land",
+     "pos": "noun",
+     "count": 248,
+     "rank": 61
+    },
+    {
+     "id": "ψυχή",
+     "lemma": "ψυχή",
+     "citation": "ψυχή, ῆς, ἡ",
+     "gloss": "the soul, life, self",
+     "pos": "noun",
+     "count": 102,
+     "rank": 162
+    },
+    {
+     "id": "ἀγάπη",
+     "lemma": "ἀγάπη",
+     "citation": "ἀγάπη, ης, ἡ",
+     "gloss": "love",
+     "pos": "noun",
+     "count": 116,
+     "rank": 145
+    },
+    {
+     "id": "βασιλεία",
+     "lemma": "βασιλεία",
+     "citation": "βασιλεία, ας, ἡ",
+     "gloss": "kingship, sovereignty, authority, rule, kingdom",
+     "pos": "noun",
+     "count": 162,
+     "rank": 96
+    },
+    {
+     "id": "ἐκκλησία",
+     "lemma": "ἐκκλησία",
+     "citation": "ἐκκλησία, ας, ἡ",
+     "gloss": "an assembly, congregation, church",
+     "pos": "noun",
+     "count": 114,
+     "rank": 148
+    },
+    {
+     "id": "δόξα",
+     "lemma": "δόξα",
+     "citation": "δόξα, ης, ἡ",
+     "gloss": "honor, renown, glory splendor",
+     "pos": "noun",
+     "count": 165,
+     "rank": 95
+    },
+    {
+     "id": "καρδία",
+     "lemma": "καρδία",
+     "citation": "καρδία, ας, ἡ",
+     "gloss": "the heart, inner life, intention",
+     "pos": "noun",
+     "count": 156,
+     "rank": 103
+    },
+    {
+     "id": "ἁμαρτία",
+     "lemma": "ἁμαρτία",
+     "citation": "ἁμαρτία, ας, ἡ",
+     "gloss": "a sin",
+     "pos": "noun",
+     "count": 172,
+     "rank": 92
+    },
+    {
+     "id": "ἀλήθεια",
+     "lemma": "ἀλήθεια",
+     "citation": "ἀλήθεια, ας, ἡ",
+     "gloss": "truth",
+     "pos": "noun",
+     "count": 109,
+     "rank": 156
+    },
+    {
+     "id": "ὥρα",
+     "lemma": "ὥρα",
+     "citation": "ὥρα, ας, ἡ",
+     "gloss": "an hour, season",
+     "pos": "noun",
+     "count": 106,
+     "rank": 160
+    },
+    {
+     "id": "ἐξουσία",
+     "lemma": "ἐξουσία",
+     "citation": "ἐξουσία, ας, ἡ",
+     "gloss": "power, authority, weight",
+     "pos": "noun",
+     "count": 102,
+     "rank": 163
+    }
+   ],
+   "paradigms": [
+    "decl1-eta",
+    "decl1-alpha-pure",
+    "decl1-alpha-mixed"
+   ]
+  },
+  {
+   "id": "u02-decl1-more",
+   "type": "grammar",
+   "label": "μαθητής",
+   "sub": "More nouns: -ης masculines and the odd ones",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Gender is grammar, not biology",
+    "body": "Some masculine nouns (μαθητής disciple, προφήτης prophet) take first-declension endings with a -ου genitive, and ἡ ὁδός (the road) is feminine despite its -ος. The article always tells the truth about gender; the ending sometimes lies.",
+    "examples": [
+     {
+      "gr": "ὁ μαθητής, τοῦ μαθητοῦ",
+      "en": "the disciple, of the disciple"
+     },
+     {
+      "gr": "ἡ ὁδὸς τοῦ κυρίου",
+      "en": "the way of the Lord"
+     },
+     {
+      "gr": "οἱ προφῆται",
+      "en": "the prophets"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "μαθητής",
+     "lemma": "μαθητής",
+     "citation": "μαθητής, οῦ, ὁ",
+     "gloss": "a learner, disciple, pupil",
+     "pos": "noun",
+     "count": 262,
+     "rank": 59
+    },
+    {
+     "id": "προφήτης",
+     "lemma": "προφήτης",
+     "citation": "προφήτης, ου, ὁ",
+     "gloss": "a prophet, poet",
+     "pos": "noun",
+     "count": 144,
+     "rank": 115
+    },
+    {
+     "id": "οἰκία",
+     "lemma": "οἰκία",
+     "citation": "οἰκία, ας, ἡ",
+     "gloss": "a house, household",
+     "pos": "noun",
+     "count": 93,
+     "rank": 184
+    },
+    {
+     "id": "φωνή",
+     "lemma": "φωνή",
+     "citation": "φωνή, ῆς, ἡ",
+     "gloss": "a sound, noise, voice",
+     "pos": "noun",
+     "count": 139,
+     "rank": 125
+    },
+    {
+     "id": "δικαιοσύνη",
+     "lemma": "δικαιοσύνη",
+     "citation": "δικαιοσύνη, ης, ἡ",
+     "gloss": "justice, justness, righteousness",
+     "pos": "noun",
+     "count": 91,
+     "rank": 187
+    },
+    {
+     "id": "εἰρήνη",
+     "lemma": "εἰρήνη",
+     "citation": "εἰρήνη, ης, ἡ",
+     "gloss": "peace, peace of mind",
+     "pos": "noun",
+     "count": 91,
+     "rank": 188
+    },
+    {
+     "id": "θάλασσα",
+     "lemma": "θάλασσα",
+     "citation": "θάλασσα, ης, ἡ",
+     "gloss": "the sea, lake",
+     "pos": "noun",
+     "count": 90,
+     "rank": 190
+    },
+    {
+     "id": "ἐντολή",
+     "lemma": "ἐντολή",
+     "citation": "ἐντολή, ῆς, ἡ",
+     "gloss": "an ordinance, injunction, command",
+     "pos": "noun",
+     "count": 66,
+     "rank": 250
+    },
+    {
+     "id": "χαρά",
+     "lemma": "χαρά",
+     "citation": "χαρά, ᾶς, ἡ",
+     "gloss": "joy, gladness",
+     "pos": "noun",
+     "count": 59,
+     "rank": 276
+    },
+    {
+     "id": "συναγωγή",
+     "lemma": "συναγωγή",
+     "citation": "συναγωγή, ῆς, ἡ",
+     "gloss": "an assembly, congregation, synagogue",
+     "pos": "noun",
+     "count": 56,
+     "rank": 284
+    },
+    {
+     "id": "ἐπαγγελία",
+     "lemma": "ἐπαγγελία",
+     "citation": "ἐπαγγελία, ας, ἡ",
+     "gloss": "a promise",
+     "pos": "noun",
+     "count": 52,
+     "rank": 302
+    },
+    {
+     "id": "σοφία",
+     "lemma": "σοφία",
+     "citation": "σοφία, ας, ἡ",
+     "gloss": "wisdom",
+     "pos": "noun",
+     "count": 51,
+     "rank": 304
+    },
+    {
+     "id": "γλῶσσα",
+     "lemma": "γλῶσσα",
+     "citation": "γλῶσσα, ης, ἡ",
+     "gloss": "the tongue, a language, nation",
+     "pos": "noun",
+     "count": 50,
+     "rank": 305
+    },
+    {
+     "id": "παραβολή",
+     "lemma": "παραβολή",
+     "citation": "παραβολή, ῆς, ἡ",
+     "gloss": "a parable, comparison",
+     "pos": "noun",
+     "count": 50,
+     "rank": 308
+    },
+    {
+     "id": "ὁδός",
+     "lemma": "ὁδός",
+     "citation": "ὁδός, οῦ, ἡ",
+     "gloss": "a way, road, journey",
+     "pos": "noun",
+     "count": 101,
+     "rank": 168
+    }
+   ],
+   "paradigms": [
+    "decl1-masc"
+   ]
+  },
+  {
+   "id": "u02-prepositions",
+   "type": "grammar",
+   "label": "ἐν ἐκ εἰς",
+   "sub": "Prepositions and the cases they take",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "A preposition's meaning depends on the case after it",
+    "body": "ἐν, σύν take the dative; εἰς takes the accusative; ἐκ, ἀπό, πρό take the genitive. Several prepositions change meaning with case: διά + genitive = through, διά + accusative = because of; μετά + genitive = with, μετά + accusative = after; ὑπό + genitive = by, ὑπό + accusative = under.",
+    "examples": [
+     {
+      "gr": "ἐκ τοῦ κόσμου",
+      "en": "out of the world"
+     },
+     {
+      "gr": "διὰ τοῦ προφήτου",
+      "en": "through the prophet"
+     },
+     {
+      "gr": "μετὰ τρεῖς ἡμέρας",
+      "en": "after three days"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἐπί",
+     "lemma": "ἐπί",
+     "citation": "ἐπί",
+     "gloss": "on, to, against, on the basis of, at",
+     "pos": "preposition",
+     "count": 885,
+     "rank": 21
+    },
+    {
+     "id": "διά",
+     "lemma": "διά",
+     "citation": "διά",
+     "gloss": "through, on account of",
+     "pos": "preposition",
+     "count": 666,
+     "rank": 26
+    },
+    {
+     "id": "ἀπό",
+     "lemma": "ἀπό",
+     "citation": "ἀπό",
+     "gloss": "from, away from",
+     "pos": "preposition",
+     "count": 644,
+     "rank": 28
+    },
+    {
+     "id": "μετά",
+     "lemma": "μετά",
+     "citation": "μετά",
+     "gloss": "with, after",
+     "pos": "preposition",
+     "count": 470,
+     "rank": 40
+    },
+    {
+     "id": "κατά",
+     "lemma": "κατά",
+     "citation": "κατά",
+     "gloss": "down from, against, according to, throughout, during",
+     "pos": "preposition",
+     "count": 469,
+     "rank": 41
+    },
+    {
+     "id": "περί",
+     "lemma": "περί",
+     "citation": "περί",
+     "gloss": "about, concerning, around",
+     "pos": "preposition",
+     "count": 332,
+     "rank": 53
+    },
+    {
+     "id": "ὑπό",
+     "lemma": "ὑπό",
+     "citation": "ὑπό",
+     "gloss": "by, under, about",
+     "pos": "preposition",
+     "count": 220,
+     "rank": 71
+    },
+    {
+     "id": "παρά",
+     "lemma": "παρά",
+     "citation": "παρά",
+     "gloss": "from, in the presence of",
+     "pos": "preposition",
+     "count": 193,
+     "rank": 83
+    },
+    {
+     "id": "ὑπέρ",
+     "lemma": "ὑπέρ",
+     "citation": "ὑπέρ",
+     "gloss": "in behalf of, above",
+     "pos": "preposition",
+     "count": 150,
+     "rank": 110
+    },
+    {
+     "id": "ἕως",
+     "lemma": "ἕως",
+     "citation": "ἕως",
+     "gloss": "until, as far as",
+     "pos": "preposition",
+     "count": 145,
+     "rank": 114
+    },
+    {
+     "id": "σύν",
+     "lemma": "σύν",
+     "citation": "σύν",
+     "gloss": "with",
+     "pos": "preposition",
+     "count": 129,
+     "rank": 131
+    },
+    {
+     "id": "ἐνώπιον",
+     "lemma": "ἐνώπιον",
+     "citation": "ἐνώπιον",
+     "gloss": "before the face of, in the presence of",
+     "pos": "preposition",
+     "count": 94,
+     "rank": 183
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u02-adjectives-1",
+   "type": "grammar",
+   "label": "ἀγαθός",
+   "sub": "Adjectives and agreement",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Agreement and position",
+    "body": "An adjective matches its noun in gender, number and case, using the endings you already know (ἀγαθός like λόγος, ἀγαθή like ἀρχή, ἀγαθόν like ἔργον). Between article and noun, or after a repeated article, it describes (ὁ ἀγαθὸς ἄνθρωπος, the good man); outside the article group it is a statement (ἀγαθὸς ὁ ἄνθρωπος, the man is good). With the article and no noun it becomes a noun: οἱ ἅγιοι, the saints.",
+    "examples": [
+     {
+      "gr": "τὸ πνεῦμα τὸ ἅγιον",
+      "en": "the Holy Spirit"
+     },
+     {
+      "gr": "πιστὸς ὁ θεός",
+      "en": "God is faithful"
+     },
+     {
+      "gr": "οἱ νεκροί",
+      "en": "the dead"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἀγαθός",
+     "lemma": "ἀγαθός",
+     "citation": "ἀγαθός, ή, όν",
+     "gloss": "good",
+     "pos": "adjective",
+     "count": 101,
+     "rank": 167
+    },
+    {
+     "id": "ἅγιος",
+     "lemma": "ἅγιος",
+     "citation": "ἅγιος, α, ον",
+     "gloss": "set apart, holy, sacred",
+     "pos": "adjective",
+     "count": 233,
+     "rank": 66
+    },
+    {
+     "id": "καλός",
+     "lemma": "καλός",
+     "citation": "καλός, ή, όν",
+     "gloss": "beautiful, good, worthy",
+     "pos": "adjective",
+     "count": 101,
+     "rank": 166
+    },
+    {
+     "id": "νεκρός",
+     "lemma": "νεκρός",
+     "citation": "νεκρός, ου, ὁ",
+     "gloss": "dead, a corpse",
+     "pos": "adjective",
+     "count": 128,
+     "rank": 132
+    },
+    {
+     "id": "ἴδιος",
+     "lemma": "ἴδιος",
+     "citation": "ἴδιος, α, ον",
+     "gloss": "one's own, private, personal",
+     "pos": "adjective",
+     "count": 114,
+     "rank": 149
+    },
+    {
+     "id": "μόνος",
+     "lemma": "μόνος",
+     "citation": "μόνος, η, ον",
+     "gloss": "only, solitary, desolate",
+     "pos": "adjective",
+     "count": 110,
+     "rank": 153
+    },
+    {
+     "id": "ὅλος",
+     "lemma": "ὅλος",
+     "citation": "ὅλος, η, ον",
+     "gloss": "all, the whole, entire",
+     "pos": "adjective",
+     "count": 108,
+     "rank": 158
+    },
+    {
+     "id": "ἄλλος",
+     "lemma": "ἄλλος",
+     "citation": "ἄλλος, η, ον",
+     "gloss": "other, another, different",
+     "pos": "adjective",
+     "count": 154,
+     "rank": 106
+    },
+    {
+     "id": "ἕτερος",
+     "lemma": "ἕτερος",
+     "citation": "ἕτερος, α, ον",
+     "gloss": "another, different",
+     "pos": "adjective",
+     "count": 97,
+     "rank": 176
+    },
+    {
+     "id": "πρῶτος",
+     "lemma": "πρῶτος",
+     "citation": "πρῶτος, η, ον",
+     "gloss": "first, before",
+     "pos": "adjective",
+     "count": 153,
+     "rank": 107
+    },
+    {
+     "id": "πιστός",
+     "lemma": "πιστός",
+     "citation": "πιστός, ή, όν",
+     "gloss": "trustworthy, faithful, believing",
+     "pos": "adjective",
+     "count": 67,
+     "rank": 243
+    },
+    {
+     "id": "δίκαιος",
+     "lemma": "δίκαιος",
+     "citation": "δίκαιος, α, ον",
+     "gloss": "just, righteous, impartial",
+     "pos": "adjective",
+     "count": 79,
+     "rank": 212
+    }
+   ],
+   "paradigms": [
+    "adj-agathos"
+   ]
+  },
+  {
+   "id": "u02-pronouns-1",
+   "type": "grammar",
+   "label": "ἐγώ σύ",
+   "sub": "Personal pronouns and αὐτός",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Pronouns stand in for nouns and take their case",
+    "body": "ἐγώ / σύ decline like nouns (μου of me, μοι to me, με me). αὐτός is 'he/she/it' in the oblique cases (αὐτοῦ his, αὐτῷ to him, αὐτόν him); in the nominative next to a noun it means 'himself'; with the article it means 'the same'. οὗτος this, ἐκεῖνος that.",
+    "examples": [
+     {
+      "gr": "ὁ λόγος αὐτοῦ",
+      "en": "his word"
+     },
+     {
+      "gr": "αὐτὸς ὁ Ἰησοῦς",
+      "en": "Jesus himself"
+     },
+     {
+      "gr": "οὗτος ἦν ἐν ἀρχῇ πρὸς τὸν θεόν",
+      "en": "this one was in the beginning with God"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἐγώ",
+     "lemma": "ἐγώ",
+     "citation": "ἐγώ",
+     "gloss": "I",
+     "pos": "personal pronoun",
+     "count": 2572,
+     "rank": 7
+    },
+    {
+     "id": "σύ",
+     "lemma": "σύ",
+     "citation": "σύ",
+     "gloss": "you",
+     "pos": "personal pronoun",
+     "count": 2894,
+     "rank": 4
+    },
+    {
+     "id": "ἑαυτοῦ",
+     "lemma": "ἑαυτοῦ",
+     "citation": "ἑαυτοῦ, ῆς, οῦ",
+     "gloss": "himself, herself, itself",
+     "pos": "personal pronoun",
+     "count": 333,
+     "rank": 52
+    },
+    {
+     "id": "ἀλλήλων",
+     "lemma": "ἀλλήλων",
+     "citation": "ἀλλήλων",
+     "gloss": "one another",
+     "pos": "personal pronoun",
+     "count": 100,
+     "rank": 170
+    },
+    {
+     "id": "κἀγώ",
+     "lemma": "κἀγώ",
+     "citation": "κἀγώ, dat. κἀμοί, acc. κἀμέ",
+     "gloss": "I also, I too",
+     "pos": "personal pronoun",
+     "count": 83,
+     "rank": 202
+    },
+    {
+     "id": "ἐκεῖνος",
+     "lemma": "ἐκεῖνος",
+     "citation": "ἐκεῖνος, η, ον",
+     "gloss": "that, that one there, yonder",
+     "pos": "demonstrative pronoun",
+     "count": 242,
+     "rank": 63
+    }
+   ],
+   "paradigms": [
+    "pron-ego",
+    "pron-su",
+    "pron-autos",
+    "pron-houtos",
+    "pron-ekeinos"
+   ]
+  },
+  {
+   "id": "u02-names",
+   "type": "vocab",
+   "label": "Ἰησοῦς",
+   "sub": "People and places",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "rule": {
+    "title": "Names you already know",
+    "body": "Names borrowed from Hebrew often do not decline at all (Ἰσραήλ, Ἀβραάμ, Δαυίδ); the article shows their case. Ἰησοῦς has its own tiny paradigm: Ἰησοῦς, Ἰησοῦ, Ἰησοῦ, Ἰησοῦν. Jerusalem appears in two spellings, Ἰερουσαλήμ (indeclinable) and Ἱεροσόλυμα (neuter plural).",
+    "examples": [
+     {
+      "gr": "Ἰησοῦς Χριστός",
+      "en": "Jesus Christ"
+     },
+     {
+      "gr": "τοῦ Ἰησοῦ",
+      "en": "of Jesus"
+     },
+     {
+      "gr": "ἐν Ἱεροσολύμοις",
+      "en": "in Jerusalem"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "Ἰησοῦς",
+     "lemma": "Ἰησοῦς",
+     "citation": "Ἰησοῦς, οῦ, ὁ, acc. οῦν, dat. οῦ, voc. οῦ",
+     "gloss": "Jesus",
+     "pos": "noun",
+     "count": 906,
+     "rank": 20
+    },
+    {
+     "id": "Χριστός",
+     "lemma": "Χριστός",
+     "citation": "Χριστός, οῦ, ὁ",
+     "gloss": "anointed, the Messiah, the Christ",
+     "pos": "noun",
+     "count": 528,
+     "rank": 35
+    },
+    {
+     "id": "Παῦλος",
+     "lemma": "Παῦλος",
+     "citation": "Παῦλος, ου, ὁ",
+     "gloss": "Paul",
+     "pos": "noun",
+     "count": 158,
+     "rank": 100
+    },
+    {
+     "id": "Πέτρος",
+     "lemma": "Πέτρος",
+     "citation": "Πέτρος, ου, ὁ",
+     "gloss": "Peter",
+     "pos": "noun",
+     "count": 156,
+     "rank": 102
+    },
+    {
+     "id": "Ἰωάννης",
+     "lemma": "Ἰωάννης",
+     "citation": "Ἰωάννης, ου, ὁ",
+     "gloss": "John",
+     "pos": "noun",
+     "count": 135,
+     "rank": 128
+    },
+    {
+     "id": "Μωϋσῆς",
+     "lemma": "Μωϋσῆς",
+     "citation": "Μωϋσῆς, έως, ὁ",
+     "gloss": "Moses",
+     "pos": "noun",
+     "count": 79,
+     "rank": 211
+    },
+    {
+     "id": "Ἰερουσαλήμ",
+     "lemma": "Ἰερουσαλήμ",
+     "citation": "Ἰερουσαλήμ, ἡ",
+     "gloss": "Jerusalem",
+     "pos": "noun",
+     "count": 76,
+     "rank": 224
+    },
+    {
+     "id": "Ἱεροσόλυμα",
+     "lemma": "Ἱεροσόλυμα",
+     "citation": "Ἱεροσόλυμα, ων, τά",
+     "gloss": "Jerusalem",
+     "pos": "noun",
+     "count": 63,
+     "rank": 255
+    },
+    {
+     "id": "Ἰσραήλ",
+     "lemma": "Ἰσραήλ",
+     "citation": "Ἰσραήλ, ὁ",
+     "gloss": "Israel",
+     "pos": "noun",
+     "count": 68,
+     "rank": 242
+    },
+    {
+     "id": "Ἀβραάμ",
+     "lemma": "Ἀβραάμ",
+     "citation": "Ἀβραάμ, ὁ",
+     "gloss": "Abraham",
+     "pos": "noun",
+     "count": 73,
+     "rank": 232
+    },
+    {
+     "id": "Δαυίδ",
+     "lemma": "Δαυίδ",
+     "citation": "Δαυίδ, ὁ",
+     "gloss": "David",
+     "pos": "noun",
+     "count": 59,
+     "rank": 273
+    },
+    {
+     "id": "Σίμων",
+     "lemma": "Σίμων",
+     "citation": "Σίμων, ωνος, ὁ",
+     "gloss": "Simon",
+     "pos": "noun",
+     "count": 75,
+     "rank": 226
+    },
+    {
+     "id": "Πιλᾶτος",
+     "lemma": "Πιλᾶτος",
+     "citation": "Πιλᾶτος, ου, ὁ",
+     "gloss": "Pilate",
+     "pos": "noun",
+     "count": 55,
+     "rank": 287
+    },
+    {
+     "id": "Γαλιλαία",
+     "lemma": "Γαλιλαία",
+     "citation": "Γαλιλαία, ας, ἡ",
+     "gloss": "Galilee",
+     "pos": "noun",
+     "count": 61,
+     "rank": 263
+    },
+    {
+     "id": "Φαρισαῖος",
+     "lemma": "Φαρισαῖος",
+     "citation": "Φαρισαῖος, ου, ὁ",
+     "gloss": "a Pharisee",
+     "pos": "noun",
+     "count": 96,
+     "rank": 177
+    },
+    {
+     "id": "Ἰουδαῖος",
+     "lemma": "Ἰουδαῖος",
+     "citation": "Ἰουδαῖος, α, ον",
+     "gloss": "Jewish",
+     "pos": "adjective",
+     "count": 194,
+     "rank": 80
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u02-read-john-1-3",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:3–5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Neuter plurals and 'through him'",
+    "body": "πάντα (all things) is a neuter plural subject with a singular verb, exactly as you learned. δι' αὐτοῦ is διά + genitive: through him.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "χωρίς",
+     "lemma": "χωρίς",
+     "citation": "χωρίς",
+     "gloss": "apart from, without",
+     "pos": "preposition",
+     "count": 42,
+     "rank": 356
+    },
+    {
+     "id": "φαίνω",
+     "lemma": "φαίνω",
+     "citation": "φαίνω",
+     "gloss": "I shine, appear, seem",
+     "pos": "verb",
+     "count": 31,
+     "rank": 446
+    },
+    {
+     "id": "σκοτία",
+     "lemma": "σκοτία",
+     "citation": "σκοτία, ας, ἡ",
+     "gloss": "darkness",
+     "pos": "noun",
+     "count": 17,
+     "rank": 700
+    },
+    {
+     "id": "καταλαμβάνω",
+     "lemma": "καταλαμβάνω",
+     "citation": "καταλαμβάνω",
+     "gloss": "I seize tight hold of, overtake, comprehend",
+     "pos": "verb",
+     "count": 13,
+     "rank": 874
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 3,
+    "to": 5,
+    "verseIds": [
+     "john-1-3",
+     "john-1-4",
+     "john-1-5"
+    ],
+    "reference": "John 1:3–5",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 37,
+     "known": 0.811,
+     "schedulable": 1.0
+    }
+   }
+  }
+ ]
+}

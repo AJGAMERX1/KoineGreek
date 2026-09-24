@@ -1,0 +1,678 @@
+{
+ "id": "unit-28-hebrews",
+ "index": 28,
+ "kicker": "Book XXVIII",
+ "title": "Πρὸς Ἑβραίους",
+ "sub": "Read Hebrews",
+ "track": "reading",
+ "summary": "Read Hebrews chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u28-read-1",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 1,
+    "from": 1,
+    "to": 14,
+    "verseIds": [
+     "hebrews-1-1",
+     "hebrews-1-2",
+     "hebrews-1-3",
+     "hebrews-1-4",
+     "hebrews-1-5",
+     "hebrews-1-6",
+     "hebrews-1-7",
+     "hebrews-1-8",
+     "hebrews-1-9",
+     "hebrews-1-10",
+     "hebrews-1-11",
+     "hebrews-1-12",
+     "hebrews-1-13",
+     "hebrews-1-14"
+    ],
+    "reference": "Hebrews 1:1–14",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 257,
+     "known": 0.903,
+     "schedulable": 0.903
+    }
+   }
+  },
+  {
+   "id": "u28-read-2",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 2,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "hebrews-2-1",
+     "hebrews-2-2",
+     "hebrews-2-3",
+     "hebrews-2-4",
+     "hebrews-2-5",
+     "hebrews-2-6",
+     "hebrews-2-7",
+     "hebrews-2-8",
+     "hebrews-2-9",
+     "hebrews-2-10",
+     "hebrews-2-11",
+     "hebrews-2-12",
+     "hebrews-2-13",
+     "hebrews-2-14",
+     "hebrews-2-15",
+     "hebrews-2-16",
+     "hebrews-2-17",
+     "hebrews-2-18"
+    ],
+    "reference": "Hebrews 2:1–18",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 312,
+     "known": 0.894,
+     "schedulable": 0.894
+    }
+   }
+  },
+  {
+   "id": "u28-read-3",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 3,
+    "from": 1,
+    "to": 19,
+    "verseIds": [
+     "hebrews-3-1",
+     "hebrews-3-2",
+     "hebrews-3-3",
+     "hebrews-3-4",
+     "hebrews-3-5",
+     "hebrews-3-6",
+     "hebrews-3-7",
+     "hebrews-3-8",
+     "hebrews-3-9",
+     "hebrews-3-10",
+     "hebrews-3-11",
+     "hebrews-3-12",
+     "hebrews-3-13",
+     "hebrews-3-14",
+     "hebrews-3-15",
+     "hebrews-3-16",
+     "hebrews-3-17",
+     "hebrews-3-18",
+     "hebrews-3-19"
+    ],
+    "reference": "Hebrews 3:1–19",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 282,
+     "known": 0.918,
+     "schedulable": 0.918
+    }
+   }
+  },
+  {
+   "id": "u28-read-4",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 4,
+    "from": 1,
+    "to": 16,
+    "verseIds": [
+     "hebrews-4-1",
+     "hebrews-4-2",
+     "hebrews-4-3",
+     "hebrews-4-4",
+     "hebrews-4-5",
+     "hebrews-4-6",
+     "hebrews-4-7",
+     "hebrews-4-8",
+     "hebrews-4-9",
+     "hebrews-4-10",
+     "hebrews-4-11",
+     "hebrews-4-12",
+     "hebrews-4-13",
+     "hebrews-4-14",
+     "hebrews-4-15",
+     "hebrews-4-16"
+    ],
+    "reference": "Hebrews 4:1–16",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 290,
+     "known": 0.866,
+     "schedulable": 0.866
+    }
+   }
+  },
+  {
+   "id": "u28-read-5",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 5,
+    "from": 1,
+    "to": 14,
+    "verseIds": [
+     "hebrews-5-1",
+     "hebrews-5-2",
+     "hebrews-5-3",
+     "hebrews-5-4",
+     "hebrews-5-5",
+     "hebrews-5-6",
+     "hebrews-5-7",
+     "hebrews-5-8",
+     "hebrews-5-9",
+     "hebrews-5-10",
+     "hebrews-5-11",
+     "hebrews-5-12",
+     "hebrews-5-13",
+     "hebrews-5-14"
+    ],
+    "reference": "Hebrews 5:1–14",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 231,
+     "known": 0.874,
+     "schedulable": 0.874
+    }
+   }
+  },
+  {
+   "id": "u28-read-6",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 6,
+    "from": 1,
+    "to": 20,
+    "verseIds": [
+     "hebrews-6-1",
+     "hebrews-6-2",
+     "hebrews-6-3",
+     "hebrews-6-4",
+     "hebrews-6-5",
+     "hebrews-6-6",
+     "hebrews-6-7",
+     "hebrews-6-8",
+     "hebrews-6-9",
+     "hebrews-6-10",
+     "hebrews-6-11",
+     "hebrews-6-12",
+     "hebrews-6-13",
+     "hebrews-6-14",
+     "hebrews-6-15",
+     "hebrews-6-16",
+     "hebrews-6-17",
+     "hebrews-6-18",
+     "hebrews-6-19",
+     "hebrews-6-20"
+    ],
+    "reference": "Hebrews 6:1–20",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 300,
+     "known": 0.86,
+     "schedulable": 0.86
+    }
+   }
+  },
+  {
+   "id": "u28-read-7",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 7",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 7,
+    "from": 1,
+    "to": 28,
+    "verseIds": [
+     "hebrews-7-1",
+     "hebrews-7-2",
+     "hebrews-7-3",
+     "hebrews-7-4",
+     "hebrews-7-5",
+     "hebrews-7-6",
+     "hebrews-7-7",
+     "hebrews-7-8",
+     "hebrews-7-9",
+     "hebrews-7-10",
+     "hebrews-7-11",
+     "hebrews-7-12",
+     "hebrews-7-13",
+     "hebrews-7-14",
+     "hebrews-7-15",
+     "hebrews-7-16",
+     "hebrews-7-17",
+     "hebrews-7-18",
+     "hebrews-7-19",
+     "hebrews-7-20",
+     "hebrews-7-21",
+     "hebrews-7-22",
+     "hebrews-7-23",
+     "hebrews-7-24",
+     "hebrews-7-25",
+     "hebrews-7-26",
+     "hebrews-7-27",
+     "hebrews-7-28"
+    ],
+    "reference": "Hebrews 7:1–28",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 454,
+     "known": 0.839,
+     "schedulable": 0.839
+    }
+   }
+  },
+  {
+   "id": "u28-read-8",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 8",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 8,
+    "from": 1,
+    "to": 13,
+    "verseIds": [
+     "hebrews-8-1",
+     "hebrews-8-2",
+     "hebrews-8-3",
+     "hebrews-8-4",
+     "hebrews-8-5",
+     "hebrews-8-6",
+     "hebrews-8-7",
+     "hebrews-8-8",
+     "hebrews-8-9",
+     "hebrews-8-10",
+     "hebrews-8-11",
+     "hebrews-8-12",
+     "hebrews-8-13"
+    ],
+    "reference": "Hebrews 8:1–13",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 274,
+     "known": 0.909,
+     "schedulable": 0.909
+    }
+   }
+  },
+  {
+   "id": "u28-read-9",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 9",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 9,
+    "from": 1,
+    "to": 28,
+    "verseIds": [
+     "hebrews-9-1",
+     "hebrews-9-2",
+     "hebrews-9-3",
+     "hebrews-9-4",
+     "hebrews-9-5",
+     "hebrews-9-6",
+     "hebrews-9-7",
+     "hebrews-9-8",
+     "hebrews-9-9",
+     "hebrews-9-10",
+     "hebrews-9-11",
+     "hebrews-9-12",
+     "hebrews-9-13",
+     "hebrews-9-14",
+     "hebrews-9-15",
+     "hebrews-9-16",
+     "hebrews-9-17",
+     "hebrews-9-18",
+     "hebrews-9-19",
+     "hebrews-9-20",
+     "hebrews-9-21",
+     "hebrews-9-22",
+     "hebrews-9-23",
+     "hebrews-9-24",
+     "hebrews-9-25",
+     "hebrews-9-26",
+     "hebrews-9-27",
+     "hebrews-9-28"
+    ],
+    "reference": "Hebrews 9:1–28",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 507,
+     "known": 0.878,
+     "schedulable": 0.878
+    }
+   }
+  },
+  {
+   "id": "u28-read-10",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 10",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 10,
+    "from": 1,
+    "to": 39,
+    "verseIds": [
+     "hebrews-10-1",
+     "hebrews-10-2",
+     "hebrews-10-3",
+     "hebrews-10-4",
+     "hebrews-10-5",
+     "hebrews-10-6",
+     "hebrews-10-7",
+     "hebrews-10-8",
+     "hebrews-10-9",
+     "hebrews-10-10",
+     "hebrews-10-11",
+     "hebrews-10-12",
+     "hebrews-10-13",
+     "hebrews-10-14",
+     "hebrews-10-15",
+     "hebrews-10-16",
+     "hebrews-10-17",
+     "hebrews-10-18",
+     "hebrews-10-19",
+     "hebrews-10-20",
+     "hebrews-10-21",
+     "hebrews-10-22",
+     "hebrews-10-23",
+     "hebrews-10-24",
+     "hebrews-10-25",
+     "hebrews-10-26",
+     "hebrews-10-27",
+     "hebrews-10-28",
+     "hebrews-10-29",
+     "hebrews-10-30",
+     "hebrews-10-31",
+     "hebrews-10-32",
+     "hebrews-10-33",
+     "hebrews-10-34",
+     "hebrews-10-35",
+     "hebrews-10-36",
+     "hebrews-10-37",
+     "hebrews-10-38",
+     "hebrews-10-39"
+    ],
+    "reference": "Hebrews 10:1–39",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 550,
+     "known": 0.889,
+     "schedulable": 0.889
+    }
+   }
+  },
+  {
+   "id": "u28-read-11",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 11",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 11,
+    "from": 1,
+    "to": 40,
+    "verseIds": [
+     "hebrews-11-1",
+     "hebrews-11-2",
+     "hebrews-11-3",
+     "hebrews-11-4",
+     "hebrews-11-5",
+     "hebrews-11-6",
+     "hebrews-11-7",
+     "hebrews-11-8",
+     "hebrews-11-9",
+     "hebrews-11-10",
+     "hebrews-11-11",
+     "hebrews-11-12",
+     "hebrews-11-13",
+     "hebrews-11-14",
+     "hebrews-11-15",
+     "hebrews-11-16",
+     "hebrews-11-17",
+     "hebrews-11-18",
+     "hebrews-11-19",
+     "hebrews-11-20",
+     "hebrews-11-21",
+     "hebrews-11-22",
+     "hebrews-11-23",
+     "hebrews-11-24",
+     "hebrews-11-25",
+     "hebrews-11-26",
+     "hebrews-11-27",
+     "hebrews-11-28",
+     "hebrews-11-29",
+     "hebrews-11-30",
+     "hebrews-11-31",
+     "hebrews-11-32",
+     "hebrews-11-33",
+     "hebrews-11-34",
+     "hebrews-11-35",
+     "hebrews-11-36",
+     "hebrews-11-37",
+     "hebrews-11-38",
+     "hebrews-11-39",
+     "hebrews-11-40"
+    ],
+    "reference": "Hebrews 11:1–40",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 631,
+     "known": 0.842,
+     "schedulable": 0.842
+    }
+   }
+  },
+  {
+   "id": "u28-read-12",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 12",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 12,
+    "from": 1,
+    "to": 29,
+    "verseIds": [
+     "hebrews-12-1",
+     "hebrews-12-2",
+     "hebrews-12-3",
+     "hebrews-12-4",
+     "hebrews-12-5",
+     "hebrews-12-6",
+     "hebrews-12-7",
+     "hebrews-12-8",
+     "hebrews-12-9",
+     "hebrews-12-10",
+     "hebrews-12-11",
+     "hebrews-12-12",
+     "hebrews-12-13",
+     "hebrews-12-14",
+     "hebrews-12-15",
+     "hebrews-12-16",
+     "hebrews-12-17",
+     "hebrews-12-18",
+     "hebrews-12-19",
+     "hebrews-12-20",
+     "hebrews-12-21",
+     "hebrews-12-22",
+     "hebrews-12-23",
+     "hebrews-12-24",
+     "hebrews-12-25",
+     "hebrews-12-26",
+     "hebrews-12-27",
+     "hebrews-12-28",
+     "hebrews-12-29"
+    ],
+    "reference": "Hebrews 12:1–29",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 472,
+     "known": 0.814,
+     "schedulable": 0.814
+    }
+   }
+  },
+  {
+   "id": "u28-read-13",
+   "type": "reading",
+   "label": "Πρὸς Ἑβραίους",
+   "sub": "Read: Hebrews 13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "hebrews",
+    "chapter": 13,
+    "from": 1,
+    "to": 25,
+    "verseIds": [
+     "hebrews-13-1",
+     "hebrews-13-2",
+     "hebrews-13-3",
+     "hebrews-13-4",
+     "hebrews-13-5",
+     "hebrews-13-6",
+     "hebrews-13-7",
+     "hebrews-13-8",
+     "hebrews-13-9",
+     "hebrews-13-10",
+     "hebrews-13-11",
+     "hebrews-13-12",
+     "hebrews-13-13",
+     "hebrews-13-14",
+     "hebrews-13-15",
+     "hebrews-13-16",
+     "hebrews-13-17",
+     "hebrews-13-18",
+     "hebrews-13-19",
+     "hebrews-13-20",
+     "hebrews-13-21",
+     "hebrews-13-22",
+     "hebrews-13-23",
+     "hebrews-13-24",
+     "hebrews-13-25"
+    ],
+    "reference": "Hebrews 13:1–25",
+    "greekTitle": "Πρὸς Ἑβραίους",
+    "coverage": {
+     "tokens": 375,
+     "known": 0.896,
+     "schedulable": 0.896
+    }
+   }
+  }
+ ]
+}

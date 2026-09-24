@@ -1,0 +1,740 @@
+{
+ "id": "unit-07-participles",
+ "index": 7,
+ "kicker": "Book VII",
+ "title": "Λύων",
+ "sub": "Participles",
+ "summary": "The verbal adjective that Greek prose runs on: present, aorist and perfect participles in every voice, their uses, the genitive absolute, and John 1:43–51.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u07-ptc-present",
+   "type": "verb",
+   "label": "λύων",
+   "sub": "Present participles",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "A verb wearing adjective endings",
+    "body": "A participle is 'loosing / being loosed' used as an adjective: it has tense and voice like a verb, and case, number and gender like an adjective. Present active: λύων, λύουσα, λῦον (stem λυοντ-). Present middle/passive: λυόμενος -η -ον. Because it agrees with a noun, find the noun it goes with first.",
+    "examples": [
+     {
+      "gr": "ὁ πιστεύων εἰς αὐτόν",
+      "en": "the one who believes in him"
+     },
+     {
+      "gr": "ὁ ἐρχόμενος",
+      "en": "the one who is coming"
+     },
+     {
+      "gr": "ὁ ὢν ἐν τῷ οὐρανῷ",
+      "en": "the one who is in heaven"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "τιμή",
+     "lemma": "τιμή",
+     "citation": "τιμή, ῆς, ἡ",
+     "gloss": "a price, honor",
+     "pos": "noun",
+     "count": 41,
+     "rank": 366
+    },
+    {
+     "id": "ἐργάζομαι",
+     "lemma": "ἐργάζομαι",
+     "citation": "ἐργάζομαι",
+     "gloss": "I word, trade, do",
+     "pos": "verb",
+     "count": 41,
+     "rank": 368
+    },
+    {
+     "id": "ὀλίγος",
+     "lemma": "ὀλίγος",
+     "citation": "ὀλίγος, η, ον",
+     "gloss": "small, brief, few, soon",
+     "pos": "adjective",
+     "count": 41,
+     "rank": 369
+    },
+    {
+     "id": "κλαίω",
+     "lemma": "κλαίω",
+     "citation": "κλαίω",
+     "gloss": "I weep, weep for, mourn",
+     "pos": "verb",
+     "count": 40,
+     "rank": 370
+    },
+    {
+     "id": "λογίζομαι",
+     "lemma": "λογίζομαι",
+     "citation": "λογίζομαι",
+     "gloss": "I reckon, count, decide",
+     "pos": "verb",
+     "count": 40,
+     "rank": 371
+    },
+    {
+     "id": "μισέω",
+     "lemma": "μισέω",
+     "citation": "μισέω",
+     "gloss": "I hate, detest",
+     "pos": "verb",
+     "count": 40,
+     "rank": 372
+    },
+    {
+     "id": "μνημεῖον",
+     "lemma": "μνημεῖον",
+     "citation": "μνημεῖον, ου, τό",
+     "gloss": "a tomb, sepulcher",
+     "pos": "noun",
+     "count": 40,
+     "rank": 373
+    },
+    {
+     "id": "οἰκοδομέω",
+     "lemma": "οἰκοδομέω",
+     "citation": "οἰκοδομέω",
+     "gloss": "I build, build up, edify",
+     "pos": "verb",
+     "count": 40,
+     "rank": 374
+    },
+    {
+     "id": "τέλος",
+     "lemma": "τέλος",
+     "citation": "τέλος, ους, τό",
+     "gloss": "an end, purpose, tax",
+     "pos": "noun",
+     "count": 40,
+     "rank": 375
+    },
+    {
+     "id": "τέσσαρες",
+     "lemma": "τέσσαρες",
+     "citation": "τέσσαρες",
+     "gloss": "four",
+     "pos": "adjective",
+     "count": 40,
+     "rank": 376
+    }
+   ],
+   "paradigms": [
+    "ptc-pres-act",
+    "ptc-pres-mp",
+    "ptc-eimi"
+   ]
+  },
+  {
+   "id": "u07-ptc-uses",
+   "type": "grammar",
+   "label": "ὁ λύων",
+   "sub": "Attributive, substantival and adverbial participles",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Three jobs",
+    "body": "With the article, a participle describes a noun (ὁ ἄνθρωπος ὁ πιστεύων, the man who believes) or is itself a noun (ὁ πιστεύων, the believer). Without the article it modifies the action of the main verb: 'while / because / after doing X'. English needs a whole clause for what Greek does in one word.",
+    "examples": [
+     {
+      "gr": "λέγοντες",
+      "en": "saying (introducing a quotation)"
+     },
+     {
+      "gr": "ἀκούσαντες δὲ",
+      "en": "and when they heard"
+     },
+     {
+      "gr": "τοῖς πιστεύουσιν",
+      "en": "to those who believe"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἑτοιμάζω",
+     "lemma": "ἑτοιμάζω",
+     "citation": "ἑτοιμάζω",
+     "gloss": "I make ready, prepare",
+     "pos": "verb",
+     "count": 40,
+     "rank": 377
+    },
+    {
+     "id": "ἱκανός",
+     "lemma": "ἱκανός",
+     "citation": "ἱκανός, ή, όν",
+     "gloss": "sufficient, worthy, many, much",
+     "pos": "adjective",
+     "count": 40,
+     "rank": 378
+    },
+    {
+     "id": "δικαιόω",
+     "lemma": "δικαιόω",
+     "citation": "δικαιόω",
+     "gloss": "I make righteous, defend the cause of, justify",
+     "pos": "verb",
+     "count": 39,
+     "rank": 379
+    },
+    {
+     "id": "θύρα",
+     "lemma": "θύρα",
+     "citation": "θύρα, ας, ἡ",
+     "gloss": "a door, opportunity",
+     "pos": "noun",
+     "count": 39,
+     "rank": 380
+    },
+    {
+     "id": "περισσεύω",
+     "lemma": "περισσεύω",
+     "citation": "περισσεύω",
+     "gloss": "I exceed, am left over",
+     "pos": "verb",
+     "count": 39,
+     "rank": 381
+    },
+    {
+     "id": "πλανάω",
+     "lemma": "πλανάω",
+     "citation": "πλανάω",
+     "gloss": "I lead astray, deceive",
+     "pos": "verb",
+     "count": 39,
+     "rank": 382
+    },
+    {
+     "id": "πρόβατον",
+     "lemma": "πρόβατον",
+     "citation": "πρόβατον, ου, τό",
+     "gloss": "a sheep",
+     "pos": "noun",
+     "count": 39,
+     "rank": 383
+    },
+    {
+     "id": "ἅπτω",
+     "lemma": "ἅπτω",
+     "citation": "ἅπτω",
+     "gloss": "(act.) I kindle, light; (mid.) I touch",
+     "pos": "verb",
+     "count": 39,
+     "rank": 384
+    },
+    {
+     "id": "ἐπιτίθημι",
+     "lemma": "ἐπιτίθημι",
+     "citation": "ἐπιτίθημι",
+     "gloss": "I put, place upon, lay on",
+     "pos": "verb",
+     "count": 39,
+     "rank": 385
+    },
+    {
+     "id": "εὐχαριστέω",
+     "lemma": "εὐχαριστέω",
+     "citation": "ἐυχαριστέω",
+     "gloss": "I thank, give thanks",
+     "pos": "verb",
+     "count": 38,
+     "rank": 386
+    }
+   ],
+   "paradigms": [
+    "ptc-pres-act",
+    "ptc-pres-mp"
+   ]
+  },
+  {
+   "id": "u07-ptc-aorist",
+   "type": "verb",
+   "label": "λύσας",
+   "sub": "Aorist participles",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "No augment, aorist stem",
+    "body": "First aorist active: λύσας, λύσασα, λῦσαν; second aorist: ἐλθών, ἰδών, εἰπών, λαβών (accent on the ending); middle: λυσάμενος; passive: λυθείς, λυθεῖσα, λυθέν. The aorist participle usually describes an action before the main verb: ἀποκριθεὶς εἶπεν, 'answering, he said'.",
+    "examples": [
+     {
+      "gr": "ἐλθὼν ὁ Ἰησοῦς",
+      "en": "when Jesus came"
+     },
+     {
+      "gr": "ἀποκριθεὶς εἶπεν",
+      "en": "he answered and said"
+     },
+     {
+      "gr": "ἰδόντες τὸν ἀστέρα",
+      "en": "when they saw the star"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "πέντε",
+     "lemma": "πέντε",
+     "citation": "πέντε",
+     "gloss": "five",
+     "pos": "adjective",
+     "count": 38,
+     "rank": 387
+    },
+    {
+     "id": "πράσσω",
+     "lemma": "πράσσω",
+     "citation": "πράσσω",
+     "gloss": "I do, fare, require",
+     "pos": "verb",
+     "count": 38,
+     "rank": 388
+    },
+    {
+     "id": "ἐπιθυμία",
+     "lemma": "ἐπιθυμία",
+     "citation": "ἐπιθυμία, ας, ἡ",
+     "gloss": "desire, eagerness for, inordinate desire, lust",
+     "pos": "noun",
+     "count": 38,
+     "rank": 389
+    },
+    {
+     "id": "ὑποτάσσω",
+     "lemma": "ὑποτάσσω",
+     "citation": "ὑποτάσσω",
+     "gloss": "I place under, subject to",
+     "pos": "verb",
+     "count": 38,
+     "rank": 390
+    },
+    {
+     "id": "βούλομαι",
+     "lemma": "βούλομαι",
+     "citation": "βούλομαι",
+     "gloss": "I will, intend, desire",
+     "pos": "verb",
+     "count": 37,
+     "rank": 391
+    },
+    {
+     "id": "διακονέω",
+     "lemma": "διακονέω",
+     "citation": "διακονέω",
+     "gloss": "I wait at table, serve",
+     "pos": "verb",
+     "count": 37,
+     "rank": 392
+    },
+    {
+     "id": "πειράζω",
+     "lemma": "πειράζω",
+     "citation": "πειράζω",
+     "gloss": "I try, tempt, test",
+     "pos": "verb",
+     "count": 37,
+     "rank": 394
+    },
+    {
+     "id": "ἄρχων",
+     "lemma": "ἄρχων",
+     "citation": "ἄρχων, οντος, ὁ",
+     "gloss": "a ruler, prince, leader",
+     "pos": "noun",
+     "count": 37,
+     "rank": 395
+    },
+    {
+     "id": "ἐμαυτοῦ",
+     "lemma": "ἐμαυτοῦ",
+     "citation": "ἐμαυτοῦ, ῆς",
+     "gloss": "of myself",
+     "pos": "personal pronoun",
+     "count": 37,
+     "rank": 396
+    },
+    {
+     "id": "Σατανᾶς",
+     "lemma": "Σατανᾶς",
+     "citation": "Σατανᾶς, ᾶ, ὁ",
+     "gloss": "an adversary, Satan",
+     "pos": "noun",
+     "count": 36,
+     "rank": 397
+    }
+   ],
+   "paradigms": [
+    "ptc-aor-act",
+    "ptc-aor2-act",
+    "ptc-aor-mid",
+    "ptc-aor-pass"
+   ]
+  },
+  {
+   "id": "u07-ptc-perfect",
+   "type": "verb",
+   "label": "λελυκώς",
+   "sub": "Perfect participles and periphrasis",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "A state, described",
+    "body": "Perfect participles (λελυκώς, λελυμένος) describe a resulting state: γεγραμμένος, written; ἠγαπημένος, beloved. εἰμί + participle ('periphrastic') builds compound tenses: ἦν διδάσκων, he was teaching; ἐστὲ σεσῳσμένοι, you are saved.",
+    "examples": [
+     {
+      "gr": "τὸ γεγραμμένον",
+      "en": "what is written"
+     },
+     {
+      "gr": "ἦν διδάσκων αὐτούς",
+      "en": "he was teaching them"
+     },
+     {
+      "gr": "χάριτί ἐστε σεσῳσμένοι",
+      "en": "by grace you are saved"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "Φίλιππος",
+     "lemma": "Φίλιππος",
+     "citation": "Φίλιππος, ου, ὁ",
+     "gloss": "Philip",
+     "pos": "noun",
+     "count": 36,
+     "rank": 398
+    },
+    {
+     "id": "καλῶς",
+     "lemma": "καλῶς",
+     "citation": "καλῶς",
+     "gloss": "well, nobly, rightly",
+     "pos": "adverb",
+     "count": 36,
+     "rank": 399
+    },
+    {
+     "id": "καυχάομαι",
+     "lemma": "καυχάομαι",
+     "citation": "καυχάομαι",
+     "gloss": "I boast, glory",
+     "pos": "verb",
+     "count": 36,
+     "rank": 400
+    },
+    {
+     "id": "οὖς",
+     "lemma": "οὖς",
+     "citation": "οὖς, ὠτός, τό",
+     "gloss": "the ear",
+     "pos": "noun",
+     "count": 36,
+     "rank": 401
+    },
+    {
+     "id": "παραγίνομαι",
+     "lemma": "παραγίνομαι",
+     "citation": "παραγίνομαι",
+     "gloss": "I appear, come, arrive at",
+     "pos": "verb",
+     "count": 36,
+     "rank": 402
+    },
+    {
+     "id": "περιτομή",
+     "lemma": "περιτομή",
+     "citation": "περιτομή, ῆς, ἡ",
+     "gloss": "circumcision",
+     "pos": "noun",
+     "count": 36,
+     "rank": 403
+    },
+    {
+     "id": "προσευχή",
+     "lemma": "προσευχή",
+     "citation": "προσευχή, ῆς, ἡ",
+     "gloss": "prayer, a place for prayer",
+     "pos": "noun",
+     "count": 36,
+     "rank": 404
+    },
+    {
+     "id": "ἀγρός",
+     "lemma": "ἀγρός",
+     "citation": "ἀγρός, οῦ, ὁ",
+     "gloss": "a field, the country",
+     "pos": "noun",
+     "count": 36,
+     "rank": 405
+    },
+    {
+     "id": "ἄρτι",
+     "lemma": "ἄρτι",
+     "citation": "ἄρτι",
+     "gloss": "now, just now",
+     "pos": "adverb",
+     "count": 36,
+     "rank": 406
+    },
+    {
+     "id": "ἐπιστρέφω",
+     "lemma": "ἐπιστρέφω",
+     "citation": "ἐπιστρέφω",
+     "gloss": "I turn back to",
+     "pos": "verb",
+     "count": 36,
+     "rank": 407
+    }
+   ],
+   "paradigms": [
+    "ptc-perf-act",
+    "ptc-perf-mp"
+   ]
+  },
+  {
+   "id": "u07-genitive-absolute",
+   "type": "grammar",
+   "label": "γενομένης",
+   "sub": "Genitive absolute and special uses",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "A clause floating in the genitive",
+    "body": "When a participle and its subject have no grammatical link to the main sentence, both go in the genitive: ὀψίας γενομένης, 'when evening had come'. Translate as a 'when / while / after' clause. Watch also for participles with imperatival force in the letters, and for the future participle of purpose (rare).",
+    "examples": [
+     {
+      "gr": "ὀψίας δὲ γενομένης",
+      "en": "and when evening came"
+     },
+     {
+      "gr": "ταῦτα αὐτοῦ λαλοῦντος",
+      "en": "while he was saying these things"
+     },
+     {
+      "gr": "ἐξελθόντος αὐτοῦ",
+      "en": "after he went out"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ὀργή",
+     "lemma": "ὀργή",
+     "citation": "ὀργή, ῆς, ἡ",
+     "gloss": "anger, wrath, passion",
+     "pos": "noun",
+     "count": 36,
+     "rank": 408
+    },
+    {
+     "id": "ὥσπερ",
+     "lemma": "ὥσπερ",
+     "citation": "ὥσπερ",
+     "gloss": "just as, as",
+     "pos": "conjunction",
+     "count": 36,
+     "rank": 409
+    },
+    {
+     "id": "διάβολος",
+     "lemma": "διάβολος",
+     "citation": "διάβολος, ον",
+     "gloss": "slanderous, the Slanderer, the Devil",
+     "pos": "adjective",
+     "count": 35,
+     "rank": 410
+    },
+    {
+     "id": "εὐθέως",
+     "lemma": "εὐθέως",
+     "citation": "εὐθέως",
+     "gloss": "immediately, soon",
+     "pos": "adverb",
+     "count": 35,
+     "rank": 411
+    },
+    {
+     "id": "μάρτυς",
+     "lemma": "μάρτυς",
+     "citation": "μάρτυς, υρος, ὁ",
+     "gloss": "a witness",
+     "pos": "noun",
+     "count": 35,
+     "rank": 412
+    },
+    {
+     "id": "Ἰωσήφ",
+     "lemma": "Ἰωσήφ",
+     "citation": "Ἰωσήφ, ὁ",
+     "gloss": "Joseph",
+     "pos": "noun",
+     "count": 35,
+     "rank": 413
+    },
+    {
+     "id": "ὀφείλω",
+     "lemma": "ὀφείλω",
+     "citation": "ὀφείλω",
+     "gloss": "I owe, ought",
+     "pos": "verb",
+     "count": 35,
+     "rank": 415
+    },
+    {
+     "id": "ὑποστρέφω",
+     "lemma": "ὑποστρέφω",
+     "citation": "ὑποστρέφω",
+     "gloss": "I turn back, return",
+     "pos": "verb",
+     "count": 35,
+     "rank": 416
+    },
+    {
+     "id": "βιβλίον",
+     "lemma": "βιβλίον",
+     "citation": "βιβλίον, ου, τό",
+     "gloss": "a papyrus roll",
+     "pos": "noun",
+     "count": 34,
+     "rank": 417
+    },
+    {
+     "id": "βλασφημέω",
+     "lemma": "βλασφημέω",
+     "citation": "βλασφημέω",
+     "gloss": "I speak evil against, blaspheme",
+     "pos": "verb",
+     "count": 34,
+     "rank": 418
+    }
+   ],
+   "paradigms": [
+    "ptc-aor2-act",
+    "ptc-aor-mid"
+   ]
+  },
+  {
+   "id": "u07-read-john-1-43",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:43–51",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Participles everywhere",
+    "body": "ἀποκριθείς, ὄντα, ἐρχόμενον, ἀνεῳγότα: count the participles in this passage and notice how each one hangs on a noun.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "πόθεν",
+     "lemma": "πόθεν",
+     "citation": "πόθεν",
+     "gloss": "whence",
+     "pos": "adverb",
+     "count": 29,
+     "rank": 475
+    },
+    {
+     "id": "ἀληθῶς",
+     "lemma": "ἀληθῶς",
+     "citation": "ἀληθῶς",
+     "gloss": "truly, really, certainly",
+     "pos": "adverb",
+     "count": 18,
+     "rank": 679
+    },
+    {
+     "id": "συκῆ",
+     "lemma": "συκῆ",
+     "citation": "συκῆ, ῆς, ἡ",
+     "gloss": "a fig-tree",
+     "pos": "noun",
+     "count": 16,
+     "rank": 744
+    },
+    {
+     "id": "δόλος",
+     "lemma": "δόλος",
+     "citation": "δόλος, ου, ὁ",
+     "gloss": "deceit, guile, treachery",
+     "pos": "noun",
+     "count": 11,
+     "rank": 973
+    },
+    {
+     "id": "ὑποκάτω",
+     "lemma": "ὑποκάτω",
+     "citation": "ὑποκάτω",
+     "gloss": "underneath",
+     "pos": "preposition",
+     "count": 11,
+     "rank": 1041
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 43,
+    "to": 51,
+    "verseIds": [
+     "john-1-43",
+     "john-1-44",
+     "john-1-45",
+     "john-1-46",
+     "john-1-47",
+     "john-1-48",
+     "john-1-49",
+     "john-1-50",
+     "john-1-51"
+    ],
+    "reference": "John 1:43–51",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 169,
+     "known": 0.947,
+     "schedulable": 0.947
+    }
+   }
+  }
+ ]
+}

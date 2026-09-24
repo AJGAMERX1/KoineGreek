@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Grammar</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back to path">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="progress" aria-label="Lesson progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="drill-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="drill-footer" id="footer" hidden>
+    <button class="btn" id="continueBtn" type="button">Continue</button>
+  </div>
+
+</div>
+
+<script type="module">
+  /*
+    Grammar / verb lesson screen (Phase 3): paradigm tables → cell drills →
+    real attested forms → principal parts. Logic: js/grammar.js. View: js/session-view.js.
+    Also the due-forms review (?mode=due), chained after due vocab from the path.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { loadLesson, loadLexicon, loadParadigms, loadForms, loadIrregularVerbs } from './js/data.js';
+  import { getProgress, getAllFormRecords, getFormRecord, updateFormRecord, getDueFormIds, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { scheduleReview } from './js/srs.js';
+  import { buildGrammarSession, buildDueFormsSession, gradeGrammar, xpForGrammar, ratingForGrammar, requeueGrammar, PART_NAMES } from './js/grammar.js';
+  import { parseSlots } from './js/morph.js';
+  import { SessionView, escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  const view = new SessionView();
+  const xpStat = document.getElementById('xpStat');
+  xpStat.textContent = getProgress().xp;
+  document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
+
+  const params = new URLSearchParams(location.search);
+  const lessonId = params.get('lesson');
+  const mode = params.get('mode') || (lessonId ? 'lesson' : 'due');
+  const returnTo = /^[a-z]+\.html(\?[\w=&%.-]*)?$/i.test(params.get('return') || '') ? params.get('return') : 'index.html';
+
+  const state = { lesson: null, steps: [], index: 0, answered: 0, correctFirstTry: 0, xpEarned: 0, missed: [] };
+
+  main().catch((err) => { console.error(err); view.renderError(`Could not load this lesson: ${err.message}. Run from a local server (see README).`); });
+
+  async function main() {
+    const [paradigms, formsData, lexicon, irregular] = await Promise.all([loadParadigms(), loadForms(), loadLexicon(), loadIrregularVerbs()]);
+    const paradigmsById = Object.fromEntries(paradigms.paradigms.map((p) => [p.id, p]));
+    const records = getAllFormRecords();
+    if (mode === 'lesson') {
+      const { lesson } = await loadLesson(lessonId);
+      state.lesson = lesson;
+      document.title = `Rhema — ${lesson.sub}`;
+      state.steps = buildGrammarSession({ lesson, paradigmsById, forms: formsData.forms, lexicon, irregularVerbs: irregular.verbs, records });
+    } else {
+      document.title = 'Rhema — Review forms';
+      state.steps = buildDueFormsSession({ dueIds: getDueFormIds(), paradigmsById, irregularVerbs: irregular.verbs, records });
+      if (!state.steps.length) { renderEmpty(); return; }
+    }
+    renderStep();
+  }
+
+  // ------------------------------------------------------------ steps
+
+  function renderStep() {
+    view.setProgress(state.index / Math.max(state.steps.length, 1));
+    const step = state.steps[state.index];
+    if (!step) { renderSummary(); return; }
+    const next = () => { state.index++; renderStep(); };
+    if (step.kind === 'rule') return view.renderIntro({ kicker: 'First, the idea', html: ruleCard(step.rule), buttonLabel: 'Start' }, next);
+    if (step.kind === 'paradigm') return view.renderIntro({ kicker: 'Paradigm', html: paradigmCard(step.paradigm), note: 'Read it aloud, top to bottom. You will be asked for these forms right away.', buttonLabel: 'Drill it' }, next);
+    if (step.kind === 'parts') return view.renderIntro({ kicker: 'Strange verb', html: partsCard(step.verb), buttonLabel: 'Got it' }, next);
+    renderQuestion(step);
+  }
+
+  function ruleCard(rule) {
+    return `<div class="card">
+      <div class="rule-title">${escapeHtml(rule.title)}</div>
+      <p class="rule-body">${escapeHtml(rule.body)}</p>
+      ${rule.examples && rule.examples.length ? `<div class="rule-examples">${rule.examples.map((e) => `<div class="rule-example"><span class="gr">${escapeHtml(e.gr)}</span><span class="en">${escapeHtml(e.en)}</span></div>`).join('')}</div>` : ''}
+    </div>`;
+  }
+
+  const GENDER_LABEL = { M: 'masc.', F: 'fem.', N: 'neut.', '-': '' };
+  const CASE_LABEL = { N: 'nom.', G: 'gen.', D: 'dat.', A: 'acc.', V: 'voc.' };
+  const PERSON_LABEL = { 1: '1st', 2: '2nd', 3: '3rd' };
+
+  function paradigmCard(p) {
+    let table = '';
+    const byParse = Object.fromEntries(p.cells.map((c) => [c.parse, c]));
+    if (p.kind === 'verbal') {
+      const rows = ['1', '2', '3'].map((person) => {
+        const cells = ['S', 'P'].map((num) => {
+          const c = p.cells.find((x) => x.parse[0] === person && x.parse[5] === num);
+          return `<td class="gr">${c ? escapeHtml(c.form) : '—'}</td>`;
+        }).join('');
+        return `<tr><th>${PERSON_LABEL[person]}</th>${cells}</tr>`;
+      }).join('');
+      table = `<table class="paradigm"><thead><tr><th></th><th>singular</th><th>plural</th></tr></thead><tbody>${rows}</tbody></table>`;
+    } else if (p.kind === 'infinitive') {
+      table = `<table class="paradigm"><tbody>${p.cells.map((c) => { const s = parseSlots(c.parse); return `<tr><th>${escapeHtml([s.tense, s.voice].filter(Boolean).join(' '))}</th><td class="gr">${escapeHtml(c.form)}</td></tr>`; }).join('')}</tbody></table>`;
+    } else {
+      const genders = [...new Set(p.cells.map((c) => c.parse[6]))];
+      const cases = [...new Set(p.cells.map((c) => c.parse[4]))];
+      const head = `<tr><th></th>${genders.map((g) => `<th colspan="2">${GENDER_LABEL[g]}</th>`).join('')}</tr><tr><th></th>${genders.map(() => '<th>sg.</th><th>pl.</th>').join('')}</tr>`;
+      const rows = cases.map((cs) => `<tr><th>${CASE_LABEL[cs]}</th>${genders.map((g) => ['S', 'P'].map((n) => {
+        const c = p.cells.find((x) => x.parse[4] === cs && x.parse[5] === n && x.parse[6] === g);
+        return `<td class="gr">${c ? escapeHtml(c.form) : '—'}</td>`;
+      }).join('')).join('')}</tr>`).join('');
+      table = `<table class="paradigm"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+    }
+    return `<div class="card">
+      <div class="rule-title">${escapeHtml(p.title)}</div>
+      <div class="paradigm-wrap">${table}</div>
+      <p class="rule-body" style="font-size:14px">${escapeHtml(p.note)}</p>
+    </div>`;
+  }
+
+  function partsCard(v) {
+    return `<div class="card">
+      <div class="rule-title">${escapeHtml(v.lemma)} <span style="font-weight:400;color:var(--muted);font-size:15px">— ${escapeHtml(v.gloss)}</span></div>
+      <table class="paradigm parts"><tbody>${v.parts.map((part, i) => `<tr><th>${PART_NAMES[i]}</th><td class="gr">${part ? escapeHtml(part) : '<span style="color:var(--muted)">—</span>'}</td></tr>`).join('')}</tbody></table>
+      ${v.note ? `<p class="rule-body" style="font-size:14px">${escapeHtml(v.note)}</p>` : ''}
+    </div>`;
+  }
+
+  function kickerFor(step) {
+    const base = step.attempt > 1 ? 'Try again' : (mode === 'due' ? 'Review' : 'Practice');
+    const label = { 'parse-mc': 'parse the form', 'form-type': 'produce the form', 'attested-mc': 'real New Testament form', 'part-mc': 'principal parts', 'part-lemma-mc': 'principal parts', 'part-type': 'produce the part' }[step.format] || '';
+    return `${base} · ${label}`;
+  }
+
+  function renderQuestion(step) {
+    const spec = { kicker: kickerFor(step), prompt: step.prompt, promptGreek: step.promptGreek !== false, hint: step.hint || '' };
+    if (step.typed) spec.typed = step.typed; else spec.options = step.options;
+    view.renderQuestion(spec, (input) => answer(step, input));
+  }
+
+  function answer(step, input) {
+    const ok = gradeGrammar(step, input);
+    view.markAnswer({ correctId: step.answerId || null, chosenId: step.options ? input : null, ok });
+    const rating = ratingForGrammar(step, ok);
+    if (rating) {
+      const prev = getFormRecord(step.srsId);
+      updateFormRecord(step.srsId, { ...scheduleReview(prev, rating), lapses: ((prev && prev.lapses) || 0) + (ok ? 0 : 1) });
+    }
+    const xp = xpForGrammar(step, ok);
+    if (xp) { state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; }
+    state.answered++;
+    if (ok && step.attempt === 1) state.correctFirstTry++;
+    if (!ok) { state.missed.push(step); requeueGrammar(state.steps, state.index, step); }
+    view.showFeedback({ ok, headline: ok ? 'Correct' : 'Not quite', answer: step.answer, reason: step.reason, xp }, () => { state.index++; renderStep(); });
+  }
+
+  // ------------------------------------------------------------ end states
+
+  function renderEmpty() {
+    view.renderSummary({ kicker: 'Review', html: `<div class="card"><div class="rule-title">No forms are due</div><p class="rule-body" style="color:var(--muted)">Endings come back on their own schedule. Keep going on the path.</p></div>` }, () => { location.href = returnTo; });
+  }
+
+  function renderSummary() {
+    const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
+    const accuracy = Math.round((state.correctFirstTry / Math.max(state.answered - retries, 1)) * 100);
+    if (state.answered > 0) recordActivity();
+    const hasVocab = state.lesson && state.lesson.vocab && state.lesson.vocab.length;
+    if (state.lesson && !hasVocab && state.answered > 0) markLessonCompleted(state.lesson.id);
+    const progress = getProgress();
+    const missed = [...new Map(state.missed.map((s) => [s.answer, s])).values()];
+    const title = state.lesson ? state.lesson.sub : 'Forms review';
+    view.renderSummary({
+      kicker: state.lesson ? 'Grammar done' : 'Review complete',
+      html: `<div class="card">
+        <div class="rule-title">${escapeHtml(title)}</div>
+        <div class="summary-stats">
+          <div class="summary-stat"><b>${state.answered - retries}</b><span>questions</span></div>
+          <div class="summary-stat"><b>${accuracy}%</b><span>first try</span></div>
+          <div class="summary-stat"><b>+${state.xpEarned}</b><span>xp</span></div>
+        </div>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Every ending you answered is now scheduled like a word.${hasVocab ? ' Next: the lesson’s words.' : ''}</p>
+        ${missed.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Missed</div>` + missed.map((m) => `<div>${escapeHtml(m.answer)}</div>`).join('') + `</div>` : ''}
+      </div>`,
+      buttonLabel: hasVocab ? 'Continue to the words' : (returnTo === 'index.html' ? 'Back to path' : 'Continue'),
+    }, () => { location.href = hasVocab ? `drill.html?lesson=${encodeURIComponent(state.lesson.id)}` : returnTo; });
+  }
+</script>
+
+</body>
+</html>

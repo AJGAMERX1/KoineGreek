@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Alphabet</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back to path">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="progress" aria-label="Lesson progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="pill-group" id="schemeToggle" title="Pronunciation scheme">
+      <button class="pill" type="button" data-scheme="erasmian">Erasmian</button>
+      <button class="pill" type="button" data-scheme="koine">Koine</button>
+    </div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="drill-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="drill-footer" id="footer" hidden>
+    <button class="btn" id="continueBtn" type="button">Continue</button>
+  </div>
+
+</div>
+
+<script type="module">
+  /*
+    Alphabet lesson screen (Book I, lessons 1–4). Logic: js/alphabet.js.
+    View: js/session-view.js. Pronunciation scheme is the learner's
+    settings.pronunciation (README § Curriculum: a user setting), switchable here.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { loadLesson, loadLexicon, loadAlphabet, loadParadigms, loadBook } from './js/data.js';
+  import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { buildAlphabetSession, gradeAlphabet, requeueAlphabet, transliterate, hasSubscript, syllabify, stripMarks } from './js/alphabet.js';
+  import { SessionView, escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  const view = new SessionView();
+  const xpStat = document.getElementById('xpStat');
+  xpStat.textContent = getProgress().xp;
+  document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
+
+  const lessonId = new URLSearchParams(location.search).get('lesson') || 'u01-alphabet-1';
+  const state = { lesson: null, alphabet: null, lexicon: null, scheme: getSettings().pronunciation || 'erasmian',
+                  steps: [], index: 0, answered: 0, correctFirstTry: 0, xpEarned: 0, missed: [] };
+
+  // pronunciation toggle (persists to settings; rebuilds nothing mid-session, just re-renders the current card)
+  document.querySelectorAll('#schemeToggle .pill').forEach((btn) => btn.addEventListener('click', () => {
+    state.scheme = btn.dataset.scheme;
+    setSettings({ pronunciation: state.scheme });
+    refreshScheme();
+    if (state.steps.length && state.steps[state.index] && state.steps[state.index].kind.startsWith('intro')) renderStep();
+  }));
+  function refreshScheme() {
+    document.querySelectorAll('#schemeToggle .pill').forEach((b) => b.classList.toggle('active', b.dataset.scheme === state.scheme));
+  }
+  refreshScheme();
+
+  main().catch((err) => { console.error(err); view.renderError(`Could not load this lesson: ${err.message}. Run from a local server (see README).`); });
+
+  async function main() {
+    const [{ lesson }, alphabet, lexicon] = await Promise.all([loadLesson(lessonId), loadAlphabet(), loadLexicon()]);
+    if (!lesson.alphabet) throw new Error(`${lessonId} is not an alphabet lesson`);
+    state.lesson = lesson; state.alphabet = alphabet; state.lexicon = lexicon;
+    document.title = `Rhema — ${lesson.sub}`;
+
+    // word pools for lessons 3–4: real words from the paradigms (iota subscripts) and John 1 (accents incl. graves)
+    const extra = {};
+    const sections = lesson.alphabet.sections || [];
+    if (sections.includes('diphthongs') || sections.includes('accents')) {
+      const [paradigms, john] = await Promise.all([loadParadigms(), loadBook('john')]);
+      const forms = [...new Set(paradigms.paradigms.flatMap((p) => p.cells.map((c) => c.form)))].filter((f) => !f.includes('('));
+      extra.subscriptWords = forms.filter(hasSubscript);
+      // whole words only: drop elided forms (ἐπ’, δι’), names, and one-letter words
+      const johnWords = [...new Set(Object.values(john.chapters['1']).flatMap((v) => v.words
+        .filter((w) => !/[’'ʼ]/.test(w.t))
+        .map((w) => w.t.replace(/[^\p{L}]/gu, ''))))]
+        .filter((w) => w.length >= 2 && !/^\p{Lu}/u.test(w));
+      extra.plainWords = johnWords.filter((w) => /^[Ͱ-Ͽἀ-῿]+$/.test(w));
+      extra.accentWords = extra.plainWords.filter((w) => w.length >= 3);
+    }
+    state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra });
+    renderStep();
+  }
+
+  // ------------------------------------------------------------------ steps
+
+  function renderStep() {
+    view.setProgress(state.index / Math.max(state.steps.length, 1));
+    const step = state.steps[state.index];
+    if (!step) { renderSummary(); return; }
+    const next = () => { state.index++; renderStep(); };
+    const s = state.scheme;
+    const A = state.alphabet;
+    switch (step.kind) {
+      case 'rule':
+        return view.renderIntro({ kicker: 'First, the idea', html: ruleCard(step.rule), buttonLabel: 'Start' }, next);
+      case 'intro-letter': {
+        const l = step.letter;
+        return view.renderIntro({ kicker: 'New letter', html: `
+          <div class="card prompt">
+            <div class="letter-pair"><span class="upper">${l.upper}</span><span class="lower">${l.lower}</span></div>
+            <div class="letter-name">${escapeHtml(l.name)}</div>
+            <div class="letter-facts">
+              <div><span class="k">Sounds like</span>${escapeHtml(l[s])}</div>
+              <div><span class="k">Written</span>${escapeHtml(l.translit)}</div>
+              ${step.example ? `<div><span class="k">Example</span><span class="greek" style="font-family:var(--font-display);font-weight:700">${escapeHtml(step.example.lemma)}</span> — ${escapeHtml(step.example.gloss)}</div>` : ''}
+            </div>
+          </div>`, note: 'Say the name and the sound out loud, then continue.' }, next);
+      }
+      case 'intro-vowels':
+        return view.renderIntro({ kicker: 'Vowels', html: `<div class="card">
+          <div class="rule-title">Seven vowels</div>
+          <table class="ref-table">
+            <tr><td class="gr">${step.vowels.short.join(' ')}</td><td>always short</td></tr>
+            <tr><td class="gr">${step.vowels.long.join(' ')}</td><td>always long</td></tr>
+            <tr><td class="gr">${step.vowels.either.join(' ')}</td><td>short or long</td></tr>
+          </table>
+          <p class="rule-body">${escapeHtml(step.vowels.note)}</p></div>` }, next);
+      case 'intro-diphthong': {
+        const d = step.d;
+        return view.renderIntro({ kicker: 'Diphthong', html: `<div class="card prompt">
+          <div class="prompt-main letter">${escapeHtml(d.text)}</div>
+          <div class="letter-facts" style="margin-top:16px">
+            <div><span class="k">Sounds like</span>${escapeHtml(d[s])}</div>
+            <div><span class="k">Example</span>${escapeHtml(d.example)}</div>
+          </div></div>` }, next);
+      }
+      case 'intro-subscript':
+        return view.renderIntro({ kicker: 'Iota subscript', html: `<div class="card prompt">
+          <div class="prompt-main letter">${step.s.forms.join(' ')}</div>
+          <p class="rule-body" style="text-align:left">${escapeHtml(step.s.note)}</p>
+          <div class="rule-example" style="text-align:left"><span class="gr">${escapeHtml(step.s.example.split(' — ')[0])}</span><span class="en">${escapeHtml(step.s.example.split(' — ')[1] || '')}</span></div>
+          </div>` }, next);
+      case 'intro-breathing':
+        return view.renderIntro({ kicker: 'Breathing mark', html: `<div class="card prompt">
+          <div class="prompt-main letter">${escapeHtml(step.b.example)}</div>
+          <div class="letter-name">${escapeHtml(step.b.mark)}</div>
+          <p class="rule-body">${escapeHtml(step.b.rule)}</p></div>` }, next);
+      case 'intro-accents':
+        return view.renderIntro({ kicker: 'Accents', html: `<div class="card">
+          <div class="rule-title">Three marks, one job</div>
+          <table class="ref-table">${step.accents.map((a) => `<tr><td class="gr">${escapeHtml(a.example)}</td><td><b>${escapeHtml(a.mark)}</b>${a.note ? `<br><span style="color:var(--muted)">${escapeHtml(a.note)}</span>` : ''}</td></tr>`).join('')}</table>
+          <p class="rule-body">${escapeHtml(step.rule)}</p></div>` }, next);
+      case 'intro-punctuation':
+        return view.renderIntro({ kicker: 'Punctuation', html: `<div class="card">
+          <div class="rule-title">Four marks</div>
+          <table class="ref-table">${step.punctuation.map((p) => `<tr><td class="gr">${escapeHtml(p.mark)}</td><td>${escapeHtml(p.meaning)}</td></tr>`).join('')}</table></div>` }, next);
+      case 'intro-syllables':
+        return view.renderIntro({ kicker: 'Syllables', html: `<div class="card">
+          <div class="rule-title">Count the vowels</div>
+          <p class="rule-body">${escapeHtml(step.text)}</p>
+          <div class="rule-examples">${['λόγος', 'ἄνθρωπος', 'εὐαγγέλιον'].map((w) => `<div class="rule-example"><span class="gr">${syllabify(w).map((x) => (x.stressed ? `<span class="stress">${escapeHtml(x.text)}</span>` : escapeHtml(x.text))).join('-')}</span><span class="en">${syllabify(w).length} syllables · stress the underlined one</span></div>`).join('')}</div></div>` }, next);
+      default:
+        return renderQuestion(step);
+    }
+  }
+
+  function ruleCard(rule) {
+    return `<div class="card">
+      <div class="rule-title">${escapeHtml(rule.title)}</div>
+      <p class="rule-body">${escapeHtml(rule.body)}</p>
+      ${rule.examples && rule.examples.length ? `<div class="rule-examples">${rule.examples.map((e) => `<div class="rule-example"><span class="gr">${escapeHtml(e.gr)}</span><span class="en">${escapeHtml(e.en)}</span></div>`).join('')}</div>` : ''}
+    </div>`;
+  }
+
+  function kickerFor(step) {
+    const base = step.attempt > 1 ? 'Try again' : 'Practice';
+    const label = {
+      'name-mc': 'name the letter', 'letter-mc': 'find the letter', 'sound-mc': 'the sound', 'translit-type': 'write it in English letters',
+      'read-word': 'read the word', 'diphthong-sound-mc': 'diphthong', 'breathing-mc': 'breathing', 'subscript-mc': 'iota subscript',
+      'accent-mc': 'accent', 'syllable-count-mc': 'syllables', 'stress-mc': 'stress', 'punctuation-mc': 'punctuation',
+    }[step.format] || '';
+    return `${base} · ${label}`;
+  }
+
+  function renderQuestion(step) {
+    const spec = { kicker: kickerFor(step), hint: step.hint || '' };
+    if (step.format === 'read-word') {
+      spec.prompt = step.word; spec.hint = 'Read it aloud, then type what you said in English letters';
+      spec.typed = { placeholder: 'e.g. logos' };
+    } else if (step.typed) {
+      spec.promptHtml = `<div class="prompt-main letter">${escapeHtml(step.prompt)}</div>`;
+      spec.typed = step.typed;
+    } else {
+      if (step.promptLetter) spec.promptHtml = `<div class="prompt-main letter">${escapeHtml(step.prompt)}</div>`;
+      else { spec.prompt = step.prompt; spec.promptGreek = step.promptGreek !== false; }
+      spec.options = step.options;
+    }
+    view.renderQuestion(spec, (input) => answer(step, input));
+  }
+
+  function answer(step, input) {
+    const ok = gradeAlphabet(step, input, state.alphabet);
+    view.markAnswer({ correctId: step.answerId || null, chosenId: step.options ? input : null, ok });
+    const xp = (!ok || step.attempt > 1) ? 0 : (step.typed || step.format === 'read-word' ? 5 : 2);
+    if (xp) { state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; }
+    state.answered++;
+    if (ok && step.attempt === 1) state.correctFirstTry++;
+    if (!ok) { state.missed.push(step); requeueAlphabet(state.steps, state.index, step); }
+
+    let answerText = step.answer || '';
+    let reason = step.reason || '';
+    if (step.format === 'read-word') {
+      const w = state.lexicon.items.find((i) => stripMarks(i.lemma) === stripMarks(step.word));
+      answerText = `${step.word} = ${transliterate(step.word, state.alphabet)}`;
+      reason = `${syllabify(step.word).map((x) => x.text).join('-')}${w ? ` · ${w.gloss}` : ''}`;
+    }
+    view.showFeedback({ ok, headline: ok ? 'Correct' : 'Not quite', answer: answerText, reason, xp }, () => { state.index++; renderStep(); });
+  }
+
+  function renderSummary() {
+    const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
+    const accuracy = Math.round((state.correctFirstTry / Math.max(state.answered - retries, 1)) * 100);
+    if (state.answered > 0) { recordActivity(); markLessonCompleted(state.lesson.id); }
+    const progress = getProgress();
+    const missed = [...new Map(state.missed.map((s) => [s.answer || s.word, s])).values()];
+    view.renderSummary({
+      kicker: 'Lesson complete',
+      html: `<div class="card">
+        <div class="rule-title">${escapeHtml(state.lesson.sub)}</div>
+        <div class="summary-stats">
+          <div class="summary-stat"><b>${state.answered - retries}</b><span>questions</span></div>
+          <div class="summary-stat"><b>${accuracy}%</b><span>first try</span></div>
+          <div class="summary-stat"><b>+${state.xpEarned}</b><span>xp</span></div>
+        </div>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Letters come back inside every word you will ever read, so the path moves on; redo this lesson any time from the path.</p>
+        ${missed.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Worth another look</div>` +
+          missed.map((m) => `<div>${escapeHtml(m.answer || m.word)}</div>`).join('') + `</div>` : ''}
+      </div>`,
+    }, () => { location.href = 'index.html'; });
+  }
+</script>
+
+</body>
+</html>

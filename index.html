@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rhema — Learn Koine Greek</title>
 <meta name="description" content="A Duolingo-style app for learning New Testament Koine Greek.">
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="css/base.css">
@@ -30,27 +37,28 @@
     </div>
   </div>
 
-  <!--
-    This panel is a WORKING demo of the theming decision from README.md
-    (style is a user Settings preference, not a fixed choice) — not a
-    placeholder. It should graduate into the real Settings screen rather
-    than being thrown away once one exists.
-  -->
-  <div class="theme-panel">
-    <span class="theme-panel-label">Style</span>
-    <div class="theme-option-group" id="themeOptions">
-      <button class="theme-option" data-theme="classic">Classic</button>
-      <button class="theme-option" data-theme="lexis">Lexis</button>
-      <button class="theme-option" data-theme="nous">Nous</button>
+  <div class="unit-header">
+    <div class="unit-header-row">
+      <div>
+        <div class="unit-kicker" id="unitKicker">&nbsp;</div>
+        <div class="unit-title" id="unitTitle">&nbsp;</div>
+        <div class="unit-sub" id="unitSub">&nbsp;</div>
+      </div>
+      <div class="unit-nav">
+        <button class="unit-nav-btn" id="prevUnit" type="button" aria-label="Previous book">‹</button>
+        <button class="unit-nav-btn" id="nextUnit" type="button" aria-label="Next book">›</button>
+      </div>
     </div>
-    <button class="mode-toggle" id="modeToggle">
-      <span id="modeLabel">Dark mode</span>
-    </button>
   </div>
 
-  <div class="unit-header">
-    <div class="unit-kicker" id="unitKicker">&nbsp;</div>
-    <div class="unit-title" id="unitTitle">&nbsp;</div>
+  <div class="install-banner" id="installBanner" hidden>
+    <span>Install Rhema on this device to study offline.</span>
+    <button class="btn secondary" id="installBtn" type="button">Install</button>
+  </div>
+
+  <div class="due-banner" id="dueBanner" hidden>
+    <span><strong id="dueCount">0</strong> <span id="dueLabel">words due for review</span></span>
+    <button class="btn" id="dueBtn" type="button">Review now</button>
   </div>
 
   <div class="lesson-path" id="lessonPath">
@@ -70,7 +78,7 @@
       <svg viewBox="0 0 24 24"><path d="M6 4h12v3a5 5 0 0 1-4.5 5v2h1.5a1 1 0 0 1 0 2h-6a1 1 0 0 1 0-2H10v-2A5 5 0 0 1 6 7V4zM4 5h2v2a3 3 0 0 1-2-2V5zm16 0h-2v2a3 3 0 0 0 2-2V5zM8 20h8v2H8v-2z" fill="currentColor"/></svg>
       <span class="nav-item-label">Ranks</span>
     </button>
-    <button class="nav-item" type="button">
+    <button class="nav-item" type="button" id="profileNav" title="Profile & settings">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" fill="currentColor"/></svg>
       <span class="nav-item-label">Profile</span>
     </button>
@@ -79,8 +87,9 @@
 </div>
 
 <script type="module">
-  import { initTheme, setTheme, toggleMode, APP_NAME } from './js/theme.js';
-  import { getProgress } from './js/storage.js';
+  import { initTheme, APP_NAME } from './js/theme.js';
+  import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
+  import { getProgress, getAllVocabRecords, getDueVocabItems, getDueFormIds } from './js/storage.js';
 
   // ---- app name ----
   document.getElementById('appName').textContent = APP_NAME;
@@ -88,45 +97,58 @@
 
   // ---- theme + mode, wired to js/theme.js + js/storage.js ----
   initTheme();
-  refreshThemeUI();
+  initPwa();
 
-  document.querySelectorAll('.theme-option').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      setTheme(btn.dataset.theme);
-      refreshThemeUI();
-    });
-  });
+  // Style, mode, pronunciation and translation are chosen on the Settings screen (Profile tab).
+  document.getElementById('profileNav').addEventListener('click', () => { location.href = 'settings.html'; });
 
-  document.getElementById('modeToggle').addEventListener('click', () => {
-    toggleMode();
-    refreshThemeUI();
-  });
-
-  function refreshThemeUI() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const mode = document.documentElement.getAttribute('data-mode');
-    document.querySelectorAll('.theme-option').forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset.theme === current);
-    });
-    document.getElementById('modeLabel').textContent =
-      mode === 'dark' ? 'Light mode' : 'Dark mode';
-  }
+  // "Add to Home Screen" nudge, shown only when the browser offers an install prompt (PWA).
+  const installBanner = document.getElementById('installBanner');
+  const showInstall = (available) => { installBanner.hidden = !available || isStandalone(); };
+  showInstall(canInstall());
+  onInstallAvailable(showInstall);
+  document.getElementById('installBtn').addEventListener('click', async () => { await promptInstall(); showInstall(false); });
 
   // ---- progress stats, read from real storage (starts at 0 for a new learner) ----
   const progress = getProgress();
   document.getElementById('streakStat').textContent = progress.streak;
   document.getElementById('xpStat').textContent = progress.xp;
 
-  // ---- lesson path, loaded from data/unit-01-foundations.sample.json ----
-  loadUnit();
+  // ---- due reviews banner (PEDAGOGY M3: "due today" is the primary unit of a session) ----
+  // Vocab and forms (paradigm cells, principal parts) are both SRS objects; one button runs the
+  // vocab review and chains straight into the forms review.
+  const dueIds = getDueVocabItems(Object.keys(getAllVocabRecords()));
+  const dueForms = getDueFormIds();
+  if (dueIds.length || dueForms.length) {
+    const bits = [];
+    if (dueIds.length) bits.push(`${dueIds.length} word${dueIds.length === 1 ? '' : 's'}`);
+    if (dueForms.length) bits.push(`${dueForms.length} form${dueForms.length === 1 ? '' : 's'}`);
+    document.getElementById('dueCount').textContent = bits.join(' · ');
+    document.getElementById('dueLabel').textContent = 'due for review';
+    document.getElementById('dueBanner').hidden = false;
+  }
+  document.getElementById('dueBtn').addEventListener('click', () => {
+    if (dueIds.length) location.href = dueForms.length ? 'drill.html?mode=due&return=grammar.html%3Fmode%3Ddue' : 'drill.html?mode=due';
+    else location.href = 'grammar.html?mode=due';
+  });
 
-  async function loadUnit() {
+  // ---- lesson path, driven by data/curriculum.json + progress.lessonsCompleted ----
+  // The curriculum index lists every Book (unit) and its lessons; full lesson
+  // content (vocab, paradigms, rule text, verses) lives in data/units/<id>.json
+  // and is loaded by the lesson screens, not here.
+  let curriculum = null;
+  let unitIndex = 0;
+  loadCurriculum();
+
+  async function loadCurriculum() {
     try {
-      const res = await fetch('./data/unit-01-foundations.sample.json');
+      const res = await fetch('./data/curriculum.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      renderUnit(await res.json());
+      curriculum = await res.json();
+      unitIndex = currentUnitIndex(curriculum.units, progress.lessonsCompleted);
+      renderUnit();
     } catch (err) {
-      console.warn('Could not load unit data:', err);
+      console.warn('Could not load curriculum:', err);
       document.getElementById('lessonPath').innerHTML =
         '<p style="padding:8px 4px;color:var(--muted);font-size:13px">' +
         'Could not load lesson data. If you opened this file directly (file://), ' +
@@ -135,13 +157,60 @@
     }
   }
 
-  function renderUnit(unit) {
-    document.getElementById('unitKicker').textContent = unit.kicker;
+  /** The first Book with an unfinished lesson (or the last Book if everything is done). */
+  function currentUnitIndex(units, done) {
+    const i = units.findIndex((u) => u.lessons.some((l) => !done.includes(l.id)));
+    return i === -1 ? units.length - 1 : i;
+  }
+
+  /** complete = in progress.lessonsCompleted; active = first incomplete lesson in the Book; else locked. */
+  function lessonState(unit, lesson, done) {
+    if (done.includes(lesson.id)) return 'complete';
+    const firstOpen = unit.lessons.find((l) => !done.includes(l.id));
+    return firstOpen && firstOpen.id === lesson.id ? 'active' : 'locked';
+  }
+
+  document.getElementById('prevUnit').addEventListener('click', () => { if (unitIndex > 0) { unitIndex--; renderUnit(); } });
+  document.getElementById('nextUnit').addEventListener('click', () => { if (curriculum && unitIndex < curriculum.units.length - 1) { unitIndex++; renderUnit(); } });
+
+  function renderUnit() {
+    const unit = curriculum.units[unitIndex];
+    const done = progress.lessonsCompleted;
+    document.getElementById('unitKicker').textContent = `${unit.kicker} · ${unitIndex + 1} of ${curriculum.units.length}`;
     document.getElementById('unitTitle').textContent = unit.title;
+    document.getElementById('unitSub').textContent = unit.sub;
+    document.getElementById('prevUnit').disabled = unitIndex === 0;
+    document.getElementById('nextUnit').disabled = unitIndex === curriculum.units.length - 1;
 
     const container = document.getElementById('lessonPath');
     container.innerHTML = '';
-    unit.lessons.forEach((lesson) => container.appendChild(renderNode(lesson)));
+    unit.lessons.forEach((lesson) => {
+      const node = renderNode({ ...lesson, state: lessonState(unit, lesson, done), sub: lessonSub(lesson) });
+      // Alphabet lessons open the alphabet screen, reading lessons open Read & Translate (which
+      // sends the learner through the vocab drill first if the passage has new words), and every
+      // other lesson with vocabulary opens the vocab drill. Locked lessons stay openable: the lock
+      // is guidance, not a wall.
+      // Grammar/verb lessons with paradigms or a strange-verb pool open the grammar screen, which
+      // hands off to the vocab drill afterwards.
+      const hasGrammar = (lesson.paradigms && lesson.paradigms.length) || lesson.irregularCount;
+      const href = lesson.type === 'alphabet' ? `alphabet.html?lesson=${encodeURIComponent(lesson.id)}`
+        : lesson.type === 'reading' ? `reading.html?lesson=${encodeURIComponent(lesson.id)}`
+        : hasGrammar ? `grammar.html?lesson=${encodeURIComponent(lesson.id)}`
+        : lesson.vocabCount ? `drill.html?lesson=${encodeURIComponent(lesson.id)}` : null;
+      if (href) {
+        node.classList.add('linked');
+        node.addEventListener('click', () => { location.href = href; });
+      }
+      container.appendChild(node);
+    });
+  }
+
+  function lessonSub(lesson) {
+    const bits = [lesson.sub];
+    if (lesson.vocabCount) bits.push(`${lesson.vocabCount} words`);
+    if (lesson.paradigms && lesson.paradigms.length) bits.push(`${lesson.paradigms.length} paradigm${lesson.paradigms.length > 1 ? 's' : ''}`);
+    if (lesson.irregularCount) bits.push(`${lesson.irregularCount} strange verb${lesson.irregularCount > 1 ? 's' : ''}`);
+    return bits.join(' · ');
   }
 
   function renderNode(lesson) {

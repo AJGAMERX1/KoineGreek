@@ -1,0 +1,883 @@
+{
+ "id": "unit-04-third-declension",
+ "index": 4,
+ "kicker": "Book IV",
+ "title": "Πᾶς",
+ "sub": "The third declension",
+ "summary": "Consonant-stem nouns (πατήρ, πνεῦμα, πίστις, βασιλεύς), the big adjectives πᾶς, πολύς, μέγας, numbers, and John 1:14–18.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u04-decl3-1",
+   "type": "grammar",
+   "label": "πατήρ",
+   "sub": "Third declension: consonant stems",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Find the stem in the genitive",
+    "body": "Third-declension nouns hide their stem in the nominative (σάρξ) and show it in the genitive (σαρκ-ός). Endings: -ς/— -ος -ι -α, plural -ες -ων -σι(ν) -ας. The article is unchanged, so lean on it: τῆς σαρκός, τῷ πατρί, τοὺς πατέρας. Learn each noun with its genitive: πατήρ, πατρός.",
+    "examples": [
+     {
+      "gr": "ὁ πατήρ, τοῦ πατρός",
+      "en": "the father, of the father"
+     },
+     {
+      "gr": "ἐν χειρὶ αὐτοῦ",
+      "en": "in his hand"
+     },
+     {
+      "gr": "εἰς τὸν αἰῶνα",
+      "en": "forever (into the age)"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "πατήρ",
+     "lemma": "πατήρ",
+     "citation": "πατήρ, ατρός, ὁ",
+     "gloss": "father, Father, ancestor",
+     "pos": "noun",
+     "count": 413,
+     "rank": 45
+    },
+    {
+     "id": "ἀνήρ",
+     "lemma": "ἀνήρ",
+     "citation": "ἀνήρ, ἀνδρός, ὁ",
+     "gloss": "a male human being, a man",
+     "pos": "noun",
+     "count": 216,
+     "rank": 72
+    },
+    {
+     "id": "γυνή",
+     "lemma": "γυνή",
+     "citation": "γυνή, αικός, ἡ",
+     "gloss": "a woman, wife, my lady",
+     "pos": "noun",
+     "count": 212,
+     "rank": 75
+    },
+    {
+     "id": "χείρ",
+     "lemma": "χείρ",
+     "citation": "χείρ, ειρός, ἡ",
+     "gloss": "a hand",
+     "pos": "noun",
+     "count": 176,
+     "rank": 89
+    },
+    {
+     "id": "σάρξ",
+     "lemma": "σάρξ",
+     "citation": "σάρξ, αρκός, ἡ",
+     "gloss": "flesh, body",
+     "pos": "noun",
+     "count": 147,
+     "rank": 112
+    },
+    {
+     "id": "μήτηρ",
+     "lemma": "μήτηρ",
+     "citation": "μήτηρ, ητρός, ἡ",
+     "gloss": "a mother",
+     "pos": "noun",
+     "count": 83,
+     "rank": 203
+    },
+    {
+     "id": "νύξ",
+     "lemma": "νύξ",
+     "citation": "νύξ, υκτός, ἡ",
+     "gloss": "the night, night-time",
+     "pos": "noun",
+     "count": 61,
+     "rank": 266
+    },
+    {
+     "id": "πούς",
+     "lemma": "πούς",
+     "citation": "πούς, οδός, ὁ",
+     "gloss": "the foot",
+     "pos": "noun",
+     "count": 93,
+     "rank": 185
+    },
+    {
+     "id": "αἰών",
+     "lemma": "αἰών",
+     "citation": "αἰών, ῶνος, ὁ",
+     "gloss": "an age, a cycle of time",
+     "pos": "noun",
+     "count": 122,
+     "rank": 136
+    },
+    {
+     "id": "χάρις",
+     "lemma": "χάρις",
+     "citation": "χάρις, ιτος, ἡ",
+     "gloss": "grace, favor, kindness",
+     "pos": "noun",
+     "count": 155,
+     "rank": 104
+    },
+    {
+     "id": "ἐλπίς",
+     "lemma": "ἐλπίς",
+     "citation": "ἐλπίς, ίδος, ἡ",
+     "gloss": "hope, expectation",
+     "pos": "noun",
+     "count": 53,
+     "rank": 297
+    }
+   ],
+   "paradigms": [
+    "decl3-sarx",
+    "decl3-archon",
+    "decl3-pater"
+   ]
+  },
+  {
+   "id": "u04-decl3-2",
+   "type": "grammar",
+   "label": "πνεῦμα",
+   "sub": "Neuters in -μα and -ος",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Two neuter families",
+    "body": "-μα nouns have a -ματ- stem (πνεῦμα, πνεύματος, plural πνεύματα). -ος neuters (ἔθνος, ὄρος) look masculine but take τό and have a -ους genitive and an -η plural: τὰ ἔθνη, the nations. Neuter rule still holds: nominative = accusative.",
+    "examples": [
+     {
+      "gr": "τὸ πνεῦμα τὸ ἅγιον",
+      "en": "the Holy Spirit"
+     },
+     {
+      "gr": "ἐν τῷ ὀνόματι αὐτοῦ",
+      "en": "in his name"
+     },
+     {
+      "gr": "πάντα τὰ ἔθνη",
+      "en": "all the nations"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "πνεῦμα",
+     "lemma": "πνεῦμα",
+     "citation": "πνεῦμα, ατος, τό",
+     "gloss": "wind, breath, spirit",
+     "pos": "noun",
+     "count": 379,
+     "rank": 47
+    },
+    {
+     "id": "ὄνομα",
+     "lemma": "ὄνομα",
+     "citation": "ὄνομα, ατος, τό",
+     "gloss": "name, character, reputation",
+     "pos": "noun",
+     "count": 229,
+     "rank": 69
+    },
+    {
+     "id": "σῶμα",
+     "lemma": "σῶμα",
+     "citation": "σῶμα, ατος, τό",
+     "gloss": "body, flesh",
+     "pos": "noun",
+     "count": 142,
+     "rank": 121
+    },
+    {
+     "id": "αἷμα",
+     "lemma": "αἷμα",
+     "citation": "αἷμα, ατος, τό",
+     "gloss": "blood",
+     "pos": "noun",
+     "count": 97,
+     "rank": 173
+    },
+    {
+     "id": "στόμα",
+     "lemma": "στόμα",
+     "citation": "στόμα, ατος, τό",
+     "gloss": "the mouth, speech",
+     "pos": "noun",
+     "count": 78,
+     "rank": 217
+    },
+    {
+     "id": "ῥῆμα",
+     "lemma": "ῥῆμα",
+     "citation": "ῥῆμα, ατος, τό",
+     "gloss": "a thing spoken",
+     "pos": "noun",
+     "count": 67,
+     "rank": 247
+    },
+    {
+     "id": "θέλημα",
+     "lemma": "θέλημα",
+     "citation": "θέλημα, ατος, τό",
+     "gloss": "will, wish, desire",
+     "pos": "noun",
+     "count": 62,
+     "rank": 258
+    },
+    {
+     "id": "ἔθνος",
+     "lemma": "ἔθνος",
+     "citation": "ἔθνος, ους, τό",
+     "gloss": "a race, people, the Gentiles",
+     "pos": "noun",
+     "count": 160,
+     "rank": 98
+    },
+    {
+     "id": "ὄρος",
+     "lemma": "ὄρος",
+     "citation": "ὄρος, ους, τό",
+     "gloss": "a mountain",
+     "pos": "noun",
+     "count": 62,
+     "rank": 262
+    },
+    {
+     "id": "πῦρ",
+     "lemma": "πῦρ",
+     "citation": "πῦρ, υρός, τό",
+     "gloss": "fire, trials",
+     "pos": "noun",
+     "count": 71,
+     "rank": 236
+    },
+    {
+     "id": "ὕδωρ",
+     "lemma": "ὕδωρ",
+     "citation": "ὕδωρ, ατος, τό",
+     "gloss": "water",
+     "pos": "noun",
+     "count": 76,
+     "rank": 225
+    }
+   ],
+   "paradigms": [
+    "decl3-onoma",
+    "decl3-ethnos"
+   ]
+  },
+  {
+   "id": "u04-decl3-3",
+   "type": "grammar",
+   "label": "πίστις",
+   "sub": "-ις and -ευς nouns, and more second declension",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "The -εως family",
+    "body": "Abstract nouns in -ις (πίστις faith, πόλις city, δύναμις power) and titles in -ευς (βασιλεύς king, ἀρχιερεύς high priest) share the -εως genitive and -εις plural. ἐκ πίστεως 'by faith' and οἱ ἀρχιερεῖς 'the chief priests' are worth memorizing as phrases.",
+    "examples": [
+     {
+      "gr": "διὰ πίστεως",
+      "en": "through faith"
+     },
+     {
+      "gr": "ὁ βασιλεὺς τῶν Ἰουδαίων",
+      "en": "the king of the Jews"
+     },
+     {
+      "gr": "ἐν τῇ πόλει",
+      "en": "in the city"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "πίστις",
+     "lemma": "πίστις",
+     "citation": "πίστις, εως, ἡ",
+     "gloss": "faith, belief, trust",
+     "pos": "noun",
+     "count": 242,
+     "rank": 62
+    },
+    {
+     "id": "πόλις",
+     "lemma": "πόλις",
+     "citation": "πόλις, εως, ἡ",
+     "gloss": "a city",
+     "pos": "noun",
+     "count": 162,
+     "rank": 97
+    },
+    {
+     "id": "δύναμις",
+     "lemma": "δύναμις",
+     "citation": "δύναμις, εως, ἡ",
+     "gloss": "might, power, marvelous works",
+     "pos": "noun",
+     "count": 119,
+     "rank": 140
+    },
+    {
+     "id": "ἀρχιερεύς",
+     "lemma": "ἀρχιερεύς",
+     "citation": "ἀρχιερεύς, έως, ὁ",
+     "gloss": "high priest, chief priest",
+     "pos": "noun",
+     "count": 122,
+     "rank": 137
+    },
+    {
+     "id": "βασιλεύς",
+     "lemma": "βασιλεύς",
+     "citation": "βασιλεύς, έως, ὁ",
+     "gloss": "a king, ruler, emperor",
+     "pos": "noun",
+     "count": 115,
+     "rank": 146
+    },
+    {
+     "id": "γραμματεύς",
+     "lemma": "γραμματεύς",
+     "citation": "γραμματεύς, έως, ὁ",
+     "gloss": "a scribe, town-clerk, man of learning",
+     "pos": "noun",
+     "count": 62,
+     "rank": 256
+    },
+    {
+     "id": "λαός",
+     "lemma": "λαός",
+     "citation": "λαός, οῦ, ὁ",
+     "gloss": "a people, the crowd",
+     "pos": "noun",
+     "count": 141,
+     "rank": 122
+    },
+    {
+     "id": "τόπος",
+     "lemma": "τόπος",
+     "citation": "τόπος, ου, ὁ",
+     "gloss": "a place",
+     "pos": "noun",
+     "count": 94,
+     "rank": 182
+    },
+    {
+     "id": "καιρός",
+     "lemma": "καιρός",
+     "citation": "καιρός, οῦ, ὁ",
+     "gloss": "fitting season, opportunity, time",
+     "pos": "noun",
+     "count": 85,
+     "rank": 200
+    },
+    {
+     "id": "ἀπόστολος",
+     "lemma": "ἀπόστολος",
+     "citation": "ἀπόστολος, ου, ὁ",
+     "gloss": "an apostle, a messenger, an envoy, a delegate",
+     "pos": "noun",
+     "count": 79,
+     "rank": 214
+    },
+    {
+     "id": "θρόνος",
+     "lemma": "θρόνος",
+     "citation": "θρόνος, ου, ὁ",
+     "gloss": "a throne, seat",
+     "pos": "noun",
+     "count": 62,
+     "rank": 259
+    },
+    {
+     "id": "λίθος",
+     "lemma": "λίθος",
+     "citation": "λίθος, ου, ὁ",
+     "gloss": "a stone",
+     "pos": "noun",
+     "count": 58,
+     "rank": 280
+    }
+   ],
+   "paradigms": [
+    "decl3-pistis",
+    "decl3-basileus"
+   ]
+  },
+  {
+   "id": "u04-adjectives-2",
+   "type": "grammar",
+   "label": "πονηρός",
+   "sub": "More nouns and adjectives",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Two-ending adjectives",
+    "body": "Some adjectives (mostly compounds like αἰώνιος) have no separate feminine: ζωὴ αἰώνιος, eternal life, uses the masculine form with a feminine noun. Comparatives and superlatives use -τερος / -τατος or irregular forms (μείζων greater, πλείων more).",
+    "examples": [
+     {
+      "gr": "ζωὴν αἰώνιον",
+      "en": "eternal life"
+     },
+     {
+      "gr": "μακάριοι οἱ πτωχοί",
+      "en": "blessed are the poor"
+     },
+     {
+      "gr": "ἐν ταῖς ἐσχάταις ἡμέραις",
+      "en": "in the last days"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "χρόνος",
+     "lemma": "χρόνος",
+     "citation": "χρόνος, ου, ὁ",
+     "gloss": "time, a particular time, season",
+     "pos": "noun",
+     "count": 53,
+     "rank": 296
+    },
+    {
+     "id": "διδάσκαλος",
+     "lemma": "διδάσκαλος",
+     "citation": "διδάσκαλος, ου, ὁ",
+     "gloss": "a teacher",
+     "pos": "noun",
+     "count": 58,
+     "rank": 278
+    },
+    {
+     "id": "καρπός",
+     "lemma": "καρπός",
+     "citation": "καρπός, οῦ, ὁ",
+     "gloss": "fruit, result, gain",
+     "pos": "noun",
+     "count": 66,
+     "rank": 248
+    },
+    {
+     "id": "κεφαλή",
+     "lemma": "κεφαλή",
+     "citation": "κεφαλή, ῆς, ἡ",
+     "gloss": "the head",
+     "pos": "noun",
+     "count": 75,
+     "rank": 229
+    },
+    {
+     "id": "πονηρός",
+     "lemma": "πονηρός",
+     "citation": "πονηρός, ά, όν",
+     "gloss": "evil, bad, wicked",
+     "pos": "adjective",
+     "count": 78,
+     "rank": 216
+    },
+    {
+     "id": "αἰώνιος",
+     "lemma": "αἰώνιος",
+     "citation": "αἰώνιος, α, ον",
+     "gloss": "eternal, unending",
+     "pos": "adjective",
+     "count": 69,
+     "rank": 239
+    },
+    {
+     "id": "ἀγαπητός",
+     "lemma": "ἀγαπητός",
+     "citation": "ἀγαπητός, ή, όν",
+     "gloss": "loved, beloved",
+     "pos": "adjective",
+     "count": 61,
+     "rank": 267
+    },
+    {
+     "id": "ἔσχατος",
+     "lemma": "ἔσχατος",
+     "citation": "ἔσχατος, η, ον",
+     "gloss": "last, at the last, finally",
+     "pos": "adjective",
+     "count": 52,
+     "rank": 303
+    },
+    {
+     "id": "κακός",
+     "lemma": "κακός",
+     "citation": "κακός, ή, όν",
+     "gloss": "bad, evil",
+     "pos": "adjective",
+     "count": 50,
+     "rank": 306
+    },
+    {
+     "id": "μακάριος",
+     "lemma": "μακάριος",
+     "citation": "μακάριος, α, ον",
+     "gloss": "happy, blessed",
+     "pos": "adjective",
+     "count": 50,
+     "rank": 307
+    },
+    {
+     "id": "τυφλός",
+     "lemma": "τυφλός",
+     "citation": "τυφλός, ή, όν",
+     "gloss": "blind",
+     "pos": "adjective",
+     "count": 50,
+     "rank": 309
+    },
+    {
+     "id": "λοιπός",
+     "lemma": "λοιπός",
+     "citation": "λοιπός, ή, όν",
+     "gloss": "left, left behind, the remainder",
+     "pos": "adjective",
+     "count": 55,
+     "rank": 289
+    }
+   ],
+   "paradigms": [
+    "adj-agathos"
+   ]
+  },
+  {
+   "id": "u04-pas-polus",
+   "type": "grammar",
+   "label": "πᾶς πολύς",
+   "sub": "πᾶς, πολύς, μέγας, εἷς and numbers",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "The big four",
+    "body": "πᾶς (all/every) mixes third-declension masculine/neuter with first-declension feminine. πολύς and μέγας are regular except for four short forms each. εἷς μία ἕν (one) is singular only and gives us οὐδείς. Numbers above four (πέντε, ἑπτά, δώδεκα) do not decline.",
+    "examples": [
+     {
+      "gr": "πάντες οἱ ἄνθρωποι",
+      "en": "all the people"
+     },
+     {
+      "gr": "πολλοὶ δὲ πρῶτοι ἔσχατοι",
+      "en": "but many first will be last"
+     },
+     {
+      "gr": "οἱ δώδεκα",
+      "en": "the Twelve"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "πᾶς",
+     "lemma": "πᾶς",
+     "citation": "πᾶς, πάσα, πᾶν, gen. παντός, πάσης, παντός",
+     "gloss": "all, the whole, every kind of",
+     "pos": "adjective",
+     "count": 1244,
+     "rank": 16
+    },
+    {
+     "id": "πολύς",
+     "lemma": "πολύς",
+     "citation": "πολύς, πολλή, πολύ, gen. πολλοῦ, ῆς, οῦ",
+     "gloss": "much, many, often",
+     "pos": "adjective",
+     "count": 415,
+     "rank": 44
+    },
+    {
+     "id": "μέγας",
+     "lemma": "μέγας",
+     "citation": "μέγας, μεγάλη, μέγα",
+     "gloss": "large, great",
+     "pos": "adjective",
+     "count": 240,
+     "rank": 65
+    },
+    {
+     "id": "εἷς",
+     "lemma": "εἷς",
+     "citation": "εἷς, μία, ἕν, gen. ἑνός, μιᾶς, ἑνός",
+     "gloss": "one",
+     "pos": "adjective",
+     "count": 342,
+     "rank": 50
+    },
+    {
+     "id": "δύο",
+     "lemma": "δύο",
+     "citation": "δύο",
+     "gloss": "two",
+     "pos": "adjective",
+     "count": 135,
+     "rank": 126
+    },
+    {
+     "id": "τρεῖς",
+     "lemma": "τρεῖς",
+     "citation": "τρεῖς, τρία",
+     "gloss": "three",
+     "pos": "adjective",
+     "count": 67,
+     "rank": 245
+    },
+    {
+     "id": "ἑπτά",
+     "lemma": "ἑπτά",
+     "citation": "ἑπτά",
+     "gloss": "seven",
+     "pos": "adjective",
+     "count": 88,
+     "rank": 195
+    },
+    {
+     "id": "δώδεκα",
+     "lemma": "δώδεκα",
+     "citation": "δώδεκα",
+     "gloss": "twelve",
+     "pos": "adjective",
+     "count": 75,
+     "rank": 227
+    },
+    {
+     "id": "τρίτος",
+     "lemma": "τρίτος",
+     "citation": "τρίτος, η, ον",
+     "gloss": "third",
+     "pos": "adjective",
+     "count": 55,
+     "rank": 290
+    }
+   ],
+   "paradigms": [
+    "adj-pas",
+    "adj-polus",
+    "adj-megas",
+    "adj-heis"
+   ]
+  },
+  {
+   "id": "u04-adjectives-3",
+   "type": "grammar",
+   "label": "πρεσβύτερος",
+   "sub": "Possessive and position words",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Substantive adjectives",
+    "body": "With the article an adjective is a noun: οἱ πρεσβύτεροι the elders, τὸ ἱερόν the temple, ἐκ δεξιῶν on the right. ἐμός is the emphatic 'my' (ὁ ἐμὸς λόγος); the unemphatic 'my' is just μου after the noun (ὁ λόγος μου). εὐθύς as an adverb means 'immediately' and drives Mark's Gospel.",
+    "examples": [
+     {
+      "gr": "ἐν μέσῳ αὐτῶν",
+      "en": "in the middle of them"
+     },
+     {
+      "gr": "ἐκ δεξιῶν τοῦ πατρός",
+      "en": "at the right hand of the Father"
+     },
+     {
+      "gr": "καὶ εὐθὺς …",
+      "en": "and immediately …"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "μέσος",
+     "lemma": "μέσος",
+     "citation": "μέσος, η, ον",
+     "gloss": "middle, in the middle",
+     "pos": "adjective",
+     "count": 56,
+     "rank": 283
+    },
+    {
+     "id": "δεξιός",
+     "lemma": "δεξιός",
+     "citation": "δεξιός, ά, όν",
+     "gloss": "on the right hand, right hand, right",
+     "pos": "adjective",
+     "count": 54,
+     "rank": 292
+    },
+    {
+     "id": "ἐμός",
+     "lemma": "ἐμός",
+     "citation": "ἐμός, ή, όν",
+     "gloss": "mine",
+     "pos": "adjective",
+     "count": 76,
+     "rank": 223
+    },
+    {
+     "id": "ἕκαστος",
+     "lemma": "ἕκαστος",
+     "citation": "ἕκαστος, η, ον",
+     "gloss": "each, every one",
+     "pos": "adjective",
+     "count": 81,
+     "rank": 208
+    },
+    {
+     "id": "ἱερός",
+     "lemma": "ἱερός",
+     "citation": "ἱερός, ά, όν",
+     "gloss": "sacred, holy",
+     "pos": "adjective",
+     "count": 73,
+     "rank": 233
+    },
+    {
+     "id": "πρεσβύτερος",
+     "lemma": "πρεσβύτερος",
+     "citation": "πρεσβύτερος, α, ον",
+     "gloss": "elder",
+     "pos": "adjective",
+     "count": 65,
+     "rank": 252
+    },
+    {
+     "id": "εὐθύς",
+     "lemma": "εὐθύς",
+     "citation": "εὐθύς",
+     "gloss": "straight, immediately",
+     "pos": "adjective",
+     "count": 59,
+     "rank": 274
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u04-read-john-1-14",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:14–18",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Third declension in action",
+    "body": "σὰρξ ἐγένετο (became flesh), πλήρης χάριτος καὶ ἀληθείας (full of grace and truth), τοῦ πατρός (of the Father). Almost every word is now yours.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "ἔμπροσθεν",
+     "lemma": "ἔμπροσθεν",
+     "citation": "ἔμπροσθεν",
+     "gloss": "in front, before the face",
+     "pos": "preposition",
+     "count": 48,
+     "rank": 317
+    },
+    {
+     "id": "ὀπίσω",
+     "lemma": "ὀπίσω",
+     "citation": "ὀπίσω",
+     "gloss": "behind, after",
+     "pos": "preposition",
+     "count": 35,
+     "rank": 414
+    },
+    {
+     "id": "θεάομαι",
+     "lemma": "θεάομαι",
+     "citation": "θεάομαι",
+     "gloss": "I see, behold, contemplate, visit",
+     "pos": "verb",
+     "count": 22,
+     "rank": 582
+    },
+    {
+     "id": "ἀντί",
+     "lemma": "ἀντί",
+     "citation": "ἀντί",
+     "gloss": "instead of, for",
+     "pos": "preposition",
+     "count": 22,
+     "rank": 594
+    },
+    {
+     "id": "πλήρωμα",
+     "lemma": "πλήρωμα",
+     "citation": "πλήρωμα, ατος, τό",
+     "gloss": "fullness, fulfillment, completion",
+     "pos": "noun",
+     "count": 17,
+     "rank": 697
+    },
+    {
+     "id": "πλήρης",
+     "lemma": "πλήρης",
+     "citation": "πλήρης, ες",
+     "gloss": "full",
+     "pos": "adjective",
+     "count": 16,
+     "rank": 742
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 14,
+    "to": 18,
+    "verseIds": [
+     "john-1-14",
+     "john-1-15",
+     "john-1-16",
+     "john-1-17",
+     "john-1-18"
+    ],
+    "reference": "John 1:14–18",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 87,
+     "known": 0.908,
+     "schedulable": 0.931
+    }
+   }
+  }
+ ]
+}

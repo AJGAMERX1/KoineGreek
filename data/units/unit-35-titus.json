@@ -1,0 +1,141 @@
+{
+ "id": "unit-35-titus",
+ "index": 35,
+ "kicker": "Book XXXV",
+ "title": "Πρὸς Τίτον",
+ "sub": "Read Titus",
+ "track": "reading",
+ "summary": "Read Titus chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u35-read-1",
+   "type": "reading",
+   "label": "Πρὸς Τίτον",
+   "sub": "Read: Titus 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "titus",
+    "chapter": 1,
+    "from": 1,
+    "to": 16,
+    "verseIds": [
+     "titus-1-1",
+     "titus-1-2",
+     "titus-1-3",
+     "titus-1-4",
+     "titus-1-5",
+     "titus-1-6",
+     "titus-1-7",
+     "titus-1-8",
+     "titus-1-9",
+     "titus-1-10",
+     "titus-1-11",
+     "titus-1-12",
+     "titus-1-13",
+     "titus-1-14",
+     "titus-1-15",
+     "titus-1-16"
+    ],
+    "reference": "Titus 1:1–16",
+    "greekTitle": "Πρὸς Τίτον",
+    "coverage": {
+     "tokens": 251,
+     "known": 0.813,
+     "schedulable": 0.813
+    }
+   }
+  },
+  {
+   "id": "u35-read-2",
+   "type": "reading",
+   "label": "Πρὸς Τίτον",
+   "sub": "Read: Titus 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "titus",
+    "chapter": 2,
+    "from": 1,
+    "to": 15,
+    "verseIds": [
+     "titus-2-1",
+     "titus-2-2",
+     "titus-2-3",
+     "titus-2-4",
+     "titus-2-5",
+     "titus-2-6",
+     "titus-2-7",
+     "titus-2-8",
+     "titus-2-9",
+     "titus-2-10",
+     "titus-2-11",
+     "titus-2-12",
+     "titus-2-13",
+     "titus-2-14",
+     "titus-2-15"
+    ],
+    "reference": "Titus 2:1–15",
+    "greekTitle": "Πρὸς Τίτον",
+    "coverage": {
+     "tokens": 189,
+     "known": 0.799,
+     "schedulable": 0.799
+    }
+   }
+  },
+  {
+   "id": "u35-read-3",
+   "type": "reading",
+   "label": "Πρὸς Τίτον",
+   "sub": "Read: Titus 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "titus",
+    "chapter": 3,
+    "from": 1,
+    "to": 15,
+    "verseIds": [
+     "titus-3-1",
+     "titus-3-2",
+     "titus-3-3",
+     "titus-3-4",
+     "titus-3-5",
+     "titus-3-6",
+     "titus-3-7",
+     "titus-3-8",
+     "titus-3-9",
+     "titus-3-10",
+     "titus-3-11",
+     "titus-3-12",
+     "titus-3-13",
+     "titus-3-14",
+     "titus-3-15"
+    ],
+    "reference": "Titus 3:1–15",
+    "greekTitle": "Πρὸς Τίτον",
+    "coverage": {
+     "tokens": 219,
+     "known": 0.795,
+     "schedulable": 0.795
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Vocab drill</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back to path">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="progress" aria-label="Session progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="drill-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="drill-footer" id="footer" hidden>
+    <button class="btn" id="continueBtn" type="button">Continue</button>
+  </div>
+
+</div>
+
+<script type="module">
+  /*
+    Vocab drill screen. All session rules live in js/drill.js; all rendering
+    in js/session-view.js. This script only sequences the two and persists
+    results through js/storage.js.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { loadLesson, loadLexicon, loadCurriculum } from './js/data.js';
+  import { getProgress, getAllVocabRecords, getVocabItem, updateVocabItem, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { scheduleReview } from './js/srs.js';
+  import { buildSession, makeQuestion, grade, ratingFor, xpFor, feedback, requeue } from './js/drill.js';
+  import { SessionView, escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  const view = new SessionView();
+  const xpStat = document.getElementById('xpStat');
+  xpStat.textContent = getProgress().xp;
+  document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
+
+  const params = new URLSearchParams(location.search);
+  const lessonId = params.get('lesson');
+  const mode = params.get('mode') || (lessonId ? 'lesson' : 'due');
+  // Where to go after the session (e.g. back into a reading lesson that sent us here). Same-origin relative paths only.
+  const returnTo = /^[a-z]+\.html(\?[\w=&%.-]*)?$/i.test(params.get('return') || '') ? params.get('return') : 'index.html';
+
+  const state = {
+    lesson: null, unit: null, lexicon: null, steps: [], index: 0, total: 0, newIds: [],
+    answered: 0, correctFirstTry: 0, xpEarned: 0, missed: new Set(), preferIds: [], unitOfLesson: new Map(),
+  };
+
+  main().catch((err) => {
+    console.error(err);
+    view.renderError(`Could not load this drill: ${err.message}. Run from a local server (see README).`);
+  });
+
+  async function main() {
+    state.lexicon = await loadLexicon();
+    let lessonVocab = [];
+    if (mode === 'lesson') {
+      const { unit, lesson } = await loadLesson(lessonId);
+      state.unit = unit; state.lesson = lesson;
+      lessonVocab = lesson.vocab.map((v) => state.lexicon.byId.get(v.id));
+      state.preferIds = lessonVocab.map((v) => v.id);
+      document.title = `Rhema — ${lesson.sub}`;
+    }
+    const curriculum = await loadCurriculum();
+    curriculum.units.forEach((u) => u.lessons.forEach((l) => state.unitOfLesson.set(l.id, `${u.kicker} · ${u.sub}`)));
+
+    const session = buildSession({ lessonVocab, records: getAllVocabRecords(), lexicon: state.lexicon });
+    state.steps = session.steps;
+    state.total = session.steps.length;
+    state.newIds = session.newIds;
+    if (!state.steps.length) { renderEmpty(); return; }
+    renderStep();
+  }
+
+  function renderStep() {
+    view.setProgress(Math.min(state.index, state.total) / Math.max(state.total, 1));
+    const step = state.steps[state.index];
+    if (!step) { renderSummary(); return; }
+    if (step.kind === 'intro') renderIntro(step); else renderQuestion(step);
+  }
+
+  function kicker(step) {
+    if (step.kind === 'intro') return 'New word';
+    if (step.attempt > 1) return 'Try again';
+    if (step.isNew) return step.secondPass ? 'New word · again' : 'New word';
+    return 'Review';
+  }
+
+  function formatLabel(f) {
+    return { 'gloss-mc': 'choose the meaning', 'greek-mc': 'choose the Greek', 'gloss-type': 'type the meaning', 'greek-type': 'type the Greek' }[f];
+  }
+
+  function renderIntro(step) {
+    const it = step.item;
+    view.renderIntro({
+      kicker: kicker(step),
+      html: `
+        <div class="card prompt">
+          <div class="prompt-main">${escapeHtml(it.lemma)}</div>
+          <div class="intro-citation">${escapeHtml(it.citation)}</div>
+          <div class="intro-gloss">${escapeHtml(it.gloss)}</div>
+          <div class="intro-meta">${escapeHtml(it.pos)} · ${it.count}× in the New Testament · rank ${it.rank}</div>
+        </div>`,
+      note: 'Say it aloud, then continue — you will be asked for it right away.',
+    }, () => { state.index++; renderStep(); });
+  }
+
+  function renderQuestion(step) {
+    const q = makeQuestion(step, state.lexicon, Math.random, state.preferIds);
+    const greekPrompt = q.format === 'gloss-mc' || q.format === 'gloss-type';
+    const spec = { kicker: `${kicker(step)} · ${formatLabel(q.format)}`, prompt: q.prompt, promptGreek: greekPrompt, hint: q.hint };
+    if (q.options) spec.options = q.options.map((o) => ({ id: o.id, text: o.text, greek: q.format === 'greek-mc' }));
+    else spec.typed = { greek: q.format === 'greek-type', placeholder: q.format === 'greek-type' ? 'type in Greek' : 'type the meaning' };
+    view.renderQuestion(spec, (input) => answer(q, input));
+  }
+
+  function answer(q, input) {
+    const result = grade(q, input);
+    const step = q.step;
+    view.markAnswer({ correctId: q.item.id, chosenId: q.options ? input : null, ok: result.correct });
+
+    const rating = ratingFor(q, result);
+    if (rating) {
+      const prev = getVocabItem(q.item.id);
+      const next = scheduleReview(prev, rating);
+      updateVocabItem(q.item.id, { ...next, lapses: ((prev && prev.lapses) || 0) + (result.correct ? 0 : 1), format: q.format });
+    }
+    const xp = xpFor(q, result);
+    if (xp) { state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; }
+    state.answered++;
+    if (result.correct && step.attempt === 1) state.correctFirstTry++;
+    if (!result.correct) {
+      state.missed.add(q.item.id);
+      requeue(state.steps, state.index, step);
+      state.total = state.steps.length;
+    }
+
+    q.item.unitTitle = (state.lesson && state.lesson.vocab.some((v) => v.id === q.item.id)) ? state.unitOfLesson.get(state.lesson.id) : '';
+    const fb = feedback(q, result);
+    view.showFeedback({ ...fb, xp }, () => { state.index++; renderStep(); });
+  }
+
+  function renderEmpty() {
+    view.renderSummary({
+      kicker: 'Review',
+      html: `<div class="card">
+        <div class="rule-title">Nothing is due right now</div>
+        <p class="rule-body" style="color:var(--muted)">Spaced repetition works by waiting. Start the next lesson on the path, or come back when words come due.</p>
+      </div>`,
+    }, () => { location.href = 'index.html'; });
+  }
+
+  function renderSummary() {
+    const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
+    const firstTries = Math.max(state.answered - retries, 1);
+    const accuracy = Math.round((state.correctFirstTry / firstTries) * 100);
+    if (state.answered > 0) recordActivity();
+    // A reading lesson is completed by reading it, not by learning its prep words.
+    if (state.lesson && state.lesson.type !== 'reading' && state.newIds.every((id) => getVocabItem(id))) markLessonCompleted(state.lesson.id);
+    const progress = getProgress();
+    const missed = [...state.missed].map((id) => state.lexicon.byId.get(id));
+    view.renderSummary({
+      html: `<div class="card">
+        <div class="rule-title">${state.lesson ? escapeHtml(state.lesson.sub) : 'Due reviews'}</div>
+        <div class="summary-stats">
+          <div class="summary-stat"><b>${state.newIds.length}</b><span>new words</span></div>
+          <div class="summary-stat"><b>${accuracy}%</b><span>first try</span></div>
+          <div class="summary-stat"><b>+${state.xpEarned}</b><span>xp</span></div>
+        </div>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Every word you answered is now scheduled; the ones you missed come back tomorrow, the rest later.</p>
+        ${missed.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Missed this session</div>` +
+          missed.map((m) => `<div><span class="greek">${escapeHtml(m.lemma)}</span> — ${escapeHtml(m.gloss)}</div>`).join('') + `</div>` : ''}
+      </div>`,
+      buttonLabel: returnTo === 'index.html' ? 'Back to path' : returnTo.startsWith('reading.html') ? 'Continue to the reading' : 'Continue',
+    }, () => { location.href = returnTo; });
+  }
+</script>
+
+</body>
+</html>

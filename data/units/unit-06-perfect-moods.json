@@ -1,0 +1,774 @@
+{
+ "id": "unit-06-perfect-moods",
+ "index": 6,
+ "kicker": "Book VI",
+ "title": "Λέλυκα",
+ "sub": "Perfect tense and the moods",
+ "summary": "The perfect and pluperfect, the subjunctive with ἵνα and ἐάν, the imperative, and John 1:29–42.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u06-perfect",
+   "type": "verb",
+   "label": "λέλυκα",
+   "sub": "The perfect active",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Done, and still true",
+    "body": "Reduplicate (λε-λυ-) and add κα: λέλυκα, λέλυκας, λέλυκε(ν), λελύκαμεν, λελύκατε, λελύκασι(ν). The perfect describes a completed act whose result is present: γέγραπται, it stands written; ἐλήλυθεν, he has come (and is here). Verbs beginning with a vowel lengthen instead of reduplicating (ἀκούω → ἀκήκοα).",
+    "examples": [
+     {
+      "gr": "γέγραπται",
+      "en": "it is written"
+     },
+     {
+      "gr": "πεπιστεύκαμεν",
+      "en": "we have believed / we are convinced"
+     },
+     {
+      "gr": "ἑώρακα τὸν κύριον",
+      "en": "I have seen the Lord"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "γραφή",
+     "lemma": "γραφή",
+     "citation": "γραφή, ῆς, ἡ",
+     "gloss": "a writing, passage of scripture, the scriptures",
+     "pos": "noun",
+     "count": 49,
+     "rank": 310
+    },
+    {
+     "id": "χρεία",
+     "lemma": "χρεία",
+     "citation": "χρεία, ας, ἡ",
+     "gloss": "need, necessity, business",
+     "pos": "noun",
+     "count": 49,
+     "rank": 312
+    },
+    {
+     "id": "ἄρα",
+     "lemma": "ἄρα",
+     "citation": "ἄρα",
+     "gloss": "then, therefore, since",
+     "pos": "conjunction",
+     "count": 49,
+     "rank": 313
+    },
+    {
+     "id": "ἔτος",
+     "lemma": "ἔτος",
+     "citation": "ἔτος, ους, τό",
+     "gloss": "a year",
+     "pos": "noun",
+     "count": 49,
+     "rank": 314
+    },
+    {
+     "id": "φανερόω",
+     "lemma": "φανερόω",
+     "citation": "φανερόω",
+     "gloss": "I make clear, visible, or manifest",
+     "pos": "verb",
+     "count": 48,
+     "rank": 315
+    },
+    {
+     "id": "ἀποδίδωμι",
+     "lemma": "ἀποδίδωμι",
+     "citation": "ἀποδίδωμι",
+     "gloss": "I give back, return, sell",
+     "pos": "verb",
+     "count": 48,
+     "rank": 316
+    },
+    {
+     "id": "κρίσις",
+     "lemma": "κρίσις",
+     "citation": "κρίσις, εως, ἡ",
+     "gloss": "judging, divine judgment",
+     "pos": "noun",
+     "count": 47,
+     "rank": 319
+    },
+    {
+     "id": "κρατέω",
+     "lemma": "κρατέω",
+     "citation": "κρατέω",
+     "gloss": "I lay hold of, obtain",
+     "pos": "verb",
+     "count": 47,
+     "rank": 320
+    },
+    {
+     "id": "οὐκέτι",
+     "lemma": "οὐκέτι",
+     "citation": "οὐκέτι",
+     "gloss": "no longer, no more",
+     "pos": "adverb",
+     "count": 47,
+     "rank": 321
+    },
+    {
+     "id": "ποῦ",
+     "lemma": "ποῦ",
+     "citation": "ποῦ",
+     "gloss": "where, whither",
+     "pos": "adverb",
+     "count": 47,
+     "rank": 322
+    }
+   ],
+   "paradigms": [
+    "perf-act",
+    "plup-act"
+   ]
+  },
+  {
+   "id": "u06-perfect-mp",
+   "type": "verb",
+   "label": "λέλυμαι",
+   "sub": "The perfect middle/passive",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Endings straight onto the stem",
+    "body": "Perfect middle/passive: reduplication + -μαι -σαι -ται -μεθα -σθε -νται with no connecting vowel: λέλυμαι, λέλυσαι, λέλυται. Consonant stems adjust the ending (γέγραπται). οἶδα (I know) is a perfect in form with present meaning.",
+    "examples": [
+     {
+      "gr": "γέγραπται ἐν τῷ νόμῳ",
+      "en": "it is written in the law"
+     },
+     {
+      "gr": "σέσωσθε",
+      "en": "you have been saved"
+     },
+     {
+      "gr": "οἶδα",
+      "en": "I know"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "προσφέρω",
+     "lemma": "προσφέρω",
+     "citation": "προσφέρω",
+     "gloss": "I bring to, offer",
+     "pos": "verb",
+     "count": 47,
+     "rank": 323
+    },
+    {
+     "id": "πρό",
+     "lemma": "πρό",
+     "citation": "πρό",
+     "gloss": "before",
+     "pos": "preposition",
+     "count": 47,
+     "rank": 324
+    },
+    {
+     "id": "φυλακή",
+     "lemma": "φυλακή",
+     "citation": "φυλακή, ῆς, ἡ",
+     "gloss": "a watching, guard, prison, imprisonment",
+     "pos": "noun",
+     "count": 47,
+     "rank": 325
+    },
+    {
+     "id": "φόβος",
+     "lemma": "φόβος",
+     "citation": "φόβος, ου, ὁ",
+     "gloss": "fear, terror, reverence",
+     "pos": "noun",
+     "count": 47,
+     "rank": 326
+    },
+    {
+     "id": "ἁμαρτωλός",
+     "lemma": "ἁμαρτωλός",
+     "citation": "ἁμαρτωλός, όν",
+     "gloss": "sinning, sinful, a sinner",
+     "pos": "adjective",
+     "count": 47,
+     "rank": 327
+    },
+    {
+     "id": "ἄχρι",
+     "lemma": "ἄχρι",
+     "citation": "ἄχρι, ἄχρις",
+     "gloss": "as far as, up to, until",
+     "pos": "preposition",
+     "count": 47,
+     "rank": 328
+    },
+    {
+     "id": "θηρίον",
+     "lemma": "θηρίον",
+     "citation": "θηρίον, ου, τό",
+     "gloss": "a wild beast, animal",
+     "pos": "noun",
+     "count": 46,
+     "rank": 329
+    },
+    {
+     "id": "μικρός",
+     "lemma": "μικρός",
+     "citation": "μικρός, ά, όν",
+     "gloss": "little, small",
+     "pos": "adjective",
+     "count": 46,
+     "rank": 330
+    },
+    {
+     "id": "οὐαί",
+     "lemma": "οὐαί",
+     "citation": "οὐαί",
+     "gloss": "woe!, alas!",
+     "pos": "particle",
+     "count": 46,
+     "rank": 331
+    },
+    {
+     "id": "σταυρόω",
+     "lemma": "σταυρόω",
+     "citation": "σταυρόω",
+     "gloss": "I crucify",
+     "pos": "verb",
+     "count": 46,
+     "rank": 332
+    }
+   ],
+   "paradigms": [
+    "perf-mp"
+   ]
+  },
+  {
+   "id": "u06-subjunctive",
+   "type": "verb",
+   "label": "λύω λύσω",
+   "sub": "The subjunctive mood",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Long vowels, open possibilities",
+    "body": "The subjunctive lengthens the connecting vowel (ω, ῃ, ῃ, ωμεν, ητε, ωσι). It appears after ἵνα (in order that), ἐάν (if), ὅταν (whenever), in exhortations (ἀγαπῶμεν, let us love), in deliberative questions (τί ποιήσωμεν; what should we do?), and in emphatic denials (οὐ μή + aorist subjunctive). Aorist vs present subjunctive is a difference of aspect, not time.",
+    "examples": [
+     {
+      "gr": "ἵνα πιστεύητε",
+      "en": "so that you may believe"
+     },
+     {
+      "gr": "ἐὰν εἴπωμεν",
+      "en": "if we say"
+     },
+     {
+      "gr": "οὐ μὴ ἀπόλωνται",
+      "en": "they will certainly not perish"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "σωτηρία",
+     "lemma": "σωτηρία",
+     "citation": "σωτηρία, ας, ἡ",
+     "gloss": "deliverance, salvation",
+     "pos": "noun",
+     "count": 46,
+     "rank": 333
+    },
+    {
+     "id": "διώκω",
+     "lemma": "διώκω",
+     "citation": "διώκω",
+     "gloss": "I pursue, persecute",
+     "pos": "verb",
+     "count": 45,
+     "rank": 334
+    },
+    {
+     "id": "θλῖψις",
+     "lemma": "θλῖψις",
+     "citation": "θλῖψις, εως, ἡ",
+     "gloss": "persecution, affliction, distress",
+     "pos": "noun",
+     "count": 45,
+     "rank": 335
+    },
+    {
+     "id": "καθίζω",
+     "lemma": "καθίζω",
+     "citation": "καθίζω",
+     "gloss": "I set, make to sit",
+     "pos": "verb",
+     "count": 45,
+     "rank": 336
+    },
+    {
+     "id": "ναός",
+     "lemma": "ναός",
+     "citation": "ναός, οῦ, ὁ",
+     "gloss": "a temple, shrine",
+     "pos": "noun",
+     "count": 45,
+     "rank": 337
+    },
+    {
+     "id": "ἀπαγγέλλω",
+     "lemma": "ἀπαγγέλλω",
+     "citation": "ἀπαγγέλλω",
+     "gloss": "I report, bring a report, announce",
+     "pos": "verb",
+     "count": 45,
+     "rank": 338
+    },
+    {
+     "id": "ὅμοιος",
+     "lemma": "ὅμοιος",
+     "citation": "ὅμοιος, α, ον",
+     "gloss": "like, similar to",
+     "pos": "adjective",
+     "count": 45,
+     "rank": 339
+    },
+    {
+     "id": "δεύτερος",
+     "lemma": "δεύτερος",
+     "citation": "δεύτερος, α, ον",
+     "gloss": "second, in the second place, for the second time",
+     "pos": "adjective",
+     "count": 44,
+     "rank": 340
+    },
+    {
+     "id": "κατοικέω",
+     "lemma": "κατοικέω",
+     "citation": "κατοικέω",
+     "gloss": "I dwell in, settle in, inhabit",
+     "pos": "verb",
+     "count": 44,
+     "rank": 341
+    },
+    {
+     "id": "ἐπιγινώσκω",
+     "lemma": "ἐπιγινώσκω",
+     "citation": "ἐπιγινώσκω",
+     "gloss": "I come to know, discern, recognize",
+     "pos": "verb",
+     "count": 44,
+     "rank": 342
+    }
+   ],
+   "paradigms": [
+    "pres-act-subj",
+    "aor-act-subj",
+    "pres-mp-subj",
+    "aor-pass-subj",
+    "eimi-subj"
+   ]
+  },
+  {
+   "id": "u06-imperative",
+   "type": "verb",
+   "label": "λῦε λῦσον",
+   "sub": "The imperative mood",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Commands and prohibitions",
+    "body": "Present imperative (λῦε, λύετε) = keep doing / make a habit; aorist imperative (λῦσον, λύσατε) = do it. Third-person imperatives (-τω, -τωσαν) mean 'let him / let them'. To forbid: μή + present imperative (stop doing) or μή + aorist subjunctive (don't do).",
+    "examples": [
+     {
+      "gr": "ἀκολούθει μοι",
+      "en": "follow me (and keep following)"
+     },
+     {
+      "gr": "ἄρον τὸν κράβαττόν σου",
+      "en": "pick up your mat"
+     },
+     {
+      "gr": "μὴ φοβοῦ",
+      "en": "do not be afraid"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "Ἰουδαία",
+     "lemma": "Ἰουδαία",
+     "citation": "Ἰουδαία, ας, ἡ",
+     "gloss": "Judea",
+     "pos": "noun",
+     "count": 44,
+     "rank": 343
+    },
+    {
+     "id": "Ἰούδας",
+     "lemma": "Ἰούδας",
+     "citation": "Ἰούδας, α, ὁ",
+     "gloss": "Judah, Judas, Jude",
+     "pos": "noun",
+     "count": 44,
+     "rank": 344
+    },
+    {
+     "id": "γενεά",
+     "lemma": "γενεά",
+     "citation": "γενεά, ᾶς, ἡ",
+     "gloss": "a generation",
+     "pos": "noun",
+     "count": 43,
+     "rank": 345
+    },
+    {
+     "id": "θαυμάζω",
+     "lemma": "θαυμάζω",
+     "citation": "θαυμάζω",
+     "gloss": "I wonder, admire",
+     "pos": "verb",
+     "count": 43,
+     "rank": 346
+    },
+    {
+     "id": "θεραπεύω",
+     "lemma": "θεραπεύω",
+     "citation": "θεραπεύω",
+     "gloss": "I care for, attend, serve, heal",
+     "pos": "verb",
+     "count": 43,
+     "rank": 347
+    },
+    {
+     "id": "σπέρμα",
+     "lemma": "σπέρμα",
+     "citation": "σπέρμα, ατος, τό",
+     "gloss": "seed, offspring",
+     "pos": "noun",
+     "count": 43,
+     "rank": 349
+    },
+    {
+     "id": "φωνέω",
+     "lemma": "φωνέω",
+     "citation": "φωνέω",
+     "gloss": "I crow, shout, summon",
+     "pos": "verb",
+     "count": 43,
+     "rank": 350
+    },
+    {
+     "id": "Ἡρῴδης",
+     "lemma": "Ἡρῴδης",
+     "citation": "Ἡρῴδης, ου, ὁ",
+     "gloss": "Herod",
+     "pos": "noun",
+     "count": 43,
+     "rank": 351
+    },
+    {
+     "id": "καινός",
+     "lemma": "καινός",
+     "citation": "καινός, ή, όν",
+     "gloss": "fresh, new",
+     "pos": "adjective",
+     "count": 42,
+     "rank": 352
+    },
+    {
+     "id": "μέρος",
+     "lemma": "μέρος",
+     "citation": "μέρος, ους, τό",
+     "gloss": "a part, portion",
+     "pos": "noun",
+     "count": 42,
+     "rank": 354
+    }
+   ],
+   "paradigms": [
+    "pres-act-impv",
+    "aor-act-impv",
+    "pres-mp-impv",
+    "aor-pass-impv"
+   ]
+  },
+  {
+   "id": "u06-infinitive-uses",
+   "type": "verb",
+   "label": "τοῦ λῦσαι",
+   "sub": "Using the infinitive",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "The articular infinitive",
+    "body": "With a preposition and the neuter article, the infinitive becomes a clause: ἐν τῷ + infinitive 'while …', διὰ τό 'because …', εἰς τό / πρὸς τό 'in order to', μετὰ τό 'after …', τοῦ + infinitive 'in order to'. Indirect speech can use the infinitive with its subject in the accusative.",
+    "examples": [
+     {
+      "gr": "ἐν τῷ σπείρειν αὐτόν",
+      "en": "while he was sowing"
+     },
+     {
+      "gr": "εἰς τὸ σωθῆναι",
+      "en": "in order to be saved"
+     },
+     {
+      "gr": "μετὰ τὸ ἐγερθῆναί με",
+      "en": "after I am raised"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "πάσχω",
+     "lemma": "πάσχω",
+     "citation": "πάσχω",
+     "gloss": "I am acted upon, suffer",
+     "pos": "verb",
+     "count": 42,
+     "rank": 355
+    },
+    {
+     "id": "ἀνάστασις",
+     "lemma": "ἀνάστασις",
+     "citation": "ἀνάστασις, εως, ἡ",
+     "gloss": "a rising again, resurrection",
+     "pos": "noun",
+     "count": 42,
+     "rank": 357
+    },
+    {
+     "id": "ἁμαρτάνω",
+     "lemma": "ἁμαρτάνω",
+     "citation": "ἁμαρτάνω",
+     "gloss": "I sin",
+     "pos": "verb",
+     "count": 42,
+     "rank": 358
+    },
+    {
+     "id": "ἐγγίζω",
+     "lemma": "ἐγγίζω",
+     "citation": "ἐγγίζω",
+     "gloss": "I come near, approach",
+     "pos": "verb",
+     "count": 42,
+     "rank": 359
+    },
+    {
+     "id": "Ἰάκωβος",
+     "lemma": "Ἰάκωβος",
+     "citation": "Ἰάκωβος, ου, ὁ",
+     "gloss": "James",
+     "pos": "noun",
+     "count": 42,
+     "rank": 360
+    },
+    {
+     "id": "διέρχομαι",
+     "lemma": "διέρχομαι",
+     "citation": "διέρχομαι",
+     "gloss": "I pass through, spread a report",
+     "pos": "verb",
+     "count": 41,
+     "rank": 361
+    },
+    {
+     "id": "εὐλογέω",
+     "lemma": "εὐλογέω",
+     "citation": "εὐλογέω",
+     "gloss": "I bless",
+     "pos": "verb",
+     "count": 41,
+     "rank": 362
+    },
+    {
+     "id": "πάντοτε",
+     "lemma": "πάντοτε",
+     "citation": "πάντοτε",
+     "gloss": "always, at all times",
+     "pos": "adverb",
+     "count": 41,
+     "rank": 363
+    },
+    {
+     "id": "παρίστημι",
+     "lemma": "παρίστημι",
+     "citation": "παρίστημι/παριστάνω",
+     "gloss": "I bring, present, come up to and stand by",
+     "pos": "verb",
+     "count": 41,
+     "rank": 364
+    },
+    {
+     "id": "σήμερον",
+     "lemma": "σήμερον",
+     "citation": "σήμερον",
+     "gloss": "today, now",
+     "pos": "adverb",
+     "count": 41,
+     "rank": 365
+    }
+   ],
+   "paradigms": [
+    "infinitives"
+   ]
+  },
+  {
+   "id": "u06-read-john-1-29",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:29–42",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Perfects and commands",
+    "body": "ἴδε (look!), ἑώρακα (I have seen), μεμαρτύρηκα (I have testified), ἔρχεσθε καὶ ὄψεσθε (come and you will see). Read the whole scene before revealing anything.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "ἴδε",
+     "lemma": "ἴδε",
+     "citation": "ἴδε",
+     "gloss": "See! Lo! Behold! Look!",
+     "pos": "particle",
+     "count": 30,
+     "rank": 463
+    },
+    {
+     "id": "ἐκλεκτός",
+     "lemma": "ἐκλεκτός",
+     "citation": "ἐκλεκτός, ή, όν",
+     "gloss": "chosen, elect, choice, select",
+     "pos": "adjective",
+     "count": 23,
+     "rank": 577
+    },
+    {
+     "id": "στρέφω",
+     "lemma": "στρέφω",
+     "citation": "στρέφω",
+     "gloss": "I turn, am converted, change",
+     "pos": "verb",
+     "count": 21,
+     "rank": 607
+    },
+    {
+     "id": "ἐπαύριον",
+     "lemma": "ἐπαύριον",
+     "citation": "ἐπαύριον",
+     "gloss": "tomorrow",
+     "pos": "adverb",
+     "count": 17,
+     "rank": 711
+    },
+    {
+     "id": "ῥαββί",
+     "lemma": "ῥαββί",
+     "citation": "ῥαββί",
+     "gloss": "Rabbi, my master, teacher",
+     "pos": "noun",
+     "count": 15,
+     "rank": 803
+    },
+    {
+     "id": "Ἀνδρέας",
+     "lemma": "Ἀνδρέας",
+     "citation": "Ἀνδρέας, ου, ὁ",
+     "gloss": "Andrew",
+     "pos": "noun",
+     "count": 13,
+     "rank": 892
+    },
+    {
+     "id": "ἐμβλέπω",
+     "lemma": "ἐμβλέπω",
+     "citation": "ἐμβλέπω",
+     "gloss": "I look into, look upon",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1030
+    },
+    {
+     "id": "περιστερά",
+     "lemma": "περιστερά",
+     "citation": "περιστερά, ᾶς, ἡ",
+     "gloss": "a dove",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1067
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 29,
+    "to": 42,
+    "verseIds": [
+     "john-1-29",
+     "john-1-30",
+     "john-1-31",
+     "john-1-32",
+     "john-1-33",
+     "john-1-34",
+     "john-1-35",
+     "john-1-36",
+     "john-1-37",
+     "john-1-38",
+     "john-1-39",
+     "john-1-40",
+     "john-1-41",
+     "john-1-42"
+    ],
+    "reference": "John 1:29–42",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 251,
+     "known": 0.956,
+     "schedulable": 0.968
+    }
+   }
+  }
+ ]
+}

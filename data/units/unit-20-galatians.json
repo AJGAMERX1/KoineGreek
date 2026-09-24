@@ -1,0 +1,493 @@
+{
+ "id": "unit-20-galatians",
+ "index": 20,
+ "kicker": "Book XX",
+ "title": "Πρὸς Γαλάτας",
+ "sub": "Read Galatians",
+ "track": "reading",
+ "summary": "Read Galatians chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u20-vocab-1-1",
+   "type": "vocab",
+   "label": "Δαμασκός",
+   "sub": "New words for Galatians 1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Δαμασκός",
+     "lemma": "Δαμασκός",
+     "citation": "Δαμασκός, ού, ἡ",
+     "gloss": "Damascus",
+     "pos": "noun",
+     "count": 15,
+     "rank": 758
+    },
+    {
+     "id": "ἀναστροφή",
+     "lemma": "ἀναστροφή",
+     "citation": "ἀναστροφή, ῆς, ἡ",
+     "gloss": "behavior, manner of life",
+     "pos": "noun",
+     "count": 13,
+     "rank": 890
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u20-read-1",
+   "type": "reading",
+   "label": "Πρὸς Γαλάτας",
+   "sub": "Read: Galatians 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "galatians",
+    "chapter": 1,
+    "from": 1,
+    "to": 24,
+    "verseIds": [
+     "galatians-1-1",
+     "galatians-1-2",
+     "galatians-1-3",
+     "galatians-1-4",
+     "galatians-1-5",
+     "galatians-1-6",
+     "galatians-1-7",
+     "galatians-1-8",
+     "galatians-1-9",
+     "galatians-1-10",
+     "galatians-1-11",
+     "galatians-1-12",
+     "galatians-1-13",
+     "galatians-1-14",
+     "galatians-1-15",
+     "galatians-1-16",
+     "galatians-1-17",
+     "galatians-1-18",
+     "galatians-1-19",
+     "galatians-1-20",
+     "galatians-1-21",
+     "galatians-1-22",
+     "galatians-1-23",
+     "galatians-1-24"
+    ],
+    "reference": "Galatians 1:1–24",
+    "greekTitle": "Πρὸς Γαλάτας",
+    "coverage": {
+     "tokens": 362,
+     "known": 0.928,
+     "schedulable": 0.928
+    }
+   }
+  },
+  {
+   "id": "u20-vocab-2-1",
+   "type": "vocab",
+   "label": "Ἀντιόχεια",
+   "sub": "New words for Galatians 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Ἀντιόχεια",
+     "lemma": "Ἀντιόχεια",
+     "citation": "Ἀντιόχεια, ας, ἡ",
+     "gloss": "Antioch",
+     "pos": "noun",
+     "count": 18,
+     "rank": 682
+    },
+    {
+     "id": "Τίτος",
+     "lemma": "Τίτος",
+     "citation": "Τίτος, ου, ὁ",
+     "gloss": "Titus",
+     "pos": "noun",
+     "count": 13,
+     "rank": 862
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u20-read-2",
+   "type": "reading",
+   "label": "Πρὸς Γαλάτας",
+   "sub": "Read: Galatians 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "galatians",
+    "chapter": 2,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "galatians-2-1",
+     "galatians-2-2",
+     "galatians-2-3",
+     "galatians-2-4",
+     "galatians-2-5",
+     "galatians-2-6",
+     "galatians-2-7",
+     "galatians-2-8",
+     "galatians-2-9",
+     "galatians-2-10",
+     "galatians-2-11",
+     "galatians-2-12",
+     "galatians-2-13",
+     "galatians-2-14",
+     "galatians-2-15",
+     "galatians-2-16",
+     "galatians-2-17",
+     "galatians-2-18",
+     "galatians-2-19",
+     "galatians-2-20",
+     "galatians-2-21"
+    ],
+    "reference": "Galatians 2:1–21",
+    "greekTitle": "Πρὸς Γαλάτας",
+    "coverage": {
+     "tokens": 385,
+     "known": 0.906,
+     "schedulable": 0.906
+    }
+   }
+  },
+  {
+   "id": "u20-vocab-3-1",
+   "type": "vocab",
+   "label": "ἐπιτελέω",
+   "sub": "New words for Galatians 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐπιτελέω",
+     "lemma": "ἐπιτελέω",
+     "citation": "ἐπιτελέω",
+     "gloss": "I complete, accomplish, perfect",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1114
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u20-read-3",
+   "type": "reading",
+   "label": "Πρὸς Γαλάτας",
+   "sub": "Read: Galatians 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "galatians",
+    "chapter": 3,
+    "from": 1,
+    "to": 29,
+    "verseIds": [
+     "galatians-3-1",
+     "galatians-3-2",
+     "galatians-3-3",
+     "galatians-3-4",
+     "galatians-3-5",
+     "galatians-3-6",
+     "galatians-3-7",
+     "galatians-3-8",
+     "galatians-3-9",
+     "galatians-3-10",
+     "galatians-3-11",
+     "galatians-3-12",
+     "galatians-3-13",
+     "galatians-3-14",
+     "galatians-3-15",
+     "galatians-3-16",
+     "galatians-3-17",
+     "galatians-3-18",
+     "galatians-3-19",
+     "galatians-3-20",
+     "galatians-3-21",
+     "galatians-3-22",
+     "galatians-3-23",
+     "galatians-3-24",
+     "galatians-3-25",
+     "galatians-3-26",
+     "galatians-3-27",
+     "galatians-3-28",
+     "galatians-3-29"
+    ],
+    "reference": "Galatians 3:1–29",
+    "greekTitle": "Πρὸς Γαλάτας",
+    "coverage": {
+     "tokens": 455,
+     "known": 0.908,
+     "schedulable": 0.908
+    }
+   }
+  },
+  {
+   "id": "u20-read-4",
+   "type": "reading",
+   "label": "Πρὸς Γαλάτας",
+   "sub": "Read: Galatians 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "galatians",
+    "chapter": 4,
+    "from": 1,
+    "to": 31,
+    "verseIds": [
+     "galatians-4-1",
+     "galatians-4-2",
+     "galatians-4-3",
+     "galatians-4-4",
+     "galatians-4-5",
+     "galatians-4-6",
+     "galatians-4-7",
+     "galatians-4-8",
+     "galatians-4-9",
+     "galatians-4-10",
+     "galatians-4-11",
+     "galatians-4-12",
+     "galatians-4-13",
+     "galatians-4-14",
+     "galatians-4-15",
+     "galatians-4-16",
+     "galatians-4-17",
+     "galatians-4-18",
+     "galatians-4-19",
+     "galatians-4-20",
+     "galatians-4-21",
+     "galatians-4-22",
+     "galatians-4-23",
+     "galatians-4-24",
+     "galatians-4-25",
+     "galatians-4-26",
+     "galatians-4-27",
+     "galatians-4-28",
+     "galatians-4-29",
+     "galatians-4-30",
+     "galatians-4-31"
+    ],
+    "reference": "Galatians 4:1–31",
+    "greekTitle": "Πρὸς Γαλάτας",
+    "coverage": {
+     "tokens": 444,
+     "known": 0.932,
+     "schedulable": 0.932
+    }
+   }
+  },
+  {
+   "id": "u20-vocab-5-1",
+   "type": "vocab",
+   "label": "πάθημα",
+   "sub": "New words for Galatians 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πάθημα",
+     "lemma": "πάθημα",
+     "citation": "πάθημα, ατος, τό",
+     "gloss": "suffering, passion",
+     "pos": "noun",
+     "count": 16,
+     "rank": 740
+    },
+    {
+     "id": "μακροθυμία",
+     "lemma": "μακροθυμία",
+     "citation": "μακροθυμία, ας, ἡ",
+     "gloss": "patience, forbearance",
+     "pos": "noun",
+     "count": 14,
+     "rank": 819
+    },
+    {
+     "id": "χρηστότης",
+     "lemma": "χρηστότης",
+     "citation": "χρηστότης, ητος, ἡ",
+     "gloss": "goodness, benignity, kindness",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1083
+    },
+    {
+     "id": "ἐκπίπτω",
+     "lemma": "ἐκπίπτω",
+     "citation": "ἐκπίπτω",
+     "gloss": "I fall out, fall off, fall away, fade away, wither away",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1108
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u20-read-5",
+   "type": "reading",
+   "label": "Πρὸς Γαλάτας",
+   "sub": "Read: Galatians 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "galatians",
+    "chapter": 5,
+    "from": 1,
+    "to": 26,
+    "verseIds": [
+     "galatians-5-1",
+     "galatians-5-2",
+     "galatians-5-3",
+     "galatians-5-4",
+     "galatians-5-5",
+     "galatians-5-6",
+     "galatians-5-7",
+     "galatians-5-8",
+     "galatians-5-9",
+     "galatians-5-10",
+     "galatians-5-11",
+     "galatians-5-12",
+     "galatians-5-13",
+     "galatians-5-14",
+     "galatians-5-15",
+     "galatians-5-16",
+     "galatians-5-17",
+     "galatians-5-18",
+     "galatians-5-19",
+     "galatians-5-20",
+     "galatians-5-21",
+     "galatians-5-22",
+     "galatians-5-23",
+     "galatians-5-24",
+     "galatians-5-25",
+     "galatians-5-26"
+    ],
+    "reference": "Galatians 5:1–26",
+    "greekTitle": "Πρὸς Γαλάτας",
+    "coverage": {
+     "tokens": 313,
+     "known": 0.888,
+     "schedulable": 0.888
+    }
+   }
+  },
+  {
+   "id": "u20-vocab-6-1",
+   "type": "vocab",
+   "label": "μάλιστα",
+   "sub": "New words for Galatians 6",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "μάλιστα",
+     "lemma": "μάλιστα",
+     "citation": "μάλιστα",
+     "gloss": "most of all, especially",
+     "pos": "adverb",
+     "count": 12,
+     "rank": 924
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u20-read-6",
+   "type": "reading",
+   "label": "Πρὸς Γαλάτας",
+   "sub": "Read: Galatians 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "galatians",
+    "chapter": 6,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "galatians-6-1",
+     "galatians-6-2",
+     "galatians-6-3",
+     "galatians-6-4",
+     "galatians-6-5",
+     "galatians-6-6",
+     "galatians-6-7",
+     "galatians-6-8",
+     "galatians-6-9",
+     "galatians-6-10",
+     "galatians-6-11",
+     "galatians-6-12",
+     "galatians-6-13",
+     "galatians-6-14",
+     "galatians-6-15",
+     "galatians-6-16",
+     "galatians-6-17",
+     "galatians-6-18"
+    ],
+    "reference": "Galatians 6:1–18",
+    "greekTitle": "Πρὸς Γαλάτας",
+    "coverage": {
+     "tokens": 267,
+     "known": 0.925,
+     "schedulable": 0.925
+    }
+   }
+  }
+ ]
+}

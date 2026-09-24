@@ -1,0 +1,271 @@
+{
+ "id": "unit-14-2-thessalonians",
+ "index": 14,
+ "kicker": "Book XIV",
+ "title": "Πρὸς Θεσσαλονικεῖς Βʹ",
+ "sub": "Read 2 Thessalonians",
+ "track": "reading",
+ "summary": "Read 2 Thessalonians chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u14-vocab-1-1",
+   "type": "vocab",
+   "label": "Τιμόθεος",
+   "sub": "New words for 2 Thessalonians 1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Τιμόθεος",
+     "lemma": "Τιμόθεος",
+     "citation": "Τιμόθεος, ου, ὁ",
+     "gloss": "Timothy",
+     "pos": "noun",
+     "count": 24,
+     "rank": 543
+    },
+    {
+     "id": "ἀποκάλυψις",
+     "lemma": "ἀποκάλυψις",
+     "citation": "ἀποκάλυψις, εως, ἡ",
+     "gloss": "an unveiling, uncovering, revealing",
+     "pos": "noun",
+     "count": 17,
+     "rank": 705
+    },
+    {
+     "id": "κλῆσις",
+     "lemma": "κλῆσις",
+     "citation": "κλῆσις, εως, ἡ",
+     "gloss": "a calling, summons",
+     "pos": "noun",
+     "count": 11,
+     "rank": 990
+    },
+    {
+     "id": "ἰσχύς",
+     "lemma": "ἰσχύς",
+     "citation": "ἰσχύς, ύος, ἡ",
+     "gloss": "strength, power",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1117
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u14-read-1",
+   "type": "reading",
+   "label": "Πρὸς Θεσσαλονικεῖς Βʹ",
+   "sub": "Read: 2 Thessalonians 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-thessalonians",
+    "chapter": 1,
+    "from": 1,
+    "to": 12,
+    "verseIds": [
+     "2-thessalonians-1-1",
+     "2-thessalonians-1-2",
+     "2-thessalonians-1-3",
+     "2-thessalonians-1-4",
+     "2-thessalonians-1-5",
+     "2-thessalonians-1-6",
+     "2-thessalonians-1-7",
+     "2-thessalonians-1-8",
+     "2-thessalonians-1-9",
+     "2-thessalonians-1-10",
+     "2-thessalonians-1-11",
+     "2-thessalonians-1-12"
+    ],
+    "reference": "2 Thessalonians 1:1–12",
+    "greekTitle": "Πρὸς Θεσσαλονικεῖς Βʹ",
+    "coverage": {
+     "tokens": 234,
+     "known": 0.915,
+     "schedulable": 0.915
+    }
+   }
+  },
+  {
+   "id": "u14-vocab-2-1",
+   "type": "vocab",
+   "label": "παράκλησις",
+   "sub": "New words for 2 Thessalonians 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "παράκλησις",
+     "lemma": "παράκλησις",
+     "citation": "παράκλησις, εως, ἡ",
+     "gloss": "exhortation, entreaty, encouragement, comfort",
+     "pos": "noun",
+     "count": 29,
+     "rank": 471
+    },
+    {
+     "id": "καταργέω",
+     "lemma": "καταργέω",
+     "citation": "καταργέω",
+     "gloss": "I bring to naught, sever, abolish",
+     "pos": "verb",
+     "count": 27,
+     "rank": 497
+    },
+    {
+     "id": "νοῦς",
+     "lemma": "νοῦς",
+     "citation": "νοῦς, νοός, ὁ, acc. νοῦν, dat. νοΐ",
+     "gloss": "the mind, reasoning faculty",
+     "pos": "noun",
+     "count": 24,
+     "rank": 546
+    },
+    {
+     "id": "ἐπιστολή",
+     "lemma": "ἐπιστολή",
+     "citation": "ἐπιστολή, ῆς, ἡ",
+     "gloss": "a letter, dispatch, epistle",
+     "pos": "noun",
+     "count": 24,
+     "rank": 556
+    },
+    {
+     "id": "κατέχω",
+     "lemma": "κατέχω",
+     "citation": "κατέχω",
+     "gloss": "I hold fast, bind, restrain",
+     "pos": "verb",
+     "count": 17,
+     "rank": 689
+    },
+    {
+     "id": "στηρίζω",
+     "lemma": "στηρίζω",
+     "citation": "στηρίζω",
+     "gloss": "I fix firmly, strengthen",
+     "pos": "verb",
+     "count": 13,
+     "rank": 882
+    },
+    {
+     "id": "ἁγιασμός",
+     "lemma": "ἁγιασμός",
+     "citation": "ἁγιασμός, οῦ, ὁ",
+     "gloss": "sanctification, holiness",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1102
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u14-read-2",
+   "type": "reading",
+   "label": "Πρὸς Θεσσαλονικεῖς Βʹ",
+   "sub": "Read: 2 Thessalonians 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-thessalonians",
+    "chapter": 2,
+    "from": 1,
+    "to": 17,
+    "verseIds": [
+     "2-thessalonians-2-1",
+     "2-thessalonians-2-2",
+     "2-thessalonians-2-3",
+     "2-thessalonians-2-4",
+     "2-thessalonians-2-5",
+     "2-thessalonians-2-6",
+     "2-thessalonians-2-7",
+     "2-thessalonians-2-8",
+     "2-thessalonians-2-9",
+     "2-thessalonians-2-10",
+     "2-thessalonians-2-11",
+     "2-thessalonians-2-12",
+     "2-thessalonians-2-13",
+     "2-thessalonians-2-14",
+     "2-thessalonians-2-15",
+     "2-thessalonians-2-16",
+     "2-thessalonians-2-17"
+    ],
+    "reference": "2 Thessalonians 2:1–17",
+    "greekTitle": "Πρὸς Θεσσαλονικεῖς Βʹ",
+    "coverage": {
+     "tokens": 312,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u14-read-3",
+   "type": "reading",
+   "label": "Πρὸς Θεσσαλονικεῖς Βʹ",
+   "sub": "Read: 2 Thessalonians 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-thessalonians",
+    "chapter": 3,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "2-thessalonians-3-1",
+     "2-thessalonians-3-2",
+     "2-thessalonians-3-3",
+     "2-thessalonians-3-4",
+     "2-thessalonians-3-5",
+     "2-thessalonians-3-6",
+     "2-thessalonians-3-7",
+     "2-thessalonians-3-8",
+     "2-thessalonians-3-9",
+     "2-thessalonians-3-10",
+     "2-thessalonians-3-11",
+     "2-thessalonians-3-12",
+     "2-thessalonians-3-13",
+     "2-thessalonians-3-14",
+     "2-thessalonians-3-15",
+     "2-thessalonians-3-16",
+     "2-thessalonians-3-17",
+     "2-thessalonians-3-18"
+    ],
+    "reference": "2 Thessalonians 3:1–18",
+    "greekTitle": "Πρὸς Θεσσαλονικεῖς Βʹ",
+    "coverage": {
+     "tokens": 274,
+     "known": 0.931,
+     "schedulable": 0.931
+    }
+   }
+  }
+ ]
+}

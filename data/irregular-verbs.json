@@ -1,0 +1,603 @@
+{
+ "_meta": {
+  "parts": [
+   "present",
+   "future",
+   "aorist active",
+   "perfect active",
+   "perfect middle/passive",
+   "aorist passive"
+  ],
+  "note": "Hand-curated reference grammar; glosses/counts from the lexicon. null = not used in the NT."
+ },
+ "verbs": [
+  {
+   "lemma": "εἰμί",
+   "parts": [
+    "εἰμί",
+    "ἔσομαι",
+    null,
+    null,
+    null,
+    null
+   ],
+   "note": "Imperfect ἦν / ἤμην. No aorist, perfect or passive.",
+   "gloss": "I am, exist",
+   "count": 2456
+  },
+  {
+   "lemma": "λέγω",
+   "parts": [
+    "λέγω",
+    "ἐρῶ",
+    "εἶπον",
+    "εἴρηκα",
+    "εἴρημαι",
+    "ἐρρέθην"
+   ],
+   "note": "Three different roots (λεγ-, ἐρ-, εἰπ-). εἶπεν 'he said' is everywhere.",
+   "gloss": "I say, speak",
+   "count": 2345
+  },
+  {
+   "lemma": "ἔρχομαι",
+   "parts": [
+    "ἔρχομαι",
+    "ἐλεύσομαι",
+    "ἦλθον",
+    "ἐλήλυθα",
+    null,
+    null
+   ],
+   "note": "Deponent present, second aorist ἦλθον on a different root.",
+   "gloss": "I come, go",
+   "count": 631
+  },
+  {
+   "lemma": "ὁράω",
+   "parts": [
+    "ὁράω",
+    "ὄψομαι",
+    "εἶδον",
+    "ἑώρακα",
+    null,
+    "ὤφθην"
+   ],
+   "note": "εἶδον 'I saw' is the aorist; ὤφθη 'he appeared / was seen'.",
+   "gloss": "I see, look upon, experience",
+   "count": 476
+  },
+  {
+   "lemma": "γίνομαι",
+   "parts": [
+    "γίνομαι",
+    "γενήσομαι",
+    "ἐγενόμην",
+    "γέγονα",
+    "γεγένημαι",
+    "ἐγενήθην"
+   ],
+   "note": "ἐγένετο 'it came to pass'. Perfect γέγονα is active in form.",
+   "gloss": "I come into being, am born",
+   "count": 667
+  },
+  {
+   "lemma": "ἔχω",
+   "parts": [
+    "ἔχω",
+    "ἕξω",
+    "ἔσχον",
+    "ἔσχηκα",
+    null,
+    null
+   ],
+   "note": "Imperfect εἶχον (irregular augment). Future ἕξω gains a rough breathing.",
+   "gloss": "I have, hold, possess",
+   "count": 706
+  },
+  {
+   "lemma": "λαμβάνω",
+   "parts": [
+    "λαμβάνω",
+    "λήμψομαι",
+    "ἔλαβον",
+    "εἴληφα",
+    null,
+    "ἐλήμφθην"
+   ],
+   "note": "Root λαβ-; the present adds μ and -αν-.",
+   "gloss": "I receive, take",
+   "count": 258
+  },
+  {
+   "lemma": "οἶδα",
+   "parts": [
+    "οἶδα",
+    "εἰδήσω",
+    null,
+    "οἶδα",
+    null,
+    null
+   ],
+   "note": "Perfect form, present meaning 'I know'; pluperfect ᾔδειν = 'I knew'.",
+   "gloss": "I know, remember",
+   "count": 296
+  },
+  {
+   "lemma": "φέρω",
+   "parts": [
+    "φέρω",
+    "οἴσω",
+    "ἤνεγκα",
+    "ἐνήνοχα",
+    null,
+    "ἠνέχθην"
+   ],
+   "note": "Three roots: φερ-, οἰ-, ἐνεκ-.",
+   "gloss": "I carry, bear, bring, lead",
+   "count": 66
+  },
+  {
+   "lemma": "ἐσθίω",
+   "parts": [
+    "ἐσθίω",
+    "φάγομαι",
+    "ἔφαγον",
+    null,
+    null,
+    null
+   ],
+   "note": "Aorist on the root φαγ-.",
+   "gloss": "I eat",
+   "count": 157
+  },
+  {
+   "lemma": "πίνω",
+   "parts": [
+    "πίνω",
+    "πίομαι",
+    "ἔπιον",
+    "πέπωκα",
+    null,
+    "ἐπόθην"
+   ],
+   "note": "Aorist stem πι-.",
+   "gloss": "I drink, imbibe",
+   "count": 72
+  },
+  {
+   "lemma": "γινώσκω",
+   "parts": [
+    "γινώσκω",
+    "γνώσομαι",
+    "ἔγνων",
+    "ἔγνωκα",
+    "ἔγνωσμαι",
+    "ἐγνώσθην"
+   ],
+   "note": "Root aorist ἔγνων, ἔγνως, ἔγνω, ἔγνωμεν, ἔγνωτε, ἔγνωσαν.",
+   "gloss": "I come to know, learn, realize",
+   "count": 221
+  },
+  {
+   "lemma": "δίδωμι",
+   "parts": [
+    "δίδωμι",
+    "δώσω",
+    "ἔδωκα",
+    "δέδωκα",
+    "δέδομαι",
+    "ἐδόθην"
+   ],
+   "note": "κ-aorist ἔδωκα.",
+   "gloss": "I offer, give",
+   "count": 415
+  },
+  {
+   "lemma": "τίθημι",
+   "parts": [
+    "τίθημι",
+    "θήσω",
+    "ἔθηκα",
+    "τέθεικα",
+    "τέθειμαι",
+    "ἐτέθην"
+   ],
+   "note": "κ-aorist ἔθηκα.",
+   "gloss": "I put, place",
+   "count": 100
+  },
+  {
+   "lemma": "ἵστημι",
+   "parts": [
+    "ἵστημι",
+    "στήσω",
+    "ἔστησα / ἔστην",
+    "ἕστηκα",
+    null,
+    "ἐστάθην"
+   ],
+   "note": "First aorist ἔστησα is transitive (I set); second aorist ἔστην and perfect ἕστηκα are intransitive (I stood / I stand).",
+   "gloss": "I cause to stand, stand",
+   "count": 153
+  },
+  {
+   "lemma": "ἀφίημι",
+   "parts": [
+    "ἀφίημι",
+    "ἀφήσω",
+    "ἀφῆκα",
+    null,
+    "ἀφέωμαι",
+    "ἀφέθην"
+   ],
+   "note": "ἀφέωνται 'they are forgiven'.",
+   "gloss": "I send away, release, remit, forgive, permit",
+   "count": 143
+  },
+  {
+   "lemma": "ἀποθνῄσκω",
+   "parts": [
+    "ἀποθνῄσκω",
+    "ἀποθανοῦμαι",
+    "ἀπέθανον",
+    null,
+    null,
+    null
+   ],
+   "note": "Root θαν-; liquid future.",
+   "gloss": "I am dying, am about to die",
+   "count": 111
+  },
+  {
+   "lemma": "ἐγείρω",
+   "parts": [
+    "ἐγείρω",
+    "ἐγερῶ",
+    "ἤγειρα",
+    null,
+    "ἐγήγερμαι",
+    "ἠγέρθην"
+   ],
+   "note": "ἠγέρθη 'he was raised / he rose'.",
+   "gloss": "I wake, arouse, raise up",
+   "count": 143
+  },
+  {
+   "lemma": "ἀποστέλλω",
+   "parts": [
+    "ἀποστέλλω",
+    "ἀποστελῶ",
+    "ἀπέστειλα",
+    "ἀπέσταλκα",
+    "ἀπέσταλμαι",
+    "ἀπεστάλην"
+   ],
+   "note": "Liquid verb: no σ in future/aorist; second aorist passive without θ.",
+   "gloss": "I send forth, send, send away, dismiss",
+   "count": 132
+  },
+  {
+   "lemma": "κρίνω",
+   "parts": [
+    "κρίνω",
+    "κρινῶ",
+    "ἔκρινα",
+    "κέκρικα",
+    "κέκριμαι",
+    "ἐκρίθην"
+   ],
+   "note": "Liquid verb.",
+   "gloss": "I judge, decide, think good",
+   "count": 114
+  },
+  {
+   "lemma": "μένω",
+   "parts": [
+    "μένω",
+    "μενῶ",
+    "ἔμεινα",
+    "μεμένηκα",
+    null,
+    null
+   ],
+   "note": "Liquid verb; aorist lengthens ε to ει.",
+   "gloss": "I remain, abide",
+   "count": 118
+  },
+  {
+   "lemma": "ἀναβαίνω",
+   "parts": [
+    "ἀναβαίνω",
+    "ἀναβήσομαι",
+    "ἀνέβην",
+    "ἀναβέβηκα",
+    null,
+    null
+   ],
+   "note": "βαίνω occurs only in compounds (ἀναβαίνω go up, καταβαίνω go down). Root aorist ἀνέβην, ἀνέβη.",
+   "gloss": "I go up, mount, ascend",
+   "count": 81
+  },
+  {
+   "lemma": "πίπτω",
+   "parts": [
+    "πίπτω",
+    "πεσοῦμαι",
+    "ἔπεσον",
+    "πέπτωκα",
+    null,
+    null
+   ],
+   "note": "Root πετ-/πτ-.",
+   "gloss": "I fall, fall under",
+   "count": 90
+  },
+  {
+   "lemma": "βάλλω",
+   "parts": [
+    "βάλλω",
+    "βαλῶ",
+    "ἔβαλον",
+    "βέβληκα",
+    "βέβλημαι",
+    "ἐβλήθην"
+   ],
+   "note": "Model second aorist ἔβαλον.",
+   "gloss": "I cast, throw, rush, put, place, drop",
+   "count": 121
+  },
+  {
+   "lemma": "εὑρίσκω",
+   "parts": [
+    "εὑρίσκω",
+    "εὑρήσω",
+    "εὗρον",
+    "εὕρηκα",
+    null,
+    "εὑρέθην"
+   ],
+   "note": "Second aorist εὗρον.",
+   "gloss": "I find",
+   "count": 176
+  },
+  {
+   "lemma": "ἄγω",
+   "parts": [
+    "ἄγω",
+    "ἄξω",
+    "ἤγαγον",
+    null,
+    null,
+    "ἤχθην"
+   ],
+   "note": "Reduplicated second aorist ἤγαγον.",
+   "gloss": "I lead",
+   "count": 68
+  },
+  {
+   "lemma": "πάσχω",
+   "parts": [
+    "πάσχω",
+    null,
+    "ἔπαθον",
+    "πέπονθα",
+    null,
+    null
+   ],
+   "note": "Root παθ-.",
+   "gloss": "I am acted upon, suffer",
+   "count": 42
+  },
+  {
+   "lemma": "θέλω",
+   "parts": [
+    "θέλω",
+    "θελήσω",
+    "ἠθέλησα",
+    null,
+    null,
+    null
+   ],
+   "note": "Augments as if it began with ε: ἤθελον, ἠθέλησα.",
+   "gloss": "I will, wish, desire",
+   "count": 208
+  },
+  {
+   "lemma": "δύναμαι",
+   "parts": [
+    "δύναμαι",
+    "δυνήσομαι",
+    null,
+    null,
+    null,
+    "ἠδυνήθην"
+   ],
+   "note": "Deponent; aorist passive in form, active in meaning: ἠδυνήθη 'he was able'.",
+   "gloss": "I am powerful, am able",
+   "count": 209
+  },
+  {
+   "lemma": "καλέω",
+   "parts": [
+    "καλέω",
+    "καλέσω",
+    "ἐκάλεσα",
+    "κέκληκα",
+    "κέκλημαι",
+    "ἐκλήθην"
+   ],
+   "note": "Does not lengthen the ε (καλέσω, not καλήσω).",
+   "gloss": "I call, invite, name",
+   "count": 148
+  },
+  {
+   "lemma": "ἀκούω",
+   "parts": [
+    "ἀκούω",
+    "ἀκούσω",
+    "ἤκουσα",
+    "ἀκήκοα",
+    null,
+    "ἠκούσθην"
+   ],
+   "note": "Attic-reduplicated perfect ἀκήκοα.",
+   "gloss": "I hear, listen",
+   "count": 427
+  },
+  {
+   "lemma": "πείθω",
+   "parts": [
+    "πείθω",
+    "πείσω",
+    "ἔπεισα",
+    "πέποιθα",
+    "πέπεισμαι",
+    "ἐπείσθην"
+   ],
+   "note": "Second perfect πέποιθα 'I trust' (present meaning).",
+   "gloss": "I persuade, urge",
+   "count": 52
+  },
+  {
+   "lemma": "ἀποκρίνομαι",
+   "parts": [
+    "ἀποκρίνομαι",
+    null,
+    "ἀπεκρινάμην",
+    null,
+    null,
+    "ἀπεκρίθην"
+   ],
+   "note": "The aorist PASSIVE ἀπεκρίθη 'he answered' is the normal form; the middle is rare.",
+   "gloss": "I answer, reply",
+   "count": 232
+  },
+  {
+   "lemma": "πορεύομαι",
+   "parts": [
+    "πορεύομαι",
+    "πορεύσομαι",
+    null,
+    null,
+    "πεπόρευμαι",
+    "ἐπορεύθην"
+   ],
+   "note": "Aorist passive form, active meaning: ἐπορεύθη 'he went'.",
+   "gloss": "I travel, journey, go",
+   "count": 150
+  },
+  {
+   "lemma": "φοβέομαι",
+   "parts": [
+    "φοβέομαι",
+    null,
+    null,
+    null,
+    null,
+    "ἐφοβήθην"
+   ],
+   "note": "Aorist passive form, active meaning: ἐφοβήθησαν 'they were afraid'.",
+   "gloss": "I fear, am terrified",
+   "count": 95
+  },
+  {
+   "lemma": "χαίρω",
+   "parts": [
+    "χαίρω",
+    "χαρήσομαι",
+    null,
+    null,
+    null,
+    "ἐχάρην"
+   ],
+   "note": "Second aorist passive with active meaning: ἐχάρησαν 'they rejoiced'.",
+   "gloss": "I rejoice, am glad",
+   "count": 74
+  },
+  {
+   "lemma": "ἀπόλλυμι",
+   "parts": [
+    "ἀπόλλυμι",
+    "ἀπολέσω / ἀπολῶ",
+    "ἀπώλεσα",
+    "ἀπόλωλα",
+    null,
+    null
+   ],
+   "note": "Active: destroy, lose. Middle ἀπόλλυμαι, ἀπολοῦμαι, ἀπωλόμην: perish.",
+   "gloss": "I destroy, lose, am perishing",
+   "count": 90
+  },
+  {
+   "lemma": "φημί",
+   "parts": [
+    "φημί",
+    null,
+    "ἔφην",
+    null,
+    null,
+    null
+   ],
+   "note": "ἔφη 'he said' is imperfect/aorist in form; treat it as a fixed vocabulary item.",
+   "gloss": "I say",
+   "count": 65
+  },
+  {
+   "lemma": "ἀνοίγω",
+   "parts": [
+    "ἀνοίγω",
+    "ἀνοίξω",
+    "ἤνοιξα / ἀνέῳξα",
+    "ἀνέῳγα",
+    "ἀνέῳγμαι / ἠνέῳγμαι",
+    "ἀνεῴχθην / ἠνοίχθην / ἠνεῴχθην"
+   ],
+   "note": "Famously has several competing augmented forms; recognize the stem οιγ-.",
+   "gloss": "I open",
+   "count": 77
+  },
+  {
+   "lemma": "μανθάνω",
+   "parts": [
+    "μανθάνω",
+    null,
+    "ἔμαθον",
+    "μεμάθηκα",
+    null,
+    null
+   ],
+   "note": "Root μαθ- (cf. μαθητής).",
+   "gloss": "I learn, ascertain",
+   "count": 25
+  },
+  {
+   "lemma": "φεύγω",
+   "parts": [
+    "φεύγω",
+    "φεύξομαι",
+    "ἔφυγον",
+    "πέφευγα",
+    null,
+    null
+   ],
+   "note": "Second aorist ἔφυγον.",
+   "gloss": "I flee, escape, shun",
+   "count": 29
+  },
+  {
+   "lemma": "ἁμαρτάνω",
+   "parts": [
+    "ἁμαρτάνω",
+    "ἁμαρτήσω",
+    "ἥμαρτον / ἡμάρτησα",
+    "ἡμάρτηκα",
+    null,
+    null
+   ],
+   "note": "Both a second and a first aorist occur.",
+   "gloss": "I sin",
+   "count": 42
+  }
+ ]
+}

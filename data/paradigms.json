@@ -1,0 +1,4645 @@
+{
+ "_meta": {
+  "parseCode": "MorphGNT 8-slot code: person, tense, voice, mood, case, number, gender, degree.",
+  "attested": "true when this exact form+parse occurs in the GNT (validated by build_data.py)."
+ },
+ "paradigms": [
+  {
+   "id": "eimi-pres",
+   "kind": "verbal",
+   "lemma": "εἰμί",
+   "title": "εἰμί — present (I am)",
+   "note": "Irregular and enclitic, but the most common verb in the NT. Learn it as a song: εἰμί, εἶ, ἐστί(ν), ἐσμέν, ἐστέ, εἰσί(ν).",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "εἰμί",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "εἶ",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "ἐστί(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "ἐσμέν",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "ἐστέ",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "εἰσί(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "eimi-impf",
+   "kind": "verbal",
+   "lemma": "εἰμί",
+   "title": "εἰμί — imperfect (I was)",
+   "note": "ἦν (he/she/it was) is the 2nd most common form of εἰμί; John 1:1 uses it three times. MorphGNT tags ἤμην as middle.",
+   "cells": [
+    {
+     "parse": "1IAI-S--",
+     "form": "ἤμην",
+     "attested": false
+    },
+    {
+     "parse": "2IAI-S--",
+     "form": "ἦς",
+     "attested": true
+    },
+    {
+     "parse": "3IAI-S--",
+     "form": "ἦν",
+     "attested": true
+    },
+    {
+     "parse": "1IAI-P--",
+     "form": "ἦμεν",
+     "attested": true
+    },
+    {
+     "parse": "2IAI-P--",
+     "form": "ἦτε",
+     "attested": true
+    },
+    {
+     "parse": "3IAI-P--",
+     "form": "ἦσαν",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "eimi-fut",
+   "kind": "verbal",
+   "lemma": "εἰμί",
+   "title": "εἰμί — future (I will be)",
+   "note": "The future of εἰμί has middle endings with active meaning; ἔσται (it will be) is the one you will meet most.",
+   "cells": [
+    {
+     "parse": "1FMI-S--",
+     "form": "ἔσομαι",
+     "attested": true
+    },
+    {
+     "parse": "2FMI-S--",
+     "form": "ἔσῃ",
+     "attested": true
+    },
+    {
+     "parse": "3FMI-S--",
+     "form": "ἔσται",
+     "attested": true
+    },
+    {
+     "parse": "1FMI-P--",
+     "form": "ἐσόμεθα",
+     "attested": true
+    },
+    {
+     "parse": "2FMI-P--",
+     "form": "ἔσεσθε",
+     "attested": true
+    },
+    {
+     "parse": "3FMI-P--",
+     "form": "ἔσονται",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "eimi-subj",
+   "kind": "verbal",
+   "lemma": "εἰμί",
+   "title": "εἰμί — present subjunctive",
+   "note": "Just the endings of λύω's subjunctive with a rough breathing: ὦ, ᾖς, ᾖ, ὦμεν, ἦτε, ὦσι(ν).",
+   "cells": [
+    {
+     "parse": "1PAS-S--",
+     "form": "ὦ",
+     "attested": true
+    },
+    {
+     "parse": "2PAS-S--",
+     "form": "ᾖς",
+     "attested": true
+    },
+    {
+     "parse": "3PAS-S--",
+     "form": "ᾖ",
+     "attested": true
+    },
+    {
+     "parse": "1PAS-P--",
+     "form": "ὦμεν",
+     "attested": true
+    },
+    {
+     "parse": "2PAS-P--",
+     "form": "ἦτε",
+     "attested": true
+    },
+    {
+     "parse": "3PAS-P--",
+     "form": "ὦσι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "article",
+   "kind": "nominal",
+   "lemma": "ὁ",
+   "title": "ὁ, ἡ, τό — the article",
+   "note": "The single most useful paradigm in Greek: nouns and adjectives of the 1st and 2nd declension share these endings. Learn the article and you have learned the cases.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "ὁ",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "τοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "τῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "τόν",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "οἱ",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "τῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "τοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "τούς",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "ἡ",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "τῆς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "τῇ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "τήν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "αἱ",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "τῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "ταῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "τάς",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "τό",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "τοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "τῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "τό",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "τά",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "τῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "τοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "τά",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl2-masc",
+   "kind": "nominal",
+   "lemma": "λόγος",
+   "title": "λόγος — 2nd declension masculine",
+   "note": "Endings: -ος -ου -ῳ -ον (-ε) / -οι -ων -οις -ους. Compare the article: same vowels, same pattern.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "λόγος",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "λόγου",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "λόγῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "λόγον",
+     "attested": true
+    },
+    {
+     "parse": "----VSM-",
+     "form": "λόγε",
+     "attested": false
+    },
+    {
+     "parse": "----NPM-",
+     "form": "λόγοι",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "λόγων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "λόγοις",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "λόγους",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl2-neut",
+   "kind": "nominal",
+   "lemma": "ἔργον",
+   "title": "ἔργον — 2nd declension neuter",
+   "note": "Neuter nominative and accusative are always identical, and the plural of both ends in -α. A neuter plural subject often takes a singular verb.",
+   "cells": [
+    {
+     "parse": "----NSN-",
+     "form": "ἔργον",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "ἔργου",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ἔργῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ἔργον",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ἔργα",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "ἔργων",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "ἔργοις",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "ἔργα",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl1-eta",
+   "kind": "nominal",
+   "lemma": "ἀρχή",
+   "title": "ἀρχή — 1st declension in -η",
+   "note": "Feminine nouns in -η keep η through the singular: -η -ης -ῃ -ην. The plural is the same for every 1st-declension noun: -αι -ων -αις -ας.",
+   "cells": [
+    {
+     "parse": "----NSF-",
+     "form": "ἀρχή",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "ἀρχῆς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "ἀρχῇ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "ἀρχήν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "ἀρχαί",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "ἀρχῶν",
+     "attested": false
+    },
+    {
+     "parse": "----DPF-",
+     "form": "ἀρχαῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "ἀρχάς",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl1-alpha-pure",
+   "kind": "nominal",
+   "lemma": "ἡμέρα",
+   "title": "ἡμέρα — 1st declension in -α (after ε ι ρ)",
+   "note": "When the stem ends in ε, ι or ρ the α stays through the singular: -α -ας -ᾳ -αν.",
+   "cells": [
+    {
+     "parse": "----NSF-",
+     "form": "ἡμέρα",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "ἡμέρας",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "ἡμέρᾳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "ἡμέραν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "ἡμέραι",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "ἡμερῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "ἡμέραις",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "ἡμέρας",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl1-alpha-mixed",
+   "kind": "nominal",
+   "lemma": "δόξα",
+   "title": "δόξα — 1st declension in -α (mixed)",
+   "note": "Other -α nouns switch to η in the genitive and dative singular: -α -ης -ῃ -αν.",
+   "cells": [
+    {
+     "parse": "----NSF-",
+     "form": "δόξα",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "δόξης",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "δόξῃ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "δόξαν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "δόξαι",
+     "attested": false
+    },
+    {
+     "parse": "----GPF-",
+     "form": "δοξῶν",
+     "attested": false
+    },
+    {
+     "parse": "----DPF-",
+     "form": "δόξαις",
+     "attested": false
+    },
+    {
+     "parse": "----APF-",
+     "form": "δόξας",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl1-masc",
+   "kind": "nominal",
+   "lemma": "προφήτης",
+   "title": "προφήτης — 1st declension masculine",
+   "note": "A few masculine nouns (προφήτης, μαθητής, Ἰωάννης) use 1st-declension endings but a -ου genitive borrowed from the 2nd declension, and take the masculine article: ὁ προφήτης, τοῦ προφήτου.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "προφήτης",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "προφήτου",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "προφήτῃ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "προφήτην",
+     "attested": true
+    },
+    {
+     "parse": "----VSM-",
+     "form": "προφῆτα",
+     "attested": false
+    },
+    {
+     "parse": "----NPM-",
+     "form": "προφῆται",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "προφητῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "προφήταις",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "προφήτας",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl3-sarx",
+   "kind": "nominal",
+   "lemma": "σάρξ",
+   "title": "σάρξ, σαρκός — 3rd declension (consonant stem)",
+   "note": "Find the stem from the GENITIVE (σαρκ-), then add -ς -ος -ι -α / -ες -ων -σι(ν) -ας. The nominative singular is often disguised by the final consonant merging with -ς.",
+   "cells": [
+    {
+     "parse": "----NSF-",
+     "form": "σάρξ",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "σαρκός",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "σαρκί",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "σάρκα",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "σάρκες",
+     "attested": false
+    },
+    {
+     "parse": "----GPF-",
+     "form": "σαρκῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "σαρξί(ν)",
+     "attested": false
+    },
+    {
+     "parse": "----APF-",
+     "form": "σάρκας",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl3-archon",
+   "kind": "nominal",
+   "lemma": "ἄρχων",
+   "title": "ἄρχων, ἄρχοντος — 3rd declension (-ντ stem)",
+   "note": "Stems in -ντ lose the ντ before σ, lengthening the vowel: ἄρχων, ἄρχουσι(ν). Participles like λύων follow this exact pattern.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "ἄρχων",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "ἄρχοντος",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "ἄρχοντι",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "ἄρχοντα",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "ἄρχοντες",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "ἀρχόντων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "ἄρχουσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "ἄρχοντας",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl3-pater",
+   "kind": "nominal",
+   "lemma": "πατήρ",
+   "title": "πατήρ, πατρός — family nouns",
+   "note": "πατήρ, μήτηρ, ἀνήρ shorten the stem in the genitive and dative singular (πατρός, πατρί) and have a distinctive dative plural (πατράσι).",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "πατήρ",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "πατρός",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "πατρί",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "πατέρα",
+     "attested": true
+    },
+    {
+     "parse": "----VSM-",
+     "form": "πάτερ",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "πατέρες",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "πατέρων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "πατράσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "πατέρας",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl3-onoma",
+   "kind": "nominal",
+   "lemma": "ὄνομα",
+   "title": "ὄνομα, ὀνόματος — neuters in -μα",
+   "note": "Stem in -ματ. Neuter, so nominative = accusative, and the plural of both is -ματα. Very common: πνεῦμα, σῶμα, ῥῆμα, αἷμα.",
+   "cells": [
+    {
+     "parse": "----NSN-",
+     "form": "ὄνομα",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "ὀνόματος",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ὀνόματι",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ὄνομα",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ὀνόματα",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "ὀνομάτων",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "ὀνόμασι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "----APN-",
+     "form": "ὀνόματα",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl3-ethnos",
+   "kind": "nominal",
+   "lemma": "ἔθνος",
+   "title": "ἔθνος, ἔθνους — neuters in -ος",
+   "note": "Looks like a 2nd-declension masculine but is neuter 3rd declension: the genitive is -ους, the plural -η. Watch the article: τὸ ἔθνος, τὰ ἔθνη.",
+   "cells": [
+    {
+     "parse": "----NSN-",
+     "form": "ἔθνος",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "ἔθνους",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ἔθνει",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ἔθνος",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ἔθνη",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "ἐθνῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "ἔθνεσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "ἔθνη",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "decl3-pistis",
+   "kind": "nominal",
+   "lemma": "πίστις",
+   "title": "πίστις, πίστεως — feminines in -ις",
+   "note": "The -ις / -εως pattern covers many abstract nouns (πίστις, πόλις, δύναμις, κρίσις). Nominative and accusative plural are both -εις.",
+   "cells": [
+    {
+     "parse": "----NSF-",
+     "form": "πίστις",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "πίστεως",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "πίστει",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "πίστιν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "πίστεις",
+     "attested": false
+    },
+    {
+     "parse": "----GPF-",
+     "form": "πίστεων",
+     "attested": false
+    },
+    {
+     "parse": "----DPF-",
+     "form": "πίστεσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "----APF-",
+     "form": "πίστεις",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "decl3-basileus",
+   "kind": "nominal",
+   "lemma": "βασιλεύς",
+   "title": "βασιλεύς, βασιλέως — masculines in -ευς",
+   "note": "Nouns for roles and offices: βασιλεύς, ἀρχιερεύς, γραμματεύς. Note the -εῖς of the plural nominative and accusative.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "βασιλεύς",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "βασιλέως",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "βασιλεῖ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "βασιλέα",
+     "attested": true
+    },
+    {
+     "parse": "----VSM-",
+     "form": "βασιλεῦ",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "βασιλεῖς",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "βασιλέων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "βασιλεῦσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "βασιλεῖς",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "adj-agathos",
+   "kind": "nominal",
+   "lemma": "ἀγαθός",
+   "title": "ἀγαθός, -ή, -όν — 2-1-2 adjective",
+   "note": "Masculine like λόγος, feminine like ἀρχή, neuter like ἔργον. An adjective agrees with its noun in case, number and gender, never necessarily in ending.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "ἀγαθός",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "ἀγαθοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "ἀγαθῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "ἀγαθόν",
+     "attested": true
+    },
+    {
+     "parse": "----VSM-",
+     "form": "ἀγαθέ",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "ἀγαθοί",
+     "attested": false
+    },
+    {
+     "parse": "----GPM-",
+     "form": "ἀγαθῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "ἀγαθοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "ἀγαθούς",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "ἀγαθή",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "ἀγαθῆς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "ἀγαθῇ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "ἀγαθήν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "ἀγαθαί",
+     "attested": false
+    },
+    {
+     "parse": "----GPF-",
+     "form": "ἀγαθῶν",
+     "attested": false
+    },
+    {
+     "parse": "----DPF-",
+     "form": "ἀγαθαῖς",
+     "attested": false
+    },
+    {
+     "parse": "----APF-",
+     "form": "ἀγαθάς",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "ἀγαθόν",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "ἀγαθοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ἀγαθῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ἀγαθόν",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ἀγαθά",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "ἀγαθῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "ἀγαθοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "ἀγαθά",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-autos",
+   "kind": "nominal",
+   "lemma": "αὐτός",
+   "title": "αὐτός, -ή, -ό — he, she, it / self / same",
+   "note": "Declined like ἀγαθός except the neuter αὐτό has no -ν. Three uses: plain pronoun (αὐτοῦ = his), intensive with a noun (αὐτὸς ὁ θεός = God himself), identical with the article (ὁ αὐτός = the same).",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "αὐτός",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "αὐτοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "αὐτῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "αὐτόν",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "αὐτοί",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "αὐτῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "αὐτοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "αὐτούς",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "αὐτή",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "αὐτῆς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "αὐτῇ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "αὐτήν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "αὐταί",
+     "attested": false
+    },
+    {
+     "parse": "----GPF-",
+     "form": "αὐτῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "αὐταῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "αὐτάς",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "αὐτό",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "αὐτοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "αὐτῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "αὐτό",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "αὐτά",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "αὐτῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "αὐτοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "αὐτά",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-ego",
+   "kind": "nominal",
+   "lemma": "ἐγώ",
+   "title": "ἐγώ — I / we",
+   "note": "The short forms μου, μοι, με are unaccented (enclitic) and far more common than ἐμοῦ, ἐμοί, ἐμέ, which are used for emphasis and after prepositions.",
+   "cells": [
+    {
+     "parse": "----NS--",
+     "form": "ἐγώ",
+     "attested": true
+    },
+    {
+     "parse": "----GS--",
+     "form": "μου",
+     "attested": true
+    },
+    {
+     "parse": "----DS--",
+     "form": "μοι",
+     "attested": true
+    },
+    {
+     "parse": "----AS--",
+     "form": "με",
+     "attested": true
+    },
+    {
+     "parse": "----NP--",
+     "form": "ἡμεῖς",
+     "attested": true
+    },
+    {
+     "parse": "----GP--",
+     "form": "ἡμῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DP--",
+     "form": "ἡμῖν",
+     "attested": true
+    },
+    {
+     "parse": "----AP--",
+     "form": "ἡμᾶς",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-su",
+   "kind": "nominal",
+   "lemma": "σύ",
+   "title": "σύ — you / you all",
+   "note": "Singular σύ vs plural ὑμεῖς: English 'you' hides this, Greek never does. ὑμῖν (to you all) is one of the most common words in the letters.",
+   "cells": [
+    {
+     "parse": "----NS--",
+     "form": "σύ",
+     "attested": true
+    },
+    {
+     "parse": "----GS--",
+     "form": "σου",
+     "attested": true
+    },
+    {
+     "parse": "----DS--",
+     "form": "σοι",
+     "attested": true
+    },
+    {
+     "parse": "----AS--",
+     "form": "σε",
+     "attested": true
+    },
+    {
+     "parse": "----NP--",
+     "form": "ὑμεῖς",
+     "attested": true
+    },
+    {
+     "parse": "----GP--",
+     "form": "ὑμῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DP--",
+     "form": "ὑμῖν",
+     "attested": true
+    },
+    {
+     "parse": "----AP--",
+     "form": "ὑμᾶς",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-houtos",
+   "kind": "nominal",
+   "lemma": "οὗτος",
+   "title": "οὗτος, αὕτη, τοῦτο — this",
+   "note": "The stem starts with τ- except in the nominative masculine and feminine (which start with a rough breathing, like the article). The vowel before the ending matches it: ου before ο/ω-type endings, αυ before α/η-type.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "οὗτος",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "τούτου",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "τούτῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "τοῦτον",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "οὗτοι",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "τούτων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "τούτοις",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "τούτους",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "αὕτη",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "ταύτης",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "ταύτῃ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "ταύτην",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "αὗται",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "τούτων",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "ταύταις",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "ταύτας",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "τοῦτο",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "τούτου",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "τούτῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "τοῦτο",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ταῦτα",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "τούτων",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "τούτοις",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "ταῦτα",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-ekeinos",
+   "kind": "nominal",
+   "lemma": "ἐκεῖνος",
+   "title": "ἐκεῖνος, -η, -ο — that",
+   "note": "Declined exactly like αὐτός (neuter ἐκεῖνο without -ν). 'That one' in contrast to οὗτος 'this one'.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "ἐκεῖνος",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "ἐκείνου",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "ἐκείνῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "ἐκεῖνον",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "ἐκεῖνοι",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "ἐκείνων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "ἐκείνοις",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "ἐκείνους",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "ἐκείνη",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "ἐκείνης",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "ἐκείνῃ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "ἐκείνην",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "ἐκεῖναι",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "ἐκείνων",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "ἐκείναις",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "ἐκείνας",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "ἐκεῖνο",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "ἐκείνου",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ἐκείνῳ",
+     "attested": false
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ἐκεῖνο",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ἐκεῖνα",
+     "attested": false
+    },
+    {
+     "parse": "----GPN-",
+     "form": "ἐκείνων",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "ἐκείνοις",
+     "attested": false
+    },
+    {
+     "parse": "----APN-",
+     "form": "ἐκεῖνα",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-hos",
+   "kind": "nominal",
+   "lemma": "ὅς",
+   "title": "ὅς, ἥ, ὅ — who, which, that",
+   "note": "The relative pronoun is the article's endings with a rough breathing and an accent, and no τ-. It takes its gender and number from the noun it refers back to, but its CASE from its job in its own clause.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "ὅς",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "οὗ",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "ᾧ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "ὅν",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "οἵ",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "ὧν",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "οἷς",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "οὕς",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "ἥ",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "ἧς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "ᾗ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "ἥν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "αἵ",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "ὧν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "αἷς",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "ἅς",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "ὅ",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "οὗ",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ᾧ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ὅ",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "ἅ",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "ὧν",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "οἷς",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "ἅ",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pron-tis",
+   "kind": "nominal",
+   "lemma": "τίς",
+   "title": "τίς, τί — who? what? (and τις, τι — someone, something)",
+   "note": "3rd-declension. With an acute accent on the first syllable it is a question word; unaccented (enclitic) it means someone / a certain / something. Masculine and feminine share one set of forms.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "τίς",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "τίνος",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "τίνι",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "τίνα",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "τίνες",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "τίνων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "τίσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "τίνας",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "τί",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "τίνος",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "τίνι",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "τί",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "τίνα",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "τίνων",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "τίσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "----APN-",
+     "form": "τίνα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "adj-pas",
+   "kind": "nominal",
+   "lemma": "πᾶς",
+   "title": "πᾶς, πᾶσα, πᾶν — all, every, whole",
+   "note": "3-1-3 pattern: masculine and neuter are 3rd declension (stem παντ-), feminine is 1st declension. Before a noun without the article: 'every'; with the article: 'all / the whole'.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "πᾶς",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "παντός",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "παντί",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "πάντα",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "πάντες",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "πάντων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "πᾶσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "πάντας",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "πᾶσα",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "πάσης",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "πάσῃ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "πᾶσαν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "πᾶσαι",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "πασῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "πάσαις",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "πάσας",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "πᾶν",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "παντός",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "παντί",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "πᾶν",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "πάντα",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "πάντων",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "πᾶσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "πάντα",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "adj-polus",
+   "kind": "nominal",
+   "lemma": "πολύς",
+   "title": "πολύς, πολλή, πολύ — much, many",
+   "note": "Irregular only in four forms (πολύς, πολύν, πολύ, πολύ); everywhere else the stem is πολλ- with ordinary 2-1-2 endings.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "πολύς",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "πολλοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "πολλῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "πολύν",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "πολλοί",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "πολλῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "πολλοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APM-",
+     "form": "πολλούς",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "πολλή",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "πολλῆς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "πολλῇ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "πολλήν",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "πολλαί",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "πολλῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPF-",
+     "form": "πολλαῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "πολλάς",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "πολύ",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "πολλοῦ",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "πολλῷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "πολύ",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "πολλά",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "πολλῶν",
+     "attested": true
+    },
+    {
+     "parse": "----DPN-",
+     "form": "πολλοῖς",
+     "attested": true
+    },
+    {
+     "parse": "----APN-",
+     "form": "πολλά",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "adj-megas",
+   "kind": "nominal",
+   "lemma": "μέγας",
+   "title": "μέγας, μεγάλη, μέγα — great, large",
+   "note": "Same trick as πολύς: four short irregular forms (μέγας, μέγαν, μέγα, μέγα), otherwise the stem μεγαλ- with 2-1-2 endings.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "μέγας",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "μεγάλου",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "μεγάλῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "μέγαν",
+     "attested": true
+    },
+    {
+     "parse": "----NPM-",
+     "form": "μεγάλοι",
+     "attested": true
+    },
+    {
+     "parse": "----GPM-",
+     "form": "μεγάλων",
+     "attested": true
+    },
+    {
+     "parse": "----DPM-",
+     "form": "μεγάλοις",
+     "attested": false
+    },
+    {
+     "parse": "----APM-",
+     "form": "μεγάλους",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "μεγάλη",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "μεγάλης",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "μεγάλῃ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "μεγάλην",
+     "attested": true
+    },
+    {
+     "parse": "----NPF-",
+     "form": "μεγάλαι",
+     "attested": true
+    },
+    {
+     "parse": "----GPF-",
+     "form": "μεγάλων",
+     "attested": false
+    },
+    {
+     "parse": "----DPF-",
+     "form": "μεγάλαις",
+     "attested": true
+    },
+    {
+     "parse": "----APF-",
+     "form": "μεγάλας",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "μέγα",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "μεγάλου",
+     "attested": false
+    },
+    {
+     "parse": "----DSN-",
+     "form": "μεγάλῳ",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "μέγα",
+     "attested": true
+    },
+    {
+     "parse": "----NPN-",
+     "form": "μεγάλα",
+     "attested": true
+    },
+    {
+     "parse": "----GPN-",
+     "form": "μεγάλων",
+     "attested": false
+    },
+    {
+     "parse": "----DPN-",
+     "form": "μεγάλοις",
+     "attested": false
+    },
+    {
+     "parse": "----APN-",
+     "form": "μεγάλα",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "adj-heis",
+   "kind": "nominal",
+   "lemma": "εἷς",
+   "title": "εἷς, μία, ἕν — one (and οὐδείς — no one)",
+   "note": "Singular only. Masculine/neuter stem ἑν-, feminine μία. οὐδείς and μηδείς are just οὐδέ/μηδέ + εἷς: οὐδείς, οὐδεμία, οὐδέν.",
+   "cells": [
+    {
+     "parse": "----NSM-",
+     "form": "εἷς",
+     "attested": true
+    },
+    {
+     "parse": "----GSM-",
+     "form": "ἑνός",
+     "attested": true
+    },
+    {
+     "parse": "----DSM-",
+     "form": "ἑνί",
+     "attested": true
+    },
+    {
+     "parse": "----ASM-",
+     "form": "ἕνα",
+     "attested": true
+    },
+    {
+     "parse": "----NSF-",
+     "form": "μία",
+     "attested": true
+    },
+    {
+     "parse": "----GSF-",
+     "form": "μιᾶς",
+     "attested": true
+    },
+    {
+     "parse": "----DSF-",
+     "form": "μιᾷ",
+     "attested": true
+    },
+    {
+     "parse": "----ASF-",
+     "form": "μίαν",
+     "attested": true
+    },
+    {
+     "parse": "----NSN-",
+     "form": "ἕν",
+     "attested": true
+    },
+    {
+     "parse": "----GSN-",
+     "form": "ἑνός",
+     "attested": true
+    },
+    {
+     "parse": "----DSN-",
+     "form": "ἑνί",
+     "attested": true
+    },
+    {
+     "parse": "----ASN-",
+     "form": "ἕν",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pres-act",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύω — present active indicative",
+   "note": "Primary active endings: -ω -εις -ει -ομεν -ετε -ουσι(ν). Present = ongoing or general action: 'I loose / I am loosing'.",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "λύω",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "λύεις",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "λύει",
+     "attested": true
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "λύομεν",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "λύετε",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "λύουσι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "pres-mp",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύομαι — present middle/passive indicative",
+   "note": "Primary middle/passive endings: -ομαι -ῃ -εται -όμεθα -εσθε -ονται. Same form for middle (I loose for myself) and passive (I am being loosed); context decides. Deponent verbs (ἔρχομαι) use these endings with active meaning.",
+   "cells": [
+    {
+     "parse": "1PMI-S--",
+     "form": "λύομαι",
+     "attested": false
+    },
+    {
+     "parse": "2PMI-S--",
+     "form": "λύῃ",
+     "attested": false
+    },
+    {
+     "parse": "3PMI-S--",
+     "form": "λύεται",
+     "attested": false
+    },
+    {
+     "parse": "1PMI-P--",
+     "form": "λυόμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2PMI-P--",
+     "form": "λύεσθε",
+     "attested": false
+    },
+    {
+     "parse": "3PMI-P--",
+     "form": "λύονται",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "impf-act",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "ἔλυον — imperfect active indicative",
+   "note": "Augment ἐ- in front + secondary endings -ον -ες -ε(ν) -ομεν -ετε -ον. Imperfect = ongoing or repeated action in the past: 'I was loosing / I used to loose'. Vowel-initial verbs lengthen instead: ἀκούω → ἤκουον.",
+   "cells": [
+    {
+     "parse": "1IAI-S--",
+     "form": "ἔλυον",
+     "attested": false
+    },
+    {
+     "parse": "2IAI-S--",
+     "form": "ἔλυες",
+     "attested": false
+    },
+    {
+     "parse": "3IAI-S--",
+     "form": "ἔλυε(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1IAI-P--",
+     "form": "ἐλύομεν",
+     "attested": false
+    },
+    {
+     "parse": "2IAI-P--",
+     "form": "ἐλύετε",
+     "attested": false
+    },
+    {
+     "parse": "3IAI-P--",
+     "form": "ἔλυον",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "impf-mp",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "ἐλυόμην — imperfect middle/passive indicative",
+   "note": "Augment + secondary middle endings -όμην -ου -ετο -όμεθα -εσθε -οντο. Deponents: ἠρχόμην 'I was coming'.",
+   "cells": [
+    {
+     "parse": "1IMI-S--",
+     "form": "ἐλυόμην",
+     "attested": false
+    },
+    {
+     "parse": "2IMI-S--",
+     "form": "ἐλύου",
+     "attested": false
+    },
+    {
+     "parse": "3IMI-S--",
+     "form": "ἐλύετο",
+     "attested": true
+    },
+    {
+     "parse": "1IMI-P--",
+     "form": "ἐλυόμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2IMI-P--",
+     "form": "ἐλύεσθε",
+     "attested": false
+    },
+    {
+     "parse": "3IMI-P--",
+     "form": "ἐλύοντο",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "fut-act",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύσω — future active indicative",
+   "note": "Insert σ between stem and the present endings: λύ-σ-ω. Stems ending in a consonant merge with σ: π/β/φ + σ = ψ, κ/γ/χ + σ = ξ, τ/δ/θ drop out.",
+   "cells": [
+    {
+     "parse": "1FAI-S--",
+     "form": "λύσω",
+     "attested": false
+    },
+    {
+     "parse": "2FAI-S--",
+     "form": "λύσεις",
+     "attested": false
+    },
+    {
+     "parse": "3FAI-S--",
+     "form": "λύσει",
+     "attested": false
+    },
+    {
+     "parse": "1FAI-P--",
+     "form": "λύσομεν",
+     "attested": false
+    },
+    {
+     "parse": "2FAI-P--",
+     "form": "λύσετε",
+     "attested": false
+    },
+    {
+     "parse": "3FAI-P--",
+     "form": "λύσουσι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "fut-mid",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύσομαι — future middle indicative",
+   "note": "σ + present middle endings. Some very common verbs have a future that is middle in form only: γίνομαι → γενήσομαι, ἔρχομαι → ἐλεύσομαι, λαμβάνω → λήμψομαι, εἰμί → ἔσομαι.",
+   "cells": [
+    {
+     "parse": "1FMI-S--",
+     "form": "λύσομαι",
+     "attested": false
+    },
+    {
+     "parse": "2FMI-S--",
+     "form": "λύσῃ",
+     "attested": false
+    },
+    {
+     "parse": "3FMI-S--",
+     "form": "λύσεται",
+     "attested": false
+    },
+    {
+     "parse": "1FMI-P--",
+     "form": "λυσόμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2FMI-P--",
+     "form": "λύσεσθε",
+     "attested": false
+    },
+    {
+     "parse": "3FMI-P--",
+     "form": "λύσονται",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor1-act",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "ἔλυσα — first aorist active indicative",
+   "note": "Augment + σα + secondary endings: ἔ-λυ-σα, -σας, -σε(ν), -σαμεν, -σατε, -σαν. Aorist = the action viewed as a whole, a snapshot: usually 'I loosed'. It is the default past tense of narrative.",
+   "cells": [
+    {
+     "parse": "1AAI-S--",
+     "form": "ἔλυσα",
+     "attested": false
+    },
+    {
+     "parse": "2AAI-S--",
+     "form": "ἔλυσας",
+     "attested": false
+    },
+    {
+     "parse": "3AAI-S--",
+     "form": "ἔλυσε(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1AAI-P--",
+     "form": "ἐλύσαμεν",
+     "attested": false
+    },
+    {
+     "parse": "2AAI-P--",
+     "form": "ἐλύσατε",
+     "attested": false
+    },
+    {
+     "parse": "3AAI-P--",
+     "form": "ἔλυσαν",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor1-mid",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "ἐλυσάμην — first aorist middle indicative",
+   "note": "Augment + σα + secondary middle endings: -σάμην -σω -σατο -σάμεθα -σασθε -σαντο. Not passive! Aorist middle and passive have separate forms.",
+   "cells": [
+    {
+     "parse": "1AMI-S--",
+     "form": "ἐλυσάμην",
+     "attested": false
+    },
+    {
+     "parse": "2AMI-S--",
+     "form": "ἐλύσω",
+     "attested": false
+    },
+    {
+     "parse": "3AMI-S--",
+     "form": "ἐλύσατο",
+     "attested": false
+    },
+    {
+     "parse": "1AMI-P--",
+     "form": "ἐλυσάμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2AMI-P--",
+     "form": "ἐλύσασθε",
+     "attested": false
+    },
+    {
+     "parse": "3AMI-P--",
+     "form": "ἐλύσαντο",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor2-act",
+   "kind": "verbal",
+   "lemma": "βάλλω",
+   "title": "ἔβαλον — second aorist active indicative",
+   "note": "Same endings as the imperfect, but on a DIFFERENT (usually shorter) stem: βάλλω → ἔβαλον, λαμβάνω → ἔλαβον, λέγω → εἶπον, ἔρχομαι → ἦλθον. You learn the stem as vocabulary, not by rule.",
+   "cells": [
+    {
+     "parse": "1AAI-S--",
+     "form": "ἔβαλον",
+     "attested": false
+    },
+    {
+     "parse": "2AAI-S--",
+     "form": "ἔβαλες",
+     "attested": false
+    },
+    {
+     "parse": "3AAI-S--",
+     "form": "ἔβαλε(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1AAI-P--",
+     "form": "ἐβάλομεν",
+     "attested": false
+    },
+    {
+     "parse": "2AAI-P--",
+     "form": "ἐβάλετε",
+     "attested": false
+    },
+    {
+     "parse": "3AAI-P--",
+     "form": "ἔβαλον",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "aor2-mid",
+   "kind": "verbal",
+   "lemma": "γίνομαι",
+   "title": "ἐγενόμην — second aorist middle indicative",
+   "note": "Imperfect middle endings on the aorist stem γεν-. ἐγένετο 'it happened / came to be' opens hundreds of NT sentences.",
+   "cells": [
+    {
+     "parse": "1AMI-S--",
+     "form": "ἐγενόμην",
+     "attested": true
+    },
+    {
+     "parse": "2AMI-S--",
+     "form": "ἐγένου",
+     "attested": true
+    },
+    {
+     "parse": "3AMI-S--",
+     "form": "ἐγένετο",
+     "attested": true
+    },
+    {
+     "parse": "1AMI-P--",
+     "form": "ἐγενόμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2AMI-P--",
+     "form": "ἐγένεσθε",
+     "attested": true
+    },
+    {
+     "parse": "3AMI-P--",
+     "form": "ἐγένοντο",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "aor-pass",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "ἐλύθην — aorist passive indicative",
+   "note": "Augment + θη + ACTIVE-looking secondary endings: -θην -θης -θη -θημεν -θητε -θησαν. Some verbs drop the θ (second aorist passive): γράφω → ἐγράφην, ἀποστέλλω → ἀπεστάλην.",
+   "cells": [
+    {
+     "parse": "1API-S--",
+     "form": "ἐλύθην",
+     "attested": false
+    },
+    {
+     "parse": "2API-S--",
+     "form": "ἐλύθης",
+     "attested": false
+    },
+    {
+     "parse": "3API-S--",
+     "form": "ἐλύθη",
+     "attested": true
+    },
+    {
+     "parse": "1API-P--",
+     "form": "ἐλύθημεν",
+     "attested": false
+    },
+    {
+     "parse": "2API-P--",
+     "form": "ἐλύθητε",
+     "attested": false
+    },
+    {
+     "parse": "3API-P--",
+     "form": "ἐλύθησαν",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "fut-pass",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λυθήσομαι — future passive indicative",
+   "note": "θησ + present middle endings. Built on the aorist passive stem, so learn the sixth principal part and you get this for free.",
+   "cells": [
+    {
+     "parse": "1FPI-S--",
+     "form": "λυθήσομαι",
+     "attested": false
+    },
+    {
+     "parse": "2FPI-S--",
+     "form": "λυθήσῃ",
+     "attested": false
+    },
+    {
+     "parse": "3FPI-S--",
+     "form": "λυθήσεται",
+     "attested": true
+    },
+    {
+     "parse": "1FPI-P--",
+     "form": "λυθησόμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2FPI-P--",
+     "form": "λυθήσεσθε",
+     "attested": false
+    },
+    {
+     "parse": "3FPI-P--",
+     "form": "λυθήσονται",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "perf-act",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λέλυκα — perfect active indicative",
+   "note": "Reduplicate the first consonant with ε (λε-λυ-) and add κα: -κα -κας -κε(ν) -καμεν -κατε -κασι(ν). Perfect = a completed action whose result still stands: γέγραπται 'it stands written'.",
+   "cells": [
+    {
+     "parse": "1XAI-S--",
+     "form": "λέλυκα",
+     "attested": false
+    },
+    {
+     "parse": "2XAI-S--",
+     "form": "λέλυκας",
+     "attested": false
+    },
+    {
+     "parse": "3XAI-S--",
+     "form": "λέλυκε(ν)",
+     "attested": false
+    },
+    {
+     "parse": "1XAI-P--",
+     "form": "λελύκαμεν",
+     "attested": false
+    },
+    {
+     "parse": "2XAI-P--",
+     "form": "λελύκατε",
+     "attested": false
+    },
+    {
+     "parse": "3XAI-P--",
+     "form": "λελύκασι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "perf-mp",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λέλυμαι — perfect middle/passive indicative",
+   "note": "Reduplication + primary middle endings attached directly to the stem (no connecting vowel): -μαι -σαι -ται -μεθα -σθε -νται.",
+   "cells": [
+    {
+     "parse": "1XMI-S--",
+     "form": "λέλυμαι",
+     "attested": false
+    },
+    {
+     "parse": "2XMI-S--",
+     "form": "λέλυσαι",
+     "attested": true
+    },
+    {
+     "parse": "3XMI-S--",
+     "form": "λέλυται",
+     "attested": false
+    },
+    {
+     "parse": "1XMI-P--",
+     "form": "λελύμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2XMI-P--",
+     "form": "λέλυσθε",
+     "attested": false
+    },
+    {
+     "parse": "3XMI-P--",
+     "form": "λέλυνται",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "plup-act",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "ἐλελύκειν — pluperfect active indicative",
+   "note": "Rare. Augment (often dropped) + reduplication + κει + secondary endings. Meaning: 'I had loosed'. Most NT pluperfects are ᾔδειν (I knew) and εἱστήκειν (I stood).",
+   "cells": [
+    {
+     "parse": "1YAI-S--",
+     "form": "ἐλελύκειν",
+     "attested": false
+    },
+    {
+     "parse": "2YAI-S--",
+     "form": "ἐλελύκεις",
+     "attested": false
+    },
+    {
+     "parse": "3YAI-S--",
+     "form": "ἐλελύκει",
+     "attested": false
+    },
+    {
+     "parse": "1YAI-P--",
+     "form": "ἐλελύκειμεν",
+     "attested": false
+    },
+    {
+     "parse": "2YAI-P--",
+     "form": "ἐλελύκειτε",
+     "attested": false
+    },
+    {
+     "parse": "3YAI-P--",
+     "form": "ἐλελύκεισαν",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "pres-act-subj",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύω — present active subjunctive",
+   "note": "Lengthen the connecting vowel: ω/ῃ/ῃ/ωμεν/ητε/ωσι(ν). The subjunctive is the mood of possibility; it lives in ἵνα (in order that), ἐάν (if), ὅταν (whenever) clauses and after οὐ μή.",
+   "cells": [
+    {
+     "parse": "1PAS-S--",
+     "form": "λύω",
+     "attested": false
+    },
+    {
+     "parse": "2PAS-S--",
+     "form": "λύῃς",
+     "attested": false
+    },
+    {
+     "parse": "3PAS-S--",
+     "form": "λύῃ",
+     "attested": false
+    },
+    {
+     "parse": "1PAS-P--",
+     "form": "λύωμεν",
+     "attested": false
+    },
+    {
+     "parse": "2PAS-P--",
+     "form": "λύητε",
+     "attested": false
+    },
+    {
+     "parse": "3PAS-P--",
+     "form": "λύωσι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor-act-subj",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύσω — aorist active subjunctive",
+   "note": "Aorist stem (with σ, NO augment) + the same lengthened endings. Looks like the future indicative in the 1st person; the ῃ in the 2nd/3rd singular gives it away.",
+   "cells": [
+    {
+     "parse": "1AAS-S--",
+     "form": "λύσω",
+     "attested": true
+    },
+    {
+     "parse": "2AAS-S--",
+     "form": "λύσῃς",
+     "attested": true
+    },
+    {
+     "parse": "3AAS-S--",
+     "form": "λύσῃ",
+     "attested": true
+    },
+    {
+     "parse": "1AAS-P--",
+     "form": "λύσωμεν",
+     "attested": false
+    },
+    {
+     "parse": "2AAS-P--",
+     "form": "λύσητε",
+     "attested": true
+    },
+    {
+     "parse": "3AAS-P--",
+     "form": "λύσωσι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "pres-mp-subj",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύωμαι — present middle/passive subjunctive",
+   "note": "Lengthened vowel + middle endings: -ωμαι -ῃ -ηται -ώμεθα -ησθε -ωνται.",
+   "cells": [
+    {
+     "parse": "1PMS-S--",
+     "form": "λύωμαι",
+     "attested": false
+    },
+    {
+     "parse": "2PMS-S--",
+     "form": "λύῃ",
+     "attested": false
+    },
+    {
+     "parse": "3PMS-S--",
+     "form": "λύηται",
+     "attested": false
+    },
+    {
+     "parse": "1PMS-P--",
+     "form": "λυώμεθα",
+     "attested": false
+    },
+    {
+     "parse": "2PMS-P--",
+     "form": "λύησθε",
+     "attested": false
+    },
+    {
+     "parse": "3PMS-P--",
+     "form": "λύωνται",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor-pass-subj",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λυθῶ — aorist passive subjunctive",
+   "note": "θ + the contracted endings -ῶ -ῇς -ῇ -ῶμεν -ῆτε -ῶσι(ν) (all with a circumflex).",
+   "cells": [
+    {
+     "parse": "1APS-S--",
+     "form": "λυθῶ",
+     "attested": false
+    },
+    {
+     "parse": "2APS-S--",
+     "form": "λυθῇς",
+     "attested": false
+    },
+    {
+     "parse": "3APS-S--",
+     "form": "λυθῇ",
+     "attested": true
+    },
+    {
+     "parse": "1APS-P--",
+     "form": "λυθῶμεν",
+     "attested": false
+    },
+    {
+     "parse": "2APS-P--",
+     "form": "λυθῆτε",
+     "attested": false
+    },
+    {
+     "parse": "3APS-P--",
+     "form": "λυθῶσι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "pres-act-impv",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λῦε — present active imperative",
+   "note": "Only 2nd and 3rd persons exist: λῦε (you sg.), λυέτω (let him), λύετε (you pl.), λυέτωσαν (let them). Present imperative = keep doing / do as a habit. Prohibition: μή + present imperative = stop doing.",
+   "cells": [
+    {
+     "parse": "2PAD-S--",
+     "form": "λῦε",
+     "attested": false
+    },
+    {
+     "parse": "3PAD-S--",
+     "form": "λυέτω",
+     "attested": false
+    },
+    {
+     "parse": "2PAD-P--",
+     "form": "λύετε",
+     "attested": false
+    },
+    {
+     "parse": "3PAD-P--",
+     "form": "λυέτωσαν",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor-act-impv",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λῦσον — aorist active imperative",
+   "note": "No augment (only the indicative augments): λῦσον, λυσάτω, λύσατε, λυσάτωσαν. Aorist imperative = do it (as a single act). Prohibition uses μή + aorist SUBJUNCTIVE instead: μὴ λύσῃς.",
+   "cells": [
+    {
+     "parse": "2AAD-S--",
+     "form": "λῦσον",
+     "attested": true
+    },
+    {
+     "parse": "3AAD-S--",
+     "form": "λυσάτω",
+     "attested": false
+    },
+    {
+     "parse": "2AAD-P--",
+     "form": "λύσατε",
+     "attested": true
+    },
+    {
+     "parse": "3AAD-P--",
+     "form": "λυσάτωσαν",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "pres-mp-impv",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύου — present middle/passive imperative",
+   "note": "λύου, λυέσθω, λύεσθε, λυέσθωσαν. Deponents use these: ἔρχου (come!), πορεύεσθε (go!).",
+   "cells": [
+    {
+     "parse": "2PMD-S--",
+     "form": "λύου",
+     "attested": false
+    },
+    {
+     "parse": "3PMD-S--",
+     "form": "λυέσθω",
+     "attested": false
+    },
+    {
+     "parse": "2PMD-P--",
+     "form": "λύεσθε",
+     "attested": false
+    },
+    {
+     "parse": "3PMD-P--",
+     "form": "λυέσθωσαν",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "aor-pass-impv",
+   "kind": "verbal",
+   "lemma": "λύω",
+   "title": "λύθητι — aorist passive imperative",
+   "note": "λύθητι, λυθήτω, λύθητε, λυθήτωσαν. Recognize by the θη: ἐγέρθητι 'be raised!', φοβήθητε 'fear!'.",
+   "cells": [
+    {
+     "parse": "2APD-S--",
+     "form": "λύθητι",
+     "attested": false
+    },
+    {
+     "parse": "3APD-S--",
+     "form": "λυθήτω",
+     "attested": false
+    },
+    {
+     "parse": "2APD-P--",
+     "form": "λύθητε",
+     "attested": false
+    },
+    {
+     "parse": "3APD-P--",
+     "form": "λυθήτωσαν",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "infinitives",
+   "kind": "infinitive",
+   "lemma": "λύω",
+   "title": "Infinitives of λύω (and εἰμί)",
+   "note": "Present -ειν / -εσθαι, aorist -σαι / -σασθαι / -θῆναι, perfect -κέναι / -σθαι; second aorist βαλεῖν, γενέσθαι; εἶναι 'to be'. Tense in an infinitive is aspect, not time.",
+   "cells": [
+    {
+     "parse": "-PAN----",
+     "form": "λύειν",
+     "attested": false
+    },
+    {
+     "parse": "-PMN----",
+     "form": "λύεσθαι",
+     "attested": false
+    },
+    {
+     "parse": "-AAN----",
+     "form": "λῦσαι",
+     "attested": true
+    },
+    {
+     "parse": "-AMN----",
+     "form": "λύσασθαι",
+     "attested": false
+    },
+    {
+     "parse": "-APN----",
+     "form": "λυθῆναι",
+     "attested": true
+    },
+    {
+     "parse": "-XAN----",
+     "form": "λελυκέναι",
+     "attested": false
+    },
+    {
+     "parse": "-XMN----",
+     "form": "λελύσθαι",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "infinitives-eimi",
+   "kind": "infinitive",
+   "lemma": "εἰμί",
+   "title": "εἶναι — to be",
+   "note": "The infinitive of εἰμί.",
+   "cells": [
+    {
+     "parse": "-PAN----",
+     "form": "εἶναι",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "infinitives-aor2",
+   "kind": "infinitive",
+   "lemma": "βάλλω",
+   "title": "βαλεῖν — second aorist infinitive",
+   "note": "Second aorist stem + -εῖν (circumflex): βαλεῖν, λαβεῖν, εἰπεῖν, ἐλθεῖν, ἰδεῖν.",
+   "cells": [
+    {
+     "parse": "-AAN----",
+     "form": "βαλεῖν",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "contract-eo",
+   "kind": "verbal",
+   "lemma": "ποιέω",
+   "title": "ποιῶ — -έω contract verb, present active",
+   "note": "ε + ω → ω, ε + ει → ει, ε + ο → ου. Contraction leaves a circumflex where the vowels merged. Outside the present and imperfect the ε lengthens to η: ποιήσω, ἐποίησα.",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "ποιῶ",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "ποιεῖς",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "ποιεῖ",
+     "attested": true
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "ποιοῦμεν",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "ποιεῖτε",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "ποιοῦσι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "contract-ao",
+   "kind": "verbal",
+   "lemma": "ἀγαπάω",
+   "title": "ἀγαπῶ — -άω contract verb, present active",
+   "note": "α + ω/ο → ω, α + ει/ῃ → ᾳ. Outside the present the α lengthens to η: ἀγαπήσω, ἠγάπησα.",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "ἀγαπῶ",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "ἀγαπᾷς",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "ἀγαπᾷ",
+     "attested": true
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "ἀγαπῶμεν",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "ἀγαπᾶτε",
+     "attested": true
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "ἀγαπῶσι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "contract-oo",
+   "kind": "verbal",
+   "lemma": "πληρόω",
+   "title": "πληρῶ — -όω contract verb, present active",
+   "note": "ο + ω → ω, ο + ει → οι, ο + ο → ου. Outside the present the ο lengthens to ω: πληρώσω, ἐπλήρωσα.",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "πληρῶ",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "πληροῖς",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "πληροῖ",
+     "attested": false
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "πληροῦμεν",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "πληροῦτε",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "πληροῦσι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "mi-didomi-pres",
+   "kind": "verbal",
+   "lemma": "δίδωμι",
+   "title": "δίδωμι — present active (I give)",
+   "note": "-μι verbs reduplicate with ι in the present (δι-δω-) and add endings straight to the stem: -μι -ς -σι(ν) -μεν -τε -ασι(ν). The stem vowel is long in the singular (δίδω-), short in the plural (δίδο-).",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "δίδωμι",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "δίδως",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "δίδωσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "δίδομεν",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "δίδοτε",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "διδόασι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "mi-didomi-aor",
+   "kind": "verbal",
+   "lemma": "δίδωμι",
+   "title": "ἔδωκα — aorist active of δίδωμι",
+   "note": "A 'κ-aorist': ἔδωκα, ἔδωκας, ἔδωκε(ν), ἐδώκαμεν, ἐδώκατε, ἔδωκαν. τίθημι (ἔθηκα) and ἀφίημι (ἀφῆκα) do the same.",
+   "cells": [
+    {
+     "parse": "1AAI-S--",
+     "form": "ἔδωκα",
+     "attested": true
+    },
+    {
+     "parse": "2AAI-S--",
+     "form": "ἔδωκας",
+     "attested": true
+    },
+    {
+     "parse": "3AAI-S--",
+     "form": "ἔδωκε(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1AAI-P--",
+     "form": "ἐδώκαμεν",
+     "attested": true
+    },
+    {
+     "parse": "2AAI-P--",
+     "form": "ἐδώκατε",
+     "attested": true
+    },
+    {
+     "parse": "3AAI-P--",
+     "form": "ἔδωκαν",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "mi-tithemi-pres",
+   "kind": "verbal",
+   "lemma": "τίθημι",
+   "title": "τίθημι — present active (I put, place)",
+   "note": "Same pattern as δίδωμι with the stem θε-/θη-: τίθημι, τίθης, τίθησι(ν), τίθεμεν, τίθετε, τιθέασι(ν).",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "τίθημι",
+     "attested": true
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "τίθης",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "τίθησι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "τίθεμεν",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "τίθετε",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "τιθέασι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "mi-histemi-pres",
+   "kind": "verbal",
+   "lemma": "ἵστημι",
+   "title": "ἵστημι — present active (I set, stand)",
+   "note": "Stem στα-/στη- with the reduplication showing as a rough breathing: ἵστημι, ἵστης, ἵστησι(ν), ἵσταμεν, ἵστατε, ἱστᾶσι(ν). Its 2nd aorist ἔστην and perfect ἕστηκα both mean 'I stood / I stand'.",
+   "cells": [
+    {
+     "parse": "1PAI-S--",
+     "form": "ἵστημι",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-S--",
+     "form": "ἵστης",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-S--",
+     "form": "ἵστησι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "1PAI-P--",
+     "form": "ἵσταμεν",
+     "attested": false
+    },
+    {
+     "parse": "2PAI-P--",
+     "form": "ἵστατε",
+     "attested": false
+    },
+    {
+     "parse": "3PAI-P--",
+     "form": "ἱστᾶσι(ν)",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "oida-perf",
+   "kind": "verbal",
+   "lemma": "οἶδα",
+   "title": "οἶδα — I know (perfect in form, present in meaning)",
+   "note": "οἶδα, οἶδας, οἶδε(ν), οἴδαμεν, οἴδατε, οἴδασι(ν). Its pluperfect ᾔδειν means 'I knew'. Learn it as its own mini-paradigm.",
+   "cells": [
+    {
+     "parse": "1XAI-S--",
+     "form": "οἶδα",
+     "attested": true
+    },
+    {
+     "parse": "2XAI-S--",
+     "form": "οἶδας",
+     "attested": true
+    },
+    {
+     "parse": "3XAI-S--",
+     "form": "οἶδε(ν)",
+     "attested": true
+    },
+    {
+     "parse": "1XAI-P--",
+     "form": "οἴδαμεν",
+     "attested": true
+    },
+    {
+     "parse": "2XAI-P--",
+     "form": "οἴδατε",
+     "attested": true
+    },
+    {
+     "parse": "3XAI-P--",
+     "form": "οἴδασι(ν)",
+     "attested": true
+    }
+   ]
+  },
+  {
+   "id": "ptc-pres-act",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λύων, λύουσα, λῦον — present active participle",
+   "note": "3-1-3: masculine/neuter follow ἄρχων (stem λυοντ-), feminine follows δόξα. 'loosing / while loosing'. The participle of εἰμί (ὤν, οὖσα, ὄν) is just the endings.",
+   "cells": [
+    {
+     "parse": "-PAPNSM-",
+     "form": "λύων",
+     "attested": false
+    },
+    {
+     "parse": "-PAPGSM-",
+     "form": "λύοντος",
+     "attested": false
+    },
+    {
+     "parse": "-PAPDSM-",
+     "form": "λύοντι",
+     "attested": false
+    },
+    {
+     "parse": "-PAPASM-",
+     "form": "λύοντα",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNPM-",
+     "form": "λύοντες",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGPM-",
+     "form": "λυόντων",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDPM-",
+     "form": "λύουσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-PAPAPM-",
+     "form": "λύοντας",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNSF-",
+     "form": "λύουσα",
+     "attested": false
+    },
+    {
+     "parse": "-PAPGSF-",
+     "form": "λυούσης",
+     "attested": false
+    },
+    {
+     "parse": "-PAPDSF-",
+     "form": "λυούσῃ",
+     "attested": false
+    },
+    {
+     "parse": "-PAPASF-",
+     "form": "λύουσαν",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNPF-",
+     "form": "λύουσαι",
+     "attested": false
+    },
+    {
+     "parse": "-PAPGPF-",
+     "form": "λυουσῶν",
+     "attested": false
+    },
+    {
+     "parse": "-PAPDPF-",
+     "form": "λυούσαις",
+     "attested": false
+    },
+    {
+     "parse": "-PAPAPF-",
+     "form": "λυούσας",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNSN-",
+     "form": "λῦον",
+     "attested": false
+    },
+    {
+     "parse": "-PAPGSN-",
+     "form": "λύοντος",
+     "attested": false
+    },
+    {
+     "parse": "-PAPDSN-",
+     "form": "λύοντι",
+     "attested": false
+    },
+    {
+     "parse": "-PAPASN-",
+     "form": "λῦον",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNPN-",
+     "form": "λύοντα",
+     "attested": false
+    },
+    {
+     "parse": "-PAPGPN-",
+     "form": "λυόντων",
+     "attested": false
+    },
+    {
+     "parse": "-PAPDPN-",
+     "form": "λύουσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-PAPAPN-",
+     "form": "λύοντα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-pres-mp",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λυόμενος, -η, -ον — present middle/passive participle",
+   "note": "The easiest participle: -όμενος declines exactly like ἀγαθός. Deponents use it: ἐρχόμενος 'coming'.",
+   "cells": [
+    {
+     "parse": "-PMPNSM-",
+     "form": "λυόμενος",
+     "attested": false
+    },
+    {
+     "parse": "-PMPGSM-",
+     "form": "λυομένου",
+     "attested": false
+    },
+    {
+     "parse": "-PMPDSM-",
+     "form": "λυομένῳ",
+     "attested": false
+    },
+    {
+     "parse": "-PMPASM-",
+     "form": "λυόμενον",
+     "attested": false
+    },
+    {
+     "parse": "-PMPNPM-",
+     "form": "λυόμενοι",
+     "attested": false
+    },
+    {
+     "parse": "-PMPGPM-",
+     "form": "λυομένων",
+     "attested": false
+    },
+    {
+     "parse": "-PMPDPM-",
+     "form": "λυομένοις",
+     "attested": false
+    },
+    {
+     "parse": "-PMPAPM-",
+     "form": "λυομένους",
+     "attested": false
+    },
+    {
+     "parse": "-PMPNSF-",
+     "form": "λυομένη",
+     "attested": false
+    },
+    {
+     "parse": "-PMPGSF-",
+     "form": "λυομένης",
+     "attested": false
+    },
+    {
+     "parse": "-PMPDSF-",
+     "form": "λυομένῃ",
+     "attested": false
+    },
+    {
+     "parse": "-PMPASF-",
+     "form": "λυομένην",
+     "attested": false
+    },
+    {
+     "parse": "-PMPNPF-",
+     "form": "λυόμεναι",
+     "attested": false
+    },
+    {
+     "parse": "-PMPGPF-",
+     "form": "λυομένων",
+     "attested": false
+    },
+    {
+     "parse": "-PMPDPF-",
+     "form": "λυομέναις",
+     "attested": false
+    },
+    {
+     "parse": "-PMPAPF-",
+     "form": "λυομένας",
+     "attested": false
+    },
+    {
+     "parse": "-PMPNSN-",
+     "form": "λυόμενον",
+     "attested": false
+    },
+    {
+     "parse": "-PMPGSN-",
+     "form": "λυομένου",
+     "attested": false
+    },
+    {
+     "parse": "-PMPDSN-",
+     "form": "λυομένῳ",
+     "attested": false
+    },
+    {
+     "parse": "-PMPASN-",
+     "form": "λυόμενον",
+     "attested": false
+    },
+    {
+     "parse": "-PMPNPN-",
+     "form": "λυόμενα",
+     "attested": false
+    },
+    {
+     "parse": "-PMPGPN-",
+     "form": "λυομένων",
+     "attested": true
+    },
+    {
+     "parse": "-PMPDPN-",
+     "form": "λυομένοις",
+     "attested": false
+    },
+    {
+     "parse": "-PMPAPN-",
+     "form": "λυόμενα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-aor-act",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λύσας, λύσασα, λῦσαν — first aorist active participle",
+   "note": "σα + the -ντ pattern (no augment: only the indicative augments). Aorist participle usually = action before the main verb: 'having loosed'.",
+   "cells": [
+    {
+     "parse": "-AAPNSM-",
+     "form": "λύσας",
+     "attested": true
+    },
+    {
+     "parse": "-AAPGSM-",
+     "form": "λύσαντος",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDSM-",
+     "form": "λύσαντι",
+     "attested": true
+    },
+    {
+     "parse": "-AAPASM-",
+     "form": "λύσαντα",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNPM-",
+     "form": "λύσαντες",
+     "attested": true
+    },
+    {
+     "parse": "-AAPGPM-",
+     "form": "λυσάντων",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDPM-",
+     "form": "λύσασι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-AAPAPM-",
+     "form": "λύσαντας",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNSF-",
+     "form": "λύσασα",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGSF-",
+     "form": "λυσάσης",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDSF-",
+     "form": "λυσάσῃ",
+     "attested": false
+    },
+    {
+     "parse": "-AAPASF-",
+     "form": "λύσασαν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNPF-",
+     "form": "λύσασαι",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGPF-",
+     "form": "λυσασῶν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDPF-",
+     "form": "λυσάσαις",
+     "attested": false
+    },
+    {
+     "parse": "-AAPAPF-",
+     "form": "λυσάσας",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNSN-",
+     "form": "λῦσαν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGSN-",
+     "form": "λύσαντος",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDSN-",
+     "form": "λύσαντι",
+     "attested": false
+    },
+    {
+     "parse": "-AAPASN-",
+     "form": "λῦσαν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNPN-",
+     "form": "λύσαντα",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGPN-",
+     "form": "λυσάντων",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDPN-",
+     "form": "λύσασι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-AAPAPN-",
+     "form": "λύσαντα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-aor2-act",
+   "kind": "participle",
+   "lemma": "βάλλω",
+   "title": "βαλών, βαλοῦσα, βαλόν — second aorist active participle",
+   "note": "Present-participle endings on the second-aorist stem, with the accent on the ending: ἐλθών (having come), ἰδών (having seen), εἰπών (having said), λαβών (having taken).",
+   "cells": [
+    {
+     "parse": "-AAPNSM-",
+     "form": "βαλών",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGSM-",
+     "form": "βαλόντος",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDSM-",
+     "form": "βαλόντι",
+     "attested": false
+    },
+    {
+     "parse": "-AAPASM-",
+     "form": "βαλόντα",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNPM-",
+     "form": "βαλόντες",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGPM-",
+     "form": "βαλόντων",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDPM-",
+     "form": "βαλοῦσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-AAPAPM-",
+     "form": "βαλόντας",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNSF-",
+     "form": "βαλοῦσα",
+     "attested": true
+    },
+    {
+     "parse": "-AAPGSF-",
+     "form": "βαλούσης",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDSF-",
+     "form": "βαλούσῃ",
+     "attested": false
+    },
+    {
+     "parse": "-AAPASF-",
+     "form": "βαλοῦσαν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNPF-",
+     "form": "βαλοῦσαι",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGPF-",
+     "form": "βαλουσῶν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDPF-",
+     "form": "βαλούσαις",
+     "attested": false
+    },
+    {
+     "parse": "-AAPAPF-",
+     "form": "βαλούσας",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNSN-",
+     "form": "βαλόν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGSN-",
+     "form": "βαλόντος",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDSN-",
+     "form": "βαλόντι",
+     "attested": false
+    },
+    {
+     "parse": "-AAPASN-",
+     "form": "βαλόν",
+     "attested": false
+    },
+    {
+     "parse": "-AAPNPN-",
+     "form": "βαλόντα",
+     "attested": false
+    },
+    {
+     "parse": "-AAPGPN-",
+     "form": "βαλόντων",
+     "attested": false
+    },
+    {
+     "parse": "-AAPDPN-",
+     "form": "βαλοῦσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-AAPAPN-",
+     "form": "βαλόντα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-aor-mid",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λυσάμενος, -η, -ον — aorist middle participle",
+   "note": "σα + -μενος, declined like ἀγαθός. Second aorist: γενόμενος (having become).",
+   "cells": [
+    {
+     "parse": "-AMPNSM-",
+     "form": "λυσάμενος",
+     "attested": false
+    },
+    {
+     "parse": "-AMPGSM-",
+     "form": "λυσαμένου",
+     "attested": false
+    },
+    {
+     "parse": "-AMPDSM-",
+     "form": "λυσαμένῳ",
+     "attested": false
+    },
+    {
+     "parse": "-AMPASM-",
+     "form": "λυσάμενον",
+     "attested": false
+    },
+    {
+     "parse": "-AMPNPM-",
+     "form": "λυσάμενοι",
+     "attested": false
+    },
+    {
+     "parse": "-AMPGPM-",
+     "form": "λυσαμένων",
+     "attested": false
+    },
+    {
+     "parse": "-AMPDPM-",
+     "form": "λυσαμένοις",
+     "attested": false
+    },
+    {
+     "parse": "-AMPAPM-",
+     "form": "λυσαμένους",
+     "attested": false
+    },
+    {
+     "parse": "-AMPNSF-",
+     "form": "λυσαμένη",
+     "attested": false
+    },
+    {
+     "parse": "-AMPGSF-",
+     "form": "λυσαμένης",
+     "attested": false
+    },
+    {
+     "parse": "-AMPDSF-",
+     "form": "λυσαμένῃ",
+     "attested": false
+    },
+    {
+     "parse": "-AMPASF-",
+     "form": "λυσαμένην",
+     "attested": false
+    },
+    {
+     "parse": "-AMPNPF-",
+     "form": "λυσάμεναι",
+     "attested": false
+    },
+    {
+     "parse": "-AMPGPF-",
+     "form": "λυσαμένων",
+     "attested": false
+    },
+    {
+     "parse": "-AMPDPF-",
+     "form": "λυσαμέναις",
+     "attested": false
+    },
+    {
+     "parse": "-AMPAPF-",
+     "form": "λυσαμένας",
+     "attested": false
+    },
+    {
+     "parse": "-AMPNSN-",
+     "form": "λυσάμενον",
+     "attested": false
+    },
+    {
+     "parse": "-AMPGSN-",
+     "form": "λυσαμένου",
+     "attested": false
+    },
+    {
+     "parse": "-AMPDSN-",
+     "form": "λυσαμένῳ",
+     "attested": false
+    },
+    {
+     "parse": "-AMPASN-",
+     "form": "λυσάμενον",
+     "attested": false
+    },
+    {
+     "parse": "-AMPNPN-",
+     "form": "λυσάμενα",
+     "attested": false
+    },
+    {
+     "parse": "-AMPGPN-",
+     "form": "λυσαμένων",
+     "attested": false
+    },
+    {
+     "parse": "-AMPDPN-",
+     "form": "λυσαμένοις",
+     "attested": false
+    },
+    {
+     "parse": "-AMPAPN-",
+     "form": "λυσάμενα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-aor-pass",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λυθείς, λυθεῖσα, λυθέν — aorist passive participle",
+   "note": "θε + -ντ endings (masc/neut) or -ῖσα (fem): 'having been loosed'. ἀποκριθείς 'answering' (deponent) starts countless sentences in the Gospels.",
+   "cells": [
+    {
+     "parse": "-APPNSM-",
+     "form": "λυθείς",
+     "attested": false
+    },
+    {
+     "parse": "-APPGSM-",
+     "form": "λυθέντος",
+     "attested": false
+    },
+    {
+     "parse": "-APPDSM-",
+     "form": "λυθέντι",
+     "attested": false
+    },
+    {
+     "parse": "-APPASM-",
+     "form": "λυθέντα",
+     "attested": false
+    },
+    {
+     "parse": "-APPNPM-",
+     "form": "λυθέντες",
+     "attested": false
+    },
+    {
+     "parse": "-APPGPM-",
+     "form": "λυθέντων",
+     "attested": false
+    },
+    {
+     "parse": "-APPDPM-",
+     "form": "λυθεῖσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-APPAPM-",
+     "form": "λυθέντας",
+     "attested": false
+    },
+    {
+     "parse": "-APPNSF-",
+     "form": "λυθεῖσα",
+     "attested": false
+    },
+    {
+     "parse": "-APPGSF-",
+     "form": "λυθείσης",
+     "attested": true
+    },
+    {
+     "parse": "-APPDSF-",
+     "form": "λυθείσῃ",
+     "attested": false
+    },
+    {
+     "parse": "-APPASF-",
+     "form": "λυθεῖσαν",
+     "attested": false
+    },
+    {
+     "parse": "-APPNPF-",
+     "form": "λυθεῖσαι",
+     "attested": false
+    },
+    {
+     "parse": "-APPGPF-",
+     "form": "λυθεισῶν",
+     "attested": false
+    },
+    {
+     "parse": "-APPDPF-",
+     "form": "λυθείσαις",
+     "attested": false
+    },
+    {
+     "parse": "-APPAPF-",
+     "form": "λυθείσας",
+     "attested": false
+    },
+    {
+     "parse": "-APPNSN-",
+     "form": "λυθέν",
+     "attested": false
+    },
+    {
+     "parse": "-APPGSN-",
+     "form": "λυθέντος",
+     "attested": false
+    },
+    {
+     "parse": "-APPDSN-",
+     "form": "λυθέντι",
+     "attested": false
+    },
+    {
+     "parse": "-APPASN-",
+     "form": "λυθέν",
+     "attested": false
+    },
+    {
+     "parse": "-APPNPN-",
+     "form": "λυθέντα",
+     "attested": false
+    },
+    {
+     "parse": "-APPGPN-",
+     "form": "λυθέντων",
+     "attested": false
+    },
+    {
+     "parse": "-APPDPN-",
+     "form": "λυθεῖσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-APPAPN-",
+     "form": "λυθέντα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-perf-act",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λελυκώς, λελυκυῖα, λελυκός — perfect active participle",
+   "note": "Reduplication + κοτ- stem (masc/neut) or -κυῖα (fem): a state resulting from a past action, 'having loosed / in a loosed state'.",
+   "cells": [
+    {
+     "parse": "-XAPNSM-",
+     "form": "λελυκώς",
+     "attested": false
+    },
+    {
+     "parse": "-XAPGSM-",
+     "form": "λελυκότος",
+     "attested": false
+    },
+    {
+     "parse": "-XAPDSM-",
+     "form": "λελυκότι",
+     "attested": false
+    },
+    {
+     "parse": "-XAPASM-",
+     "form": "λελυκότα",
+     "attested": false
+    },
+    {
+     "parse": "-XAPNPM-",
+     "form": "λελυκότες",
+     "attested": false
+    },
+    {
+     "parse": "-XAPGPM-",
+     "form": "λελυκότων",
+     "attested": false
+    },
+    {
+     "parse": "-XAPDPM-",
+     "form": "λελυκόσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-XAPAPM-",
+     "form": "λελυκότας",
+     "attested": false
+    },
+    {
+     "parse": "-XAPNSF-",
+     "form": "λελυκυῖα",
+     "attested": false
+    },
+    {
+     "parse": "-XAPGSF-",
+     "form": "λελυκυίας",
+     "attested": false
+    },
+    {
+     "parse": "-XAPDSF-",
+     "form": "λελυκυίᾳ",
+     "attested": false
+    },
+    {
+     "parse": "-XAPASF-",
+     "form": "λελυκυῖαν",
+     "attested": false
+    },
+    {
+     "parse": "-XAPNPF-",
+     "form": "λελυκυῖαι",
+     "attested": false
+    },
+    {
+     "parse": "-XAPGPF-",
+     "form": "λελυκυιῶν",
+     "attested": false
+    },
+    {
+     "parse": "-XAPDPF-",
+     "form": "λελυκυίαις",
+     "attested": false
+    },
+    {
+     "parse": "-XAPAPF-",
+     "form": "λελυκυίας",
+     "attested": false
+    },
+    {
+     "parse": "-XAPNSN-",
+     "form": "λελυκός",
+     "attested": false
+    },
+    {
+     "parse": "-XAPGSN-",
+     "form": "λελυκότος",
+     "attested": false
+    },
+    {
+     "parse": "-XAPDSN-",
+     "form": "λελυκότι",
+     "attested": false
+    },
+    {
+     "parse": "-XAPASN-",
+     "form": "λελυκός",
+     "attested": false
+    },
+    {
+     "parse": "-XAPNPN-",
+     "form": "λελυκότα",
+     "attested": false
+    },
+    {
+     "parse": "-XAPGPN-",
+     "form": "λελυκότων",
+     "attested": false
+    },
+    {
+     "parse": "-XAPDPN-",
+     "form": "λελυκόσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-XAPAPN-",
+     "form": "λελυκότα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-perf-mp",
+   "kind": "participle",
+   "lemma": "λύω",
+   "title": "λελυμένος, -η, -ον — perfect middle/passive participle",
+   "note": "Reduplication + -μένος (accent on the μέ), declined like ἀγαθός. γεγραμμένος 'written', ἠγαπημένος 'beloved'.",
+   "cells": [
+    {
+     "parse": "-XMPNSM-",
+     "form": "λελυμένος",
+     "attested": false
+    },
+    {
+     "parse": "-XMPGSM-",
+     "form": "λελυμένου",
+     "attested": false
+    },
+    {
+     "parse": "-XMPDSM-",
+     "form": "λελυμένῳ",
+     "attested": false
+    },
+    {
+     "parse": "-XMPASM-",
+     "form": "λελυμένον",
+     "attested": false
+    },
+    {
+     "parse": "-XMPNPM-",
+     "form": "λελυμένοι",
+     "attested": false
+    },
+    {
+     "parse": "-XMPGPM-",
+     "form": "λελυμένων",
+     "attested": false
+    },
+    {
+     "parse": "-XMPDPM-",
+     "form": "λελυμένοις",
+     "attested": false
+    },
+    {
+     "parse": "-XMPAPM-",
+     "form": "λελυμένους",
+     "attested": false
+    },
+    {
+     "parse": "-XMPNSF-",
+     "form": "λελυμένη",
+     "attested": false
+    },
+    {
+     "parse": "-XMPGSF-",
+     "form": "λελυμένης",
+     "attested": false
+    },
+    {
+     "parse": "-XMPDSF-",
+     "form": "λελυμένῃ",
+     "attested": false
+    },
+    {
+     "parse": "-XMPASF-",
+     "form": "λελυμένην",
+     "attested": false
+    },
+    {
+     "parse": "-XMPNPF-",
+     "form": "λελυμέναι",
+     "attested": false
+    },
+    {
+     "parse": "-XMPGPF-",
+     "form": "λελυμένων",
+     "attested": false
+    },
+    {
+     "parse": "-XMPDPF-",
+     "form": "λελυμέναις",
+     "attested": false
+    },
+    {
+     "parse": "-XMPAPF-",
+     "form": "λελυμένας",
+     "attested": false
+    },
+    {
+     "parse": "-XMPNSN-",
+     "form": "λελυμένον",
+     "attested": true
+    },
+    {
+     "parse": "-XMPGSN-",
+     "form": "λελυμένου",
+     "attested": false
+    },
+    {
+     "parse": "-XMPDSN-",
+     "form": "λελυμένῳ",
+     "attested": false
+    },
+    {
+     "parse": "-XMPASN-",
+     "form": "λελυμένον",
+     "attested": false
+    },
+    {
+     "parse": "-XMPNPN-",
+     "form": "λελυμένα",
+     "attested": true
+    },
+    {
+     "parse": "-XMPGPN-",
+     "form": "λελυμένων",
+     "attested": false
+    },
+    {
+     "parse": "-XMPDPN-",
+     "form": "λελυμένοις",
+     "attested": false
+    },
+    {
+     "parse": "-XMPAPN-",
+     "form": "λελυμένα",
+     "attested": false
+    }
+   ]
+  },
+  {
+   "id": "ptc-eimi",
+   "kind": "participle",
+   "lemma": "εἰμί",
+   "title": "ὤν, οὖσα, ὄν — participle of εἰμί",
+   "note": "Pure endings with a rough breathing: ὤν, ὄντος … The present-active participle endings by themselves.",
+   "cells": [
+    {
+     "parse": "-PAPNSM-",
+     "form": "ὤν",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGSM-",
+     "form": "ὄντος",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDSM-",
+     "form": "ὄντι",
+     "attested": true
+    },
+    {
+     "parse": "-PAPASM-",
+     "form": "ὄντα",
+     "attested": true
+    },
+    {
+     "parse": "-PAPNPM-",
+     "form": "ὄντες",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGPM-",
+     "form": "ὄντων",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDPM-",
+     "form": "οὖσι(ν)",
+     "attested": true
+    },
+    {
+     "parse": "-PAPAPM-",
+     "form": "ὄντας",
+     "attested": true
+    },
+    {
+     "parse": "-PAPNSF-",
+     "form": "οὖσα",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGSF-",
+     "form": "οὔσης",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDSF-",
+     "form": "οὔσῃ",
+     "attested": true
+    },
+    {
+     "parse": "-PAPASF-",
+     "form": "οὖσαν",
+     "attested": true
+    },
+    {
+     "parse": "-PAPNPF-",
+     "form": "οὖσαι",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGPF-",
+     "form": "οὐσῶν",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDPF-",
+     "form": "οὔσαις",
+     "attested": false
+    },
+    {
+     "parse": "-PAPAPF-",
+     "form": "οὔσας",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNSN-",
+     "form": "ὄν",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGSN-",
+     "form": "ὄντος",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDSN-",
+     "form": "ὄντι",
+     "attested": false
+    },
+    {
+     "parse": "-PAPASN-",
+     "form": "ὄν",
+     "attested": false
+    },
+    {
+     "parse": "-PAPNPN-",
+     "form": "ὄντα",
+     "attested": true
+    },
+    {
+     "parse": "-PAPGPN-",
+     "form": "ὄντων",
+     "attested": true
+    },
+    {
+     "parse": "-PAPDPN-",
+     "form": "οὖσι(ν)",
+     "attested": false
+    },
+    {
+     "parse": "-PAPAPN-",
+     "form": "ὄντα",
+     "attested": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Read &amp; Translate</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back to path">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="progress" aria-label="Reading progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="drill-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="drill-footer" id="footer" hidden>
+    <button class="btn" id="continueBtn" type="button">Reveal</button>
+  </div>
+
+</div>
+
+<script type="module">
+  /*
+    Read & Translate (README § Exercise types; PEDAGOGY M14–M16, M23–M25).
+    Logic: js/reading.js + js/morph.js. Shared UI: js/session-view.js.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { loadLesson, loadLexicon, loadBook } from './js/data.js';
+  import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { scheduleReview } from './js/srs.js';
+  import { annotate, coverage, xpForVerse, rateVerse, startIndex, suggestWords, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
+  import { describeParse, describePos } from './js/morph.js';
+  import { SessionView, escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  const view = new SessionView();
+  const xpStat = document.getElementById('xpStat');
+  xpStat.textContent = getProgress().xp;
+  document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
+
+  const lessonId = new URLSearchParams(location.search).get('lesson');
+  const state = {
+    lesson: null, lexicon: null, verses: [], index: 0, records: {}, translation: getSettings().translation || 'web',
+    reveals: [], allReveals: [], rated: 0, xpEarned: 0, coverages: [], revealed: false, active: null,
+  };
+
+  main().catch((err) => { console.error(err); view.renderError(`Could not load this reading: ${err.message}. Run from a local server (see README).`); });
+
+  async function main() {
+    if (!lessonId) throw new Error('no lesson given');
+    const [{ lesson }, lexicon] = await Promise.all([loadLesson(lessonId), loadLexicon()]);
+    if (!lesson.reading) throw new Error(`${lessonId} has no reading`);
+    state.lesson = lesson; state.lexicon = lexicon;
+    document.title = `Rhema — ${lesson.sub}`;
+
+    // Prep vocabulary first (the lesson's own new words are drilled before reading — i+1, M16)
+    const unstudied = lesson.vocab.filter((v) => !getVocabItem(v.id));
+    if (unstudied.length) { renderPrep(unstudied); return; }
+
+    const book = await loadBook(lesson.reading.book);
+    const chapter = book.chapters[String(lesson.reading.chapter)];
+    state.verses = lesson.reading.verseIds.map((id) => {
+      const v = Object.values(chapter).find((x) => x.id === id);
+      return { ...v, number: Number(id.split('-').pop()), bookName: book.book, greekTitle: book.greekTitle };
+    });
+    state.records = getAllVocabRecords();
+    state.index = startIndex(lesson.reading.verseIds, readStore().readingHistory);
+    renderVerse();
+  }
+
+  // ------------------------------------------------------------ prep vocab gate
+
+  function renderPrep(unstudied) {
+    const url = `drill.html?lesson=${encodeURIComponent(state.lesson.id)}&return=${encodeURIComponent(`reading.html?lesson=${state.lesson.id}`)}`;
+    view.renderIntro({
+      kicker: 'Before you read',
+      html: `<div class="card">
+        <div class="rule-title">${escapeHtml(state.lesson.reading.reference)} uses ${unstudied.length} word${unstudied.length === 1 ? '' : 's'} you have not met</div>
+        <p class="rule-body">Learn them first, then come back and read. Everything else in the passage will be one tap from its meaning.</p>
+        <div class="summary-list">${unstudied.map((v) => `<div><span class="greek">${escapeHtml(v.lemma)}</span> — ${escapeHtml(v.gloss)}</div>`).join('')}</div>
+      </div>`,
+      buttonLabel: 'Learn the words',
+    }, () => { location.href = url; });
+  }
+
+  // ------------------------------------------------------------ verse screen
+
+  function renderVerse() {
+    const verse = state.verses[state.index];
+    if (!verse) { renderSummary(); return; }
+    view.setProgress(state.index / state.verses.length);
+    state.reveals = []; state.revealed = false; state.active = null;
+    const words = annotate(verse, state.lexicon, state.records);
+    state.words = words;
+    const cov = coverage(words);
+    state.coverages.push(cov);
+    const rule = state.index === 0 && state.lesson.rule ? `
+      <div class="card">
+        <div class="rule-title">${escapeHtml(state.lesson.rule.title)}</div>
+        <p class="rule-body">${escapeHtml(state.lesson.rule.body)}</p>
+      </div>` : '';
+
+    view.body.innerHTML = `
+      <div class="drill-kicker">${escapeHtml(verse.greekTitle)} · ${escapeHtml(verse.bookName)} ${escapeHtml(state.lesson.reading.chapter)}:${verse.number} · ${state.index + 1} of ${state.verses.length}</div>
+      ${rule}
+      <div class="card">
+        <div class="verse" id="verse" lang="grc">${words.map((w, i) => wordHtml(w, i)).join(' ')}</div>
+        <div class="verse-meta"><span>${Math.round(cov.knownShare * 100)}% of these words are in your vocabulary</span><span class="legend"><span class="w unknown">dotted</span> = tap for meaning</span></div>
+      </div>
+      <div class="gloss-panel" id="gloss" hidden></div>
+      <div id="reveal"></div>`;
+    view.body.scrollTop = 0;
+    view.body.querySelectorAll('.w[data-i]').forEach((el) => el.addEventListener('click', () => tapWord(Number(el.dataset.i))));
+    view.showFooter('Reveal the translation', reveal);
+  }
+
+  function wordHtml(w, i) {
+    if (!isWordToken(w)) return `<span class="punct">${escapeHtml(w.t)}</span>`;
+    const cls = w.known ? 'known' : 'unknown';
+    return `<span class="w ${cls}" data-i="${i}" role="button" tabindex="0">${escapeHtml(w.t)}</span>`;
+  }
+
+  function tapWord(i) {
+    const w = state.words[i];
+    if (!w.item) return;
+    view.body.querySelectorAll('.w.active').forEach((el) => el.classList.remove('active'));
+    const el = view.body.querySelector(`.w[data-i="${i}"]`);
+    el.classList.add('active');
+    if (!state.reveals.some((r) => r === w)) { state.reveals.push(w); state.allReveals.push(w); }
+    const it = w.item;
+    const status = w.known ? 'in your vocabulary' : w.glossOnly ? `rare (${it.count}× in the NT) — glossed, never drilled` : 'not yet in your vocabulary';
+    const panel = document.getElementById('gloss');
+    panel.hidden = false;
+    panel.innerHTML = `
+      <div class="gloss-head"><span class="gloss-form">${escapeHtml(normalizedForm(w))}</span><span class="gloss-pos">${escapeHtml(describePos(w.p, w.m))}</span></div>
+      <div class="gloss-parse">${escapeHtml(describeParse(w.p, w.m))}</div>
+      <div class="gloss-lemma"><span class="k">from</span> <b>${escapeHtml(it.citation)}</b> — ${escapeHtml(it.gloss)}</div>
+      <div class="gloss-status">${escapeHtml(status)}</div>`;
+    panel.scrollIntoView({ block: 'nearest' });
+  }
+
+  function reveal() {
+    if (state.revealed) return;
+    state.revealed = true;
+    view.hideFooter();
+    const verse = state.verses[state.index];
+    const box = document.getElementById('reveal');
+    box.innerHTML = `
+      <div class="card">
+        <div class="tr-head">
+          <div class="pill-group" id="trPills">${TRANSLATIONS.map((t) => `<button class="pill ${t.id === state.translation ? 'active' : ''}" type="button" data-tr="${t.id}" title="${escapeHtml(t.name)}">${t.label}</button>`).join('')}</div>
+        </div>
+        <div class="tr-text" id="trText"></div>
+      </div>
+      <div class="rate">
+        <div class="rate-label">How close was your reading?</div>
+        <div class="rate-buttons">
+          <button class="rate-btn miss" type="button" data-rating="miss">Missed it</button>
+          <button class="rate-btn close" type="button" data-rating="close">Close</button>
+          <button class="rate-btn nailed" type="button" data-rating="nailed">Nailed it</button>
+        </div>
+      </div>`;
+    const showTr = () => {
+      const t = verse.translations[state.translation] || Object.values(verse.translations)[0] || '(no translation available for this verse)';
+      document.getElementById('trText').textContent = t;
+    };
+    showTr();
+    box.querySelectorAll('#trPills .pill').forEach((p) => p.addEventListener('click', () => {
+      state.translation = p.dataset.tr; setSettings({ translation: state.translation });
+      box.querySelectorAll('#trPills .pill').forEach((x) => x.classList.toggle('active', x === p));
+      showTr();
+    }));
+    box.querySelectorAll('.rate-btn').forEach((b) => b.addEventListener('click', () => rate(b.dataset.rating)));
+    box.scrollIntoView({ block: 'nearest' });
+  }
+
+  function rate(rating) {
+    const verse = state.verses[state.index];
+    const next = rateVerse(getReadingRecord(verse.id), rating, state.reveals);
+    setReadingRecord(verse.id, next);
+    const xp = xpForVerse(rating, state.reveals);
+    state.xpEarned += xp; xpStat.textContent = addXp(xp).xp;
+    state.rated++;
+    state.index++;
+    renderVerse();
+  }
+
+  // ------------------------------------------------------------ summary
+
+  function renderSummary() {
+    if (state.rated > 0) { recordActivity(); markLessonCompleted(state.lesson.id); }
+    const progress = getProgress();
+    const tokens = state.coverages.reduce((a, c) => a + c.tokens, 0);
+    const known = state.coverages.reduce((a, c) => a + c.known, 0);
+    const suggestions = suggestWords(state.allReveals);
+    const tapped = [...new Map(state.allReveals.map((w) => [w.l, w])).values()];
+    view.renderSummary({
+      kicker: 'Reading complete',
+      html: `<div class="card">
+        <div class="rule-title">${escapeHtml(state.lesson.reading.reference)}</div>
+        <div class="summary-stats">
+          <div class="summary-stat"><b>${state.rated}</b><span>verses</span></div>
+          <div class="summary-stat"><b>${tokens ? Math.round((known / tokens) * 100) : 0}%</b><span>words known</span></div>
+          <div class="summary-stat"><b>+${state.xpEarned}</b><span>xp</span></div>
+        </div>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Each verse is now scheduled like a word: the ones you missed come back tomorrow.</p>
+        ${tapped.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Words you looked up</div>` +
+          tapped.map((w) => `<div><span class="greek">${escapeHtml(w.item.lemma)}</span> — ${escapeHtml(w.item.gloss)}${w.glossOnly ? ' <span style="color:var(--muted)">(rare)</span>' : ''}</div>`).join('') + `</div>` : ''}
+        ${suggestions.length ? `<div style="margin-top:14px"><button class="btn secondary" id="addWords" type="button">Add ${suggestions.length} looked-up word${suggestions.length === 1 ? '' : 's'} to my vocabulary</button></div>` : ''}
+      </div>`,
+    }, () => { location.href = 'index.html'; });
+    const addBtn = document.getElementById('addWords');
+    if (addBtn) addBtn.addEventListener('click', () => {
+      // Enter the words into the SRS as brand-new items due tomorrow (M24: the known set grows from reading).
+      suggestions.forEach((it) => { if (!getVocabItem(it.id)) updateVocabItem(it.id, { ...scheduleReview(null, 'miss'), lapses: 0, format: 'reading' }); });
+      addBtn.disabled = true; addBtn.textContent = 'Added — they will come up in your next review';
+    });
+  }
+</script>
+
+</body>
+</html>

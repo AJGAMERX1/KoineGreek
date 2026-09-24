@@ -1,0 +1,477 @@
+{
+ "id": "unit-05-future-aorist",
+ "index": 5,
+ "kicker": "Book V",
+ "title": "Ἔλυσα",
+ "sub": "Future and aorist",
+ "summary": "The future, the first and second aorist, the aorist passive, liquid verbs, and John 1:19–28. Aspect, not just time.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u05-future",
+   "type": "verb",
+   "label": "λύσω",
+   "sub": "The future tense",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Add a σ",
+    "body": "Future = present endings with σ before them: λύ-σ-ω, λύ-σ-εις. Consonant stems combine: βλέπω → βλέψω, ἄγω → ἄξω, βαπτίζω → βαπτίσω. Liquid stems (λ μ ν ρ) drop the σ and take a circumflex: ἀποστέλλω → ἀποστελῶ, ἐγείρω → ἐγερῶ, κρίνω → κρινῶ. Some verbs are middle in the future only: ἔσομαι, γνώσομαι, ὄψομαι.",
+    "examples": [
+     {
+      "gr": "σώσει τὸν λαὸν αὐτοῦ",
+      "en": "he will save his people"
+     },
+     {
+      "gr": "ἐγερῶ αὐτόν",
+      "en": "I will raise him"
+     },
+     {
+      "gr": "ὄψεσθε",
+      "en": "you will see"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἀποστέλλω",
+     "lemma": "ἀποστέλλω",
+     "citation": "ἀποστέλλω",
+     "gloss": "I send forth, send, send away, dismiss",
+     "pos": "verb",
+     "count": 132,
+     "rank": 130
+    },
+    {
+     "id": "ἐγείρω",
+     "lemma": "ἐγείρω",
+     "citation": "ἐγείρω",
+     "gloss": "I wake, arouse, raise up",
+     "pos": "verb",
+     "count": 143,
+     "rank": 119
+    },
+    {
+     "id": "ἀποκτείνω",
+     "lemma": "ἀποκτείνω",
+     "citation": "ἀποκτείνω/ἀποκτέννω",
+     "gloss": "I put to death, kill",
+     "pos": "verb",
+     "count": 74,
+     "rank": 231
+    },
+    {
+     "id": "φέρω",
+     "lemma": "φέρω",
+     "citation": "φέρω",
+     "gloss": "I carry, bear, bring, lead",
+     "pos": "verb",
+     "count": 66,
+     "rank": 249
+    },
+    {
+     "id": "αἴρω",
+     "lemma": "αἴρω",
+     "citation": "αἴρω",
+     "gloss": "I raise, lift up",
+     "pos": "verb",
+     "count": 101,
+     "rank": 165
+    },
+    {
+     "id": "ἀνοίγω",
+     "lemma": "ἀνοίγω",
+     "citation": "ἀνοίγω",
+     "gloss": "I open",
+     "pos": "verb",
+     "count": 77,
+     "rank": 220
+    },
+    {
+     "id": "βαπτίζω",
+     "lemma": "βαπτίζω",
+     "citation": "βαπτίζω",
+     "gloss": "I dip, submerge, baptize",
+     "pos": "verb",
+     "count": 77,
+     "rank": 218
+    },
+    {
+     "id": "κηρύσσω",
+     "lemma": "κηρύσσω",
+     "citation": "κηρύσσω",
+     "gloss": "I proclaim, herald, preach",
+     "pos": "verb",
+     "count": 61,
+     "rank": 265
+    },
+    {
+     "id": "δοξάζω",
+     "lemma": "δοξάζω",
+     "citation": "δοξάζω",
+     "gloss": "I glorify, honor, bestow glory on",
+     "pos": "verb",
+     "count": 61,
+     "rank": 264
+    },
+    {
+     "id": "εὐαγγελίζω",
+     "lemma": "εὐαγγελίζω",
+     "citation": "εὐαγγελίζω",
+     "gloss": "I bring good news, preach good tidings",
+     "pos": "verb",
+     "count": 54,
+     "rank": 293
+    }
+   ],
+   "paradigms": [
+    "fut-act",
+    "fut-mid",
+    "eimi-fut"
+   ]
+  },
+  {
+   "id": "u05-aorist-1",
+   "type": "verb",
+   "label": "ἔλυσα",
+   "sub": "The first aorist",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "A snapshot, not a movie",
+    "body": "Aorist = augment + σα + endings: ἔ-λυ-σα, ἔλυσας, ἔλυσε(ν), ἐλύσαμεν, ἐλύσατε, ἔλυσαν. Where the imperfect films the action in progress, the aorist photographs it whole. It is the ordinary narrative past ('he said, he went, he healed'), but it says nothing about duration. Liquids: ἀπέστειλα, ἔκρινα, ἔμεινα.",
+    "examples": [
+     {
+      "gr": "ἐπίστευσαν εἰς αὐτόν",
+      "en": "they believed in him"
+     },
+     {
+      "gr": "ἔσωσεν ἡμᾶς",
+      "en": "he saved us"
+     },
+     {
+      "gr": "ἀπέστειλεν ὁ θεὸς τὸν υἱόν",
+      "en": "God sent the Son"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἀποθνῄσκω",
+     "lemma": "ἀποθνῄσκω",
+     "citation": "ἀποθνῄσκω",
+     "gloss": "I am dying, am about to die",
+     "pos": "verb",
+     "count": 111,
+     "rank": 151
+    },
+    {
+     "id": "πίπτω",
+     "lemma": "πίπτω",
+     "citation": "πίπτω",
+     "gloss": "I fall, fall under",
+     "pos": "verb",
+     "count": 90,
+     "rank": 192
+    },
+    {
+     "id": "χαίρω",
+     "lemma": "χαίρω",
+     "citation": "χαίρω",
+     "gloss": "I rejoice, am glad",
+     "pos": "verb",
+     "count": 74,
+     "rank": 230
+    },
+    {
+     "id": "κράζω",
+     "lemma": "κράζω",
+     "citation": "κράζω",
+     "gloss": "I cry aloud, shriek",
+     "pos": "verb",
+     "count": 55,
+     "rank": 288
+    },
+    {
+     "id": "πείθω",
+     "lemma": "πείθω",
+     "citation": "πείθω",
+     "gloss": "I persuade, urge",
+     "pos": "verb",
+     "count": 52,
+     "rank": 300
+    },
+    {
+     "id": "σπείρω",
+     "lemma": "σπείρω",
+     "citation": "σπείρω",
+     "gloss": "I sow, spread, scatter",
+     "pos": "verb",
+     "count": 52,
+     "rank": 301
+    }
+   ],
+   "paradigms": [
+    "aor1-act",
+    "aor1-mid"
+   ]
+  },
+  {
+   "id": "u05-aorist-2",
+   "type": "verb",
+   "label": "εἶπον",
+   "sub": "The second aorist",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "A new stem, old endings",
+    "body": "Many common verbs form the aorist on a shorter root and use imperfect-style endings: λέγω → εἶπον, ἔρχομαι → ἦλθον, ὁράω → εἶδον, λαμβάνω → ἔλαβον, γίνομαι → ἐγενόμην, βάλλω → ἔβαλον. Meaning is identical to the first aorist. The stem must be memorized as vocabulary: that is why the strange-verb drills exist.",
+    "examples": [
+     {
+      "gr": "εἶπεν αὐτοῖς ὁ Ἰησοῦς",
+      "en": "Jesus said to them"
+     },
+     {
+      "gr": "ἦλθεν εἰς τὴν Γαλιλαίαν",
+      "en": "he came into Galilee"
+     },
+     {
+      "gr": "καὶ ἐγένετο",
+      "en": "and it came to pass"
+     }
+    ]
+   },
+   "vocab": [],
+   "paradigms": [
+    "aor2-act",
+    "aor2-mid",
+    "infinitives-aor2"
+   ]
+  },
+  {
+   "id": "u05-aorist-passive",
+   "type": "verb",
+   "label": "ἐλύθην",
+   "sub": "Aorist and future passive",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "θη means passive",
+    "body": "Augment + θη + active-looking endings: ἐλύθην, ἐλύθης, ἐλύθη, ἐλύθημεν, ἐλύθητε, ἐλύθησαν; future λυθήσομαι. A handful of deponents use the aorist passive with active meaning: ἀπεκρίθη he answered, ἐπορεύθη he went, ἐφοβήθησαν they were afraid. The agent of a passive is ὑπό + genitive.",
+    "examples": [
+     {
+      "gr": "ἐβαπτίσθη ὑπὸ Ἰωάννου",
+      "en": "he was baptized by John"
+     },
+     {
+      "gr": "ἠγέρθη",
+      "en": "he was raised"
+     },
+     {
+      "gr": "ἀπεκρίθη αὐτῷ",
+      "en": "he answered him"
+     }
+    ]
+   },
+   "vocab": [],
+   "paradigms": [
+    "aor-pass",
+    "fut-pass"
+   ]
+  },
+  {
+   "id": "u05-read-john-1-19",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:19–28",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Dialogue in the aorist",
+    "body": "ἀπέστειλαν, ἠρώτησαν, ὡμολόγησεν, ἀπεκρίθη: John's testimony is told in crisp aorists. Notice how the question-mark semicolon (;) marks each question.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "ἔρημος",
+     "lemma": "ἔρημος",
+     "citation": "ἔρημος, ον",
+     "gloss": "deserted, desolate, a desert",
+     "pos": "adjective",
+     "count": 48,
+     "rank": 318
+    },
+    {
+     "id": "σεαυτοῦ",
+     "lemma": "σεαυτοῦ",
+     "citation": "σεαυτοῦ",
+     "gloss": "of yourself",
+     "pos": "personal pronoun",
+     "count": 43,
+     "rank": 348
+    },
+    {
+     "id": "ἄξιος",
+     "lemma": "ἄξιος",
+     "citation": "ἄξιος, α, ον",
+     "gloss": "worthy, worthy of, deserving",
+     "pos": "adjective",
+     "count": 41,
+     "rank": 367
+    },
+    {
+     "id": "ἀρνέομαι",
+     "lemma": "ἀρνέομαι",
+     "citation": "ἀρνέομαι",
+     "gloss": "I deny, repudiate",
+     "pos": "verb",
+     "count": 33,
+     "rank": 430
+    },
+    {
+     "id": "ἱερεύς",
+     "lemma": "ἱερεύς",
+     "citation": "ἱερεύς, έως, ὁ",
+     "gloss": "a priest",
+     "pos": "noun",
+     "count": 31,
+     "rank": 452
+    },
+    {
+     "id": "Ἠλίας",
+     "lemma": "Ἠλίας",
+     "citation": "Ἠλίας, ου, ὁ",
+     "gloss": "Elijah",
+     "pos": "noun",
+     "count": 29,
+     "rank": 479
+    },
+    {
+     "id": "ὁμολογέω",
+     "lemma": "ὁμολογέω",
+     "citation": "ὁμολογέω",
+     "gloss": "I confess, profess, acknowledge, praise",
+     "pos": "verb",
+     "count": 26,
+     "rank": 524
+    },
+    {
+     "id": "πέραν",
+     "lemma": "πέραν",
+     "citation": "πέραν",
+     "gloss": "over, beyond",
+     "pos": "preposition",
+     "count": 23,
+     "rank": 567
+    },
+    {
+     "id": "Ἠσαΐας",
+     "lemma": "Ἠσαΐας",
+     "citation": "Ἠσαΐας, ου, ὁ",
+     "gloss": "Isaiah",
+     "pos": "noun",
+     "count": 22,
+     "rank": 596
+    },
+    {
+     "id": "οὔ",
+     "lemma": "οὔ",
+     "citation": "οὐ/οὐκ/οὐχ",
+     "gloss": "no, not",
+     "pos": "particle",
+     "count": 17,
+     "rank": 695
+    },
+    {
+     "id": "Ἰορδάνης",
+     "lemma": "Ἰορδάνης",
+     "citation": "Ἰορδάνης, ου, ὁ",
+     "gloss": "the Jordan",
+     "pos": "noun",
+     "count": 15,
+     "rank": 799
+    },
+    {
+     "id": "Βηθανία",
+     "lemma": "Βηθανία",
+     "citation": "Βηθανία, ας, ἡ",
+     "gloss": "Bethany",
+     "pos": "noun",
+     "count": 12,
+     "rank": 901
+    },
+    {
+     "id": "βοάω",
+     "lemma": "βοάω",
+     "citation": "βοάω",
+     "gloss": "I shout, call aloud",
+     "pos": "verb",
+     "count": 12,
+     "rank": 907
+    },
+    {
+     "id": "ὑπόδημα",
+     "lemma": "ὑπόδημα",
+     "citation": "ὑπόδημα, ατος, τό",
+     "gloss": "a sandal",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1124
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 19,
+    "to": 28,
+    "verseIds": [
+     "john-1-19",
+     "john-1-20",
+     "john-1-21",
+     "john-1-22",
+     "john-1-23",
+     "john-1-24",
+     "john-1-25",
+     "john-1-26",
+     "john-1-27",
+     "john-1-28"
+    ],
+    "reference": "John 1:19–28",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 154,
+     "known": 0.948,
+     "schedulable": 0.974
+    }
+   }
+  }
+ ]
+}

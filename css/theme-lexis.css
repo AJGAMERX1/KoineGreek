@@ -6,6 +6,10 @@
 */
 
 [data-theme="lexis"] {
+  --ok: #2F6B5E;
+  --ok-tint: #DCE9E2;
+  --bad: #7A1F1F;
+  --bad-tint: #EED6CF;
   --bg: #F3E9D2;
   --surface: #FBF3E3;
   --ink: #3B2417;
@@ -29,6 +33,10 @@
 }
 
 [data-theme="lexis"][data-mode="dark"] {
+  --ok: #5FA394;
+  --ok-tint: #1F332E;
+  --bad: #C25B5B;
+  --bad-tint: #3B2320;
   --bg: #241811;
   --surface: #2E1F17;
   --ink: #F3E9D2;

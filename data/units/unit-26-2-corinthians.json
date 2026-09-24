@@ -1,0 +1,631 @@
+{
+ "id": "unit-26-2-corinthians",
+ "index": 26,
+ "kicker": "Book XXVI",
+ "title": "Πρὸς Κορινθίους Βʹ",
+ "sub": "Read 2 Corinthians",
+ "track": "reading",
+ "summary": "Read 2 Corinthians chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u26-read-1",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 1,
+    "from": 1,
+    "to": 24,
+    "verseIds": [
+     "2-corinthians-1-1",
+     "2-corinthians-1-2",
+     "2-corinthians-1-3",
+     "2-corinthians-1-4",
+     "2-corinthians-1-5",
+     "2-corinthians-1-6",
+     "2-corinthians-1-7",
+     "2-corinthians-1-8",
+     "2-corinthians-1-9",
+     "2-corinthians-1-10",
+     "2-corinthians-1-11",
+     "2-corinthians-1-12",
+     "2-corinthians-1-13",
+     "2-corinthians-1-14",
+     "2-corinthians-1-15",
+     "2-corinthians-1-16",
+     "2-corinthians-1-17",
+     "2-corinthians-1-18",
+     "2-corinthians-1-19",
+     "2-corinthians-1-20",
+     "2-corinthians-1-21",
+     "2-corinthians-1-22",
+     "2-corinthians-1-23",
+     "2-corinthians-1-24"
+    ],
+    "reference": "2 Corinthians 1:1–24",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 487,
+     "known": 0.951,
+     "schedulable": 0.951
+    }
+   }
+  },
+  {
+   "id": "u26-read-2",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 2,
+    "from": 1,
+    "to": 17,
+    "verseIds": [
+     "2-corinthians-2-1",
+     "2-corinthians-2-2",
+     "2-corinthians-2-3",
+     "2-corinthians-2-4",
+     "2-corinthians-2-5",
+     "2-corinthians-2-6",
+     "2-corinthians-2-7",
+     "2-corinthians-2-8",
+     "2-corinthians-2-9",
+     "2-corinthians-2-10",
+     "2-corinthians-2-11",
+     "2-corinthians-2-12",
+     "2-corinthians-2-13",
+     "2-corinthians-2-14",
+     "2-corinthians-2-15",
+     "2-corinthians-2-16",
+     "2-corinthians-2-17"
+    ],
+    "reference": "2 Corinthians 2:1–17",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 285,
+     "known": 0.926,
+     "schedulable": 0.926
+    }
+   }
+  },
+  {
+   "id": "u26-read-3",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 3,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "2-corinthians-3-1",
+     "2-corinthians-3-2",
+     "2-corinthians-3-3",
+     "2-corinthians-3-4",
+     "2-corinthians-3-5",
+     "2-corinthians-3-6",
+     "2-corinthians-3-7",
+     "2-corinthians-3-8",
+     "2-corinthians-3-9",
+     "2-corinthians-3-10",
+     "2-corinthians-3-11",
+     "2-corinthians-3-12",
+     "2-corinthians-3-13",
+     "2-corinthians-3-14",
+     "2-corinthians-3-15",
+     "2-corinthians-3-16",
+     "2-corinthians-3-17",
+     "2-corinthians-3-18"
+    ],
+    "reference": "2 Corinthians 3:1–18",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 296,
+     "known": 0.899,
+     "schedulable": 0.899
+    }
+   }
+  },
+  {
+   "id": "u26-read-4",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 4,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "2-corinthians-4-1",
+     "2-corinthians-4-2",
+     "2-corinthians-4-3",
+     "2-corinthians-4-4",
+     "2-corinthians-4-5",
+     "2-corinthians-4-6",
+     "2-corinthians-4-7",
+     "2-corinthians-4-8",
+     "2-corinthians-4-9",
+     "2-corinthians-4-10",
+     "2-corinthians-4-11",
+     "2-corinthians-4-12",
+     "2-corinthians-4-13",
+     "2-corinthians-4-14",
+     "2-corinthians-4-15",
+     "2-corinthians-4-16",
+     "2-corinthians-4-17",
+     "2-corinthians-4-18"
+    ],
+    "reference": "2 Corinthians 4:1–18",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 320,
+     "known": 0.884,
+     "schedulable": 0.884
+    }
+   }
+  },
+  {
+   "id": "u26-read-5",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 5,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "2-corinthians-5-1",
+     "2-corinthians-5-2",
+     "2-corinthians-5-3",
+     "2-corinthians-5-4",
+     "2-corinthians-5-5",
+     "2-corinthians-5-6",
+     "2-corinthians-5-7",
+     "2-corinthians-5-8",
+     "2-corinthians-5-9",
+     "2-corinthians-5-10",
+     "2-corinthians-5-11",
+     "2-corinthians-5-12",
+     "2-corinthians-5-13",
+     "2-corinthians-5-14",
+     "2-corinthians-5-15",
+     "2-corinthians-5-16",
+     "2-corinthians-5-17",
+     "2-corinthians-5-18",
+     "2-corinthians-5-19",
+     "2-corinthians-5-20",
+     "2-corinthians-5-21"
+    ],
+    "reference": "2 Corinthians 5:1–21",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 338,
+     "known": 0.896,
+     "schedulable": 0.896
+    }
+   }
+  },
+  {
+   "id": "u26-read-6",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 6,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "2-corinthians-6-1",
+     "2-corinthians-6-2",
+     "2-corinthians-6-3",
+     "2-corinthians-6-4",
+     "2-corinthians-6-5",
+     "2-corinthians-6-6",
+     "2-corinthians-6-7",
+     "2-corinthians-6-8",
+     "2-corinthians-6-9",
+     "2-corinthians-6-10",
+     "2-corinthians-6-11",
+     "2-corinthians-6-12",
+     "2-corinthians-6-13",
+     "2-corinthians-6-14",
+     "2-corinthians-6-15",
+     "2-corinthians-6-16",
+     "2-corinthians-6-17",
+     "2-corinthians-6-18"
+    ],
+    "reference": "2 Corinthians 6:1–18",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 266,
+     "known": 0.865,
+     "schedulable": 0.865
+    }
+   }
+  },
+  {
+   "id": "u26-read-7",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 7",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 7,
+    "from": 1,
+    "to": 16,
+    "verseIds": [
+     "2-corinthians-7-1",
+     "2-corinthians-7-2",
+     "2-corinthians-7-3",
+     "2-corinthians-7-4",
+     "2-corinthians-7-5",
+     "2-corinthians-7-6",
+     "2-corinthians-7-7",
+     "2-corinthians-7-8",
+     "2-corinthians-7-9",
+     "2-corinthians-7-10",
+     "2-corinthians-7-11",
+     "2-corinthians-7-12",
+     "2-corinthians-7-13",
+     "2-corinthians-7-14",
+     "2-corinthians-7-15",
+     "2-corinthians-7-16"
+    ],
+    "reference": "2 Corinthians 7:1–16",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 328,
+     "known": 0.924,
+     "schedulable": 0.924
+    }
+   }
+  },
+  {
+   "id": "u26-read-8",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 8",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 8,
+    "from": 1,
+    "to": 24,
+    "verseIds": [
+     "2-corinthians-8-1",
+     "2-corinthians-8-2",
+     "2-corinthians-8-3",
+     "2-corinthians-8-4",
+     "2-corinthians-8-5",
+     "2-corinthians-8-6",
+     "2-corinthians-8-7",
+     "2-corinthians-8-8",
+     "2-corinthians-8-9",
+     "2-corinthians-8-10",
+     "2-corinthians-8-11",
+     "2-corinthians-8-12",
+     "2-corinthians-8-13",
+     "2-corinthians-8-14",
+     "2-corinthians-8-15",
+     "2-corinthians-8-16",
+     "2-corinthians-8-17",
+     "2-corinthians-8-18",
+     "2-corinthians-8-19",
+     "2-corinthians-8-20",
+     "2-corinthians-8-21",
+     "2-corinthians-8-22",
+     "2-corinthians-8-23",
+     "2-corinthians-8-24"
+    ],
+    "reference": "2 Corinthians 8:1–24",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 410,
+     "known": 0.893,
+     "schedulable": 0.893
+    }
+   }
+  },
+  {
+   "id": "u26-read-9",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 9",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 9,
+    "from": 1,
+    "to": 15,
+    "verseIds": [
+     "2-corinthians-9-1",
+     "2-corinthians-9-2",
+     "2-corinthians-9-3",
+     "2-corinthians-9-4",
+     "2-corinthians-9-5",
+     "2-corinthians-9-6",
+     "2-corinthians-9-7",
+     "2-corinthians-9-8",
+     "2-corinthians-9-9",
+     "2-corinthians-9-10",
+     "2-corinthians-9-11",
+     "2-corinthians-9-12",
+     "2-corinthians-9-13",
+     "2-corinthians-9-14",
+     "2-corinthians-9-15"
+    ],
+    "reference": "2 Corinthians 9:1–15",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 284,
+     "known": 0.856,
+     "schedulable": 0.856
+    }
+   }
+  },
+  {
+   "id": "u26-read-10",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 10",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 10,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "2-corinthians-10-1",
+     "2-corinthians-10-2",
+     "2-corinthians-10-3",
+     "2-corinthians-10-4",
+     "2-corinthians-10-5",
+     "2-corinthians-10-6",
+     "2-corinthians-10-7",
+     "2-corinthians-10-8",
+     "2-corinthians-10-9",
+     "2-corinthians-10-10",
+     "2-corinthians-10-11",
+     "2-corinthians-10-12",
+     "2-corinthians-10-13",
+     "2-corinthians-10-14",
+     "2-corinthians-10-15",
+     "2-corinthians-10-16",
+     "2-corinthians-10-17",
+     "2-corinthians-10-18"
+    ],
+    "reference": "2 Corinthians 10:1–18",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 311,
+     "known": 0.871,
+     "schedulable": 0.871
+    }
+   }
+  },
+  {
+   "id": "u26-read-11",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 11",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 11,
+    "from": 1,
+    "to": 33,
+    "verseIds": [
+     "2-corinthians-11-1",
+     "2-corinthians-11-2",
+     "2-corinthians-11-3",
+     "2-corinthians-11-4",
+     "2-corinthians-11-5",
+     "2-corinthians-11-6",
+     "2-corinthians-11-7",
+     "2-corinthians-11-8",
+     "2-corinthians-11-9",
+     "2-corinthians-11-10",
+     "2-corinthians-11-11",
+     "2-corinthians-11-12",
+     "2-corinthians-11-13",
+     "2-corinthians-11-14",
+     "2-corinthians-11-15",
+     "2-corinthians-11-16",
+     "2-corinthians-11-17",
+     "2-corinthians-11-18",
+     "2-corinthians-11-19",
+     "2-corinthians-11-20",
+     "2-corinthians-11-21",
+     "2-corinthians-11-22",
+     "2-corinthians-11-23",
+     "2-corinthians-11-24",
+     "2-corinthians-11-25",
+     "2-corinthians-11-26",
+     "2-corinthians-11-27",
+     "2-corinthians-11-28",
+     "2-corinthians-11-29",
+     "2-corinthians-11-30",
+     "2-corinthians-11-31",
+     "2-corinthians-11-32",
+     "2-corinthians-11-33"
+    ],
+    "reference": "2 Corinthians 11:1–33",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 500,
+     "known": 0.846,
+     "schedulable": 0.846
+    }
+   }
+  },
+  {
+   "id": "u26-read-12",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 12",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 12,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "2-corinthians-12-1",
+     "2-corinthians-12-2",
+     "2-corinthians-12-3",
+     "2-corinthians-12-4",
+     "2-corinthians-12-5",
+     "2-corinthians-12-6",
+     "2-corinthians-12-7",
+     "2-corinthians-12-8",
+     "2-corinthians-12-9",
+     "2-corinthians-12-10",
+     "2-corinthians-12-11",
+     "2-corinthians-12-12",
+     "2-corinthians-12-13",
+     "2-corinthians-12-14",
+     "2-corinthians-12-15",
+     "2-corinthians-12-16",
+     "2-corinthians-12-17",
+     "2-corinthians-12-18",
+     "2-corinthians-12-19",
+     "2-corinthians-12-20",
+     "2-corinthians-12-21"
+    ],
+    "reference": "2 Corinthians 12:1–21",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 412,
+     "known": 0.9,
+     "schedulable": 0.9
+    }
+   }
+  },
+  {
+   "id": "u26-read-13",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Βʹ",
+   "sub": "Read: 2 Corinthians 13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-corinthians",
+    "chapter": 13,
+    "from": 1,
+    "to": 13,
+    "verseIds": [
+     "2-corinthians-13-1",
+     "2-corinthians-13-2",
+     "2-corinthians-13-3",
+     "2-corinthians-13-4",
+     "2-corinthians-13-5",
+     "2-corinthians-13-6",
+     "2-corinthians-13-7",
+     "2-corinthians-13-8",
+     "2-corinthians-13-9",
+     "2-corinthians-13-10",
+     "2-corinthians-13-11",
+     "2-corinthians-13-12",
+     "2-corinthians-13-13"
+    ],
+    "reference": "2 Corinthians 13:1–13",
+    "greekTitle": "Πρὸς Κορινθίους Βʹ",
+    "coverage": {
+     "tokens": 236,
+     "known": 0.932,
+     "schedulable": 0.932
+    }
+   }
+  }
+ ]
+}

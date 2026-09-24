@@ -8,11 +8,15 @@
   The app's UI only ever asks the learner to self-rate with 3 buttons
   (Missed it / Close / Nailed it), not the 0-5 scale SM-2 was designed
   around, so RATING_TO_QUALITY below is the one place that mapping lives.
+  Objective drills (js/drill.js) add one more key: 'good' for a correct
+  multiple-choice answer, which is worth less than a correct typed or
+  produced answer ('nailed') — PEDAGOGY M12/M30.
 */
 
 export const RATING_TO_QUALITY = {
   miss: 1,
   close: 3,
+  good: 4,   // objectively correct on a recognition format (multiple choice) — used by drills, not by self-rating
   nailed: 5,
 };
 

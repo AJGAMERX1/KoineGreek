@@ -1,0 +1,123 @@
+{
+ "id": "unit-12-3-john",
+ "index": 12,
+ "kicker": "Book XII",
+ "title": "Ἰωάννου Γʹ",
+ "sub": "Read 3 John",
+ "track": "reading",
+ "summary": "Read 3 John chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u12-vocab-1-1",
+   "type": "vocab",
+   "label": "κωλύω",
+   "sub": "New words for 3 John 1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "κωλύω",
+     "lemma": "κωλύω",
+     "citation": "κωλύω",
+     "gloss": "I prevent, hinder",
+     "pos": "verb",
+     "count": 23,
+     "rank": 564
+    },
+    {
+     "id": "ξένος",
+     "lemma": "ξένος",
+     "citation": "ξένος, η, ον",
+     "gloss": "new, novel, a foreigner",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 826
+    },
+    {
+     "id": "συνεργός",
+     "lemma": "συνεργός",
+     "citation": "συνεργός, οῦ, ὁ",
+     "gloss": "a fellow worker",
+     "pos": "adjective",
+     "count": 13,
+     "rank": 883
+    },
+    {
+     "id": "κάλαμος",
+     "lemma": "κάλαμος",
+     "citation": "κάλαμος, οῦ, ὁ",
+     "gloss": "a reed, reed-pen",
+     "pos": "noun",
+     "count": 12,
+     "rank": 917
+    },
+    {
+     "id": "ὑγιαίνω",
+     "lemma": "ὑγιαίνω",
+     "citation": "ὑγιαίνω",
+     "gloss": "I am well",
+     "pos": "verb",
+     "count": 12,
+     "rank": 960
+    },
+    {
+     "id": "ἀγαθοποιέω",
+     "lemma": "ἀγαθοποιέω",
+     "citation": "ἀγαθοποιέω",
+     "gloss": "I do that which is good",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1089
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u12-read-1",
+   "type": "reading",
+   "label": "Ἰωάννου Γʹ",
+   "sub": "Read: 3 John 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "3-john",
+    "chapter": 1,
+    "from": 1,
+    "to": 15,
+    "verseIds": [
+     "3-john-1-1",
+     "3-john-1-2",
+     "3-john-1-3",
+     "3-john-1-4",
+     "3-john-1-5",
+     "3-john-1-6",
+     "3-john-1-7",
+     "3-john-1-8",
+     "3-john-1-9",
+     "3-john-1-10",
+     "3-john-1-11",
+     "3-john-1-12",
+     "3-john-1-13",
+     "3-john-1-14",
+     "3-john-1-15"
+    ],
+    "reference": "3 John 1:1–15",
+    "greekTitle": "Ἰωάννου Γʹ",
+    "coverage": {
+     "tokens": 219,
+     "known": 0.909,
+     "schedulable": 0.909
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,550 @@
+{
+ "id": "unit-01-foundations",
+ "index": 1,
+ "kicker": "Book I",
+ "title": "Ὁ Λόγος",
+ "sub": "Foundations",
+ "summary": "Read the alphabet, meet the ten most common words in the New Testament, learn 'to be' and 'the', and read John 1:1–2 in Greek.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u01-alphabet-1",
+   "type": "alphabet",
+   "label": "Α Β Γ",
+   "sub": "The alphabet: Α to Μ",
+   "drills": [
+    "letter-name-mc",
+    "letter-sound-mc",
+    "type-transliteration",
+    "read-aloud"
+   ],
+   "rule": {
+    "title": "Twenty-four letters",
+    "body": "Greek has 24 letters; you already know several from math and science (α β γ δ π). Learn each letter's name, its lowercase shape, and its sound. Capitals are used only at the start of names and paragraphs, so lowercase matters most.",
+    "examples": [
+     {
+      "gr": "α β γ δ",
+      "en": "alpha, beta, gamma, delta"
+     },
+     {
+      "gr": "λόγος",
+      "en": "lo-gos: word"
+     }
+    ]
+   },
+   "alphabet": {
+    "letters": [
+     "α",
+     "β",
+     "γ",
+     "δ",
+     "ε",
+     "ζ",
+     "η",
+     "θ",
+     "ι",
+     "κ",
+     "λ",
+     "μ"
+    ]
+   },
+   "vocab": [],
+   "paradigms": []
+  },
+  {
+   "id": "u01-alphabet-2",
+   "type": "alphabet",
+   "label": "Ν Ξ Ο",
+   "sub": "The alphabet: Ν to Ω",
+   "drills": [
+    "letter-name-mc",
+    "letter-sound-mc",
+    "type-transliteration",
+    "read-aloud"
+   ],
+   "rule": {
+    "title": "The second half",
+    "body": "Watch the look-alikes: ν (nu) is not v, ρ (rho) is not p, and χ (chi) is not x. Sigma has two shapes: σ inside a word, ς at the end (θεός).",
+    "examples": [
+     {
+      "gr": "θεός",
+      "en": "the-os: God"
+     },
+     {
+      "gr": "Χριστός",
+      "en": "Chris-tos: Christ"
+     }
+    ]
+   },
+   "alphabet": {
+    "letters": [
+     "ν",
+     "ξ",
+     "ο",
+     "π",
+     "ρ",
+     "σ",
+     "τ",
+     "υ",
+     "φ",
+     "χ",
+     "ψ",
+     "ω"
+    ]
+   },
+   "vocab": [],
+   "paradigms": []
+  },
+  {
+   "id": "u01-alphabet-3",
+   "type": "alphabet",
+   "label": "αι ει ου",
+   "sub": "Vowels, diphthongs, breathing marks",
+   "drills": [
+    "letter-name-mc",
+    "letter-sound-mc",
+    "type-transliteration",
+    "read-aloud"
+   ],
+   "rule": {
+    "title": "Two vowels, one sound",
+    "body": "Seven vowels (α ε η ι ο υ ω) combine into diphthongs that are read as one syllable. Every word beginning with a vowel wears a breathing mark: rough ( ῾ ) adds an h-sound, smooth ( ᾿ ) adds nothing.",
+    "examples": [
+     {
+      "gr": "οὐ",
+      "en": "oo: not"
+     },
+     {
+      "gr": "ὁ υἱός",
+      "en": "ho hwee-os: the son"
+     },
+     {
+      "gr": "ἐν ἀρχῇ",
+      "en": "en ar-chay: in [the] beginning (the ῃ hides an iota)"
+     }
+    ]
+   },
+   "alphabet": {
+    "sections": [
+     "vowels",
+     "diphthongs",
+     "iotaSubscript",
+     "breathing"
+    ]
+   },
+   "vocab": [],
+   "paradigms": []
+  },
+  {
+   "id": "u01-alphabet-4",
+   "type": "alphabet",
+   "label": "ά ὰ ᾶ",
+   "sub": "Accents, punctuation, reading aloud",
+   "drills": [
+    "letter-name-mc",
+    "letter-sound-mc",
+    "type-transliteration",
+    "read-aloud"
+   ],
+   "rule": {
+    "title": "Stress the accented syllable",
+    "body": "Three accent marks, one job for a reader: they show which syllable to stress. Punctuation is mostly familiar, with two traps: the raised dot (·) is a semicolon/colon, and the Greek question mark looks exactly like our semicolon (;).",
+    "examples": [
+     {
+      "gr": "τίς εἶ;",
+      "en": "Who are you?"
+     },
+     {
+      "gr": "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν",
+      "en": "In the beginning was the Word, and the Word was with God"
+     }
+    ]
+   },
+   "alphabet": {
+    "sections": [
+     "accents",
+     "accentRule",
+     "punctuation",
+     "syllables"
+    ]
+   },
+   "vocab": [],
+   "paradigms": []
+  },
+  {
+   "id": "u01-first-words",
+   "type": "vocab",
+   "label": "καί",
+   "sub": "The ten most common little words",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "rule": {
+    "title": "Words that never change",
+    "body": "Conjunctions, prepositions and the negatives have no endings to learn, and these ten alone are about one word in every seven in the New Testament. οὐ is 'not' for facts (indicative); μή is 'not' for everything else (commands, wishes, conditions).",
+    "examples": [
+     {
+      "gr": "καὶ … καὶ …",
+      "en": "both … and …"
+     },
+     {
+      "gr": "οὐ … ἀλλά …",
+      "en": "not … but …"
+     },
+     {
+      "gr": "ἐν ἀρχῇ",
+      "en": "in [the] beginning"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "καί",
+     "lemma": "καί",
+     "citation": "καί",
+     "gloss": "and, even, also, namely",
+     "pos": "conjunction",
+     "count": 8973,
+     "rank": 2
+    },
+    {
+     "id": "δέ",
+     "lemma": "δέ",
+     "citation": "δέ",
+     "gloss": "but, on the other hand, and",
+     "pos": "conjunction",
+     "count": 2766,
+     "rank": 5
+    },
+    {
+     "id": "ἐν",
+     "lemma": "ἐν",
+     "citation": "ἐν",
+     "gloss": "in, on, among",
+     "pos": "preposition",
+     "count": 2733,
+     "rank": 6
+    },
+    {
+     "id": "εἰς",
+     "lemma": "εἰς",
+     "citation": "εἰς",
+     "gloss": "into, in, among, till, for",
+     "pos": "preposition",
+     "count": 1754,
+     "rank": 10
+    },
+    {
+     "id": "οὐ",
+     "lemma": "οὐ",
+     "citation": "οὐ/οὐκ/οὐχ",
+     "gloss": "no, not",
+     "pos": "adverb",
+     "count": 1605,
+     "rank": 11
+    },
+    {
+     "id": "ὅτι",
+     "lemma": "ὅτι",
+     "citation": "ὅτι",
+     "gloss": "that, since, because",
+     "pos": "conjunction",
+     "count": 1294,
+     "rank": 15
+    },
+    {
+     "id": "γάρ",
+     "lemma": "γάρ",
+     "citation": "γάρ",
+     "gloss": "for",
+     "pos": "conjunction",
+     "count": 1039,
+     "rank": 17
+    },
+    {
+     "id": "μή",
+     "lemma": "μή",
+     "citation": "μή",
+     "gloss": "not, lest",
+     "pos": "adverb",
+     "count": 1036,
+     "rank": 18
+    },
+    {
+     "id": "ἐκ",
+     "lemma": "ἐκ",
+     "citation": "ἐκ, before vowels ἐξ, prep. w. gen., introducing various aspects of separation or derivation (opp. εἰς, which is goal- oriented) – a. relating in general to a matter of origin; resources of English encourage a variety of glosses – α. of place or thing, from, out of (the latter gloss usually preferred where focus is on movement or removal) Mt 2:6, 15; 3:9; 7:4; 8:28 (explicitly opp. εἰς); 17:5; 26:27 (of taking a drink out of a cup); in related mode 1 Cor 9:13 (ἐκ τοῦ ἱεροῦ ἐσθίειν =eat of things derived from the temple); of material source Mt 27:29 (a wreath",
+     "gloss": "from out, out from among, from",
+     "pos": "preposition",
+     "count": 913,
+     "rank": 19
+    },
+    {
+     "id": "ἀλλά",
+     "lemma": "ἀλλά",
+     "citation": "ἀλλά",
+     "gloss": "but, except",
+     "pos": "conjunction",
+     "count": 638,
+     "rank": 29
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u01-eimi",
+   "type": "verb",
+   "label": "εἰμί",
+   "sub": "To be, and the words of John 1:1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Verbs carry their subject",
+    "body": "A Greek verb ending tells you who is doing it, so 'I am' is one word: εἰμί. ἐστίν = 'he/she/it is', εἰσίν = 'they are'. There is usually no separate word for 'I', 'you' or 'he' unless the writer wants emphasis.",
+    "examples": [
+     {
+      "gr": "θεός ἐστιν",
+      "en": "he is God / God is"
+     },
+     {
+      "gr": "ἐγώ εἰμι τὸ φῶς",
+      "en": "I am the light"
+     },
+     {
+      "gr": "ὑμεῖς ἐστε τὸ φῶς τοῦ κόσμου",
+      "en": "you are the light of the world"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "εἰμί",
+     "lemma": "εἰμί",
+     "citation": "εἰμί",
+     "gloss": "I am, exist",
+     "pos": "verb",
+     "count": 2456,
+     "rank": 8
+    },
+    {
+     "id": "θεός",
+     "lemma": "θεός",
+     "citation": "θεός, ου, ὁ/ἡ",
+     "gloss": "God, a god",
+     "pos": "noun",
+     "count": 1307,
+     "rank": 14
+    },
+    {
+     "id": "λόγος",
+     "lemma": "λόγος",
+     "citation": "λόγος, ου, ὁ",
+     "gloss": "a word, speech, divine utterance, analogy",
+     "pos": "noun",
+     "count": 330,
+     "rank": 55
+    },
+    {
+     "id": "ἀρχή",
+     "lemma": "ἀρχή",
+     "citation": "ἀρχή, ῆς, ἡ",
+     "gloss": "ruler, beginning",
+     "pos": "noun",
+     "count": 55,
+     "rank": 291
+    },
+    {
+     "id": "ζωή",
+     "lemma": "ζωή",
+     "citation": "ζωή, ῆς, ἡ",
+     "gloss": "life",
+     "pos": "noun",
+     "count": 135,
+     "rank": 127
+    },
+    {
+     "id": "φῶς",
+     "lemma": "φῶς",
+     "citation": "φῶς, ωτός, τό",
+     "gloss": "light, a source of light",
+     "pos": "noun",
+     "count": 72,
+     "rank": 235
+    },
+    {
+     "id": "ἄνθρωπος",
+     "lemma": "ἄνθρωπος",
+     "citation": "ἄνθρωπος, ου, ὁ",
+     "gloss": "a man, one of the human race",
+     "pos": "noun",
+     "count": 550,
+     "rank": 33
+    },
+    {
+     "id": "κόσμος",
+     "lemma": "κόσμος",
+     "citation": "κόσμος, ου, ὁ",
+     "gloss": "the world, universe",
+     "pos": "noun",
+     "count": 185,
+     "rank": 85
+    }
+   ],
+   "paradigms": [
+    "eimi-pres"
+   ]
+  },
+  {
+   "id": "u01-article",
+   "type": "grammar",
+   "label": "ὁ ἡ τό",
+   "sub": "The article and the four cases",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Endings do the work of word order",
+    "body": "English uses word order to show who does what; Greek uses endings called cases. Nominative = subject (ὁ λόγος), genitive = 'of' (τοῦ θεοῦ), dative = 'to / for / in' (τῷ θεῷ), accusative = object (τὸν λόγον). The article (the) changes with its noun and is your best clue to the case.",
+    "examples": [
+     {
+      "gr": "ὁ λόγος ἦν πρὸς τὸν θεόν",
+      "en": "the Word was with God (ὁ = subject, τόν = after the preposition)"
+     },
+     {
+      "gr": "ὁ υἱὸς τοῦ θεοῦ",
+      "en": "the son of God"
+     },
+     {
+      "gr": "τῷ κόσμῳ",
+      "en": "to / in the world"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ὁ",
+     "lemma": "ὁ",
+     "citation": "ὁ, ἡ, τό; pl. οἱ, αἱ, τά",
+     "gloss": "the",
+     "pos": "article",
+     "count": 19769,
+     "rank": 1
+    },
+    {
+     "id": "αὐτός",
+     "lemma": "αὐτός",
+     "citation": "αὐτός, αὐτή, αὐτό",
+     "gloss": "he, she, it, they, them, same",
+     "pos": "personal pronoun",
+     "count": 5546,
+     "rank": 3
+    },
+    {
+     "id": "οὗτος",
+     "lemma": "οὗτος",
+     "citation": "οὗτος, αὕτη, τοῦτο",
+     "gloss": "this, he, she, it",
+     "pos": "demonstrative pronoun",
+     "count": 1385,
+     "rank": 13
+    },
+    {
+     "id": "πρός",
+     "lemma": "πρός",
+     "citation": "πρός",
+     "gloss": "to, towards, with",
+     "pos": "preposition",
+     "count": 696,
+     "rank": 24
+    },
+    {
+     "id": "ἵνα",
+     "lemma": "ἵνα",
+     "citation": "ἵνα",
+     "gloss": "in order that, so that",
+     "pos": "conjunction",
+     "count": 662,
+     "rank": 27
+    },
+    {
+     "id": "ὡς",
+     "lemma": "ὡς",
+     "citation": "ὡς",
+     "gloss": "as, like as, how, while, so that",
+     "pos": "conjunction",
+     "count": 503,
+     "rank": 36
+    },
+    {
+     "id": "εἰ",
+     "lemma": "εἰ",
+     "citation": "εἰ",
+     "gloss": "if",
+     "pos": "conjunction",
+     "count": 502,
+     "rank": 37
+    },
+    {
+     "id": "οὖν",
+     "lemma": "οὖν",
+     "citation": "οὖν",
+     "gloss": "therefore, then",
+     "pos": "conjunction",
+     "count": 494,
+     "rank": 38
+    }
+   ],
+   "paradigms": [
+    "article"
+   ]
+  },
+  {
+   "id": "u01-read-john-1-1",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:1–2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Read for meaning",
+    "body": "You already know almost every word here. Read the Greek, form the sense in your head, then reveal the translation and rate yourself honestly. Tap any word you do not know for its gloss; those taps are how the app learns what to teach you next.",
+    "examples": []
+   },
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 1,
+    "to": 2,
+    "verseIds": [
+     "john-1-1",
+     "john-1-2"
+    ],
+    "reference": "John 1:1–2",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 24,
+     "known": 1.0,
+     "schedulable": 1.0
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,320 @@
+{
+ "_note": "erasmian = the scheme most seminaries teach; koine = the reconstructed 1st-century pronunciation (after Randall Buth / Biblical Language Center). Both are taught as sounds, not IPA, for beginners.",
+ "letters": [
+  {
+   "upper": "Α",
+   "lower": "α",
+   "name": "alpha",
+   "translit": "a",
+   "erasmian": "a as in father",
+   "koine": "a as in father"
+  },
+  {
+   "upper": "Β",
+   "lower": "β",
+   "name": "beta",
+   "translit": "b",
+   "erasmian": "b as in boy",
+   "koine": "v as in vine"
+  },
+  {
+   "upper": "Γ",
+   "lower": "γ",
+   "name": "gamma",
+   "translit": "g",
+   "erasmian": "g as in go; before γ κ χ ξ it is ng as in sing",
+   "koine": "soft gh (like Spanish 'g' in agua); before γ κ χ ξ it is ng"
+  },
+  {
+   "upper": "Δ",
+   "lower": "δ",
+   "name": "delta",
+   "translit": "d",
+   "erasmian": "d as in dog",
+   "koine": "th as in this"
+  },
+  {
+   "upper": "Ε",
+   "lower": "ε",
+   "name": "epsilon",
+   "translit": "e",
+   "erasmian": "e as in met (short)",
+   "koine": "e as in met"
+  },
+  {
+   "upper": "Ζ",
+   "lower": "ζ",
+   "name": "zeta",
+   "translit": "z",
+   "erasmian": "dz as in adze",
+   "koine": "z as in zoo"
+  },
+  {
+   "upper": "Η",
+   "lower": "η",
+   "name": "eta",
+   "translit": "ē",
+   "erasmian": "ay as in say (long)",
+   "koine": "e as in they (long, no glide)"
+  },
+  {
+   "upper": "Θ",
+   "lower": "θ",
+   "name": "theta",
+   "translit": "th",
+   "erasmian": "th as in thin",
+   "koine": "th as in thin"
+  },
+  {
+   "upper": "Ι",
+   "lower": "ι",
+   "name": "iota",
+   "translit": "i",
+   "erasmian": "i as in sit, or ee as in machine",
+   "koine": "ee as in machine"
+  },
+  {
+   "upper": "Κ",
+   "lower": "κ",
+   "name": "kappa",
+   "translit": "k",
+   "erasmian": "k as in keep",
+   "koine": "k as in keep"
+  },
+  {
+   "upper": "Λ",
+   "lower": "λ",
+   "name": "lambda",
+   "translit": "l",
+   "erasmian": "l as in law",
+   "koine": "l as in law"
+  },
+  {
+   "upper": "Μ",
+   "lower": "μ",
+   "name": "mu",
+   "translit": "m",
+   "erasmian": "m as in mother",
+   "koine": "m as in mother"
+  },
+  {
+   "upper": "Ν",
+   "lower": "ν",
+   "name": "nu",
+   "translit": "n",
+   "erasmian": "n as in new",
+   "koine": "n as in new"
+  },
+  {
+   "upper": "Ξ",
+   "lower": "ξ",
+   "name": "xi",
+   "translit": "x",
+   "erasmian": "x as in box (ks)",
+   "koine": "x as in box (ks)"
+  },
+  {
+   "upper": "Ο",
+   "lower": "ο",
+   "name": "omicron",
+   "translit": "o",
+   "erasmian": "o as in not (short)",
+   "koine": "o as in note"
+  },
+  {
+   "upper": "Π",
+   "lower": "π",
+   "name": "pi",
+   "translit": "p",
+   "erasmian": "p as in pie",
+   "koine": "p as in pie"
+  },
+  {
+   "upper": "Ρ",
+   "lower": "ρ",
+   "name": "rho",
+   "translit": "r",
+   "erasmian": "r as in rod (lightly rolled)",
+   "koine": "r as in rod (rolled)"
+  },
+  {
+   "upper": "Σ",
+   "lower": "σ / ς",
+   "name": "sigma",
+   "translit": "s",
+   "erasmian": "s as in sit (ς is used only at the end of a word)",
+   "koine": "s as in sit (ς only at the end of a word)"
+  },
+  {
+   "upper": "Τ",
+   "lower": "τ",
+   "name": "tau",
+   "translit": "t",
+   "erasmian": "t as in tip",
+   "koine": "t as in tip"
+  },
+  {
+   "upper": "Υ",
+   "lower": "υ",
+   "name": "upsilon",
+   "translit": "u / y",
+   "erasmian": "u as in put, or oo as in food",
+   "koine": "ü as in German über (lips rounded, say 'ee')"
+  },
+  {
+   "upper": "Φ",
+   "lower": "φ",
+   "name": "phi",
+   "translit": "ph",
+   "erasmian": "ph as in phone",
+   "koine": "f as in fish"
+  },
+  {
+   "upper": "Χ",
+   "lower": "χ",
+   "name": "chi",
+   "translit": "ch",
+   "erasmian": "ch as in Scottish loch (a rough k)",
+   "koine": "ch as in loch"
+  },
+  {
+   "upper": "Ψ",
+   "lower": "ψ",
+   "name": "psi",
+   "translit": "ps",
+   "erasmian": "ps as in lips",
+   "koine": "ps as in lips"
+  },
+  {
+   "upper": "Ω",
+   "lower": "ω",
+   "name": "omega",
+   "translit": "ō",
+   "erasmian": "o as in tone (long)",
+   "koine": "o as in note"
+  }
+ ],
+ "vowels": {
+  "short": [
+   "ε",
+   "ο"
+  ],
+  "long": [
+   "η",
+   "ω"
+  ],
+  "either": [
+   "α",
+   "ι",
+   "υ"
+  ],
+  "note": "α ι υ can be short or long; the difference matters for accents, not for meaning."
+ },
+ "diphthongs": [
+  {
+   "text": "αι",
+   "erasmian": "ai as in aisle",
+   "koine": "e as in met",
+   "example": "καί (and)"
+  },
+  {
+   "text": "ει",
+   "erasmian": "ei as in eight",
+   "koine": "ee as in machine",
+   "example": "εἰμί (I am)"
+  },
+  {
+   "text": "οι",
+   "erasmian": "oi as in oil",
+   "koine": "ü as in German über",
+   "example": "οἱ (the, plural)"
+  },
+  {
+   "text": "υι",
+   "erasmian": "wee as in sweet",
+   "koine": "ee as in machine",
+   "example": "υἱός (son)"
+  },
+  {
+   "text": "αυ",
+   "erasmian": "ow as in cow",
+   "koine": "av / af",
+   "example": "αὐτός (he)"
+  },
+  {
+   "text": "ευ",
+   "erasmian": "eu as in feud",
+   "koine": "ev / ef",
+   "example": "εὐαγγέλιον (gospel)"
+  },
+  {
+   "text": "ου",
+   "erasmian": "oo as in food",
+   "koine": "oo as in food",
+   "example": "οὐ (not)"
+  },
+  {
+   "text": "ηυ",
+   "erasmian": "ay-oo (η + υ)",
+   "koine": "ev / ef",
+   "example": "ηὐλόγησεν (he blessed)"
+  }
+ ],
+ "iotaSubscript": {
+  "forms": [
+   "ᾳ",
+   "ῃ",
+   "ῳ"
+  ],
+  "note": "A tiny iota written under α η ω. It is silent in both schemes, but it changes meaning (it often marks the dative case), so always look for it.",
+  "example": "ἐν ἀρχῇ (in the beginning) — the ῃ tells you 'beginning' is dative after ἐν."
+ },
+ "breathing": [
+  {
+   "mark": "smooth ( ᾿ )",
+   "example": "ἐν",
+   "rule": "No sound. Just marks that the word starts with a vowel."
+  },
+  {
+   "mark": "rough ( ῾ )",
+   "example": "ὁ = ho",
+   "rule": "Add an 'h' sound before the vowel. Every initial υ and initial ρ takes a rough breathing (ῥ)."
+  }
+ ],
+ "accents": [
+  {
+   "mark": "acute ( ´ )",
+   "example": "λόγος"
+  },
+  {
+   "mark": "grave ( ` )",
+   "example": "καὶ ὁ",
+   "note": "An acute on a word's last syllable becomes grave when another word follows without punctuation."
+  },
+  {
+   "mark": "circumflex ( ῀ )",
+   "example": "τοῦ",
+   "note": "Only on long vowels or diphthongs, only on the last two syllables."
+  }
+ ],
+ "accentRule": "For reading: stress the accented syllable, whichever accent it is. Which accent appears is a spelling rule, not something you must decide when speaking. A few pairs differ only by accent (τίς who? vs τις someone; εἰ if vs εἶ you are), and the app will point those out as they come up.",
+ "punctuation": [
+  {
+   "mark": ",",
+   "meaning": "comma"
+  },
+  {
+   "mark": ".",
+   "meaning": "full stop"
+  },
+  {
+   "mark": "·",
+   "meaning": "raised dot = English semicolon or colon"
+  },
+  {
+   "mark": ";",
+   "meaning": "QUESTION MARK (not a semicolon!)"
+  }
+ ],
+ "syllables": "Greek words have as many syllables as they have vowels or diphthongs: λό-γος (2), ἄν-θρω-πος (3), εὐ-αγ-γέ-λι-ον (5). Say every syllable; there are no silent letters except iota subscript."
+}

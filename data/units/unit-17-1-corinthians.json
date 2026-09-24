@@ -1,0 +1,1490 @@
+{
+ "id": "unit-17-1-corinthians",
+ "index": 17,
+ "kicker": "Book XVII",
+ "title": "Πρὸς Κορινθίους Αʹ",
+ "sub": "Read 1 Corinthians",
+ "track": "reading",
+ "summary": "Read 1 Corinthians chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u17-vocab-1-1",
+   "type": "vocab",
+   "label": "γνῶσις",
+   "sub": "New words for 1 Corinthians 1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "γνῶσις",
+     "lemma": "γνῶσις",
+     "citation": "γνῶσις, εως, ἡ",
+     "gloss": "knowledge, doctrine, wisdom",
+     "pos": "noun",
+     "count": 29,
+     "rank": 466
+    },
+    {
+     "id": "χάρισμα",
+     "lemma": "χάρισμα",
+     "citation": "χάρισμα, ατος, τό",
+     "gloss": "an undeserved favor",
+     "pos": "noun",
+     "count": 17,
+     "rank": 702
+    },
+    {
+     "id": "καταισχύνω",
+     "lemma": "καταισχύνω",
+     "citation": "καταισχύνω",
+     "gloss": "I shame, disgrace, put to utter confusion",
+     "pos": "verb",
+     "count": 13,
+     "rank": 873
+    },
+    {
+     "id": "ἀπολύτρωσις",
+     "lemma": "ἀπολύτρωσις",
+     "citation": "ἀπολύτρωσις, εως, ἡ",
+     "gloss": "redemption, deliverance",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1096
+    },
+    {
+     "id": "Ἀπολλῶς",
+     "lemma": "Ἀπολλῶς",
+     "citation": "Ἀπολλῶς, ῶ, ὁ",
+     "gloss": "Apollos",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1104
+    },
+    {
+     "id": "ἐπειδή",
+     "lemma": "ἐπειδή",
+     "citation": "ἐπειδή",
+     "gloss": "when, since",
+     "pos": "conjunction",
+     "count": 10,
+     "rank": 1112
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-1",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 1,
+    "from": 1,
+    "to": 31,
+    "verseIds": [
+     "1-corinthians-1-1",
+     "1-corinthians-1-2",
+     "1-corinthians-1-3",
+     "1-corinthians-1-4",
+     "1-corinthians-1-5",
+     "1-corinthians-1-6",
+     "1-corinthians-1-7",
+     "1-corinthians-1-8",
+     "1-corinthians-1-9",
+     "1-corinthians-1-10",
+     "1-corinthians-1-11",
+     "1-corinthians-1-12",
+     "1-corinthians-1-13",
+     "1-corinthians-1-14",
+     "1-corinthians-1-15",
+     "1-corinthians-1-16",
+     "1-corinthians-1-17",
+     "1-corinthians-1-18",
+     "1-corinthians-1-19",
+     "1-corinthians-1-20",
+     "1-corinthians-1-21",
+     "1-corinthians-1-22",
+     "1-corinthians-1-23",
+     "1-corinthians-1-24",
+     "1-corinthians-1-25",
+     "1-corinthians-1-26",
+     "1-corinthians-1-27",
+     "1-corinthians-1-28",
+     "1-corinthians-1-29",
+     "1-corinthians-1-30",
+     "1-corinthians-1-31"
+    ],
+    "reference": "1 Corinthians 1:1–31",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 497,
+     "known": 0.946,
+     "schedulable": 0.946
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-2-1",
+   "type": "vocab",
+   "label": "πνευματικός",
+   "sub": "New words for 1 Corinthians 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πνευματικός",
+     "lemma": "πνευματικός",
+     "citation": "πνευματικός, ή, όν",
+     "gloss": "spiritual",
+     "pos": "adjective",
+     "count": 26,
+     "rank": 513
+    },
+    {
+     "id": "χαρίζομαι",
+     "lemma": "χαρίζομαι",
+     "citation": "χαρίζομαι",
+     "gloss": "I show favor to, forgive",
+     "pos": "verb",
+     "count": 23,
+     "rank": 572
+    },
+    {
+     "id": "καταγγέλλω",
+     "lemma": "καταγγέλλω",
+     "citation": "καταγγέλλω",
+     "gloss": "I declare openly, preach",
+     "pos": "verb",
+     "count": 18,
+     "rank": 663
+    },
+    {
+     "id": "ἀνακρίνω",
+     "lemma": "ἀνακρίνω",
+     "citation": "ἀνακρίνω",
+     "gloss": "I examine, inquire into",
+     "pos": "verb",
+     "count": 16,
+     "rank": 751
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-2",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 2,
+    "from": 1,
+    "to": 16,
+    "verseIds": [
+     "1-corinthians-2-1",
+     "1-corinthians-2-2",
+     "1-corinthians-2-3",
+     "1-corinthians-2-4",
+     "1-corinthians-2-5",
+     "1-corinthians-2-6",
+     "1-corinthians-2-7",
+     "1-corinthians-2-8",
+     "1-corinthians-2-9",
+     "1-corinthians-2-10",
+     "1-corinthians-2-11",
+     "1-corinthians-2-12",
+     "1-corinthians-2-13",
+     "1-corinthians-2-14",
+     "1-corinthians-2-15",
+     "1-corinthians-2-16"
+    ],
+    "reference": "1 Corinthians 2:1–16",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 287,
+     "known": 0.941,
+     "schedulable": 0.941
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-3-1",
+   "type": "vocab",
+   "label": "θεμέλιος",
+   "sub": "New words for 1 Corinthians 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "θεμέλιος",
+     "lemma": "θεμέλιος",
+     "citation": "θεμέλιος, ου, ὁ",
+     "gloss": "belonging to the foundation",
+     "pos": "noun",
+     "count": 15,
+     "rank": 770
+    },
+    {
+     "id": "τίμιος",
+     "lemma": "τίμιος",
+     "citation": "τίμιος, α, ον",
+     "gloss": "of great price, precious, honored",
+     "pos": "adjective",
+     "count": 13,
+     "rank": 884
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-3",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 3,
+    "from": 1,
+    "to": 23,
+    "verseIds": [
+     "1-corinthians-3-1",
+     "1-corinthians-3-2",
+     "1-corinthians-3-3",
+     "1-corinthians-3-4",
+     "1-corinthians-3-5",
+     "1-corinthians-3-6",
+     "1-corinthians-3-7",
+     "1-corinthians-3-8",
+     "1-corinthians-3-9",
+     "1-corinthians-3-10",
+     "1-corinthians-3-11",
+     "1-corinthians-3-12",
+     "1-corinthians-3-13",
+     "1-corinthians-3-14",
+     "1-corinthians-3-15",
+     "1-corinthians-3-16",
+     "1-corinthians-3-17",
+     "1-corinthians-3-18",
+     "1-corinthians-3-19",
+     "1-corinthians-3-20",
+     "1-corinthians-3-21",
+     "1-corinthians-3-22",
+     "1-corinthians-3-23"
+    ],
+    "reference": "1 Corinthians 3:1–23",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 340,
+     "known": 0.924,
+     "schedulable": 0.924
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-4-1",
+   "type": "vocab",
+   "label": "βουλή",
+   "sub": "New words for 1 Corinthians 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "βουλή",
+     "lemma": "βουλή",
+     "citation": "βουλή, ῆς, ἡ",
+     "gloss": "counsel, deliberate wisdom",
+     "pos": "noun",
+     "count": 12,
+     "rank": 908
+    },
+    {
+     "id": "πλουτέω",
+     "lemma": "πλουτέω",
+     "citation": "πλουτέω",
+     "gloss": "I become rich",
+     "pos": "verb",
+     "count": 12,
+     "rank": 932
+    },
+    {
+     "id": "πραΰτης",
+     "lemma": "πραΰτης",
+     "citation": "πραΰτης, ητος, ἡ",
+     "gloss": "mildness, gentleness",
+     "pos": "noun",
+     "count": 11,
+     "rank": 998
+    },
+    {
+     "id": "ἔπαινος",
+     "lemma": "ἔπαινος",
+     "citation": "ἔπαινος, ου, ὁ",
+     "gloss": "commendation, praise",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1037
+    },
+    {
+     "id": "οἰκονόμος",
+     "lemma": "οἰκονόμος",
+     "citation": "οἰκονόμος, ου, ὁ",
+     "gloss": "a steward",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1060
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-4",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 4,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "1-corinthians-4-1",
+     "1-corinthians-4-2",
+     "1-corinthians-4-3",
+     "1-corinthians-4-4",
+     "1-corinthians-4-5",
+     "1-corinthians-4-6",
+     "1-corinthians-4-7",
+     "1-corinthians-4-8",
+     "1-corinthians-4-9",
+     "1-corinthians-4-10",
+     "1-corinthians-4-11",
+     "1-corinthians-4-12",
+     "1-corinthians-4-13",
+     "1-corinthians-4-14",
+     "1-corinthians-4-15",
+     "1-corinthians-4-16",
+     "1-corinthians-4-17",
+     "1-corinthians-4-18",
+     "1-corinthians-4-19",
+     "1-corinthians-4-20",
+     "1-corinthians-4-21"
+    ],
+    "reference": "1 Corinthians 4:1–21",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 345,
+     "known": 0.919,
+     "schedulable": 0.919
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-5-1",
+   "type": "vocab",
+   "label": "κατεργάζομαι",
+   "sub": "New words for 1 Corinthians 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "κατεργάζομαι",
+     "lemma": "κατεργάζομαι",
+     "citation": "κατεργάζομαι",
+     "gloss": "I work out, produce, accomplish",
+     "pos": "verb",
+     "count": 22,
+     "rank": 584
+    },
+    {
+     "id": "καύχημα",
+     "lemma": "καύχημα",
+     "citation": "καύχημα, ατος, τό",
+     "gloss": "a boasting",
+     "pos": "noun",
+     "count": 11,
+     "rank": 986
+    },
+    {
+     "id": "πόρνος",
+     "lemma": "πόρνος",
+     "citation": "πόρνος, ου, ὁ",
+     "gloss": "a fornicator",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1072
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-5",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 5,
+    "from": 1,
+    "to": 13,
+    "verseIds": [
+     "1-corinthians-5-1",
+     "1-corinthians-5-2",
+     "1-corinthians-5-3",
+     "1-corinthians-5-4",
+     "1-corinthians-5-5",
+     "1-corinthians-5-6",
+     "1-corinthians-5-7",
+     "1-corinthians-5-8",
+     "1-corinthians-5-9",
+     "1-corinthians-5-10",
+     "1-corinthians-5-11",
+     "1-corinthians-5-12",
+     "1-corinthians-5-13"
+    ],
+    "reference": "1 Corinthians 5:1–13",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 221,
+     "known": 0.873,
+     "schedulable": 0.873
+    }
+   }
+  },
+  {
+   "id": "u17-read-6",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 6,
+    "from": 1,
+    "to": 20,
+    "verseIds": [
+     "1-corinthians-6-1",
+     "1-corinthians-6-2",
+     "1-corinthians-6-3",
+     "1-corinthians-6-4",
+     "1-corinthians-6-5",
+     "1-corinthians-6-6",
+     "1-corinthians-6-7",
+     "1-corinthians-6-8",
+     "1-corinthians-6-9",
+     "1-corinthians-6-10",
+     "1-corinthians-6-11",
+     "1-corinthians-6-12",
+     "1-corinthians-6-13",
+     "1-corinthians-6-14",
+     "1-corinthians-6-15",
+     "1-corinthians-6-16",
+     "1-corinthians-6-17",
+     "1-corinthians-6-18",
+     "1-corinthians-6-19",
+     "1-corinthians-6-20"
+    ],
+    "reference": "1 Corinthians 6:1–20",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 334,
+     "known": 0.919,
+     "schedulable": 0.919
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-7-1",
+   "type": "vocab",
+   "label": "ἀκροβυστία",
+   "sub": "New words for 1 Corinthians 7",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀκροβυστία",
+     "lemma": "ἀκροβυστία",
+     "citation": "ἀκροβυστία, ας, ἡ",
+     "gloss": "foreskin",
+     "pos": "noun",
+     "count": 20,
+     "rank": 626
+    },
+    {
+     "id": "κρείττων",
+     "lemma": "κρείττων",
+     "citation": "κρείττων/κρείσσων, ον, gen. ονος",
+     "gloss": "stronger, more excellent",
+     "pos": "adjective",
+     "count": 19,
+     "rank": 641
+    },
+    {
+     "id": "χράομαι",
+     "lemma": "χράομαι",
+     "citation": "χράομαι",
+     "gloss": "I use, make use of, deal with",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1015
+    },
+    {
+     "id": "φείδομαι",
+     "lemma": "φείδομαι",
+     "citation": "φείδομαι",
+     "gloss": "I spare, abstain",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1082
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-7",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 7",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 7,
+    "from": 1,
+    "to": 40,
+    "verseIds": [
+     "1-corinthians-7-1",
+     "1-corinthians-7-2",
+     "1-corinthians-7-3",
+     "1-corinthians-7-4",
+     "1-corinthians-7-5",
+     "1-corinthians-7-6",
+     "1-corinthians-7-7",
+     "1-corinthians-7-8",
+     "1-corinthians-7-9",
+     "1-corinthians-7-10",
+     "1-corinthians-7-11",
+     "1-corinthians-7-12",
+     "1-corinthians-7-13",
+     "1-corinthians-7-14",
+     "1-corinthians-7-15",
+     "1-corinthians-7-16",
+     "1-corinthians-7-17",
+     "1-corinthians-7-18",
+     "1-corinthians-7-19",
+     "1-corinthians-7-20",
+     "1-corinthians-7-21",
+     "1-corinthians-7-22",
+     "1-corinthians-7-23",
+     "1-corinthians-7-24",
+     "1-corinthians-7-25",
+     "1-corinthians-7-26",
+     "1-corinthians-7-27",
+     "1-corinthians-7-28",
+     "1-corinthians-7-29",
+     "1-corinthians-7-30",
+     "1-corinthians-7-31",
+     "1-corinthians-7-32",
+     "1-corinthians-7-33",
+     "1-corinthians-7-34",
+     "1-corinthians-7-35",
+     "1-corinthians-7-36",
+     "1-corinthians-7-37",
+     "1-corinthians-7-38",
+     "1-corinthians-7-39",
+     "1-corinthians-7-40"
+    ],
+    "reference": "1 Corinthians 7:1–40",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 687,
+     "known": 0.937,
+     "schedulable": 0.937
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-8-1",
+   "type": "vocab",
+   "label": "συνείδησις",
+   "sub": "New words for 1 Corinthians 8",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "συνείδησις",
+     "lemma": "συνείδησις",
+     "citation": "συνείδησις, εως, ἡ",
+     "gloss": "the conscience",
+     "pos": "noun",
+     "count": 30,
+     "rank": 458
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-8",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 8",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 8,
+    "from": 1,
+    "to": 13,
+    "verseIds": [
+     "1-corinthians-8-1",
+     "1-corinthians-8-2",
+     "1-corinthians-8-3",
+     "1-corinthians-8-4",
+     "1-corinthians-8-5",
+     "1-corinthians-8-6",
+     "1-corinthians-8-7",
+     "1-corinthians-8-8",
+     "1-corinthians-8-9",
+     "1-corinthians-8-10",
+     "1-corinthians-8-11",
+     "1-corinthians-8-12",
+     "1-corinthians-8-13"
+    ],
+    "reference": "1 Corinthians 8:1–13",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 226,
+     "known": 0.947,
+     "schedulable": 0.947
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-9-1",
+   "type": "vocab",
+   "label": "Βαρναβᾶς",
+   "sub": "New words for 1 Corinthians 9",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Βαρναβᾶς",
+     "lemma": "Βαρναβᾶς",
+     "citation": "Βαρναβᾶς, ᾶ, ὁ",
+     "gloss": "Barnabas",
+     "pos": "noun",
+     "count": 28,
+     "rank": 481
+    },
+    {
+     "id": "σφραγίς",
+     "lemma": "σφραγίς",
+     "citation": "σφραγίς, ῖδος, ἡ",
+     "gloss": "a signet-ring, impression of a seal, the proof",
+     "pos": "noun",
+     "count": 16,
+     "rank": 746
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-9",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 9",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 9,
+    "from": 1,
+    "to": 27,
+    "verseIds": [
+     "1-corinthians-9-1",
+     "1-corinthians-9-2",
+     "1-corinthians-9-3",
+     "1-corinthians-9-4",
+     "1-corinthians-9-5",
+     "1-corinthians-9-6",
+     "1-corinthians-9-7",
+     "1-corinthians-9-8",
+     "1-corinthians-9-9",
+     "1-corinthians-9-10",
+     "1-corinthians-9-11",
+     "1-corinthians-9-12",
+     "1-corinthians-9-13",
+     "1-corinthians-9-14",
+     "1-corinthians-9-15",
+     "1-corinthians-9-16",
+     "1-corinthians-9-17",
+     "1-corinthians-9-18",
+     "1-corinthians-9-19",
+     "1-corinthians-9-20",
+     "1-corinthians-9-21",
+     "1-corinthians-9-22",
+     "1-corinthians-9-23",
+     "1-corinthians-9-24",
+     "1-corinthians-9-25",
+     "1-corinthians-9-26",
+     "1-corinthians-9-27"
+    ],
+    "reference": "1 Corinthians 9:1–27",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 449,
+     "known": 0.884,
+     "schedulable": 0.884
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-10-1",
+   "type": "vocab",
+   "label": "χιλιάς",
+   "sub": "New words for 1 Corinthians 10",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "χιλιάς",
+     "lemma": "χιλιάς",
+     "citation": "χιλιάς, άδος, ἡ",
+     "gloss": "a thousand",
+     "pos": "noun",
+     "count": 23,
+     "rank": 573
+    },
+    {
+     "id": "εὐλογία",
+     "lemma": "εὐλογία",
+     "citation": "εὐλογία, ας, ἡ",
+     "gloss": "adulation, praise, blessing",
+     "pos": "noun",
+     "count": 16,
+     "rank": 730
+    },
+    {
+     "id": "καταντάω",
+     "lemma": "καταντάω",
+     "citation": "καταντάω",
+     "gloss": "I come down, arrive at, reach",
+     "pos": "verb",
+     "count": 13,
+     "rank": 875
+    },
+    {
+     "id": "ἐλευθερία",
+     "lemma": "ἐλευθερία",
+     "citation": "ἐλευθερία, ας, ἡ",
+     "gloss": "freedom, liberty",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1029
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-10",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 10",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 10,
+    "from": 1,
+    "to": 33,
+    "verseIds": [
+     "1-corinthians-10-1",
+     "1-corinthians-10-2",
+     "1-corinthians-10-3",
+     "1-corinthians-10-4",
+     "1-corinthians-10-5",
+     "1-corinthians-10-6",
+     "1-corinthians-10-7",
+     "1-corinthians-10-8",
+     "1-corinthians-10-9",
+     "1-corinthians-10-10",
+     "1-corinthians-10-11",
+     "1-corinthians-10-12",
+     "1-corinthians-10-13",
+     "1-corinthians-10-14",
+     "1-corinthians-10-15",
+     "1-corinthians-10-16",
+     "1-corinthians-10-17",
+     "1-corinthians-10-18",
+     "1-corinthians-10-19",
+     "1-corinthians-10-20",
+     "1-corinthians-10-21",
+     "1-corinthians-10-22",
+     "1-corinthians-10-23",
+     "1-corinthians-10-24",
+     "1-corinthians-10-25",
+     "1-corinthians-10-26",
+     "1-corinthians-10-27",
+     "1-corinthians-10-28",
+     "1-corinthians-10-29",
+     "1-corinthians-10-30",
+     "1-corinthians-10-31",
+     "1-corinthians-10-32",
+     "1-corinthians-10-33"
+    ],
+    "reference": "1 Corinthians 10:1–33",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 463,
+     "known": 0.935,
+     "schedulable": 0.935
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-11-1",
+   "type": "vocab",
+   "label": "φύσις",
+   "sub": "New words for 1 Corinthians 11",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "φύσις",
+     "lemma": "φύσις",
+     "citation": "φύσις, εως, ἡ",
+     "gloss": "nature, inherent nature",
+     "pos": "noun",
+     "count": 14,
+     "rank": 836
+    },
+    {
+     "id": "παιδεύω",
+     "lemma": "παιδεύω",
+     "citation": "παιδεύω",
+     "gloss": "I discipline, educate, train, chastise",
+     "pos": "verb",
+     "count": 13,
+     "rank": 879
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-11",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 11",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 11,
+    "from": 1,
+    "to": 34,
+    "verseIds": [
+     "1-corinthians-11-1",
+     "1-corinthians-11-2",
+     "1-corinthians-11-3",
+     "1-corinthians-11-4",
+     "1-corinthians-11-5",
+     "1-corinthians-11-6",
+     "1-corinthians-11-7",
+     "1-corinthians-11-8",
+     "1-corinthians-11-9",
+     "1-corinthians-11-10",
+     "1-corinthians-11-11",
+     "1-corinthians-11-12",
+     "1-corinthians-11-13",
+     "1-corinthians-11-14",
+     "1-corinthians-11-15",
+     "1-corinthians-11-16",
+     "1-corinthians-11-17",
+     "1-corinthians-11-18",
+     "1-corinthians-11-19",
+     "1-corinthians-11-20",
+     "1-corinthians-11-21",
+     "1-corinthians-11-22",
+     "1-corinthians-11-23",
+     "1-corinthians-11-24",
+     "1-corinthians-11-25",
+     "1-corinthians-11-26",
+     "1-corinthians-11-27",
+     "1-corinthians-11-28",
+     "1-corinthians-11-29",
+     "1-corinthians-11-30",
+     "1-corinthians-11-31",
+     "1-corinthians-11-32",
+     "1-corinthians-11-33",
+     "1-corinthians-11-34"
+    ],
+    "reference": "1 Corinthians 11:1–34",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 529,
+     "known": 0.926,
+     "schedulable": 0.926
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-12-1",
+   "type": "vocab",
+   "label": "νυνί",
+   "sub": "New words for 1 Corinthians 12",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "νυνί",
+     "lemma": "νυνί",
+     "citation": "νυνί",
+     "gloss": "now, already, at present",
+     "pos": "adverb",
+     "count": 20,
+     "rank": 620
+    },
+    {
+     "id": "ζηλόω",
+     "lemma": "ζηλόω",
+     "citation": "ζηλόω",
+     "gloss": "I am jealous, eager for",
+     "pos": "verb",
+     "count": 11,
+     "rank": 977
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-12",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 12",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 12,
+    "from": 1,
+    "to": 31,
+    "verseIds": [
+     "1-corinthians-12-1",
+     "1-corinthians-12-2",
+     "1-corinthians-12-3",
+     "1-corinthians-12-4",
+     "1-corinthians-12-5",
+     "1-corinthians-12-6",
+     "1-corinthians-12-7",
+     "1-corinthians-12-8",
+     "1-corinthians-12-9",
+     "1-corinthians-12-10",
+     "1-corinthians-12-11",
+     "1-corinthians-12-12",
+     "1-corinthians-12-13",
+     "1-corinthians-12-14",
+     "1-corinthians-12-15",
+     "1-corinthians-12-16",
+     "1-corinthians-12-17",
+     "1-corinthians-12-18",
+     "1-corinthians-12-19",
+     "1-corinthians-12-20",
+     "1-corinthians-12-21",
+     "1-corinthians-12-22",
+     "1-corinthians-12-23",
+     "1-corinthians-12-24",
+     "1-corinthians-12-25",
+     "1-corinthians-12-26",
+     "1-corinthians-12-27",
+     "1-corinthians-12-28",
+     "1-corinthians-12-29",
+     "1-corinthians-12-30",
+     "1-corinthians-12-31"
+    ],
+    "reference": "1 Corinthians 12:1–31",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 465,
+     "known": 0.938,
+     "schedulable": 0.938
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-13-1",
+   "type": "vocab",
+   "label": "παύω",
+   "sub": "New words for 1 Corinthians 13",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "παύω",
+     "lemma": "παύω",
+     "citation": "παύω",
+     "gloss": "I cause to cease",
+     "pos": "verb",
+     "count": 15,
+     "rank": 781
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-13",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 13,
+    "from": 1,
+    "to": 13,
+    "verseIds": [
+     "1-corinthians-13-1",
+     "1-corinthians-13-2",
+     "1-corinthians-13-3",
+     "1-corinthians-13-4",
+     "1-corinthians-13-5",
+     "1-corinthians-13-6",
+     "1-corinthians-13-7",
+     "1-corinthians-13-8",
+     "1-corinthians-13-9",
+     "1-corinthians-13-10",
+     "1-corinthians-13-11",
+     "1-corinthians-13-12",
+     "1-corinthians-13-13"
+    ],
+    "reference": "1 Corinthians 13:1–13",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 197,
+     "known": 0.924,
+     "schedulable": 0.924
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-14-1",
+   "type": "vocab",
+   "label": "τυγχάνω",
+   "sub": "New words for 1 Corinthians 14",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "τυγχάνω",
+     "lemma": "τυγχάνω",
+     "citation": "τυγχάνω",
+     "gloss": "I obtain, I happen, perhaps",
+     "pos": "verb",
+     "count": 12,
+     "rank": 943
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-14",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 14",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 14,
+    "from": 1,
+    "to": 40,
+    "verseIds": [
+     "1-corinthians-14-1",
+     "1-corinthians-14-2",
+     "1-corinthians-14-3",
+     "1-corinthians-14-4",
+     "1-corinthians-14-5",
+     "1-corinthians-14-6",
+     "1-corinthians-14-7",
+     "1-corinthians-14-8",
+     "1-corinthians-14-9",
+     "1-corinthians-14-10",
+     "1-corinthians-14-11",
+     "1-corinthians-14-12",
+     "1-corinthians-14-13",
+     "1-corinthians-14-14",
+     "1-corinthians-14-15",
+     "1-corinthians-14-16",
+     "1-corinthians-14-17",
+     "1-corinthians-14-18",
+     "1-corinthians-14-19",
+     "1-corinthians-14-20",
+     "1-corinthians-14-21",
+     "1-corinthians-14-22",
+     "1-corinthians-14-23",
+     "1-corinthians-14-24",
+     "1-corinthians-14-25",
+     "1-corinthians-14-26",
+     "1-corinthians-14-27",
+     "1-corinthians-14-28",
+     "1-corinthians-14-29",
+     "1-corinthians-14-30",
+     "1-corinthians-14-31",
+     "1-corinthians-14-32",
+     "1-corinthians-14-33",
+     "1-corinthians-14-34",
+     "1-corinthians-14-35",
+     "1-corinthians-14-36",
+     "1-corinthians-14-37",
+     "1-corinthians-14-38",
+     "1-corinthians-14-39",
+     "1-corinthians-14-40"
+    ],
+    "reference": "1 Corinthians 14:1–40",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 606,
+     "known": 0.922,
+     "schedulable": 0.922
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-15-1",
+   "type": "vocab",
+   "label": "Ἔφεσος",
+   "sub": "New words for 1 Corinthians 15",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Ἔφεσος",
+     "lemma": "Ἔφεσος",
+     "citation": "Ἔφεσος, ου, ἡ",
+     "gloss": "Ephesus",
+     "pos": "noun",
+     "count": 16,
+     "rank": 756
+    },
+    {
+     "id": "ἄφρων",
+     "lemma": "ἄφρων",
+     "citation": "ἄφρων, ον, gen. ονος",
+     "gloss": "senseless, foolish, inconsiderate",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1024
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-15",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 15",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 15,
+    "from": 1,
+    "to": 58,
+    "verseIds": [
+     "1-corinthians-15-1",
+     "1-corinthians-15-2",
+     "1-corinthians-15-3",
+     "1-corinthians-15-4",
+     "1-corinthians-15-5",
+     "1-corinthians-15-6",
+     "1-corinthians-15-7",
+     "1-corinthians-15-8",
+     "1-corinthians-15-9",
+     "1-corinthians-15-10",
+     "1-corinthians-15-11",
+     "1-corinthians-15-12",
+     "1-corinthians-15-13",
+     "1-corinthians-15-14",
+     "1-corinthians-15-15",
+     "1-corinthians-15-16",
+     "1-corinthians-15-17",
+     "1-corinthians-15-18",
+     "1-corinthians-15-19",
+     "1-corinthians-15-20",
+     "1-corinthians-15-21",
+     "1-corinthians-15-22",
+     "1-corinthians-15-23",
+     "1-corinthians-15-24",
+     "1-corinthians-15-25",
+     "1-corinthians-15-26",
+     "1-corinthians-15-27",
+     "1-corinthians-15-28",
+     "1-corinthians-15-29",
+     "1-corinthians-15-30",
+     "1-corinthians-15-31",
+     "1-corinthians-15-32",
+     "1-corinthians-15-33",
+     "1-corinthians-15-34",
+     "1-corinthians-15-35",
+     "1-corinthians-15-36",
+     "1-corinthians-15-37",
+     "1-corinthians-15-38",
+     "1-corinthians-15-39",
+     "1-corinthians-15-40",
+     "1-corinthians-15-41",
+     "1-corinthians-15-42",
+     "1-corinthians-15-43",
+     "1-corinthians-15-44",
+     "1-corinthians-15-45",
+     "1-corinthians-15-46",
+     "1-corinthians-15-47",
+     "1-corinthians-15-48",
+     "1-corinthians-15-49",
+     "1-corinthians-15-50",
+     "1-corinthians-15-51",
+     "1-corinthians-15-52",
+     "1-corinthians-15-53",
+     "1-corinthians-15-54",
+     "1-corinthians-15-55",
+     "1-corinthians-15-56",
+     "1-corinthians-15-57",
+     "1-corinthians-15-58"
+    ],
+    "reference": "1 Corinthians 15:1–58",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 843,
+     "known": 0.912,
+     "schedulable": 0.912
+    }
+   }
+  },
+  {
+   "id": "u17-vocab-16-1",
+   "type": "vocab",
+   "label": "Ἀσία",
+   "sub": "New words for 1 Corinthians 16",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Ἀσία",
+     "lemma": "Ἀσία",
+     "citation": "Ἀσία, ας, ἡ",
+     "gloss": "roughly the western third of Asia Minor",
+     "pos": "noun",
+     "count": 18,
+     "rank": 683
+    },
+    {
+     "id": "ἐπιμένω",
+     "lemma": "ἐπιμένω",
+     "citation": "ἐπιμένω",
+     "gloss": "I remain, tarry, persist in",
+     "pos": "verb",
+     "count": 15,
+     "rank": 798
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u17-read-16",
+   "type": "reading",
+   "label": "Πρὸς Κορινθίους Αʹ",
+   "sub": "Read: 1 Corinthians 16",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-corinthians",
+    "chapter": 16,
+    "from": 1,
+    "to": 24,
+    "verseIds": [
+     "1-corinthians-16-1",
+     "1-corinthians-16-2",
+     "1-corinthians-16-3",
+     "1-corinthians-16-4",
+     "1-corinthians-16-5",
+     "1-corinthians-16-6",
+     "1-corinthians-16-7",
+     "1-corinthians-16-8",
+     "1-corinthians-16-9",
+     "1-corinthians-16-10",
+     "1-corinthians-16-11",
+     "1-corinthians-16-12",
+     "1-corinthians-16-13",
+     "1-corinthians-16-14",
+     "1-corinthians-16-15",
+     "1-corinthians-16-16",
+     "1-corinthians-16-17",
+     "1-corinthians-16-18",
+     "1-corinthians-16-19",
+     "1-corinthians-16-20",
+     "1-corinthians-16-21",
+     "1-corinthians-16-22",
+     "1-corinthians-16-23",
+     "1-corinthians-16-24"
+    ],
+    "reference": "1 Corinthians 16:1–24",
+    "greekTitle": "Πρὸς Κορινθίους Αʹ",
+    "coverage": {
+     "tokens": 323,
+     "known": 0.889,
+     "schedulable": 0.889
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,440 @@
+{
+ "id": "unit-10-1-john",
+ "index": 10,
+ "kicker": "Book X",
+ "title": "Ἰωάννου Αʹ",
+ "sub": "Read 1 John",
+ "track": "reading",
+ "summary": "Read 1 John chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u10-vocab-2-1",
+   "type": "vocab",
+   "label": "ἰσχυρός",
+   "sub": "New words for 1 John 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἰσχυρός",
+     "lemma": "ἰσχυρός",
+     "citation": "ἰσχυρός, ά, όν",
+     "gloss": "strong, mighty, powerful",
+     "pos": "adjective",
+     "count": 29,
+     "rank": 480
+    },
+    {
+     "id": "παρουσία",
+     "lemma": "παρουσία",
+     "citation": "παρουσία, ας, ἡ",
+     "gloss": "presence, a coming, arrival, advent",
+     "pos": "noun",
+     "count": 24,
+     "rank": 548
+    },
+    {
+     "id": "παλαιός",
+     "lemma": "παλαιός",
+     "citation": "παλαιός, ά, όν",
+     "gloss": "old, ancient, worn out",
+     "pos": "adjective",
+     "count": 19,
+     "rank": 647
+    },
+    {
+     "id": "σκάνδαλον",
+     "lemma": "σκάνδαλον",
+     "citation": "σκάνδαλον, ου, τό",
+     "gloss": "a snare, stumbling-block",
+     "pos": "noun",
+     "count": 15,
+     "rank": 786
+    },
+    {
+     "id": "ἐπαγγέλλομαι",
+     "lemma": "ἐπαγγέλλομαι",
+     "citation": "ἐπαγγέλλω",
+     "gloss": "I promise, profess",
+     "pos": "verb",
+     "count": 15,
+     "rank": 797
+    },
+    {
+     "id": "ὅθεν",
+     "lemma": "ὅθεν",
+     "citation": "ὅθεν",
+     "gloss": "whence, wherefore",
+     "pos": "adverb",
+     "count": 15,
+     "rank": 801
+    },
+    {
+     "id": "βίος",
+     "lemma": "βίος",
+     "citation": "βίος, ου, ὁ",
+     "gloss": "life, manner of life, livelihood",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1044
+    },
+    {
+     "id": "νεανίσκος",
+     "lemma": "νεανίσκος",
+     "citation": "νεανίσκος, ου, ὁ",
+     "gloss": "a young man",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1058
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u10-read-2",
+   "type": "reading",
+   "label": "Ἰωάννου Αʹ",
+   "sub": "Read: 1 John 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-john",
+    "chapter": 2,
+    "from": 1,
+    "to": 29,
+    "verseIds": [
+     "1-john-2-1",
+     "1-john-2-2",
+     "1-john-2-3",
+     "1-john-2-4",
+     "1-john-2-5",
+     "1-john-2-6",
+     "1-john-2-7",
+     "1-john-2-8",
+     "1-john-2-9",
+     "1-john-2-10",
+     "1-john-2-11",
+     "1-john-2-12",
+     "1-john-2-13",
+     "1-john-2-14",
+     "1-john-2-15",
+     "1-john-2-16",
+     "1-john-2-17",
+     "1-john-2-18",
+     "1-john-2-19",
+     "1-john-2-20",
+     "1-john-2-21",
+     "1-john-2-22",
+     "1-john-2-23",
+     "1-john-2-24",
+     "1-john-2-25",
+     "1-john-2-26",
+     "1-john-2-27",
+     "1-john-2-28",
+     "1-john-2-29"
+    ],
+    "reference": "1 John 2:1–29",
+    "greekTitle": "Ἰωάννου Αʹ",
+    "coverage": {
+     "tokens": 585,
+     "known": 0.974,
+     "schedulable": 0.974
+    }
+   }
+  },
+  {
+   "id": "u10-vocab-3-1",
+   "type": "vocab",
+   "label": "φανερός",
+   "sub": "New words for 1 John 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "φανερός",
+     "lemma": "φανερός",
+     "citation": "φανερός, ά, όν",
+     "gloss": "apparent, clear, visible, manifest, clearly",
+     "pos": "adjective",
+     "count": 18,
+     "rank": 678
+    },
+    {
+     "id": "ἀνομία",
+     "lemma": "ἀνομία",
+     "citation": "ἀνομία, ας, ἡ",
+     "gloss": "lawlessness, iniquity",
+     "pos": "noun",
+     "count": 15,
+     "rank": 795
+    },
+    {
+     "id": "σπλάγχνον",
+     "lemma": "σπλάγχνον",
+     "citation": "σπλάγχνον, ου, τό",
+     "gloss": "bowels, compassion, pity",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1002
+    },
+    {
+     "id": "σφάζω",
+     "lemma": "σφάζω",
+     "citation": "σφάζω",
+     "gloss": "I slay",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1078
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u10-read-3",
+   "type": "reading",
+   "label": "Ἰωάννου Αʹ",
+   "sub": "Read: 1 John 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-john",
+    "chapter": 3,
+    "from": 1,
+    "to": 24,
+    "verseIds": [
+     "1-john-3-1",
+     "1-john-3-2",
+     "1-john-3-3",
+     "1-john-3-4",
+     "1-john-3-5",
+     "1-john-3-6",
+     "1-john-3-7",
+     "1-john-3-8",
+     "1-john-3-9",
+     "1-john-3-10",
+     "1-john-3-11",
+     "1-john-3-12",
+     "1-john-3-13",
+     "1-john-3-14",
+     "1-john-3-15",
+     "1-john-3-16",
+     "1-john-3-17",
+     "1-john-3-18",
+     "1-john-3-19",
+     "1-john-3-20",
+     "1-john-3-21",
+     "1-john-3-22",
+     "1-john-3-23",
+     "1-john-3-24"
+    ],
+    "reference": "1 John 3:1–24",
+    "greekTitle": "Ἰωάννου Αʹ",
+    "coverage": {
+     "tokens": 467,
+     "known": 0.972,
+     "schedulable": 0.972
+    }
+   }
+  },
+  {
+   "id": "u10-vocab-4-1",
+   "type": "vocab",
+   "label": "δοκιμάζω",
+   "sub": "New words for 1 John 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δοκιμάζω",
+     "lemma": "δοκιμάζω",
+     "citation": "δοκιμάζω",
+     "gloss": "I put to the test, prove, examine",
+     "pos": "verb",
+     "count": 22,
+     "rank": 581
+    },
+    {
+     "id": "τέλειος",
+     "lemma": "τέλειος",
+     "citation": "τέλειος, α, ον",
+     "gloss": "perfect, full-grown",
+     "pos": "adjective",
+     "count": 19,
+     "rank": 653
+    },
+    {
+     "id": "ψευδοπροφήτης",
+     "lemma": "ψευδοπροφήτης",
+     "citation": "ψευδοπροφήτης, ου, ὁ",
+     "gloss": "a false prophet",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1016
+    },
+    {
+     "id": "πλάνη",
+     "lemma": "πλάνη",
+     "citation": "πλάνη, ης, ἡ",
+     "gloss": "a wandering, error",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1068
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u10-read-4",
+   "type": "reading",
+   "label": "Ἰωάννου Αʹ",
+   "sub": "Read: 1 John 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-john",
+    "chapter": 4,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "1-john-4-1",
+     "1-john-4-2",
+     "1-john-4-3",
+     "1-john-4-4",
+     "1-john-4-5",
+     "1-john-4-6",
+     "1-john-4-7",
+     "1-john-4-8",
+     "1-john-4-9",
+     "1-john-4-10",
+     "1-john-4-11",
+     "1-john-4-12",
+     "1-john-4-13",
+     "1-john-4-14",
+     "1-john-4-15",
+     "1-john-4-16",
+     "1-john-4-17",
+     "1-john-4-18",
+     "1-john-4-19",
+     "1-john-4-20",
+     "1-john-4-21"
+    ],
+    "reference": "1 John 4:1–21",
+    "greekTitle": "Ἰωάννου Αʹ",
+    "coverage": {
+     "tokens": 449,
+     "known": 0.987,
+     "schedulable": 0.987
+    }
+   }
+  },
+  {
+   "id": "u10-vocab-5-1",
+   "type": "vocab",
+   "label": "διάνοια",
+   "sub": "New words for 1 John 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "διάνοια",
+     "lemma": "διάνοια",
+     "citation": "διάνοια, ας, ἡ",
+     "gloss": "understanding, intellect, mind",
+     "pos": "noun",
+     "count": 12,
+     "rank": 916
+    },
+    {
+     "id": "εἴδωλον",
+     "lemma": "εἴδωλον",
+     "citation": "εἴδωλον, ου, τό",
+     "gloss": "an idol, false god",
+     "pos": "noun",
+     "count": 11,
+     "rank": 975
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u10-read-5",
+   "type": "reading",
+   "label": "Ἰωάννου Αʹ",
+   "sub": "Read: 1 John 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "1-john",
+    "chapter": 5,
+    "from": 1,
+    "to": 21,
+    "verseIds": [
+     "1-john-5-1",
+     "1-john-5-2",
+     "1-john-5-3",
+     "1-john-5-4",
+     "1-john-5-5",
+     "1-john-5-6",
+     "1-john-5-7",
+     "1-john-5-8",
+     "1-john-5-9",
+     "1-john-5-10",
+     "1-john-5-11",
+     "1-john-5-12",
+     "1-john-5-13",
+     "1-john-5-14",
+     "1-john-5-15",
+     "1-john-5-16",
+     "1-john-5-17",
+     "1-john-5-18",
+     "1-john-5-19",
+     "1-john-5-20",
+     "1-john-5-21"
+    ],
+    "reference": "1 John 5:1–21",
+    "greekTitle": "Ἰωάννου Αʹ",
+    "coverage": {
+     "tokens": 429,
+     "known": 0.991,
+     "schedulable": 0.991
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Settings</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back to path">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="unit-title" style="margin:0;font-size:18px;flex:1">Settings</div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="settings-body">
+
+    <!-- The theme switcher that lived on the lesson path as a demo now lives here for real. -->
+    <section class="settings-section">
+      <div class="settings-title">Style</div>
+      <div class="settings-row">
+        <div><div class="settings-label">Look</div><div class="settings-help">Same lessons, different skin — like an e-reader's page styles.</div></div>
+        <div class="theme-option-group wrap" id="themeOptions">
+          <button class="theme-option" type="button" data-theme="classic">Classic</button>
+          <button class="theme-option" type="button" data-theme="lexis">Lexis</button>
+          <button class="theme-option" type="button" data-theme="nous">Nous</button>
+        </div>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Mode</div></div>
+        <div class="theme-option-group" id="modeOptions">
+          <button class="theme-option" type="button" data-mode="light">Light</button>
+          <button class="theme-option" type="button" data-mode="dark">Dark</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <div class="settings-title">Learning</div>
+      <div class="settings-row">
+        <div><div class="settings-label">Pronunciation</div><div class="settings-help" id="pronHelp"></div></div>
+        <div class="theme-option-group" id="pronOptions">
+          <button class="theme-option" type="button" data-pron="erasmian">Erasmian</button>
+          <button class="theme-option" type="button" data-pron="koine">Koine</button>
+        </div>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Reference translation</div><div class="settings-help" id="trHelp"></div></div>
+        <div class="theme-option-group" id="trOptions">
+          <button class="theme-option" type="button" data-tr="web">WEB</button>
+          <button class="theme-option" type="button" data-tr="kjv">KJV</button>
+          <button class="theme-option" type="button" data-tr="ylt">YLT</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <div class="settings-title">Progress</div>
+      <div class="stat-grid" id="statGrid"></div>
+      <p class="settings-help" style="margin-top:10px" id="progressHelp"></p>
+    </section>
+
+    <section class="settings-section">
+      <div class="settings-title">App</div>
+      <div class="settings-row" id="installRow">
+        <div><div class="settings-label">Add to Home Screen</div><div class="settings-help" id="installHelp">Works offline once installed: lessons, your progress and every chapter you have opened.</div></div>
+        <button class="btn secondary" id="installBtn" type="button">Install</button>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Back up progress</div><div class="settings-help">Everything lives on this device only. Download a copy to move it or keep it safe.</div></div>
+        <button class="btn secondary" id="exportBtn" type="button">Download</button>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Restore from backup</div><div class="settings-help">Replaces what is on this device with the backup file.</div></div>
+        <button class="btn secondary" id="importBtn" type="button">Choose file</button>
+        <input class="hidden-input" id="importFile" type="file" accept="application/json,.json">
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Reset progress</div><div class="settings-help">Clears reviews, XP, streak and lesson history. Keeps these settings.</div></div>
+        <button class="btn secondary danger" id="resetBtn" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <div class="settings-title">About &amp; credits</div>
+      <div class="about">
+        <p><b>Rhema</b> (ῥῆμα, "word") teaches New Testament Koine Greek with spaced retrieval and real text from day one. It is a static site: nothing you do here leaves your device.</p>
+        <p>Greek text: <b>SBL Greek New Testament</b>. Copyright © 2010 Society of Biblical Literature and Logos Bible Software (CC BY 4.0). Morphology, lemmas and glosses: <b>MorphGNT</b> — Tauber, J. K., ed. (2017) <i>MorphGNT: SBLGNT Edition</i>, v6.12 (CC BY-SA 3.0), with glosses from the public-domain Dodson lexicon.</p>
+        <p>Reference translations: <b>World English Bible</b> (public domain; "World English Bible" is a trademark of eBible.org), <b>King James Version</b> (1769) and <b>Young's Literal Translation</b> (public domain).</p>
+        <p>Pronunciation schemes: Erasmian (the common seminary scheme) and reconstructed Koine (after Randall Buth, Biblical Language Center).</p>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<script type="module">
+  import { initTheme, setTheme, setMode } from './js/theme.js';
+  import { getSettings, setSettings, getProgress, getAllVocabRecords, readStore, exportStore, importStore, resetProgress } from './js/storage.js';
+  import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
+
+  initTheme();
+  initPwa();
+  document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
+
+  const PRON_HELP = { erasmian: 'The scheme most seminaries teach: every letter distinct.', koine: 'Reconstructed first-century sound: closer to how the New Testament was heard.' };
+  const TR_HELP = { web: 'World English Bible — modern, readable, public domain.', kjv: 'King James Version — traditional wording.', ylt: "Young's Literal Translation — closest to the Greek word order." };
+
+  function refresh() {
+    const s = getSettings();
+    document.querySelectorAll('#themeOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.theme === s.theme));
+    document.querySelectorAll('#modeOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.mode === s.mode));
+    document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.pron === s.pronunciation));
+    document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.tr === s.translation));
+    document.getElementById('pronHelp').textContent = PRON_HELP[s.pronunciation] || '';
+    document.getElementById('trHelp').textContent = TR_HELP[s.translation] || '';
+    renderProgress();
+  }
+
+  document.querySelectorAll('#themeOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setTheme(b.dataset.theme); refresh(); }));
+  document.querySelectorAll('#modeOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setMode(b.dataset.mode); refresh(); }));
+  document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ pronunciation: b.dataset.pron }); refresh(); }));
+  document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ translation: b.dataset.tr }); refresh(); }));
+
+  function renderProgress() {
+    const p = getProgress();
+    const vocab = getAllVocabRecords();
+    const verses = Object.keys(readStore().readingHistory).length;
+    const strong = Object.values(vocab).filter((r) => r.repetitions >= 3).length;
+    document.getElementById('xpStat').textContent = p.xp;
+    document.getElementById('statGrid').innerHTML = [
+      [p.xp, 'xp'], [p.streak, `day streak`], [p.lessonsCompleted.length, 'lessons'],
+      [Object.keys(vocab).length, 'words studied'], [strong, 'words strong'], [verses, 'verses read'],
+    ].map(([v, l]) => `<div class="summary-stat"><b>${v}</b><span>${l}</span></div>`).join('');
+    document.getElementById('progressHelp').textContent = p.lastActiveDate ? `Last study day: ${p.lastActiveDate}. "Strong" = answered correctly three times in a row across spaced sessions.` : 'No study days yet. Start with Book I on the path.';
+  }
+
+  // ---- install ----
+  const installRow = document.getElementById('installRow');
+  const installBtn = document.getElementById('installBtn');
+  const installHelp = document.getElementById('installHelp');
+  function refreshInstall(available) {
+    if (isStandalone()) { installBtn.hidden = true; installHelp.textContent = 'Installed — you are using Rhema as an app.'; return; }
+    installBtn.hidden = !available;
+    if (!available) installHelp.textContent = /iPhone|iPad/.test(navigator.userAgent)
+      ? 'On iPhone or iPad: tap Share, then "Add to Home Screen".'
+      : 'Use your browser’s "Install app" or "Add to Home Screen" option. Works offline once installed.';
+  }
+  refreshInstall(canInstall());
+  onInstallAvailable(refreshInstall);
+  installBtn.addEventListener('click', async () => { const r = await promptInstall(); if (r === 'accepted') refreshInstall(false); });
+
+  // ---- backup / restore / reset ----
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    const blob = new Blob([exportStore()], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `rhema-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  const importFile = document.getElementById('importFile');
+  document.getElementById('importBtn').addEventListener('click', () => importFile.click());
+  importFile.addEventListener('change', async () => {
+    const f = importFile.files[0];
+    if (!f) return;
+    try {
+      const text = await f.text();
+      const parsed = JSON.parse(text);
+      const st = parsed.store || parsed;
+      const words = Object.keys(st.vocabSRS || {}).length;
+      if (!confirm(`Restore this backup? It has ${words} studied words and ${st.progress ? st.progress.xp : 0} XP, and will replace what is on this device.`)) return;
+      importStore(text);
+      initTheme();
+      refresh();
+      alert('Backup restored.');
+    } catch (e) {
+      alert(`Could not restore: ${e.message}`);
+    } finally {
+      importFile.value = '';
+    }
+  });
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (!confirm('Reset all progress on this device? Reviews, XP, streak and lesson history will be cleared. Settings are kept.')) return;
+    if (!confirm('This cannot be undone. Reset now?')) return;
+    resetProgress();
+    refresh();
+  });
+
+  refresh();
+</script>
+
+</body>
+</html>

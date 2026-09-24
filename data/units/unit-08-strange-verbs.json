@@ -1,0 +1,687 @@
+{
+ "id": "unit-08-strange-verbs",
+ "index": 8,
+ "kicker": "Book VIII",
+ "title": "Οἶδα",
+ "sub": "Strange verbs and advanced syntax",
+ "summary": "Principal parts, the -μι verbs, the irregular-verb drill pool, conditional sentences, the optative, and 1 John 1. After this Book you know every word that occurs 50+ times in the New Testament.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u08-principal-parts",
+   "type": "verb",
+   "label": "λύω λύσω ἔλυσα",
+   "sub": "The six principal parts",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Six forms unlock every tense",
+    "body": "Every verb has up to six stems: present (λύω), future (λύσω), aorist active (ἔλυσα), perfect active (λέλυκα), perfect middle/passive (λέλυμαι), aorist passive (ἐλύθην). Regular verbs derive all six by rule; the strange verbs do not, so their parts are learned as vocabulary. οἶδα is a perfect with present meaning; φημί survives mostly as ἔφη, 'he said'.",
+    "examples": [
+     {
+      "gr": "οἴδαμεν ὅτι",
+      "en": "we know that"
+     },
+     {
+      "gr": "ᾔδει",
+      "en": "he knew"
+     },
+     {
+      "gr": "ἔφη αὐτῷ",
+      "en": "he said to him"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "οἶδα",
+     "lemma": "οἶδα",
+     "citation": "οἶδα",
+     "gloss": "I know, remember",
+     "pos": "verb",
+     "count": 296,
+     "rank": 57
+    },
+    {
+     "id": "φημί",
+     "lemma": "φημί",
+     "citation": "φημί",
+     "gloss": "I say",
+     "pos": "verb",
+     "count": 65,
+     "rank": 253
+    }
+   ],
+   "paradigms": [
+    "oida-perf"
+   ]
+  },
+  {
+   "id": "u08-mi-verbs",
+   "type": "verb",
+   "label": "δίδωμι",
+   "sub": "The -μι verbs",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Endings without a connecting vowel",
+    "body": "A small, ancient group (δίδωμι give, τίθημι put, ἵστημι stand, ἀφίημι forgive/leave) adds endings straight to the stem: -μι -ς -σι -μεν -τε -ασι, with reduplication in ι in the present (δί-δωμι). Their aorists use κα (ἔδωκα, ἔθηκα, ἀφῆκα). Their compounds are extremely common: παραδίδωμι hand over, ἀνίστημι rise.",
+    "examples": [
+     {
+      "gr": "δίδωσιν αὐτοῖς",
+      "en": "he gives to them"
+     },
+     {
+      "gr": "ἔδωκεν τὸν υἱόν",
+      "en": "he gave the Son"
+     },
+     {
+      "gr": "ἀφέωνταί σου αἱ ἁμαρτίαι",
+      "en": "your sins are forgiven"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "δίδωμι",
+     "lemma": "δίδωμι",
+     "citation": "δίδωμι",
+     "gloss": "I offer, give",
+     "pos": "verb",
+     "count": 415,
+     "rank": 43
+    },
+    {
+     "id": "τίθημι",
+     "lemma": "τίθημι",
+     "citation": "τίθημι/τιθέω",
+     "gloss": "I put, place",
+     "pos": "verb",
+     "count": 100,
+     "rank": 169
+    },
+    {
+     "id": "ἵστημι",
+     "lemma": "ἵστημι",
+     "citation": "ἵστημι/ἱστάνω",
+     "gloss": "I cause to stand, stand",
+     "pos": "verb",
+     "count": 153,
+     "rank": 108
+    },
+    {
+     "id": "ἀφίημι",
+     "lemma": "ἀφίημι",
+     "citation": "ἀφίημι",
+     "gloss": "I send away, release, remit, forgive, permit",
+     "pos": "verb",
+     "count": 143,
+     "rank": 118
+    },
+    {
+     "id": "παραδίδωμι",
+     "lemma": "παραδίδωμι",
+     "citation": "παραδίδωμι",
+     "gloss": "I hand over, deliver, betray",
+     "pos": "verb",
+     "count": 119,
+     "rank": 141
+    },
+    {
+     "id": "ἀνίστημι",
+     "lemma": "ἀνίστημι",
+     "citation": "ἀνίστημι",
+     "gloss": "I raise up, set up, rise from",
+     "pos": "verb",
+     "count": 108,
+     "rank": 157
+    },
+    {
+     "id": "ἀπόλλυμι",
+     "lemma": "ἀπόλλυμι",
+     "citation": "ἀπόλλυμι",
+     "gloss": "I destroy, lose, am perishing",
+     "pos": "verb",
+     "count": 90,
+     "rank": 193
+    }
+   ],
+   "paradigms": [
+    "mi-didomi-pres",
+    "mi-didomi-aor",
+    "mi-tithemi-pres",
+    "mi-histemi-pres"
+   ]
+  },
+  {
+   "id": "u08-irregular-1",
+   "type": "verb",
+   "label": "εἶπον ἦλθον",
+   "sub": "Strange verbs I: the big ten",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Learn the parts, not the rule",
+    "body": "For these verbs there is no rule: the aorist of λέγω is εἶπον, of ἔρχομαι ἦλθον, of ὁράω εἶδον, of φέρω ἤνεγκα. Drill them by principal part until εἶδεν simply reads as 'he saw'. They are the verbs that carry every Gospel story.",
+    "examples": [
+     {
+      "gr": "εἶδον καὶ ἐπίστευσα",
+      "en": "I saw and I believed"
+     },
+     {
+      "gr": "ἦλθεν … καὶ εἶπεν",
+      "en": "he came … and said"
+     },
+     {
+      "gr": "ἐλήλυθα",
+      "en": "I have come"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "διακονία",
+     "lemma": "διακονία",
+     "citation": "διακονία, ας, ἡ",
+     "gloss": "waiting at table, service, ministration",
+     "pos": "noun",
+     "count": 34,
+     "rank": 419
+    },
+    {
+     "id": "μέλος",
+     "lemma": "μέλος",
+     "citation": "μέλος, ους, τό",
+     "gloss": "a limb, member",
+     "pos": "noun",
+     "count": 34,
+     "rank": 420
+    },
+    {
+     "id": "μήτε",
+     "lemma": "μήτε",
+     "citation": "μήτε",
+     "gloss": "nor, neither, not even",
+     "pos": "conjunction",
+     "count": 34,
+     "rank": 421
+    },
+    {
+     "id": "μετανοέω",
+     "lemma": "μετανοέω",
+     "citation": "μετανοέω",
+     "gloss": "I repent, change my mind",
+     "pos": "verb",
+     "count": 34,
+     "rank": 422
+    },
+    {
+     "id": "οἶνος",
+     "lemma": "οἶνος",
+     "citation": "οἶνος, ου, ὁ",
+     "gloss": "wine",
+     "pos": "noun",
+     "count": 34,
+     "rank": 423
+    },
+    {
+     "id": "πτωχός",
+     "lemma": "πτωχός",
+     "citation": "πτωχός, ή, όν",
+     "gloss": "poor, destitute",
+     "pos": "adjective",
+     "count": 34,
+     "rank": 424
+    },
+    {
+     "id": "ἀσθενέω",
+     "lemma": "ἀσθενέω",
+     "citation": "ἀσθενέω",
+     "gloss": "I am weak, sick",
+     "pos": "verb",
+     "count": 34,
+     "rank": 425
+    },
+    {
+     "id": "δείκνυμι",
+     "lemma": "δείκνυμι",
+     "citation": "δείκνυμι/δεικνύω",
+     "gloss": "I point out, show",
+     "pos": "verb",
+     "count": 33,
+     "rank": 426
+    },
+    {
+     "id": "διαθήκη",
+     "lemma": "διαθήκη",
+     "citation": "διαθήκη, ης, ἡ",
+     "gloss": "a covenant, will, testament",
+     "pos": "noun",
+     "count": 33,
+     "rank": 427
+    },
+    {
+     "id": "ναί",
+     "lemma": "ναί",
+     "citation": "ναί",
+     "gloss": "yes, certainly, even so",
+     "pos": "particle",
+     "count": 33,
+     "rank": 428
+    }
+   ],
+   "paradigms": [],
+   "irregular": [
+    "εἰμί",
+    "λέγω",
+    "ἔρχομαι",
+    "ὁράω",
+    "γίνομαι",
+    "ἔχω",
+    "λαμβάνω",
+    "οἶδα",
+    "φέρω",
+    "ἐσθίω"
+   ]
+  },
+  {
+   "id": "u08-irregular-2",
+   "type": "verb",
+   "label": "ἔγνων ἔπεσον",
+   "sub": "Strange verbs II: the rest of the pool",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Root aorists and passive deponents",
+    "body": "A few verbs have 'root aorists' with no connecting vowel: ἔγνων (I knew), ἔβην (I went), ἔστην (I stood). Another group takes an aorist passive form with active meaning: ἀπεκρίθη, ἐπορεύθη, ἐφοβήθη, ἐχάρη. Keep drilling until each form triggers its meaning without analysis.",
+    "examples": [
+     {
+      "gr": "ἔγνω ὁ Ἰησοῦς",
+      "en": "Jesus knew"
+     },
+     {
+      "gr": "ἀνέβη εἰς Ἱεροσόλυμα",
+      "en": "he went up to Jerusalem"
+     },
+     {
+      "gr": "ἐχάρησαν χαρὰν μεγάλην",
+      "en": "they rejoiced with great joy"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ποῖος",
+     "lemma": "ποῖος",
+     "citation": "ποῖος, α, ον",
+     "gloss": "of what sort",
+     "pos": "interrogative/indefinite pronoun",
+     "count": 33,
+     "rank": 429
+    },
+    {
+     "id": "ἐκπορεύομαι",
+     "lemma": "ἐκπορεύομαι",
+     "citation": "ἐκπορεύομαι",
+     "gloss": "I journey out, come forth",
+     "pos": "verb",
+     "count": 33,
+     "rank": 431
+    },
+    {
+     "id": "δυνατός",
+     "lemma": "δυνατός",
+     "citation": "δυνατός, ή, όν",
+     "gloss": "powerful, able, possible",
+     "pos": "adjective",
+     "count": 32,
+     "rank": 432
+    },
+    {
+     "id": "παραγγέλλω",
+     "lemma": "παραγγέλλω",
+     "citation": "παραγγέλλω",
+     "gloss": "I notify, command, charge",
+     "pos": "verb",
+     "count": 32,
+     "rank": 433
+    },
+    {
+     "id": "ἀκάθαρτος",
+     "lemma": "ἀκάθαρτος",
+     "citation": "ἀκάθαρτος, ον",
+     "gloss": "unclean, impure",
+     "pos": "adjective",
+     "count": 32,
+     "rank": 434
+    },
+    {
+     "id": "ἀναγινώσκω",
+     "lemma": "ἀναγινώσκω",
+     "citation": "ἀναγινώσκω",
+     "gloss": "I read",
+     "pos": "verb",
+     "count": 32,
+     "rank": 435
+    },
+    {
+     "id": "ἅπας",
+     "lemma": "ἅπας",
+     "citation": "ἅπας, ασα, αν",
+     "gloss": "all, the whole",
+     "pos": "adjective",
+     "count": 32,
+     "rank": 436
+    },
+    {
+     "id": "ἐλεάω",
+     "lemma": "ἐλεάω",
+     "citation": "ἐλεάω",
+     "gloss": "I have mercy, show pity",
+     "pos": "verb",
+     "count": 32,
+     "rank": 437
+    },
+    {
+     "id": "ἐχθρός",
+     "lemma": "ἐχθρός",
+     "citation": "ἐχθρός, ά, όν",
+     "gloss": "hated, hostile, an enemy",
+     "pos": "adjective",
+     "count": 32,
+     "rank": 438
+    },
+    {
+     "id": "ἥλιος",
+     "lemma": "ἥλιος",
+     "citation": "ἥλιος, ου, ὁ",
+     "gloss": "the sun, sunlight",
+     "pos": "noun",
+     "count": 32,
+     "rank": 439
+    }
+   ],
+   "paradigms": [],
+   "irregular": [
+    "πίνω",
+    "γινώσκω",
+    "δίδωμι",
+    "τίθημι",
+    "ἵστημι",
+    "ἀφίημι",
+    "ἀποθνῄσκω",
+    "ἐγείρω",
+    "ἀποστέλλω",
+    "κρίνω",
+    "μένω",
+    "ἀναβαίνω",
+    "πίπτω",
+    "βάλλω",
+    "εὑρίσκω",
+    "ἄγω",
+    "πάσχω",
+    "θέλω",
+    "δύναμαι",
+    "καλέω",
+    "ἀκούω",
+    "πείθω",
+    "ἀποκρίνομαι",
+    "πορεύομαι",
+    "φοβέομαι",
+    "χαίρω",
+    "ἀπόλλυμι",
+    "φημί",
+    "ἀνοίγω",
+    "μανθάνω",
+    "φεύγω",
+    "ἁμαρτάνω"
+   ]
+  },
+  {
+   "id": "u08-conditionals",
+   "type": "grammar",
+   "label": "εἰ ἐάν",
+   "sub": "Conditional sentences and the optative",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Four kinds of 'if'",
+    "body": "First class: εἰ + indicative, assumed true for argument's sake ('if, as is the case'). Second class: εἰ + past indicative with ἄν in the conclusion, contrary to fact ('if it were'). Third class: ἐάν + subjunctive, open possibility. Fourth class: εἰ + optative, remote wish (rare; the optative survives mostly in μὴ γένοιτο, 'may it never be!').",
+    "examples": [
+     {
+      "gr": "εἰ υἱὸς εἶ τοῦ θεοῦ",
+      "en": "if you are the Son of God"
+     },
+     {
+      "gr": "εἰ ἦς ὧδε, οὐκ ἂν ἀπέθανεν",
+      "en": "if you had been here, he would not have died"
+     },
+     {
+      "gr": "ἐὰν ὁμολογῶμεν",
+      "en": "if we confess"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ὑπομονή",
+     "lemma": "ὑπομονή",
+     "citation": "ὑπομονή, ῆς, ἡ",
+     "gloss": "endurance, steadfastness",
+     "pos": "noun",
+     "count": 32,
+     "rank": 440
+    },
+    {
+     "id": "καθαρίζω",
+     "lemma": "καθαρίζω",
+     "citation": "καθαρίζω",
+     "gloss": "I make clean",
+     "pos": "verb",
+     "count": 31,
+     "rank": 441
+    },
+    {
+     "id": "παρρησία",
+     "lemma": "παρρησία",
+     "citation": "παρρησία, ας, ἡ",
+     "gloss": "freedom, confidence",
+     "pos": "noun",
+     "count": 31,
+     "rank": 442
+    },
+    {
+     "id": "πλήν",
+     "lemma": "πλήν",
+     "citation": "πλήν",
+     "gloss": "however, nevertheless",
+     "pos": "conjunction",
+     "count": 31,
+     "rank": 443
+    },
+    {
+     "id": "πλῆθος",
+     "lemma": "πλῆθος",
+     "citation": "πλῆθος, ους, τό",
+     "gloss": "a multitude",
+     "pos": "noun",
+     "count": 31,
+     "rank": 444
+    },
+    {
+     "id": "ποτήριον",
+     "lemma": "ποτήριον",
+     "citation": "ποτήριον, ου, τό",
+     "gloss": "a drinking cup",
+     "pos": "noun",
+     "count": 31,
+     "rank": 445
+    },
+    {
+     "id": "φυλάσσω",
+     "lemma": "φυλάσσω",
+     "citation": "φυλάσσω",
+     "gloss": "I keep, guard, observe",
+     "pos": "verb",
+     "count": 31,
+     "rank": 447
+    },
+    {
+     "id": "φυλή",
+     "lemma": "φυλή",
+     "citation": "φυλή, ῆς, ἡ",
+     "gloss": "a tribe, race",
+     "pos": "noun",
+     "count": 31,
+     "rank": 448
+    },
+    {
+     "id": "ἄνεμος",
+     "lemma": "ἄνεμος",
+     "citation": "ἄνεμος, ου, ὁ",
+     "gloss": "the wind",
+     "pos": "noun",
+     "count": 31,
+     "rank": 449
+    },
+    {
+     "id": "ἐλπίζω",
+     "lemma": "ἐλπίζω",
+     "citation": "ἐλπίζω",
+     "gloss": "I hope, hope for, expect",
+     "pos": "verb",
+     "count": 31,
+     "rank": 450
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u08-read-1-john-1",
+   "type": "reading",
+   "label": "Ἰωάννου Αʹ",
+   "sub": "Read: 1 John 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Your first whole chapter",
+    "body": "1 John uses the simplest Greek in the New Testament and the vocabulary you now own. Read it straight through before revealing any verse.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "σκότος",
+     "lemma": "σκότος",
+     "citation": "σκότος, ους, τό",
+     "gloss": "darkness",
+     "pos": "noun",
+     "count": 30,
+     "rank": 456
+    },
+    {
+     "id": "ἀδικία",
+     "lemma": "ἀδικία",
+     "citation": "ἀδικία, ας, ἡ",
+     "gloss": "unrighteousness",
+     "pos": "noun",
+     "count": 25,
+     "rank": 539
+    },
+    {
+     "id": "κοινωνία",
+     "lemma": "κοινωνία",
+     "citation": "κοινωνία, ας, ἡ",
+     "gloss": "participation, communion, fellowship",
+     "pos": "noun",
+     "count": 19,
+     "rank": 640
+    },
+    {
+     "id": "ἀναγγέλλω",
+     "lemma": "ἀναγγέλλω",
+     "citation": "ἀναγγέλλω",
+     "gloss": "I announce, make known, report",
+     "pos": "verb",
+     "count": 14,
+     "rank": 841
+    },
+    {
+     "id": "ψεύδομαι",
+     "lemma": "ψεύδομαι",
+     "citation": "ψεύδω",
+     "gloss": "I lie",
+     "pos": "verb",
+     "count": 12,
+     "rank": 948
+    },
+    {
+     "id": "ψεύστης",
+     "lemma": "ψεύστης",
+     "citation": "ψεύστης, ου, ὁ",
+     "gloss": "a liar, deceiver",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1087
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "1-john",
+    "chapter": 1,
+    "from": 1,
+    "to": 10,
+    "verseIds": [
+     "1-john-1-1",
+     "1-john-1-2",
+     "1-john-1-3",
+     "1-john-1-4",
+     "1-john-1-5",
+     "1-john-1-6",
+     "1-john-1-7",
+     "1-john-1-8",
+     "1-john-1-9",
+     "1-john-1-10"
+    ],
+    "reference": "1 John 1:1–10",
+    "greekTitle": "Ἰωάννου Αʹ",
+    "coverage": {
+     "tokens": 207,
+     "known": 0.986,
+     "schedulable": 0.986
+    }
+   }
+  }
+ ]
+}

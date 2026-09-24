@@ -6,6 +6,10 @@
 */
 
 [data-theme="classic"] {
+  --ok: #16795A;
+  --ok-tint: #E4F3EC;
+  --bad: #C0392B;
+  --bad-tint: #FBE9E7;
   --bg: #FFFDF8;
   --surface: #FFFFFF;
   --ink: #2B2420;
@@ -29,6 +33,10 @@
 }
 
 [data-theme="classic"][data-mode="dark"] {
+  --ok: #3FCB94;
+  --ok-tint: #1E3830;
+  --bad: #F17E6C;
+  --bad-tint: #3A2622;
   --bg: #1B2420;
   --surface: #22302A;
   --ink: #F2ECDD;

@@ -1,0 +1,1376 @@
+{
+ "id": "unit-03-present-verbs",
+ "index": 3,
+ "kicker": "Book III",
+ "title": "Λύω",
+ "sub": "The present tense",
+ "summary": "Regular verbs in the present, deponents, contract verbs, the imperfect, the infinitive, and John 1:6–13.",
+ "track": "grammar",
+ "lessons": [
+  {
+   "id": "u03-present-1",
+   "type": "verb",
+   "label": "λέγω",
+   "sub": "Present active: the ω-verb",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Six endings, one pattern",
+    "body": "Take the dictionary form, drop -ω, add: -ω -εις -ει -ομεν -ετε -ουσι(ν). λέγει = he says, λέγομεν = we say. The present describes what is happening or what happens in general. δεῖ (from δέω) is a fixed third-person form: 'it is necessary'.",
+    "examples": [
+     {
+      "gr": "πιστεύομεν",
+      "en": "we believe"
+     },
+     {
+      "gr": "τί λέγεις;",
+      "en": "what do you say?"
+     },
+     {
+      "gr": "δεῖ ὑμᾶς γεννηθῆναι ἄνωθεν",
+      "en": "you must be born from above"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "λέγω",
+     "lemma": "λέγω",
+     "citation": "λέγω",
+     "gloss": "I say, speak",
+     "pos": "verb",
+     "count": 2345,
+     "rank": 9
+    },
+    {
+     "id": "ἔχω",
+     "lemma": "ἔχω",
+     "citation": "ἔχω",
+     "gloss": "I have, hold, possess",
+     "pos": "verb",
+     "count": 706,
+     "rank": 23
+    },
+    {
+     "id": "πιστεύω",
+     "lemma": "πιστεύω",
+     "citation": "πιστεύω",
+     "gloss": "I believe, have faith in",
+     "pos": "verb",
+     "count": 241,
+     "rank": 64
+    },
+    {
+     "id": "ἀκούω",
+     "lemma": "ἀκούω",
+     "citation": "ἀκούω",
+     "gloss": "I hear, listen",
+     "pos": "verb",
+     "count": 427,
+     "rank": 42
+    },
+    {
+     "id": "γράφω",
+     "lemma": "γράφω",
+     "citation": "γράφω",
+     "gloss": "I write",
+     "pos": "verb",
+     "count": 190,
+     "rank": 84
+    },
+    {
+     "id": "βλέπω",
+     "lemma": "βλέπω",
+     "citation": "βλέπω",
+     "gloss": "I look, see",
+     "pos": "verb",
+     "count": 133,
+     "rank": 129
+    },
+    {
+     "id": "λύω",
+     "lemma": "λύω",
+     "citation": "λύω",
+     "gloss": "I loose, untie, release, destroy",
+     "pos": "verb",
+     "count": 42,
+     "rank": 353
+    },
+    {
+     "id": "μένω",
+     "lemma": "μένω",
+     "citation": "μένω",
+     "gloss": "I remain, abide",
+     "pos": "verb",
+     "count": 118,
+     "rank": 142
+    },
+    {
+     "id": "θέλω",
+     "lemma": "θέλω",
+     "citation": "θέλω",
+     "gloss": "I will, wish, desire",
+     "pos": "verb",
+     "count": 208,
+     "rank": 77
+    },
+    {
+     "id": "δέω",
+     "lemma": "δέω",
+     "citation": "δέω",
+     "gloss": "I bind, tie; (impersonal δεῖ) it is necessary, one must",
+     "pos": "verb",
+     "count": 154,
+     "rank": 105
+    }
+   ],
+   "paradigms": [
+    "pres-act"
+   ]
+  },
+  {
+   "id": "u03-present-2",
+   "type": "verb",
+   "label": "γινώσκω",
+   "sub": "More present-tense verbs",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Verbs take objects in the accusative",
+    "body": "A transitive verb's object goes in the accusative: βάλλει λίθον, he throws a stone. Some verbs prefer other cases (ἀκούω often takes the genitive of the person heard). μέλλω + infinitive = 'to be about to'.",
+    "examples": [
+     {
+      "gr": "ὁ θεὸς σῴζει τὸν κόσμον",
+      "en": "God saves the world"
+     },
+     {
+      "gr": "λαμβάνουσιν τὸν ἄρτον",
+      "en": "they take the bread"
+     },
+     {
+      "gr": "γινώσκετε τὴν ἀλήθειαν",
+      "en": "you know the truth"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "βάλλω",
+     "lemma": "βάλλω",
+     "citation": "βάλλω",
+     "gloss": "I cast, throw, rush, put, place, drop",
+     "pos": "verb",
+     "count": 121,
+     "rank": 138
+    },
+    {
+     "id": "γινώσκω",
+     "lemma": "γινώσκω",
+     "citation": "γινώσκω",
+     "gloss": "I come to know, learn, realize",
+     "pos": "verb",
+     "count": 221,
+     "rank": 70
+    },
+    {
+     "id": "εὑρίσκω",
+     "lemma": "εὑρίσκω",
+     "citation": "εὑρίσκω",
+     "gloss": "I find",
+     "pos": "verb",
+     "count": 176,
+     "rank": 88
+    },
+    {
+     "id": "λαμβάνω",
+     "lemma": "λαμβάνω",
+     "citation": "λαμβάνω",
+     "gloss": "I receive, take",
+     "pos": "verb",
+     "count": 258,
+     "rank": 60
+    },
+    {
+     "id": "σῴζω",
+     "lemma": "σῴζω",
+     "citation": "σῴζω",
+     "gloss": "I save, heal",
+     "pos": "verb",
+     "count": 106,
+     "rank": 159
+    },
+    {
+     "id": "ἐσθίω",
+     "lemma": "ἐσθίω",
+     "citation": "ἐσθίω/ἔσθω",
+     "gloss": "I eat",
+     "pos": "verb",
+     "count": 157,
+     "rank": 101
+    },
+    {
+     "id": "πέμπω",
+     "lemma": "πέμπω",
+     "citation": "πέμπω",
+     "gloss": "I send",
+     "pos": "verb",
+     "count": 79,
+     "rank": 213
+    },
+    {
+     "id": "ἄγω",
+     "lemma": "ἄγω",
+     "citation": "ἄγω",
+     "gloss": "I lead",
+     "pos": "verb",
+     "count": 68,
+     "rank": 241
+    },
+    {
+     "id": "κρίνω",
+     "lemma": "κρίνω",
+     "citation": "κρίνω",
+     "gloss": "I judge, decide, think good",
+     "pos": "verb",
+     "count": 114,
+     "rank": 147
+    },
+    {
+     "id": "πίνω",
+     "lemma": "πίνω",
+     "citation": "πίνω",
+     "gloss": "I drink, imbibe",
+     "pos": "verb",
+     "count": 72,
+     "rank": 234
+    },
+    {
+     "id": "διδάσκω",
+     "lemma": "διδάσκω",
+     "citation": "διδάσκω",
+     "gloss": "I teach",
+     "pos": "verb",
+     "count": 96,
+     "rank": 178
+    },
+    {
+     "id": "μέλλω",
+     "lemma": "μέλλω",
+     "citation": "μέλλω",
+     "gloss": "I am about to",
+     "pos": "verb",
+     "count": 109,
+     "rank": 154
+    }
+   ],
+   "paradigms": [
+    "pres-act"
+   ]
+  },
+  {
+   "id": "u03-deponents",
+   "type": "verb",
+   "label": "ἔρχομαι",
+   "sub": "Middle/passive endings and deponent verbs",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Middle form, active meaning",
+    "body": "The second set of present endings (-ομαι -ῃ -εται -όμεθα -εσθε -ονται) marks middle or passive voice. Many of the most common verbs exist only in this form and simply mean what they say: ἔρχομαι I come, γίνομαι I become, ἀποκρίνομαι I answer. These are 'deponents'; recognize the endings and read them as active.",
+    "examples": [
+     {
+      "gr": "ἔρχεται ὁ κύριος",
+      "en": "the Lord is coming"
+     },
+     {
+      "gr": "οὐ δύναμαι",
+      "en": "I cannot"
+     },
+     {
+      "gr": "πορεύεσθε ἐν εἰρήνῃ",
+      "en": "go in peace"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "γίνομαι",
+     "lemma": "γίνομαι",
+     "citation": "γίνομαι",
+     "gloss": "I come into being, am born",
+     "pos": "verb",
+     "count": 667,
+     "rank": 25
+    },
+    {
+     "id": "ἔρχομαι",
+     "lemma": "ἔρχομαι",
+     "citation": "ἔρχομαι",
+     "gloss": "I come, go",
+     "pos": "verb",
+     "count": 631,
+     "rank": 30
+    },
+    {
+     "id": "ἀποκρίνομαι",
+     "lemma": "ἀποκρίνομαι",
+     "citation": "ἀποκρίνω",
+     "gloss": "I answer, reply",
+     "pos": "verb",
+     "count": 232,
+     "rank": 68
+    },
+    {
+     "id": "δύναμαι",
+     "lemma": "δύναμαι",
+     "citation": "δύναμαι",
+     "gloss": "I am powerful, am able",
+     "pos": "verb",
+     "count": 209,
+     "rank": 76
+    },
+    {
+     "id": "πορεύομαι",
+     "lemma": "πορεύομαι",
+     "citation": "πορεύω",
+     "gloss": "I travel, journey, go",
+     "pos": "verb",
+     "count": 150,
+     "rank": 109
+    },
+    {
+     "id": "προσεύχομαι",
+     "lemma": "προσεύχομαι",
+     "citation": "προσεύχομαι",
+     "gloss": "I pray, pray for",
+     "pos": "verb",
+     "count": 85,
+     "rank": 201
+    },
+    {
+     "id": "δέχομαι",
+     "lemma": "δέχομαι",
+     "citation": "δέχομαι",
+     "gloss": "I take, receive, accept, welcome",
+     "pos": "verb",
+     "count": 56,
+     "rank": 282
+    },
+    {
+     "id": "κάθημαι",
+     "lemma": "κάθημαι",
+     "citation": "κάθημαι",
+     "gloss": "I sit, am seated",
+     "pos": "verb",
+     "count": 91,
+     "rank": 189
+    },
+    {
+     "id": "ἀσπάζομαι",
+     "lemma": "ἀσπάζομαι",
+     "citation": "ἀσπάζομαι",
+     "gloss": "I greet, salute, pay my respects to",
+     "pos": "verb",
+     "count": 59,
+     "rank": 277
+    },
+    {
+     "id": "φοβέομαι",
+     "lemma": "φοβέομαι",
+     "citation": "φοβέω",
+     "gloss": "I fear, am terrified",
+     "pos": "verb",
+     "count": 95,
+     "rank": 180
+    }
+   ],
+   "paradigms": [
+    "pres-mp"
+   ]
+  },
+  {
+   "id": "u03-compounds",
+   "type": "verb",
+   "label": "ἐξέρχομαι",
+   "sub": "Compound verbs",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Preposition + verb",
+    "body": "Greek builds verbs by gluing a preposition to the front: ἐκ + ἔρχομαι = ἐξέρχομαι (go out), εἰς + ἔρχομαι = εἰσέρχομαι (go in), ἀνά + βαίνω = ἀναβαίνω (go up). Learn the prefix meanings once and hundreds of verbs become transparent. The prefix often repeats as a preposition after the verb: εἰσέρχεται εἰς τὴν πόλιν.",
+    "examples": [
+     {
+      "gr": "ἐκβάλλει τὰ δαιμόνια",
+      "en": "he casts out the demons"
+     },
+     {
+      "gr": "καταβαίνει ἐκ τοῦ οὐρανοῦ",
+      "en": "he comes down from heaven"
+     },
+     {
+      "gr": "ὕπαγε",
+      "en": "go!"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἐξέρχομαι",
+     "lemma": "ἐξέρχομαι",
+     "citation": "ἐξέρχομαι",
+     "gloss": "I go out, come out",
+     "pos": "verb",
+     "count": 216,
+     "rank": 73
+    },
+    {
+     "id": "εἰσέρχομαι",
+     "lemma": "εἰσέρχομαι",
+     "citation": "εἰσέρχομαι",
+     "gloss": "I go in, come in, enter",
+     "pos": "verb",
+     "count": 193,
+     "rank": 81
+    },
+    {
+     "id": "ἀπέρχομαι",
+     "lemma": "ἀπέρχομαι",
+     "citation": "ἀπέρχομαι",
+     "gloss": "I come or go away from, depart, return",
+     "pos": "verb",
+     "count": 117,
+     "rank": 144
+    },
+    {
+     "id": "προσέρχομαι",
+     "lemma": "προσέρχομαι",
+     "citation": "προσέρχομαι",
+     "gloss": "I come near, consent to",
+     "pos": "verb",
+     "count": 86,
+     "rank": 198
+    },
+    {
+     "id": "ἀναβαίνω",
+     "lemma": "ἀναβαίνω",
+     "citation": "ἀναβαίνω",
+     "gloss": "I go up, mount, ascend",
+     "pos": "verb",
+     "count": 81,
+     "rank": 206
+    },
+    {
+     "id": "καταβαίνω",
+     "lemma": "καταβαίνω",
+     "citation": "καταβαίνω",
+     "gloss": "I go down, come down",
+     "pos": "verb",
+     "count": 80,
+     "rank": 210
+    },
+    {
+     "id": "ἐκβάλλω",
+     "lemma": "ἐκβάλλω",
+     "citation": "ἐκβάλλω",
+     "gloss": "I throw, cast, put out, banish, bring forth, produce",
+     "pos": "verb",
+     "count": 81,
+     "rank": 207
+    },
+    {
+     "id": "συνάγω",
+     "lemma": "συνάγω",
+     "citation": "συνάγω",
+     "gloss": "I gather together",
+     "pos": "verb",
+     "count": 59,
+     "rank": 275
+    },
+    {
+     "id": "ὑπάγω",
+     "lemma": "ὑπάγω",
+     "citation": "ὑπάγω",
+     "gloss": "I go away, depart",
+     "pos": "verb",
+     "count": 79,
+     "rank": 215
+    },
+    {
+     "id": "ἀπολύω",
+     "lemma": "ἀπολύω",
+     "citation": "ἀπολύω",
+     "gloss": "I release, let go, send away, divorce",
+     "pos": "verb",
+     "count": 67,
+     "rank": 246
+    },
+    {
+     "id": "ὑπάρχω",
+     "lemma": "ὑπάρχω",
+     "citation": "ὑπάρχω",
+     "gloss": "I am, exist, am in possession",
+     "pos": "verb",
+     "count": 60,
+     "rank": 272
+    },
+    {
+     "id": "ἄρχω",
+     "lemma": "ἄρχω",
+     "citation": "ἄρχω",
+     "gloss": "(act.) I reign, rule; (mid.) to begin",
+     "pos": "verb",
+     "count": 86,
+     "rank": 199
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u03-contract-1",
+   "type": "verb",
+   "label": "ποιέω",
+   "sub": "Contract verbs in -έω",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Vowels that merge",
+    "body": "When a stem ends in ε, it merges with the ending: ποιέ-ω → ποιῶ, ποιέ-εις → ποιεῖς, ποιέ-ομεν → ποιοῦμεν. The circumflex is the scar. Dictionaries list the uncontracted form (ποιέω) so you can see the stem; the text never does.",
+    "examples": [
+     {
+      "gr": "τί ποιεῖτε;",
+      "en": "what are you doing?"
+     },
+     {
+      "gr": "λαλεῖ ὁ Ἰησοῦς",
+      "en": "Jesus is speaking"
+     },
+     {
+      "gr": "ζητοῦμεν τὴν βασιλείαν",
+      "en": "we seek the kingdom"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ποιέω",
+     "lemma": "ποιέω",
+     "citation": "ποιέω",
+     "gloss": "I do, make",
+     "pos": "verb",
+     "count": 568,
+     "rank": 31
+    },
+    {
+     "id": "λαλέω",
+     "lemma": "λαλέω",
+     "citation": "λαλέω",
+     "gloss": "I speak, say",
+     "pos": "verb",
+     "count": 297,
+     "rank": 56
+    },
+    {
+     "id": "ζητέω",
+     "lemma": "ζητέω",
+     "citation": "ζητέω",
+     "gloss": "I seek, search for, desire",
+     "pos": "verb",
+     "count": 117,
+     "rank": 143
+    },
+    {
+     "id": "καλέω",
+     "lemma": "καλέω",
+     "citation": "καλέω",
+     "gloss": "I call, invite, name",
+     "pos": "verb",
+     "count": 148,
+     "rank": 111
+    },
+    {
+     "id": "τηρέω",
+     "lemma": "τηρέω",
+     "citation": "τηρέω",
+     "gloss": "I keep, guard, observe",
+     "pos": "verb",
+     "count": 71,
+     "rank": 237
+    },
+    {
+     "id": "θεωρέω",
+     "lemma": "θεωρέω",
+     "citation": "θεωρέω",
+     "gloss": "I behold, look at, experience",
+     "pos": "verb",
+     "count": 58,
+     "rank": 279
+    },
+    {
+     "id": "μαρτυρέω",
+     "lemma": "μαρτυρέω",
+     "citation": "μαρτυρέω",
+     "gloss": "I witness, testify",
+     "pos": "verb",
+     "count": 76,
+     "rank": 221
+    },
+    {
+     "id": "περιπατέω",
+     "lemma": "περιπατέω",
+     "citation": "περιπατέω",
+     "gloss": "I walk, conduct my life",
+     "pos": "verb",
+     "count": 95,
+     "rank": 179
+    },
+    {
+     "id": "παρακαλέω",
+     "lemma": "παρακαλέω",
+     "citation": "παρακαλέω",
+     "gloss": "I summon, entreat, admonish, comfort",
+     "pos": "verb",
+     "count": 109,
+     "rank": 155
+    },
+    {
+     "id": "ἀκολουθέω",
+     "lemma": "ἀκολουθέω",
+     "citation": "ἀκολουθέω",
+     "gloss": "I accompany, attend, follow",
+     "pos": "verb",
+     "count": 89,
+     "rank": 194
+    },
+    {
+     "id": "αἰτέω",
+     "lemma": "αἰτέω",
+     "citation": "αἰτέω",
+     "gloss": "I ask, request, beg, petition",
+     "pos": "verb",
+     "count": 70,
+     "rank": 238
+    },
+    {
+     "id": "δοκέω",
+     "lemma": "δοκέω",
+     "citation": "δοκέω",
+     "gloss": "I think, seem, appear, it seems",
+     "pos": "verb",
+     "count": 62,
+     "rank": 257
+    }
+   ],
+   "paradigms": [
+    "contract-eo"
+   ]
+  },
+  {
+   "id": "u03-contract-2",
+   "type": "verb",
+   "label": "ἀγαπάω",
+   "sub": "Contract verbs in -άω and -όω",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "α swallows, ο rounds",
+    "body": "α-stems: everything becomes α or ᾳ (ἀγαπῶ, ἀγαπᾷς, ἀγαπᾷ, ἀγαπῶμεν, ἀγαπᾶτε, ἀγαπῶσι). ο-stems: ω, οι, ου (πληρῶ, πληροῖς, πληροῖ, πληροῦμεν). If you see a circumflex on the ending of a verb, suspect a contract verb.",
+    "examples": [
+     {
+      "gr": "ἀγαπᾷ τὸν υἱόν",
+      "en": "he loves the son"
+     },
+     {
+      "gr": "ὁρῶμεν",
+      "en": "we see"
+     },
+     {
+      "gr": "ζῶ",
+      "en": "I live"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἀγαπάω",
+     "lemma": "ἀγαπάω",
+     "citation": "ἀγαπάω",
+     "gloss": "I love",
+     "pos": "verb",
+     "count": 143,
+     "rank": 117
+    },
+    {
+     "id": "ὁράω",
+     "lemma": "ὁράω",
+     "citation": "ὁράω",
+     "gloss": "I see, look upon, experience",
+     "pos": "verb",
+     "count": 476,
+     "rank": 39
+    },
+    {
+     "id": "ζάω",
+     "lemma": "ζάω",
+     "citation": "ζῶ",
+     "gloss": "I live",
+     "pos": "verb",
+     "count": 140,
+     "rank": 123
+    },
+    {
+     "id": "γεννάω",
+     "lemma": "γεννάω",
+     "citation": "γεννάω",
+     "gloss": "I beget, bring forth, give birth to",
+     "pos": "verb",
+     "count": 97,
+     "rank": 174
+    },
+    {
+     "id": "ἐρωτάω",
+     "lemma": "ἐρωτάω",
+     "citation": "ἐρωτάω",
+     "gloss": "I ask, question, request",
+     "pos": "verb",
+     "count": 62,
+     "rank": 260
+    },
+    {
+     "id": "ἐπερωτάω",
+     "lemma": "ἐπερωτάω",
+     "citation": "ἐπερωτάω",
+     "gloss": "I interrogate, question, demand of",
+     "pos": "verb",
+     "count": 56,
+     "rank": 286
+    },
+    {
+     "id": "πληρόω",
+     "lemma": "πληρόω",
+     "citation": "πληρόω",
+     "gloss": "I fill, fulfill, complete",
+     "pos": "verb",
+     "count": 86,
+     "rank": 197
+    },
+    {
+     "id": "προσκυνέω",
+     "lemma": "προσκυνέω",
+     "citation": "προσκυνέω",
+     "gloss": "I worship",
+     "pos": "verb",
+     "count": 60,
+     "rank": 269
+    }
+   ],
+   "paradigms": [
+    "contract-ao",
+    "contract-oo"
+   ]
+  },
+  {
+   "id": "u03-imperfect",
+   "type": "verb",
+   "label": "ἔλυον",
+   "sub": "The imperfect tense (and εἰμί in the past)",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "Augment = past",
+    "body": "A past tense in the indicative is marked at the FRONT of the verb by an augment: ἐ- before a consonant (λύω → ἔλυον), or a lengthened vowel (ἀκούω → ἤκουον, ἔχω → εἶχον). The imperfect is the past of the present: ongoing or repeated action, 'was doing', 'used to do'. ἦν (was) is the imperfect of εἰμί.",
+    "examples": [
+     {
+      "gr": "ἔλεγεν αὐτοῖς",
+      "en": "he was saying to them / he used to tell them"
+     },
+     {
+      "gr": "ἐν ἀρχῇ ἦν ὁ λόγος",
+      "en": "in the beginning the Word was"
+     },
+     {
+      "gr": "ἤρχοντο πρὸς αὐτόν",
+      "en": "they kept coming to him"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "οὕτω(ς)",
+     "lemma": "οὕτω(ς)",
+     "citation": "οὕτω/οὕτως",
+     "gloss": "thus, so, in this manner",
+     "pos": "adverb",
+     "count": 207,
+     "rank": 78
+    },
+    {
+     "id": "τότε",
+     "lemma": "τότε",
+     "citation": "τότε",
+     "gloss": "then",
+     "pos": "adverb",
+     "count": 159,
+     "rank": 99
+    },
+    {
+     "id": "νῦν",
+     "lemma": "νῦν",
+     "citation": "νῦν",
+     "gloss": "now, already, at present",
+     "pos": "adverb",
+     "count": 145,
+     "rank": 113
+    },
+    {
+     "id": "πάλιν",
+     "lemma": "πάλιν",
+     "citation": "πάλιν",
+     "gloss": "again, further, on the other hand",
+     "pos": "adverb",
+     "count": 139,
+     "rank": 124
+    },
+    {
+     "id": "πῶς",
+     "lemma": "πῶς",
+     "citation": "πῶς",
+     "gloss": "how, in what manner",
+     "pos": "adverb",
+     "count": 103,
+     "rank": 161
+    },
+    {
+     "id": "ἐκεῖ",
+     "lemma": "ἐκεῖ",
+     "citation": "ἐκεῖ",
+     "gloss": "there, yonder, thither",
+     "pos": "adverb",
+     "count": 95,
+     "rank": 181
+    },
+    {
+     "id": "ἔτι",
+     "lemma": "ἔτι",
+     "citation": "ἔτι",
+     "gloss": "still, yet, even now",
+     "pos": "adverb",
+     "count": 93,
+     "rank": 186
+    },
+    {
+     "id": "μᾶλλον",
+     "lemma": "μᾶλλον",
+     "citation": "μᾶλλον",
+     "gloss": "more, rather",
+     "pos": "adverb",
+     "count": 81,
+     "rank": 205
+    },
+    {
+     "id": "ὅπου",
+     "lemma": "ὅπου",
+     "citation": "ὅπου",
+     "gloss": "where, whither",
+     "pos": "adverb",
+     "count": 81,
+     "rank": 209
+    },
+    {
+     "id": "ἔξω",
+     "lemma": "ἔξω",
+     "citation": "ἔξω",
+     "gloss": "without, outside",
+     "pos": "adverb",
+     "count": 62,
+     "rank": 261
+    },
+    {
+     "id": "ὧδε",
+     "lemma": "ὧδε",
+     "citation": "ὧδε",
+     "gloss": "here",
+     "pos": "adverb",
+     "count": 61,
+     "rank": 268
+    },
+    {
+     "id": "ἤδη",
+     "lemma": "ἤδη",
+     "citation": "ἤδη",
+     "gloss": "now, already",
+     "pos": "adverb",
+     "count": 60,
+     "rank": 270
+    }
+   ],
+   "paradigms": [
+    "impf-act",
+    "impf-mp",
+    "eimi-impf"
+   ]
+  },
+  {
+   "id": "u03-connectives",
+   "type": "vocab",
+   "label": "ἐάν ὅταν",
+   "sub": "Conjunctions and connectives",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "rule": {
+    "title": "The glue of Greek sentences",
+    "body": "Greek writers rarely start a sentence without a connector: καί, δέ, γάρ, οὖν. μέν … δέ … pairs two halves ('on the one hand … on the other'). δέ, γάρ, οὖν and μέν are 'postpositive': they sit second in the sentence but translate first. ὅταν = ὅτε + ἄν, 'whenever'; ἐάν = εἰ + ἄν, 'if ever'.",
+    "examples": [
+     {
+      "gr": "ὁ μὲν … ὁ δὲ …",
+      "en": "the one … the other …"
+     },
+     {
+      "gr": "ὥστε",
+      "en": "so that, with the result that"
+     },
+     {
+      "gr": "οὔτε … οὔτε …",
+      "en": "neither … nor …"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἤ",
+     "lemma": "ἤ",
+     "citation": "ἤ",
+     "gloss": "or, than",
+     "pos": "conjunction",
+     "count": 346,
+     "rank": 49
+    },
+    {
+     "id": "ἐάν",
+     "lemma": "ἐάν",
+     "citation": "ἐάν",
+     "gloss": "if",
+     "pos": "conjunction",
+     "count": 331,
+     "rank": 54
+    },
+    {
+     "id": "τέ",
+     "lemma": "τέ",
+     "citation": "τέ",
+     "gloss": "and, both",
+     "pos": "conjunction",
+     "count": 213,
+     "rank": 74
+    },
+    {
+     "id": "καθώς",
+     "lemma": "καθώς",
+     "citation": "καθώς",
+     "gloss": "just as, as",
+     "pos": "conjunction",
+     "count": 182,
+     "rank": 86
+    },
+    {
+     "id": "μέν",
+     "lemma": "μέν",
+     "citation": "μέν",
+     "gloss": "truly, indeed",
+     "pos": "conjunction",
+     "count": 178,
+     "rank": 87
+    },
+    {
+     "id": "οὐδέ",
+     "lemma": "οὐδέ",
+     "citation": "οὐδέ",
+     "gloss": "neither, nor, not even",
+     "pos": "conjunction",
+     "count": 142,
+     "rank": 120
+    },
+    {
+     "id": "ὅταν",
+     "lemma": "ὅταν",
+     "citation": "ὅταν",
+     "gloss": "when, whensoever",
+     "pos": "conjunction",
+     "count": 123,
+     "rank": 135
+    },
+    {
+     "id": "ὅτε",
+     "lemma": "ὅτε",
+     "citation": "ὅτε",
+     "gloss": "when",
+     "pos": "conjunction",
+     "count": 102,
+     "rank": 164
+    },
+    {
+     "id": "οὔτε",
+     "lemma": "οὔτε",
+     "citation": "οὔτε",
+     "gloss": "and not, neither, nor",
+     "pos": "conjunction",
+     "count": 87,
+     "rank": 196
+    },
+    {
+     "id": "ὥστε",
+     "lemma": "ὥστε",
+     "citation": "ὥστε",
+     "gloss": "so that, therefore",
+     "pos": "conjunction",
+     "count": 83,
+     "rank": 204
+    },
+    {
+     "id": "εἴτε",
+     "lemma": "εἴτε",
+     "citation": "εἴτε",
+     "gloss": "and if, whether",
+     "pos": "conjunction",
+     "count": 65,
+     "rank": 251
+    },
+    {
+     "id": "μηδέ",
+     "lemma": "μηδέ",
+     "citation": "μηδέ",
+     "gloss": "and not, not even",
+     "pos": "conjunction",
+     "count": 57,
+     "rank": 281
+    },
+    {
+     "id": "διό",
+     "lemma": "διό",
+     "citation": "διό",
+     "gloss": "wherefore",
+     "pos": "conjunction",
+     "count": 53,
+     "rank": 294
+    },
+    {
+     "id": "ὅπως",
+     "lemma": "ὅπως",
+     "citation": "ὅπως",
+     "gloss": "how, in order that, so that",
+     "pos": "conjunction",
+     "count": 53,
+     "rank": 298
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u03-infinitive",
+   "type": "verb",
+   "label": "λύειν",
+   "sub": "The infinitive, and four particles",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form",
+    "principal-parts"
+   ],
+   "rule": {
+    "title": "The verb as a noun",
+    "body": "-ειν (active) and -εσθαι (middle/passive) make an infinitive: λύειν 'to loose', ἔρχεσθαι 'to come'. It completes verbs like θέλω, δύναμαι, μέλλω, δεῖ, and with the article it works as a noun (τὸ ζῆν, living). The subject of an infinitive goes in the accusative.",
+    "examples": [
+     {
+      "gr": "θέλω εἶναι μετ' αὐτοῦ",
+      "en": "I want to be with him"
+     },
+     {
+      "gr": "οὐ δύναται ἐλθεῖν",
+      "en": "he cannot come"
+     },
+     {
+      "gr": "ἰδού",
+      "en": "look! (introduces something new)"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ἰδού",
+     "lemma": "ἰδού",
+     "citation": "ἰδού",
+     "gloss": "See! Lo! Behold! Look!",
+     "pos": "particle",
+     "count": 200,
+     "rank": 79
+    },
+    {
+     "id": "ἄν",
+     "lemma": "ἄν",
+     "citation": "ἄν",
+     "gloss": "an untranslatable word that makes a statement contingent",
+     "pos": "particle",
+     "count": 171,
+     "rank": 93
+    },
+    {
+     "id": "ἀμήν",
+     "lemma": "ἀμήν",
+     "citation": "ἀμήν",
+     "gloss": "verily, truly, amen, so let it be",
+     "pos": "particle",
+     "count": 128,
+     "rank": 133
+    },
+    {
+     "id": "οὐχί",
+     "lemma": "οὐχί",
+     "citation": "οὐχί",
+     "gloss": "by no means, not at all",
+     "pos": "particle",
+     "count": 53,
+     "rank": 295
+    }
+   ],
+   "paradigms": [
+    "infinitives",
+    "infinitives-eimi"
+   ]
+  },
+  {
+   "id": "u03-pronouns-2",
+   "type": "grammar",
+   "label": "ὅς τίς",
+   "sub": "Relative, interrogative and indefinite pronouns",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "form-recognition",
+    "parse",
+    "supply-form"
+   ],
+   "rule": {
+    "title": "Who, which, someone, no one",
+    "body": "ὅς ἥ ὅ (who / which) agrees with its antecedent in gender and number but takes its case from its own clause. τίς with an accent asks a question; τις without one means 'someone, a certain'. οὐδείς / μηδείς = 'no one, nothing', declined like εἷς.",
+    "examples": [
+     {
+      "gr": "ὁ ἄνθρωπος ὃν εἶδες",
+      "en": "the man whom you saw"
+     },
+     {
+      "gr": "τίς ἐστιν οὗτος;",
+      "en": "who is this?"
+     },
+     {
+      "gr": "οὐδεὶς ἀγαθὸς εἰ μὴ εἷς ὁ θεός",
+      "en": "no one is good except one: God"
+     }
+    ]
+   },
+   "vocab": [
+    {
+     "id": "ὅς",
+     "lemma": "ὅς",
+     "citation": "ὅς, ἥ, ὅ",
+     "gloss": "who, which, what, that",
+     "pos": "relative pronoun",
+     "count": 1408,
+     "rank": 12
+    },
+    {
+     "id": "τίς",
+     "lemma": "τίς",
+     "citation": "τίς, τί, gen. τίνος",
+     "gloss": "who, which, what",
+     "pos": "interrogative/indefinite pronoun",
+     "count": 554,
+     "rank": 32
+    },
+    {
+     "id": "τις",
+     "lemma": "τις",
+     "citation": "τὶς, τὶ, gen. τινός",
+     "gloss": "any one, some one",
+     "pos": "interrogative/indefinite pronoun",
+     "count": 530,
+     "rank": 34
+    },
+    {
+     "id": "ὅστις",
+     "lemma": "ὅστις",
+     "citation": "ὅστις, ἥτις, ὅτι",
+     "gloss": "whosoever, whichsoever, whatsoever",
+     "pos": "relative pronoun",
+     "count": 144,
+     "rank": 116
+    },
+    {
+     "id": "ὅσος",
+     "lemma": "ὅσος",
+     "citation": "ὅσος, η, ον",
+     "gloss": "how much, how great, how many",
+     "pos": "relative pronoun",
+     "count": 111,
+     "rank": 152
+    },
+    {
+     "id": "τοιοῦτος",
+     "lemma": "τοιοῦτος",
+     "citation": "τοιοῦτος, αύτη, οῦτον /οῦτο",
+     "gloss": "of such a kind, such",
+     "pos": "demonstrative pronoun",
+     "count": 56,
+     "rank": 285
+    },
+    {
+     "id": "οὐδείς",
+     "lemma": "οὐδείς",
+     "citation": "οὐδείς/οὐθενός, οὐδεμία, οὐδέν/οὐθέν",
+     "gloss": "no one, none, nothing",
+     "pos": "adjective",
+     "count": 232,
+     "rank": 67
+    },
+    {
+     "id": "μηδείς",
+     "lemma": "μηδείς",
+     "citation": "μηδείς, μηδεμία, μηδέν (μηθέν Ac 27:33)",
+     "gloss": "no one, nothing",
+     "pos": "adjective",
+     "count": 90,
+     "rank": 191
+    }
+   ],
+   "paradigms": [
+    "pron-hos",
+    "pron-tis",
+    "adj-heis"
+   ]
+  },
+  {
+   "id": "u03-read-john-1-6",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 1:6–13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "rule": {
+    "title": "Watch the imperfects",
+    "body": "ἦν, ἦλθεν, ἔλαβον: the story moves in past tenses now. ἐγένετο (there was / came) is the aorist of γίνομαι; you will formally meet the aorist in Book V, so for now just read it as 'came to be'.",
+    "examples": []
+   },
+   "vocab": [
+    {
+     "id": "παραλαμβάνω",
+     "lemma": "παραλαμβάνω",
+     "citation": "παραλαμβάνω",
+     "gloss": "I take, receive",
+     "pos": "verb",
+     "count": 49,
+     "rank": 311
+    },
+    {
+     "id": "μαρτυρία",
+     "lemma": "μαρτυρία",
+     "citation": "μαρτυρία, ας, ἡ",
+     "gloss": "witness, evidence, testimony",
+     "pos": "noun",
+     "count": 37,
+     "rank": 393
+    },
+    {
+     "id": "ἀληθινός",
+     "lemma": "ἀληθινός",
+     "citation": "ἀληθινός, ή, όν",
+     "gloss": "true, real, genuine",
+     "pos": "adjective",
+     "count": 28,
+     "rank": 491
+    },
+    {
+     "id": "φωτίζω",
+     "lemma": "φωτίζω",
+     "citation": "φωτίζω",
+     "gloss": "I illuminate, bring to light",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1011
+    }
+   ],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 1,
+    "from": 6,
+    "to": 13,
+    "verseIds": [
+     "john-1-6",
+     "john-1-7",
+     "john-1-8",
+     "john-1-9",
+     "john-1-10",
+     "john-1-11",
+     "john-1-12",
+     "john-1-13"
+    ],
+    "reference": "John 1:6–13",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 104,
+     "known": 0.894,
+     "schedulable": 1.0
+    }
+   }
+  }
+ ]
+}

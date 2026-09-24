@@ -1,0 +1,218 @@
+{
+ "id": "unit-23-colossians",
+ "index": 23,
+ "kicker": "Book XXIII",
+ "title": "Πρὸς Κολοσσαεῖς",
+ "sub": "Read Colossians",
+ "track": "reading",
+ "summary": "Read Colossians chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u23-read-1",
+   "type": "reading",
+   "label": "Πρὸς Κολοσσαεῖς",
+   "sub": "Read: Colossians 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "colossians",
+    "chapter": 1,
+    "from": 1,
+    "to": 29,
+    "verseIds": [
+     "colossians-1-1",
+     "colossians-1-2",
+     "colossians-1-3",
+     "colossians-1-4",
+     "colossians-1-5",
+     "colossians-1-6",
+     "colossians-1-7",
+     "colossians-1-8",
+     "colossians-1-9",
+     "colossians-1-10",
+     "colossians-1-11",
+     "colossians-1-12",
+     "colossians-1-13",
+     "colossians-1-14",
+     "colossians-1-15",
+     "colossians-1-16",
+     "colossians-1-17",
+     "colossians-1-18",
+     "colossians-1-19",
+     "colossians-1-20",
+     "colossians-1-21",
+     "colossians-1-22",
+     "colossians-1-23",
+     "colossians-1-24",
+     "colossians-1-25",
+     "colossians-1-26",
+     "colossians-1-27",
+     "colossians-1-28",
+     "colossians-1-29"
+    ],
+    "reference": "Colossians 1:1–29",
+    "greekTitle": "Πρὸς Κολοσσαεῖς",
+    "coverage": {
+     "tokens": 538,
+     "known": 0.929,
+     "schedulable": 0.929
+    }
+   }
+  },
+  {
+   "id": "u23-read-2",
+   "type": "reading",
+   "label": "Πρὸς Κολοσσαεῖς",
+   "sub": "Read: Colossians 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "colossians",
+    "chapter": 2,
+    "from": 1,
+    "to": 23,
+    "verseIds": [
+     "colossians-2-1",
+     "colossians-2-2",
+     "colossians-2-3",
+     "colossians-2-4",
+     "colossians-2-5",
+     "colossians-2-6",
+     "colossians-2-7",
+     "colossians-2-8",
+     "colossians-2-9",
+     "colossians-2-10",
+     "colossians-2-11",
+     "colossians-2-12",
+     "colossians-2-13",
+     "colossians-2-14",
+     "colossians-2-15",
+     "colossians-2-16",
+     "colossians-2-17",
+     "colossians-2-18",
+     "colossians-2-19",
+     "colossians-2-20",
+     "colossians-2-21",
+     "colossians-2-22",
+     "colossians-2-23"
+    ],
+    "reference": "Colossians 2:1–23",
+    "greekTitle": "Πρὸς Κολοσσαεῖς",
+    "coverage": {
+     "tokens": 388,
+     "known": 0.843,
+     "schedulable": 0.843
+    }
+   }
+  },
+  {
+   "id": "u23-read-3",
+   "type": "reading",
+   "label": "Πρὸς Κολοσσαεῖς",
+   "sub": "Read: Colossians 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "colossians",
+    "chapter": 3,
+    "from": 1,
+    "to": 25,
+    "verseIds": [
+     "colossians-3-1",
+     "colossians-3-2",
+     "colossians-3-3",
+     "colossians-3-4",
+     "colossians-3-5",
+     "colossians-3-6",
+     "colossians-3-7",
+     "colossians-3-8",
+     "colossians-3-9",
+     "colossians-3-10",
+     "colossians-3-11",
+     "colossians-3-12",
+     "colossians-3-13",
+     "colossians-3-14",
+     "colossians-3-15",
+     "colossians-3-16",
+     "colossians-3-17",
+     "colossians-3-18",
+     "colossians-3-19",
+     "colossians-3-20",
+     "colossians-3-21",
+     "colossians-3-22",
+     "colossians-3-23",
+     "colossians-3-24",
+     "colossians-3-25"
+    ],
+    "reference": "Colossians 3:1–25",
+    "greekTitle": "Πρὸς Κολοσσαεῖς",
+    "coverage": {
+     "tokens": 369,
+     "known": 0.894,
+     "schedulable": 0.894
+    }
+   }
+  },
+  {
+   "id": "u23-read-4",
+   "type": "reading",
+   "label": "Πρὸς Κολοσσαεῖς",
+   "sub": "Read: Colossians 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "colossians",
+    "chapter": 4,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "colossians-4-1",
+     "colossians-4-2",
+     "colossians-4-3",
+     "colossians-4-4",
+     "colossians-4-5",
+     "colossians-4-6",
+     "colossians-4-7",
+     "colossians-4-8",
+     "colossians-4-9",
+     "colossians-4-10",
+     "colossians-4-11",
+     "colossians-4-12",
+     "colossians-4-13",
+     "colossians-4-14",
+     "colossians-4-15",
+     "colossians-4-16",
+     "colossians-4-17",
+     "colossians-4-18"
+    ],
+    "reference": "Colossians 4:1–18",
+    "greekTitle": "Πρὸς Κολοσσαεῖς",
+    "coverage": {
+     "tokens": 285,
+     "known": 0.909,
+     "schedulable": 0.909
+    }
+   }
+  }
+ ]
+}

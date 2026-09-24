@@ -1,0 +1,206 @@
+{
+ "id": "unit-32-2-timothy",
+ "index": 32,
+ "kicker": "Book XXXII",
+ "title": "Πρὸς Τιμόθεον Βʹ",
+ "sub": "Read 2 Timothy",
+ "track": "reading",
+ "summary": "Read 2 Timothy chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u32-read-1",
+   "type": "reading",
+   "label": "Πρὸς Τιμόθεον Βʹ",
+   "sub": "Read: 2 Timothy 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-timothy",
+    "chapter": 1,
+    "from": 1,
+    "to": 18,
+    "verseIds": [
+     "2-timothy-1-1",
+     "2-timothy-1-2",
+     "2-timothy-1-3",
+     "2-timothy-1-4",
+     "2-timothy-1-5",
+     "2-timothy-1-6",
+     "2-timothy-1-7",
+     "2-timothy-1-8",
+     "2-timothy-1-9",
+     "2-timothy-1-10",
+     "2-timothy-1-11",
+     "2-timothy-1-12",
+     "2-timothy-1-13",
+     "2-timothy-1-14",
+     "2-timothy-1-15",
+     "2-timothy-1-16",
+     "2-timothy-1-17",
+     "2-timothy-1-18"
+    ],
+    "reference": "2 Timothy 1:1–18",
+    "greekTitle": "Πρὸς Τιμόθεον Βʹ",
+    "coverage": {
+     "tokens": 317,
+     "known": 0.902,
+     "schedulable": 0.902
+    }
+   }
+  },
+  {
+   "id": "u32-read-2",
+   "type": "reading",
+   "label": "Πρὸς Τιμόθεον Βʹ",
+   "sub": "Read: 2 Timothy 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-timothy",
+    "chapter": 2,
+    "from": 1,
+    "to": 26,
+    "verseIds": [
+     "2-timothy-2-1",
+     "2-timothy-2-2",
+     "2-timothy-2-3",
+     "2-timothy-2-4",
+     "2-timothy-2-5",
+     "2-timothy-2-6",
+     "2-timothy-2-7",
+     "2-timothy-2-8",
+     "2-timothy-2-9",
+     "2-timothy-2-10",
+     "2-timothy-2-11",
+     "2-timothy-2-12",
+     "2-timothy-2-13",
+     "2-timothy-2-14",
+     "2-timothy-2-15",
+     "2-timothy-2-16",
+     "2-timothy-2-17",
+     "2-timothy-2-18",
+     "2-timothy-2-19",
+     "2-timothy-2-20",
+     "2-timothy-2-21",
+     "2-timothy-2-22",
+     "2-timothy-2-23",
+     "2-timothy-2-24",
+     "2-timothy-2-25",
+     "2-timothy-2-26"
+    ],
+    "reference": "2 Timothy 2:1–26",
+    "greekTitle": "Πρὸς Τιμόθεον Βʹ",
+    "coverage": {
+     "tokens": 356,
+     "known": 0.837,
+     "schedulable": 0.837
+    }
+   }
+  },
+  {
+   "id": "u32-read-3",
+   "type": "reading",
+   "label": "Πρὸς Τιμόθεον Βʹ",
+   "sub": "Read: 2 Timothy 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-timothy",
+    "chapter": 3,
+    "from": 1,
+    "to": 17,
+    "verseIds": [
+     "2-timothy-3-1",
+     "2-timothy-3-2",
+     "2-timothy-3-3",
+     "2-timothy-3-4",
+     "2-timothy-3-5",
+     "2-timothy-3-6",
+     "2-timothy-3-7",
+     "2-timothy-3-8",
+     "2-timothy-3-9",
+     "2-timothy-3-10",
+     "2-timothy-3-11",
+     "2-timothy-3-12",
+     "2-timothy-3-13",
+     "2-timothy-3-14",
+     "2-timothy-3-15",
+     "2-timothy-3-16",
+     "2-timothy-3-17"
+    ],
+    "reference": "2 Timothy 3:1–17",
+    "greekTitle": "Πρὸς Τιμόθεον Βʹ",
+    "coverage": {
+     "tokens": 235,
+     "known": 0.779,
+     "schedulable": 0.779
+    }
+   }
+  },
+  {
+   "id": "u32-read-4",
+   "type": "reading",
+   "label": "Πρὸς Τιμόθεον Βʹ",
+   "sub": "Read: 2 Timothy 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "2-timothy",
+    "chapter": 4,
+    "from": 1,
+    "to": 22,
+    "verseIds": [
+     "2-timothy-4-1",
+     "2-timothy-4-2",
+     "2-timothy-4-3",
+     "2-timothy-4-4",
+     "2-timothy-4-5",
+     "2-timothy-4-6",
+     "2-timothy-4-7",
+     "2-timothy-4-8",
+     "2-timothy-4-9",
+     "2-timothy-4-10",
+     "2-timothy-4-11",
+     "2-timothy-4-12",
+     "2-timothy-4-13",
+     "2-timothy-4-14",
+     "2-timothy-4-15",
+     "2-timothy-4-16",
+     "2-timothy-4-17",
+     "2-timothy-4-18",
+     "2-timothy-4-19",
+     "2-timothy-4-20",
+     "2-timothy-4-21",
+     "2-timothy-4-22"
+    ],
+    "reference": "2 Timothy 4:1–22",
+    "greekTitle": "Πρὸς Τιμόθεον Βʹ",
+    "coverage": {
+     "tokens": 327,
+     "known": 0.835,
+     "schedulable": 0.835
+    }
+   }
+  }
+ ]
+}

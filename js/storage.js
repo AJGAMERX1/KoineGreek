@@ -21,11 +21,13 @@ function defaultStore() {
       theme: 'classic',        // 'classic' | 'lexis' | 'nous'
       mode: 'light',           // 'light' | 'dark'
       pronunciation: 'erasmian', // 'erasmian' | 'koine'
+      translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
     },
     progress: {
       streak: 0,
       xp: 0,
-      unitsCompleted: [],
+      unitsCompleted: [],      // unit ids (data/curriculum.json)
+      lessonsCompleted: [],    // lesson ids (e.g. "u01-alphabet-1"); lesson-path state derives from this
       lastActiveDate: null,
     },
     vocabSRS: {
@@ -33,6 +35,12 @@ function defaultStore() {
     },
     readingHistory: {
       // '<verseId>': { attempts, lastRating, interval, easeFactor, dueDate, repetitions, lastReviewed }
+    },
+    formSRS: {
+      // endings / principal parts as SRS objects (PEDAGOGY M21). Keys:
+      //   '<paradigmId>|<parseCode>'  e.g. 'pres-act|3PAI-S--'
+      //   'irr|<lemma>|<partIndex>'   e.g. 'irr|λέγω|2' (aorist active)
+      // Same SM-2 record shape as vocabSRS.
     },
   };
 }
@@ -55,6 +63,7 @@ export function readStore() {
       progress: { ...base.progress, ...(parsed.progress || {}) },
       vocabSRS: { ...(parsed.vocabSRS || {}) },
       readingHistory: { ...(parsed.readingHistory || {}) },
+      formSRS: { ...(parsed.formSRS || {}) },
     };
   } catch (e) {
     console.warn('koine storage: corrupt data, resetting', e);
@@ -69,6 +78,43 @@ export function writeStore(store) {
   } catch (e) {
     console.warn('koine storage: could not persist (storage full or unavailable)', e);
   }
+}
+
+// ---------- Backup / restore / reset (Settings screen) ----------
+
+/** The whole store as a JSON string, for the learner to download. */
+export function exportStore() {
+  return JSON.stringify({ app: 'koine', version: 1, exportedAt: new Date().toISOString(), store: readStore() }, null, 2);
+}
+
+/**
+ * Replace the store from a previously exported JSON string. Validates the
+ * shape loosely (top-level keys present) and normalizes through readStore's
+ * merge-with-defaults so partial or older exports still load.
+ */
+export function importStore(json) {
+  const parsed = JSON.parse(json);
+  const store = parsed && parsed.app === 'koine' ? parsed.store : parsed;
+  if (!store || typeof store !== 'object' || !store.settings || !store.progress) {
+    throw new Error('Not a Rhema backup file');
+  }
+  writeStore({
+    settings: { ...defaultStore().settings, ...store.settings },
+    progress: { ...defaultStore().progress, ...store.progress },
+    vocabSRS: { ...(store.vocabSRS || {}) },
+    readingHistory: { ...(store.readingHistory || {}) },
+    formSRS: { ...(store.formSRS || {}) },
+  });
+  return readStore();
+}
+
+/** Wipe all progress and reviews but keep settings (theme, pronunciation, translation). */
+export function resetProgress() {
+  const store = readStore();
+  const fresh = defaultStore();
+  fresh.settings = store.settings;
+  writeStore(fresh);
+  return fresh;
 }
 
 // ---------- Settings ----------
@@ -97,6 +143,44 @@ export function setProgress(partial) {
   return store.progress;
 }
 
+/**
+ * Count today as a study day (PEDAGOGY M31: only called when real due/new work
+ * was actually completed). Extends the streak if yesterday was active,
+ * restarts it otherwise, and is idempotent within a day.
+ */
+export function recordActivity(now = new Date()) {
+  const store = readStore();
+  const today = isoDay(now);
+  const last = store.progress.lastActiveDate;
+  if (last !== today) {
+    const yesterday = isoDay(new Date(now.getTime() - 24 * 60 * 60 * 1000));
+    store.progress.streak = last === yesterday ? store.progress.streak + 1 : 1;
+    store.progress.lastActiveDate = today;
+    writeStore(store);
+  }
+  return store.progress;
+}
+
+function isoDay(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+export function addXp(amount) {
+  const store = readStore();
+  store.progress.xp += amount;
+  writeStore(store);
+  return store.progress;
+}
+
+export function markLessonCompleted(lessonId) {
+  const store = readStore();
+  if (!store.progress.lessonsCompleted.includes(lessonId)) {
+    store.progress.lessonsCompleted.push(lessonId);
+  }
+  writeStore(store);
+  return store.progress;
+}
+
 export function markUnitCompleted(unitId) {
   const store = readStore();
   if (!store.progress.unitsCompleted.includes(unitId)) {
@@ -119,6 +203,11 @@ export function updateVocabItem(itemId, record) {
   return store.vocabSRS[itemId];
 }
 
+/** Every vocab record ever scheduled, keyed by item id (== lemma). */
+export function getAllVocabRecords() {
+  return readStore().vocabSRS;
+}
+
 export function getDueVocabItems(allItemIds, now = new Date()) {
   const store = readStore();
   return allItemIds.filter((id) => {
@@ -126,6 +215,29 @@ export function getDueVocabItems(allItemIds, now = new Date()) {
     if (!rec) return true; // never studied = due
     return new Date(rec.dueDate) <= now;
   });
+}
+
+// ---------- Form SRS (paradigm cells, principal parts) ----------
+
+export function getFormRecord(formId) {
+  return readStore().formSRS[formId] || null;
+}
+
+export function updateFormRecord(formId, record) {
+  const store = readStore();
+  store.formSRS[formId] = { ...(store.formSRS[formId] || {}), ...record };
+  writeStore(store);
+  return store.formSRS[formId];
+}
+
+export function getAllFormRecords() {
+  return readStore().formSRS;
+}
+
+export function getDueFormIds(now = new Date()) {
+  return Object.entries(readStore().formSRS)
+    .filter(([, r]) => !r.dueDate || new Date(r.dueDate) <= now)
+    .map(([id]) => id);
 }
 
 // ---------- Reading history ----------

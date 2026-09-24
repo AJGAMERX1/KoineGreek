@@ -1,0 +1,4365 @@
+{
+ "id": "unit-13-matthew",
+ "index": 13,
+ "kicker": "Book XIII",
+ "title": "Κατὰ Μαθθαῖον",
+ "sub": "Read Matthew",
+ "track": "reading",
+ "summary": "Read Matthew chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u13-vocab-1-1",
+   "type": "vocab",
+   "label": "Ἰσαάκ",
+   "sub": "New words for Matthew 1",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Ἰσαάκ",
+     "lemma": "Ἰσαάκ",
+     "citation": "Ἰσαάκ, ὁ",
+     "gloss": "Isaac",
+     "pos": "noun",
+     "count": 20,
+     "rank": 632
+    },
+    {
+     "id": "παρθένος",
+     "lemma": "παρθένος",
+     "citation": "παρθένος, ου, ὁ/ἡ",
+     "gloss": "a virgin",
+     "pos": "noun",
+     "count": 15,
+     "rank": 780
+    },
+    {
+     "id": "Βαβυλών",
+     "lemma": "Βαβυλών",
+     "citation": "Βαβυλών, ῶνος, ἡ",
+     "gloss": "Babylon",
+     "pos": "noun",
+     "count": 12,
+     "rank": 900
+    },
+    {
+     "id": "βίβλος",
+     "lemma": "βίβλος",
+     "citation": "βίβλος, ου, ἡ",
+     "gloss": "a written book, roll, or volume",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1043
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-1",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 1",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 1,
+    "from": 1,
+    "to": 25,
+    "verseIds": [
+     "matthew-1-1",
+     "matthew-1-2",
+     "matthew-1-3",
+     "matthew-1-4",
+     "matthew-1-5",
+     "matthew-1-6",
+     "matthew-1-7",
+     "matthew-1-8",
+     "matthew-1-9",
+     "matthew-1-10",
+     "matthew-1-11",
+     "matthew-1-12",
+     "matthew-1-13",
+     "matthew-1-14",
+     "matthew-1-15",
+     "matthew-1-16",
+     "matthew-1-17",
+     "matthew-1-18",
+     "matthew-1-19",
+     "matthew-1-20",
+     "matthew-1-21",
+     "matthew-1-22",
+     "matthew-1-23",
+     "matthew-1-24",
+     "matthew-1-25"
+    ],
+    "reference": "Matthew 1:1–25",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 436,
+     "known": 0.791,
+     "schedulable": 0.791
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-2-1",
+   "type": "vocab",
+   "label": "ἡγέομαι",
+   "sub": "New words for Matthew 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἡγέομαι",
+     "lemma": "ἡγέομαι",
+     "citation": "ἡγέομαι",
+     "gloss": "I lead, think",
+     "pos": "verb",
+     "count": 28,
+     "rank": 494
+    },
+    {
+     "id": "Αἴγυπτος",
+     "lemma": "Αἴγυπτος",
+     "citation": "Αἴγυπτος, ου, ἡ",
+     "gloss": "Egypt",
+     "pos": "noun",
+     "count": 25,
+     "rank": 525
+    },
+    {
+     "id": "οὗ",
+     "lemma": "οὗ",
+     "citation": "οὗ",
+     "gloss": "where, whither, when",
+     "pos": "adverb",
+     "count": 25,
+     "rank": 533
+    },
+    {
+     "id": "ἀναιρέω",
+     "lemma": "ἀναιρέω",
+     "citation": "ἀναιρέω",
+     "gloss": "I take up, abolish, murder",
+     "pos": "verb",
+     "count": 24,
+     "rank": 553
+    },
+    {
+     "id": "ἀστήρ",
+     "lemma": "ἀστήρ",
+     "citation": "ἀστήρ, έρος, ὁ",
+     "gloss": "a star",
+     "pos": "noun",
+     "count": 24,
+     "rank": 555
+    },
+    {
+     "id": "βασιλεύω",
+     "lemma": "βασιλεύω",
+     "citation": "βασιλεύω",
+     "gloss": "I rule, reign, reign over",
+     "pos": "verb",
+     "count": 21,
+     "rank": 598
+    },
+    {
+     "id": "ἡγεμών",
+     "lemma": "ἡγεμών",
+     "citation": "ἡγεμών, όνος, ὁ",
+     "gloss": "a governor",
+     "pos": "noun",
+     "count": 20,
+     "rank": 630
+    },
+    {
+     "id": "δῶρον",
+     "lemma": "δῶρον",
+     "citation": "δῶρον, ου, τό",
+     "gloss": "a gift, present",
+     "pos": "noun",
+     "count": 19,
+     "rank": 639
+    },
+    {
+     "id": "θησαυρός",
+     "lemma": "θησαυρός",
+     "citation": "θησαυρός, οῦ, ὁ",
+     "gloss": "a treasure, store",
+     "pos": "noun",
+     "count": 17,
+     "rank": 688
+    },
+    {
+     "id": "ἐλάχιστος",
+     "lemma": "ἐλάχιστος",
+     "citation": "ἐλάχιστος, η, ον",
+     "gloss": "least, smallest, very little",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 850
+    },
+    {
+     "id": "ἐμπαίζω",
+     "lemma": "ἐμπαίζω",
+     "citation": "ἐμπαίζω",
+     "gloss": "I mock",
+     "pos": "verb",
+     "count": 13,
+     "rank": 895
+    },
+    {
+     "id": "ὅριον",
+     "lemma": "ὅριον",
+     "citation": "ὅριον, ου, τό",
+     "gloss": "districts, territory",
+     "pos": "noun",
+     "count": 12,
+     "rank": 959
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-vocab-2-2",
+   "type": "vocab",
+   "label": "σφόδρα",
+   "sub": "New words for Matthew 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "σφόδρα",
+     "lemma": "σφόδρα",
+     "citation": "σφόδρα",
+     "gloss": "exceedingly, greatly",
+     "pos": "adverb",
+     "count": 11,
+     "rank": 1006
+    },
+    {
+     "id": "ἀνατολή",
+     "lemma": "ἀνατολή",
+     "citation": "ἀνατολή, ῆς, ἡ",
+     "gloss": "rising of the sun, the East",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1019
+    },
+    {
+     "id": "χρυσός",
+     "lemma": "χρυσός",
+     "citation": "χρυσός, οῦ, ὁ",
+     "gloss": "anything made of gold",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1084
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-2",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 2,
+    "from": 1,
+    "to": 23,
+    "verseIds": [
+     "matthew-2-1",
+     "matthew-2-2",
+     "matthew-2-3",
+     "matthew-2-4",
+     "matthew-2-5",
+     "matthew-2-6",
+     "matthew-2-7",
+     "matthew-2-8",
+     "matthew-2-9",
+     "matthew-2-10",
+     "matthew-2-11",
+     "matthew-2-12",
+     "matthew-2-13",
+     "matthew-2-14",
+     "matthew-2-15",
+     "matthew-2-16",
+     "matthew-2-17",
+     "matthew-2-18",
+     "matthew-2-19",
+     "matthew-2-20",
+     "matthew-2-21",
+     "matthew-2-22",
+     "matthew-2-23"
+    ],
+    "reference": "Matthew 2:1–23",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 457,
+     "known": 0.919,
+     "schedulable": 0.919
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-3-1",
+   "type": "vocab",
+   "label": "δένδρον",
+   "sub": "New words for Matthew 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δένδρον",
+     "lemma": "δένδρον",
+     "citation": "δένδρον, ου, τό",
+     "gloss": "a tree",
+     "pos": "noun",
+     "count": 25,
+     "rank": 527
+    },
+    {
+     "id": "μετάνοια",
+     "lemma": "μετάνοια",
+     "citation": "μετάνοια, ας, ἡ",
+     "gloss": "repentance, a change of mind",
+     "pos": "noun",
+     "count": 22,
+     "rank": 587
+    },
+    {
+     "id": "εὐδοκέω",
+     "lemma": "εὐδοκέω",
+     "citation": "εὐδοκέω",
+     "gloss": "I am resolved, well-pleased",
+     "pos": "verb",
+     "count": 21,
+     "rank": 600
+    },
+    {
+     "id": "ὡσεί",
+     "lemma": "ὡσεί",
+     "citation": "ὡσεί",
+     "gloss": "as if, as it were, like, about",
+     "pos": "conjunction",
+     "count": 20,
+     "rank": 635
+    },
+    {
+     "id": "βάπτισμα",
+     "lemma": "βάπτισμα",
+     "citation": "βάπτισμα, ατος, τό",
+     "gloss": "the rite or ceremony of baptism",
+     "pos": "noun",
+     "count": 19,
+     "rank": 636
+    },
+    {
+     "id": "ῥίζα",
+     "lemma": "ῥίζα",
+     "citation": "ῥίζα, ης, ἡ",
+     "gloss": "a root, that which comes from the root",
+     "pos": "noun",
+     "count": 17,
+     "rank": 720
+    },
+    {
+     "id": "Σαδδουκαῖος",
+     "lemma": "Σαδδουκαῖος",
+     "citation": "Σαδδουκαῖος, ου, ὁ",
+     "gloss": "a Sadducee",
+     "pos": "noun",
+     "count": 14,
+     "rank": 804
+    },
+    {
+     "id": "βαπτιστής",
+     "lemma": "βαπτιστής",
+     "citation": "βαπτιστής, οῦ, ὁ",
+     "gloss": "the baptizer, the Baptist",
+     "pos": "noun",
+     "count": 12,
+     "rank": 905
+    },
+    {
+     "id": "κατακαίω",
+     "lemma": "κατακαίω",
+     "citation": "κατακαίω",
+     "gloss": "I burn up, consume entirely",
+     "pos": "verb",
+     "count": 11,
+     "rank": 984
+    },
+    {
+     "id": "ἐκκόπτω",
+     "lemma": "ἐκκόπτω",
+     "citation": "ἐκκόπτω",
+     "gloss": "I cut out, cut off",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1107
+    },
+    {
+     "id": "ἐξομολογέω",
+     "lemma": "ἐξομολογέω",
+     "citation": "ἐξομολογέω",
+     "gloss": "I consent fully, confess",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1111
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-3",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 3,
+    "from": 1,
+    "to": 17,
+    "verseIds": [
+     "matthew-3-1",
+     "matthew-3-2",
+     "matthew-3-3",
+     "matthew-3-4",
+     "matthew-3-5",
+     "matthew-3-6",
+     "matthew-3-7",
+     "matthew-3-8",
+     "matthew-3-9",
+     "matthew-3-10",
+     "matthew-3-11",
+     "matthew-3-12",
+     "matthew-3-13",
+     "matthew-3-14",
+     "matthew-3-15",
+     "matthew-3-16",
+     "matthew-3-17"
+    ],
+    "reference": "Matthew 3:1–17",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 331,
+     "known": 0.934,
+     "schedulable": 0.934
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-4-1",
+   "type": "vocab",
+   "label": "καταλείπω",
+   "sub": "New words for Matthew 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "καταλείπω",
+     "lemma": "καταλείπω",
+     "citation": "καταλείπω",
+     "gloss": "I leave behind, abandon",
+     "pos": "verb",
+     "count": 23,
+     "rank": 561
+    },
+    {
+     "id": "ἀνάγω",
+     "lemma": "ἀνάγω",
+     "citation": "ἀνάγω",
+     "gloss": "I lead up, put to sea, set sail",
+     "pos": "verb",
+     "count": 23,
+     "rank": 575
+    },
+    {
+     "id": "λατρεύω",
+     "lemma": "λατρεύω",
+     "citation": "λατρεύω",
+     "gloss": "I serve, worship",
+     "pos": "verb",
+     "count": 21,
+     "rank": 603
+    },
+    {
+     "id": "νηστεύω",
+     "lemma": "νηστεύω",
+     "citation": "νηστεύω",
+     "gloss": "I fast",
+     "pos": "verb",
+     "count": 20,
+     "rank": 619
+    },
+    {
+     "id": "καταρτίζω",
+     "lemma": "καταρτίζω",
+     "citation": "καταρτίζω",
+     "gloss": "I fit together, prepare",
+     "pos": "verb",
+     "count": 13,
+     "rank": 876
+    },
+    {
+     "id": "συνέχω",
+     "lemma": "συνέχω",
+     "citation": "συνέχω",
+     "gloss": "I press together, confine, compel, am afflicted with",
+     "pos": "verb",
+     "count": 12,
+     "rank": 941
+    },
+    {
+     "id": "νόσος",
+     "lemma": "νόσος",
+     "citation": "νόσος, ου, ἡ",
+     "gloss": "a disease, malady",
+     "pos": "noun",
+     "count": 11,
+     "rank": 995
+    },
+    {
+     "id": "ὑψηλός",
+     "lemma": "ὑψηλός",
+     "citation": "ὑψηλός, ή, όν",
+     "gloss": "high, lofty",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1042
+    },
+    {
+     "id": "παραλυτικός",
+     "lemma": "παραλυτικός",
+     "citation": "παραλυτικός, ή, όν",
+     "gloss": "afflicted with paralysis",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1063
+    },
+    {
+     "id": "ποικίλος",
+     "lemma": "ποικίλος",
+     "citation": "ποικίλος, η, ον",
+     "gloss": "various, of different colors",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1070
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-4",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 4,
+    "from": 1,
+    "to": 25,
+    "verseIds": [
+     "matthew-4-1",
+     "matthew-4-2",
+     "matthew-4-3",
+     "matthew-4-4",
+     "matthew-4-5",
+     "matthew-4-6",
+     "matthew-4-7",
+     "matthew-4-8",
+     "matthew-4-9",
+     "matthew-4-10",
+     "matthew-4-11",
+     "matthew-4-12",
+     "matthew-4-13",
+     "matthew-4-14",
+     "matthew-4-15",
+     "matthew-4-16",
+     "matthew-4-17",
+     "matthew-4-18",
+     "matthew-4-19",
+     "matthew-4-20",
+     "matthew-4-21",
+     "matthew-4-22",
+     "matthew-4-23",
+     "matthew-4-24",
+     "matthew-4-25"
+    ],
+    "reference": "Matthew 4:1–25",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 428,
+     "known": 0.946,
+     "schedulable": 0.946
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-5-1",
+   "type": "vocab",
+   "label": "γαμέω",
+   "sub": "New words for Matthew 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "γαμέω",
+     "lemma": "γαμέω",
+     "citation": "γαμέω",
+     "gloss": "I marry",
+     "pos": "verb",
+     "count": 29,
+     "rank": 465
+    },
+    {
+     "id": "παρέρχομαι",
+     "lemma": "παρέρχομαι",
+     "citation": "παρέρχομαι",
+     "gloss": "I pass by",
+     "pos": "verb",
+     "count": 29,
+     "rank": 472
+    },
+    {
+     "id": "ὀμνύω",
+     "lemma": "ὀμνύω",
+     "citation": "ὀμνύω",
+     "gloss": "I swear, take an oath",
+     "pos": "verb",
+     "count": 26,
+     "rank": 523
+    },
+    {
+     "id": "θυσιαστήριον",
+     "lemma": "θυσιαστήριον",
+     "citation": "θυσιαστήριον, ου, τό",
+     "gloss": "an altar",
+     "pos": "noun",
+     "count": 23,
+     "rank": 560
+    },
+    {
+     "id": "τελώνης",
+     "lemma": "τελώνης",
+     "citation": "τελώνης, ου, ὁ",
+     "gloss": "a collector of taxes",
+     "pos": "noun",
+     "count": 21,
+     "rank": 608
+    },
+    {
+     "id": "ἕνεκεν",
+     "lemma": "ἕνεκεν",
+     "citation": "ἕνεκα, ἕνεκεν, and s. entries s. v. εἵνεκεν",
+     "gloss": "for the sake of, on account of, wherefore",
+     "pos": "preposition",
+     "count": 20,
+     "rank": 629
+    },
+    {
+     "id": "κριτής",
+     "lemma": "κριτής",
+     "citation": "κριτής, οῦ, ὁ",
+     "gloss": "a judge",
+     "pos": "noun",
+     "count": 19,
+     "rank": 642
+    },
+    {
+     "id": "κληρονομέω",
+     "lemma": "κληρονομέω",
+     "citation": "κληρονομέω",
+     "gloss": "I inherit, obtain",
+     "pos": "verb",
+     "count": 18,
+     "rank": 665
+    },
+    {
+     "id": "καταλύω",
+     "lemma": "καταλύω",
+     "citation": "καταλύω",
+     "gloss": "I break up, overthrow, unharness, find a lodging",
+     "pos": "verb",
+     "count": 17,
+     "rank": 690
+    },
+    {
+     "id": "ἐπιθυμέω",
+     "lemma": "ἐπιθυμέω",
+     "citation": "ἐπιθυμέω",
+     "gloss": "I long for, covet, lust after",
+     "pos": "verb",
+     "count": 16,
+     "rank": 753
+    },
+    {
+     "id": "νομίζω",
+     "lemma": "νομίζω",
+     "citation": "νομίζω",
+     "gloss": "I think, suppose",
+     "pos": "verb",
+     "count": 15,
+     "rank": 776
+    },
+    {
+     "id": "μοιχεύω",
+     "lemma": "μοιχεύω",
+     "citation": "μοιχεύω",
+     "gloss": "I commit adultery",
+     "pos": "verb",
+     "count": 14,
+     "rank": 822
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-vocab-5-2",
+   "type": "vocab",
+   "label": "ἀνθίστημι",
+   "sub": "New words for Matthew 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀνθίστημι",
+     "lemma": "ἀνθίστημι",
+     "citation": "ἀνθίστημι",
+     "gloss": "I take a stand against, oppose, resist",
+     "pos": "verb",
+     "count": 14,
+     "rank": 843
+    },
+    {
+     "id": "γέεννα",
+     "lemma": "γέεννα",
+     "citation": "γέεννα, ης, ἡ",
+     "gloss": "Gehenna",
+     "pos": "noun",
+     "count": 12,
+     "rank": 911
+    },
+    {
+     "id": "λυχνία",
+     "lemma": "λυχνία",
+     "citation": "λυχνία, ας, ἡ",
+     "gloss": "a lamp-stand",
+     "pos": "noun",
+     "count": 12,
+     "rank": 923
+    },
+    {
+     "id": "μωρός",
+     "lemma": "μωρός",
+     "citation": "μωρός, ά, όν",
+     "gloss": "stupid, foolish",
+     "pos": "adjective",
+     "count": 12,
+     "rank": 926
+    },
+    {
+     "id": "φονεύω",
+     "lemma": "φονεύω",
+     "citation": "φονεύω",
+     "gloss": "I murder",
+     "pos": "verb",
+     "count": 12,
+     "rank": 945
+    },
+    {
+     "id": "ἄδικος",
+     "lemma": "ἄδικος",
+     "citation": "ἄδικος, ον",
+     "gloss": "unjust, unrighteous",
+     "pos": "adjective",
+     "count": 12,
+     "rank": 953
+    },
+    {
+     "id": "ὀδούς",
+     "lemma": "ὀδούς",
+     "citation": "ὀδούς, όντος, ὁ",
+     "gloss": "a tooth",
+     "pos": "noun",
+     "count": 12,
+     "rank": 957
+    },
+    {
+     "id": "ἀρχαῖος",
+     "lemma": "ἀρχαῖος",
+     "citation": "ἀρχαῖος, α, ον",
+     "gloss": "original, primitive, ancient",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1023
+    },
+    {
+     "id": "πενθέω",
+     "lemma": "πενθέω",
+     "citation": "πενθέω",
+     "gloss": "I mourn, lament",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1066
+    },
+    {
+     "id": "ἔνοχος",
+     "lemma": "ἔνοχος",
+     "citation": "ἔνοχος, ον",
+     "gloss": "involved in, liable",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1116
+    },
+    {
+     "id": "ὀνειδίζω",
+     "lemma": "ὀνειδίζω",
+     "citation": "ὀνειδίζω",
+     "gloss": "I reproach, revile, upbraid",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1119
+    },
+    {
+     "id": "ὅρκος",
+     "lemma": "ὅρκος",
+     "citation": "ὅρκος, ου, ὁ",
+     "gloss": "an oath",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1122
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-5",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 5,
+    "from": 1,
+    "to": 48,
+    "verseIds": [
+     "matthew-5-1",
+     "matthew-5-2",
+     "matthew-5-3",
+     "matthew-5-4",
+     "matthew-5-5",
+     "matthew-5-6",
+     "matthew-5-7",
+     "matthew-5-8",
+     "matthew-5-9",
+     "matthew-5-10",
+     "matthew-5-11",
+     "matthew-5-12",
+     "matthew-5-13",
+     "matthew-5-14",
+     "matthew-5-15",
+     "matthew-5-16",
+     "matthew-5-17",
+     "matthew-5-18",
+     "matthew-5-19",
+     "matthew-5-20",
+     "matthew-5-21",
+     "matthew-5-22",
+     "matthew-5-23",
+     "matthew-5-24",
+     "matthew-5-25",
+     "matthew-5-26",
+     "matthew-5-27",
+     "matthew-5-28",
+     "matthew-5-29",
+     "matthew-5-30",
+     "matthew-5-31",
+     "matthew-5-32",
+     "matthew-5-33",
+     "matthew-5-34",
+     "matthew-5-35",
+     "matthew-5-36",
+     "matthew-5-37",
+     "matthew-5-38",
+     "matthew-5-39",
+     "matthew-5-40",
+     "matthew-5-41",
+     "matthew-5-42",
+     "matthew-5-43",
+     "matthew-5-44",
+     "matthew-5-45",
+     "matthew-5-46",
+     "matthew-5-47",
+     "matthew-5-48"
+    ],
+    "reference": "Matthew 5:1–48",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 821,
+     "known": 0.95,
+     "schedulable": 0.95
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-6-1",
+   "type": "vocab",
+   "label": "ἐνδύω",
+   "sub": "New words for Matthew 6",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐνδύω",
+     "lemma": "ἐνδύω",
+     "citation": "ἐνδύω",
+     "gloss": "I put on, clothe",
+     "pos": "verb",
+     "count": 28,
+     "rank": 493
+    },
+    {
+     "id": "πόσος",
+     "lemma": "πόσος",
+     "citation": "πόσος, η, ον",
+     "gloss": "how much, how great, how many",
+     "pos": "interrogative/indefinite pronoun",
+     "count": 27,
+     "rank": 500
+    },
+    {
+     "id": "προσέχω",
+     "lemma": "προσέχω",
+     "citation": "προσέχω",
+     "gloss": "I pay attention to, devote myself to",
+     "pos": "verb",
+     "count": 24,
+     "rank": 550
+    },
+    {
+     "id": "πειρασμός",
+     "lemma": "πειρασμός",
+     "citation": "πειρασμός, οῦ, ὁ",
+     "gloss": "trial, testing, temptation",
+     "pos": "noun",
+     "count": 21,
+     "rank": 606
+    },
+    {
+     "id": "γέ",
+     "lemma": "γέ",
+     "citation": "γέ",
+     "gloss": "at least, indeed, really",
+     "pos": "particle",
+     "count": 20,
+     "rank": 615
+    },
+    {
+     "id": "μεριμνάω",
+     "lemma": "μεριμνάω",
+     "citation": "μεριμνάω",
+     "gloss": "I am anxious, distracted",
+     "pos": "verb",
+     "count": 19,
+     "rank": 646
+    },
+    {
+     "id": "παράπτωμα",
+     "lemma": "παράπτωμα",
+     "citation": "παράπτωμα, ατος, τό",
+     "gloss": "a falling away, sin",
+     "pos": "noun",
+     "count": 19,
+     "rank": 648
+    },
+    {
+     "id": "ἀπέχω",
+     "lemma": "ἀπέχω",
+     "citation": "ἀπέχω",
+     "gloss": "I have in full, am far, it is enough",
+     "pos": "verb",
+     "count": 19,
+     "rank": 654
+    },
+    {
+     "id": "προστίθημι",
+     "lemma": "προστίθημι",
+     "citation": "προστίθημι",
+     "gloss": "I put to, add, do again",
+     "pos": "verb",
+     "count": 18,
+     "rank": 673
+    },
+    {
+     "id": "ὑποκριτής",
+     "lemma": "ὑποκριτής",
+     "citation": "ὑποκριτής, οῦ, ὁ",
+     "gloss": "a hypocrite, dissembler",
+     "pos": "noun",
+     "count": 17,
+     "rank": 716
+    },
+    {
+     "id": "ῥύομαι",
+     "lemma": "ῥύομαι",
+     "citation": "ῥύομαι",
+     "gloss": "I rescue",
+     "pos": "verb",
+     "count": 17,
+     "rank": 721
+    },
+    {
+     "id": "ὁμοιόω",
+     "lemma": "ὁμοιόω",
+     "citation": "ὁμοιόω",
+     "gloss": "I make like, liken, compare",
+     "pos": "verb",
+     "count": 15,
+     "rank": 800
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-vocab-6-2",
+   "type": "vocab",
+   "label": "αὔριον",
+   "sub": "New words for Matthew 6",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "αὔριον",
+     "lemma": "αὔριον",
+     "citation": "αὔριον",
+     "gloss": "tomorrow",
+     "pos": "adverb",
+     "count": 14,
+     "rank": 805
+    },
+    {
+     "id": "πετεινόν",
+     "lemma": "πετεινόν",
+     "citation": "πετεινόν, οῦ, τό",
+     "gloss": "a bird",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 828
+    },
+    {
+     "id": "διαφέρω",
+     "lemma": "διαφέρω",
+     "citation": "διαφέρω",
+     "gloss": "I carry through, differ, surpass, excel",
+     "pos": "verb",
+     "count": 13,
+     "rank": 866
+    },
+    {
+     "id": "ἐλεημοσύνη",
+     "lemma": "ἐλεημοσύνη",
+     "citation": "ἐλεημοσύνη, ης, ἡ",
+     "gloss": "alms-giving, charity",
+     "pos": "noun",
+     "count": 13,
+     "rank": 894
+    },
+    {
+     "id": "ἐπιζητέω",
+     "lemma": "ἐπιζητέω",
+     "citation": "ἐπιζητέω",
+     "gloss": "I seek after, desire, search for",
+     "pos": "verb",
+     "count": 13,
+     "rank": 896
+    },
+    {
+     "id": "σαλπίζω",
+     "lemma": "σαλπίζω",
+     "citation": "σαλπίζω",
+     "gloss": "I sound a trumpet",
+     "pos": "verb",
+     "count": 12,
+     "rank": 939
+    },
+    {
+     "id": "κακία",
+     "lemma": "κακία",
+     "citation": "κακία, ας, ἡ",
+     "gloss": "evil, wickedness, malice",
+     "pos": "noun",
+     "count": 11,
+     "rank": 982
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-6",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 6,
+    "from": 1,
+    "to": 34,
+    "verseIds": [
+     "matthew-6-1",
+     "matthew-6-2",
+     "matthew-6-3",
+     "matthew-6-4",
+     "matthew-6-5",
+     "matthew-6-6",
+     "matthew-6-7",
+     "matthew-6-8",
+     "matthew-6-9",
+     "matthew-6-10",
+     "matthew-6-11",
+     "matthew-6-12",
+     "matthew-6-13",
+     "matthew-6-14",
+     "matthew-6-15",
+     "matthew-6-16",
+     "matthew-6-17",
+     "matthew-6-18",
+     "matthew-6-19",
+     "matthew-6-20",
+     "matthew-6-21",
+     "matthew-6-22",
+     "matthew-6-23",
+     "matthew-6-24",
+     "matthew-6-25",
+     "matthew-6-26",
+     "matthew-6-27",
+     "matthew-6-28",
+     "matthew-6-29",
+     "matthew-6-30",
+     "matthew-6-31",
+     "matthew-6-32",
+     "matthew-6-33",
+     "matthew-6-34"
+    ],
+    "reference": "Matthew 6:1–34",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 648,
+     "known": 0.923,
+     "schedulable": 0.923
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-7-1",
+   "type": "vocab",
+   "label": "πέτρα",
+   "sub": "New words for Matthew 7",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πέτρα",
+     "lemma": "πέτρα",
+     "citation": "πέτρα, ας, ἡ",
+     "gloss": "rock",
+     "pos": "noun",
+     "count": 15,
+     "rank": 779
+    },
+    {
+     "id": "ἀπάγω",
+     "lemma": "ἀπάγω",
+     "citation": "ἀπάγω",
+     "gloss": "I lead, carry, take away",
+     "pos": "verb",
+     "count": 15,
+     "rank": 796
+    },
+    {
+     "id": "κατανοέω",
+     "lemma": "κατανοέω",
+     "citation": "κατανοέω",
+     "gloss": "I understand, perceive, consider",
+     "pos": "verb",
+     "count": 14,
+     "rank": 810
+    },
+    {
+     "id": "φρόνιμος",
+     "lemma": "φρόνιμος",
+     "citation": "φρόνιμος, ον",
+     "gloss": "intelligent, prudent",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 835
+    },
+    {
+     "id": "ἐκπλήσσομαι",
+     "lemma": "ἐκπλήσσομαι",
+     "citation": "ἐκπλήσσω",
+     "gloss": "I am thunderstruck, astounded",
+     "pos": "verb",
+     "count": 13,
+     "rank": 893
+    },
+    {
+     "id": "χοῖρος",
+     "lemma": "χοῖρος",
+     "citation": "χοῖρος, ου, ὁ",
+     "gloss": "swine",
+     "pos": "noun",
+     "count": 12,
+     "rank": 946
+    },
+    {
+     "id": "ἔσωθεν",
+     "lemma": "ἔσωθεν",
+     "citation": "ἔσωθεν",
+     "gloss": "from within, inside",
+     "pos": "adverb",
+     "count": 12,
+     "rank": 956
+    },
+    {
+     "id": "μετρέω",
+     "lemma": "μετρέω",
+     "citation": "μετρέω",
+     "gloss": "I measure, estimate",
+     "pos": "verb",
+     "count": 11,
+     "rank": 994
+    },
+    {
+     "id": "θλίβω",
+     "lemma": "θλίβω",
+     "citation": "θλίβω",
+     "gloss": "I make narrow, persecute, press hard",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1049
+    },
+    {
+     "id": "πύλη",
+     "lemma": "πύλη",
+     "citation": "πύλη, ης, ἡ",
+     "gloss": "a door, gate",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1073
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-7",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 7",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 7,
+    "from": 1,
+    "to": 29,
+    "verseIds": [
+     "matthew-7-1",
+     "matthew-7-2",
+     "matthew-7-3",
+     "matthew-7-4",
+     "matthew-7-5",
+     "matthew-7-6",
+     "matthew-7-7",
+     "matthew-7-8",
+     "matthew-7-9",
+     "matthew-7-10",
+     "matthew-7-11",
+     "matthew-7-12",
+     "matthew-7-13",
+     "matthew-7-14",
+     "matthew-7-15",
+     "matthew-7-16",
+     "matthew-7-17",
+     "matthew-7-18",
+     "matthew-7-19",
+     "matthew-7-20",
+     "matthew-7-21",
+     "matthew-7-22",
+     "matthew-7-23",
+     "matthew-7-24",
+     "matthew-7-25",
+     "matthew-7-26",
+     "matthew-7-27",
+     "matthew-7-28",
+     "matthew-7-29"
+    ],
+    "reference": "Matthew 7:1–29",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 516,
+     "known": 0.924,
+     "schedulable": 0.924
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-8-1",
+   "type": "vocab",
+   "label": "ἐπιτιμάω",
+   "sub": "New words for Matthew 8",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐπιτιμάω",
+     "lemma": "ἐπιτιμάω",
+     "citation": "ἐπιτιμάω",
+     "gloss": "I rebuke, chide, admonish, warn",
+     "pos": "verb",
+     "count": 29,
+     "rank": 478
+    },
+    {
+     "id": "κελεύω",
+     "lemma": "κελεύω",
+     "citation": "κελεύω",
+     "gloss": "I command, order",
+     "pos": "verb",
+     "count": 25,
+     "rank": 528
+    },
+    {
+     "id": "καθεύδω",
+     "lemma": "καθεύδω",
+     "citation": "καθεύδω",
+     "gloss": "I sleep, am sleeping",
+     "pos": "verb",
+     "count": 22,
+     "rank": 583
+    },
+    {
+     "id": "ὑπακούω",
+     "lemma": "ὑπακούω",
+     "citation": "ὑπακούω",
+     "gloss": "I listen, obey",
+     "pos": "verb",
+     "count": 21,
+     "rank": 613
+    },
+    {
+     "id": "μαρτύριον",
+     "lemma": "μαρτύριον",
+     "citation": "μαρτύριον, ου, τό",
+     "gloss": "witness, evidence, testimony",
+     "pos": "noun",
+     "count": 20,
+     "rank": 618
+    },
+    {
+     "id": "ἑκατοντάρχης",
+     "lemma": "ἑκατοντάρχης",
+     "citation": "ἑκατοντάρχης, ου, ὁ",
+     "gloss": "a centurion",
+     "pos": "noun",
+     "count": 17,
+     "rank": 712
+    },
+    {
+     "id": "σεισμός",
+     "lemma": "σεισμός",
+     "citation": "σεισμός, οῦ, ὁ",
+     "gloss": "an earthquake, storm",
+     "pos": "noun",
+     "count": 14,
+     "rank": 831
+    },
+    {
+     "id": "βασανίζω",
+     "lemma": "βασανίζω",
+     "citation": "βασανίζω",
+     "gloss": "I torment, torture, buffet",
+     "pos": "verb",
+     "count": 12,
+     "rank": 906
+    },
+    {
+     "id": "θάπτω",
+     "lemma": "θάπτω",
+     "citation": "θάπτω",
+     "gloss": "I bury",
+     "pos": "verb",
+     "count": 11,
+     "rank": 979
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-8",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 8",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 8,
+    "from": 1,
+    "to": 34,
+    "verseIds": [
+     "matthew-8-1",
+     "matthew-8-2",
+     "matthew-8-3",
+     "matthew-8-4",
+     "matthew-8-5",
+     "matthew-8-6",
+     "matthew-8-7",
+     "matthew-8-8",
+     "matthew-8-9",
+     "matthew-8-10",
+     "matthew-8-11",
+     "matthew-8-12",
+     "matthew-8-13",
+     "matthew-8-14",
+     "matthew-8-15",
+     "matthew-8-16",
+     "matthew-8-17",
+     "matthew-8-18",
+     "matthew-8-19",
+     "matthew-8-20",
+     "matthew-8-21",
+     "matthew-8-22",
+     "matthew-8-23",
+     "matthew-8-24",
+     "matthew-8-25",
+     "matthew-8-26",
+     "matthew-8-27",
+     "matthew-8-28",
+     "matthew-8-29",
+     "matthew-8-30",
+     "matthew-8-31",
+     "matthew-8-32",
+     "matthew-8-33",
+     "matthew-8-34"
+    ],
+    "reference": "Matthew 8:1–34",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 583,
+     "known": 0.938,
+     "schedulable": 0.938
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-9-1",
+   "type": "vocab",
+   "label": "θυσία",
+   "sub": "New words for Matthew 9",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "θυσία",
+     "lemma": "θυσία",
+     "citation": "θυσία, ας, ἡ",
+     "gloss": "a sacrifice",
+     "pos": "noun",
+     "count": 28,
+     "rank": 484
+    },
+    {
+     "id": "ἐργάτης",
+     "lemma": "ἐργάτης",
+     "citation": "ἐργάτης, ου, ὁ",
+     "gloss": "a field-laborer, workman",
+     "pos": "noun",
+     "count": 16,
+     "rank": 754
+    },
+    {
+     "id": "κωφός",
+     "lemma": "κωφός",
+     "citation": "κωφός, ή, όν",
+     "gloss": "dumb, deaf",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 816
+    },
+    {
+     "id": "ἀμφότεροι",
+     "lemma": "ἀμφότεροι",
+     "citation": "ἀμφότεροι, αι, α",
+     "gloss": "both of two",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 839
+    },
+    {
+     "id": "ἀσκός",
+     "lemma": "ἀσκός",
+     "citation": "ἀσκός, οῦ, ὁ",
+     "gloss": "a wine-skin",
+     "pos": "noun",
+     "count": 12,
+     "rank": 952
+    },
+    {
+     "id": "σπλαγχνίζομαι",
+     "lemma": "σπλαγχνίζομαι",
+     "citation": "σπλαγχνίζομαι",
+     "gloss": "I have pity on",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1003
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-9",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 9",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 9,
+    "from": 1,
+    "to": 38,
+    "verseIds": [
+     "matthew-9-1",
+     "matthew-9-2",
+     "matthew-9-3",
+     "matthew-9-4",
+     "matthew-9-5",
+     "matthew-9-6",
+     "matthew-9-7",
+     "matthew-9-8",
+     "matthew-9-9",
+     "matthew-9-10",
+     "matthew-9-11",
+     "matthew-9-12",
+     "matthew-9-13",
+     "matthew-9-14",
+     "matthew-9-15",
+     "matthew-9-16",
+     "matthew-9-17",
+     "matthew-9-18",
+     "matthew-9-19",
+     "matthew-9-20",
+     "matthew-9-21",
+     "matthew-9-22",
+     "matthew-9-23",
+     "matthew-9-24",
+     "matthew-9-25",
+     "matthew-9-26",
+     "matthew-9-27",
+     "matthew-9-28",
+     "matthew-9-29",
+     "matthew-9-30",
+     "matthew-9-31",
+     "matthew-9-32",
+     "matthew-9-33",
+     "matthew-9-34",
+     "matthew-9-35",
+     "matthew-9-36",
+     "matthew-9-37",
+     "matthew-9-38"
+    ],
+    "reference": "Matthew 9:1–38",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 647,
+     "known": 0.944,
+     "schedulable": 0.944
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-10-1",
+   "type": "vocab",
+   "label": "ἐπικαλέω",
+   "sub": "New words for Matthew 10",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐπικαλέω",
+     "lemma": "ἐπικαλέω",
+     "citation": "ἐπικαλέω",
+     "gloss": "I call by an additional name, appeal to",
+     "pos": "verb",
+     "count": 30,
+     "rank": 462
+    },
+    {
+     "id": "προσκαλέομαι",
+     "lemma": "προσκαλέομαι",
+     "citation": "προσκαλέω",
+     "gloss": "I summon",
+     "pos": "verb",
+     "count": 29,
+     "rank": 474
+    },
+    {
+     "id": "ὑπομένω",
+     "lemma": "ὑπομένω",
+     "citation": "ὑπομένω",
+     "gloss": "I remain behind, endure",
+     "pos": "verb",
+     "count": 17,
+     "rank": 717
+    },
+    {
+     "id": "ποτίζω",
+     "lemma": "ποτίζω",
+     "citation": "ποτίζω",
+     "gloss": "I cause to drink, give to drink",
+     "pos": "verb",
+     "count": 15,
+     "rank": 783
+    },
+    {
+     "id": "οἰκοδεσπότης",
+     "lemma": "οἰκοδεσπότης",
+     "citation": "οἰκοδεσπότης, ου, ὁ",
+     "gloss": "a head of a household",
+     "pos": "noun",
+     "count": 12,
+     "rank": 927
+    },
+    {
+     "id": "ῥάβδος",
+     "lemma": "ῥάβδος",
+     "citation": "ῥάβδος, ου, ἡ",
+     "gloss": "a rod, staff",
+     "pos": "noun",
+     "count": 12,
+     "rank": 961
+    },
+    {
+     "id": "θανατόω",
+     "lemma": "θανατόω",
+     "citation": "θανατόω",
+     "gloss": "I put to death, subdue",
+     "pos": "verb",
+     "count": 11,
+     "rank": 980
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-10",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 10",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 10,
+    "from": 1,
+    "to": 42,
+    "verseIds": [
+     "matthew-10-1",
+     "matthew-10-2",
+     "matthew-10-3",
+     "matthew-10-4",
+     "matthew-10-5",
+     "matthew-10-6",
+     "matthew-10-7",
+     "matthew-10-8",
+     "matthew-10-9",
+     "matthew-10-10",
+     "matthew-10-11",
+     "matthew-10-12",
+     "matthew-10-13",
+     "matthew-10-14",
+     "matthew-10-15",
+     "matthew-10-16",
+     "matthew-10-17",
+     "matthew-10-18",
+     "matthew-10-19",
+     "matthew-10-20",
+     "matthew-10-21",
+     "matthew-10-22",
+     "matthew-10-23",
+     "matthew-10-24",
+     "matthew-10-25",
+     "matthew-10-26",
+     "matthew-10-27",
+     "matthew-10-28",
+     "matthew-10-29",
+     "matthew-10-30",
+     "matthew-10-31",
+     "matthew-10-32",
+     "matthew-10-33",
+     "matthew-10-34",
+     "matthew-10-35",
+     "matthew-10-36",
+     "matthew-10-37",
+     "matthew-10-38",
+     "matthew-10-39",
+     "matthew-10-40",
+     "matthew-10-41",
+     "matthew-10-42"
+    ],
+    "reference": "Matthew 10:1–42",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 720,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-11-1",
+   "type": "vocab",
+   "label": "σοφός",
+   "sub": "New words for Matthew 11",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "σοφός",
+     "lemma": "σοφός",
+     "citation": "σοφός, ή, όν",
+     "gloss": "wise",
+     "pos": "adjective",
+     "count": 19,
+     "rank": 652
+    },
+    {
+     "id": "μέχρι(ς)",
+     "lemma": "μέχρι(ς)",
+     "citation": "μέχρι/μέχρις",
+     "gloss": "as far as, until",
+     "pos": "preposition",
+     "count": 18,
+     "rank": 668
+    },
+    {
+     "id": "διατάσσω",
+     "lemma": "διατάσσω",
+     "citation": "διατάσσω",
+     "gloss": "I give orders to, prescribe",
+     "pos": "verb",
+     "count": 16,
+     "rank": 728
+    },
+    {
+     "id": "προσδοκάω",
+     "lemma": "προσδοκάω",
+     "citation": "προσδοκάω",
+     "gloss": "I expect, await",
+     "pos": "verb",
+     "count": 16,
+     "rank": 743
+    },
+    {
+     "id": "περισσότερος",
+     "lemma": "περισσότερος",
+     "citation": "περισσότερος, τέρα, ον",
+     "gloss": "greater, more",
+     "pos": "adjective",
+     "count": 15,
+     "rank": 782
+    },
+    {
+     "id": "σαλεύω",
+     "lemma": "σαλεύω",
+     "citation": "σαλεύω",
+     "gloss": "I shake, excite",
+     "pos": "verb",
+     "count": 15,
+     "rank": 785
+    },
+    {
+     "id": "νήπιος",
+     "lemma": "νήπιος",
+     "citation": "νήπιος, α, ον",
+     "gloss": "an infant, child, unlearned",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 824
+    },
+    {
+     "id": "ἀναπαύω",
+     "lemma": "ἀναπαύω",
+     "citation": "ἀναπαύω",
+     "gloss": "I make to rest, give rest to, rest, take my ease",
+     "pos": "verb",
+     "count": 12,
+     "rank": 951
+    },
+    {
+     "id": "Τύρος",
+     "lemma": "Τύρος",
+     "citation": "Τύρος, ου, ἡ",
+     "gloss": "Tyre",
+     "pos": "noun",
+     "count": 11,
+     "rank": 968
+    },
+    {
+     "id": "κατασκευάζω",
+     "lemma": "κατασκευάζω",
+     "citation": "κατασκευάζω",
+     "gloss": "I build, prepare, make",
+     "pos": "verb",
+     "count": 11,
+     "rank": 985
+    },
+    {
+     "id": "ἀγορά",
+     "lemma": "ἀγορά",
+     "citation": "ἀγορά, ᾶς, ἡ",
+     "gloss": "market-place",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1018
+    },
+    {
+     "id": "ᾅδης",
+     "lemma": "ᾅδης",
+     "citation": "ᾅδης, ου, ὁ",
+     "gloss": "Hades",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1125
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-11",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 11",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 11,
+    "from": 1,
+    "to": 30,
+    "verseIds": [
+     "matthew-11-1",
+     "matthew-11-2",
+     "matthew-11-3",
+     "matthew-11-4",
+     "matthew-11-5",
+     "matthew-11-6",
+     "matthew-11-7",
+     "matthew-11-8",
+     "matthew-11-9",
+     "matthew-11-10",
+     "matthew-11-11",
+     "matthew-11-12",
+     "matthew-11-13",
+     "matthew-11-14",
+     "matthew-11-15",
+     "matthew-11-16",
+     "matthew-11-17",
+     "matthew-11-18",
+     "matthew-11-19",
+     "matthew-11-20",
+     "matthew-11-21",
+     "matthew-11-22",
+     "matthew-11-23",
+     "matthew-11-24",
+     "matthew-11-25",
+     "matthew-11-26",
+     "matthew-11-27",
+     "matthew-11-28",
+     "matthew-11-29",
+     "matthew-11-30"
+    ],
+    "reference": "Matthew 11:1–30",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 493,
+     "known": 0.923,
+     "schedulable": 0.923
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-12-1",
+   "type": "vocab",
+   "label": "ἐξίστημι",
+   "sub": "New words for Matthew 12",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐξίστημι",
+     "lemma": "ἐξίστημι",
+     "citation": "ἐξίστημι, also ἐξιστάνω /ἐξιστάω",
+     "gloss": "I astonish, am astonished",
+     "pos": "verb",
+     "count": 17,
+     "rank": 710
+    },
+    {
+     "id": "κατακρίνω",
+     "lemma": "κατακρίνω",
+     "citation": "κατακρίνω",
+     "gloss": "I condemn",
+     "pos": "verb",
+     "count": 16,
+     "rank": 733
+    },
+    {
+     "id": "μερίζω",
+     "lemma": "μερίζω",
+     "citation": "μερίζω",
+     "gloss": "I divide, part, share",
+     "pos": "verb",
+     "count": 14,
+     "rank": 821
+    },
+    {
+     "id": "πρόθεσις",
+     "lemma": "πρόθεσις",
+     "citation": "πρόθεσις, εως, ἡ",
+     "gloss": "the show-bread, predetermination",
+     "pos": "noun",
+     "count": 12,
+     "rank": 935
+    },
+    {
+     "id": "κοσμέω",
+     "lemma": "κοσμέω",
+     "citation": "κοσμέω",
+     "gloss": "I put into order, adorn",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1053
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-12",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 12",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 12,
+    "from": 1,
+    "to": 50,
+    "verseIds": [
+     "matthew-12-1",
+     "matthew-12-2",
+     "matthew-12-3",
+     "matthew-12-4",
+     "matthew-12-5",
+     "matthew-12-6",
+     "matthew-12-7",
+     "matthew-12-8",
+     "matthew-12-9",
+     "matthew-12-10",
+     "matthew-12-11",
+     "matthew-12-12",
+     "matthew-12-13",
+     "matthew-12-14",
+     "matthew-12-15",
+     "matthew-12-16",
+     "matthew-12-17",
+     "matthew-12-18",
+     "matthew-12-19",
+     "matthew-12-20",
+     "matthew-12-21",
+     "matthew-12-22",
+     "matthew-12-23",
+     "matthew-12-24",
+     "matthew-12-25",
+     "matthew-12-26",
+     "matthew-12-27",
+     "matthew-12-28",
+     "matthew-12-29",
+     "matthew-12-30",
+     "matthew-12-31",
+     "matthew-12-32",
+     "matthew-12-33",
+     "matthew-12-34",
+     "matthew-12-35",
+     "matthew-12-36",
+     "matthew-12-37",
+     "matthew-12-38",
+     "matthew-12-39",
+     "matthew-12-40",
+     "matthew-12-41",
+     "matthew-12-42",
+     "matthew-12-43",
+     "matthew-12-44",
+     "matthew-12-45",
+     "matthew-12-46",
+     "matthew-12-47",
+     "matthew-12-48",
+     "matthew-12-49",
+     "matthew-12-50"
+    ],
+    "reference": "Matthew 12:1–50",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 906,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-13-1",
+   "type": "vocab",
+   "label": "μυστήριον",
+   "sub": "New words for Matthew 13",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "μυστήριον",
+     "lemma": "μυστήριον",
+     "citation": "μυστήριον, ου, τό",
+     "gloss": "anything hidden, a mystery",
+     "pos": "noun",
+     "count": 26,
+     "rank": 511
+    },
+    {
+     "id": "συνίημι",
+     "lemma": "συνίημι",
+     "citation": "συνίημι/συνίω",
+     "gloss": "I consider, understand",
+     "pos": "verb",
+     "count": 26,
+     "rank": 515
+    },
+    {
+     "id": "πλοῦτος",
+     "lemma": "πλοῦτος",
+     "citation": "πλοῦτος, ου, ὁ/τό",
+     "gloss": "riches, wealth",
+     "pos": "noun",
+     "count": 22,
+     "rank": 589
+    },
+    {
+     "id": "γένος",
+     "lemma": "γένος",
+     "citation": "γένος, ους, τό",
+     "gloss": "offspring, family, race, kind",
+     "pos": "noun",
+     "count": 20,
+     "rank": 616
+    },
+    {
+     "id": "παρατίθημι",
+     "lemma": "παρατίθημι",
+     "citation": "παρατίθημι",
+     "gloss": "I set before, serve, entrust to",
+     "pos": "verb",
+     "count": 19,
+     "rank": 649
+    },
+    {
+     "id": "προφητεία",
+     "lemma": "προφητεία",
+     "citation": "προφητεία, ας, ἡ",
+     "gloss": "prophecy",
+     "pos": "noun",
+     "count": 19,
+     "rank": 650
+    },
+    {
+     "id": "ζύμη",
+     "lemma": "ζύμη",
+     "citation": "ζύμη, ης, ἡ",
+     "gloss": "leaven, ferment",
+     "pos": "noun",
+     "count": 13,
+     "rank": 868
+    },
+    {
+     "id": "κλάδος",
+     "lemma": "κλάδος",
+     "citation": "κλάδος, ου, ὁ",
+     "gloss": "a branch",
+     "pos": "noun",
+     "count": 11,
+     "rank": 988
+    },
+    {
+     "id": "ἀπιστία",
+     "lemma": "ἀπιστία",
+     "citation": "ἀπιστία, ας, ἡ",
+     "gloss": "unbelief, unfaithfulness, distrust",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1022
+    },
+    {
+     "id": "διωγμός",
+     "lemma": "διωγμός",
+     "citation": "διωγμός, οῦ, ὁ",
+     "gloss": "persecution",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1048
+    },
+    {
+     "id": "ἀφορίζω",
+     "lemma": "ἀφορίζω",
+     "citation": "ἀφορίζω",
+     "gloss": "I rail off, separate, place apart",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1101
+    },
+    {
+     "id": "ἅμα",
+     "lemma": "ἅμα",
+     "citation": "ἅμα",
+     "gloss": "at the same time, along with",
+     "pos": "preposition",
+     "count": 10,
+     "rank": 1103
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-13",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 13,
+    "from": 1,
+    "to": 58,
+    "verseIds": [
+     "matthew-13-1",
+     "matthew-13-2",
+     "matthew-13-3",
+     "matthew-13-4",
+     "matthew-13-5",
+     "matthew-13-6",
+     "matthew-13-7",
+     "matthew-13-8",
+     "matthew-13-9",
+     "matthew-13-10",
+     "matthew-13-11",
+     "matthew-13-12",
+     "matthew-13-13",
+     "matthew-13-14",
+     "matthew-13-15",
+     "matthew-13-16",
+     "matthew-13-17",
+     "matthew-13-18",
+     "matthew-13-19",
+     "matthew-13-20",
+     "matthew-13-21",
+     "matthew-13-22",
+     "matthew-13-23",
+     "matthew-13-24",
+     "matthew-13-25",
+     "matthew-13-26",
+     "matthew-13-27",
+     "matthew-13-28",
+     "matthew-13-29",
+     "matthew-13-30",
+     "matthew-13-31",
+     "matthew-13-32",
+     "matthew-13-33",
+     "matthew-13-34",
+     "matthew-13-35",
+     "matthew-13-36",
+     "matthew-13-37",
+     "matthew-13-38",
+     "matthew-13-39",
+     "matthew-13-40",
+     "matthew-13-41",
+     "matthew-13-42",
+     "matthew-13-43",
+     "matthew-13-44",
+     "matthew-13-45",
+     "matthew-13-46",
+     "matthew-13-47",
+     "matthew-13-48",
+     "matthew-13-49",
+     "matthew-13-50",
+     "matthew-13-51",
+     "matthew-13-52",
+     "matthew-13-53",
+     "matthew-13-54",
+     "matthew-13-55",
+     "matthew-13-56",
+     "matthew-13-57",
+     "matthew-13-58"
+    ],
+    "reference": "Matthew 13:1–58",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 1076,
+     "known": 0.927,
+     "schedulable": 0.927
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-14-1",
+   "type": "vocab",
+   "label": "ἐνεργέω",
+   "sub": "New words for Matthew 14",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐνεργέω",
+     "lemma": "ἐνεργέω",
+     "citation": "ἐνεργέω",
+     "gloss": "I work, accomplish, am operative",
+     "pos": "verb",
+     "count": 21,
+     "rank": 611
+    },
+    {
+     "id": "ἐπιλαμβάνομαι",
+     "lemma": "ἐπιλαμβάνομαι",
+     "citation": "ἐπιλαμβάνω",
+     "gloss": "I seize, take hold of",
+     "pos": "verb",
+     "count": 19,
+     "rank": 657
+    },
+    {
+     "id": "ἀρέσκω",
+     "lemma": "ἀρέσκω",
+     "citation": "ἀρέσκω",
+     "gloss": "I please, serve",
+     "pos": "verb",
+     "count": 17,
+     "rank": 706
+    },
+    {
+     "id": "κλάω",
+     "lemma": "κλάω",
+     "citation": "κλάω",
+     "gloss": "I break",
+     "pos": "verb",
+     "count": 14,
+     "rank": 812
+    },
+    {
+     "id": "τέταρτος",
+     "lemma": "τέταρτος",
+     "citation": "τέταρτος, η, ον",
+     "gloss": "fourth",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1080
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-14",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 14",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 14,
+    "from": 1,
+    "to": 36,
+    "verseIds": [
+     "matthew-14-1",
+     "matthew-14-2",
+     "matthew-14-3",
+     "matthew-14-4",
+     "matthew-14-5",
+     "matthew-14-6",
+     "matthew-14-7",
+     "matthew-14-8",
+     "matthew-14-9",
+     "matthew-14-10",
+     "matthew-14-11",
+     "matthew-14-12",
+     "matthew-14-13",
+     "matthew-14-14",
+     "matthew-14-15",
+     "matthew-14-16",
+     "matthew-14-17",
+     "matthew-14-18",
+     "matthew-14-19",
+     "matthew-14-20",
+     "matthew-14-21",
+     "matthew-14-22",
+     "matthew-14-23",
+     "matthew-14-24",
+     "matthew-14-25",
+     "matthew-14-26",
+     "matthew-14-27",
+     "matthew-14-28",
+     "matthew-14-29",
+     "matthew-14-30",
+     "matthew-14-31",
+     "matthew-14-32",
+     "matthew-14-33",
+     "matthew-14-34",
+     "matthew-14-35",
+     "matthew-14-36"
+    ],
+    "reference": "Matthew 14:1–36",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 559,
+     "known": 0.939,
+     "schedulable": 0.939
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-15-1",
+   "type": "vocab",
+   "label": "διδασκαλία",
+   "sub": "New words for Matthew 15",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "διδασκαλία",
+     "lemma": "διδασκαλία",
+     "citation": "διδασκαλία, ας, ἡ",
+     "gloss": "instruction, teaching",
+     "pos": "noun",
+     "count": 21,
+     "rank": 599
+    },
+    {
+     "id": "εἰσπορεύομαι",
+     "lemma": "εἰσπορεύομαι",
+     "citation": "εἰσπορεύω",
+     "gloss": "I journey into, go into",
+     "pos": "verb",
+     "count": 18,
+     "rank": 661
+    },
+    {
+     "id": "ὦ",
+     "lemma": "ὦ",
+     "citation": "ὦ",
+     "gloss": "O, an exclamation",
+     "pos": "particle",
+     "count": 17,
+     "rank": 719
+    },
+    {
+     "id": "διαλογισμός",
+     "lemma": "διαλογισμός",
+     "citation": "διαλογισμός, οῦ, ὁ",
+     "gloss": "a calculation, reasoning, thought, plotting",
+     "pos": "noun",
+     "count": 14,
+     "rank": 807
+    },
+    {
+     "id": "κοινόω",
+     "lemma": "κοινόω",
+     "citation": "κοινόω",
+     "gloss": "I make unclean, regard as unclean",
+     "pos": "verb",
+     "count": 14,
+     "rank": 815
+    },
+    {
+     "id": "παράδοσις",
+     "lemma": "παράδοσις",
+     "citation": "παράδοσις, εως, ἡ",
+     "gloss": "an instruction, tradition",
+     "pos": "noun",
+     "count": 13,
+     "rank": 880
+    },
+    {
+     "id": "φυτεύω",
+     "lemma": "φυτεύω",
+     "citation": "φυτεύω",
+     "gloss": "I plant",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1010
+    },
+    {
+     "id": "σέβομαι",
+     "lemma": "σέβομαι",
+     "citation": "σέβω",
+     "gloss": "I reverence, worship",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1074
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-15",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 15",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 15,
+    "from": 1,
+    "to": 39,
+    "verseIds": [
+     "matthew-15-1",
+     "matthew-15-2",
+     "matthew-15-3",
+     "matthew-15-4",
+     "matthew-15-5",
+     "matthew-15-6",
+     "matthew-15-7",
+     "matthew-15-8",
+     "matthew-15-9",
+     "matthew-15-10",
+     "matthew-15-11",
+     "matthew-15-12",
+     "matthew-15-13",
+     "matthew-15-14",
+     "matthew-15-15",
+     "matthew-15-16",
+     "matthew-15-17",
+     "matthew-15-18",
+     "matthew-15-19",
+     "matthew-15-20",
+     "matthew-15-21",
+     "matthew-15-22",
+     "matthew-15-23",
+     "matthew-15-24",
+     "matthew-15-25",
+     "matthew-15-26",
+     "matthew-15-27",
+     "matthew-15-28",
+     "matthew-15-29",
+     "matthew-15-30",
+     "matthew-15-31",
+     "matthew-15-32",
+     "matthew-15-33",
+     "matthew-15-34",
+     "matthew-15-35",
+     "matthew-15-36",
+     "matthew-15-37",
+     "matthew-15-38",
+     "matthew-15-39"
+    ],
+    "reference": "Matthew 15:1–39",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 609,
+     "known": 0.931,
+     "schedulable": 0.931
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-16-1",
+   "type": "vocab",
+   "label": "φρονέω",
+   "sub": "New words for Matthew 16",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "φρονέω",
+     "lemma": "φρονέω",
+     "citation": "φρονέω",
+     "gloss": "I think, judge, observe",
+     "pos": "verb",
+     "count": 26,
+     "rank": 516
+    },
+    {
+     "id": "διακρίνω",
+     "lemma": "διακρίνω",
+     "citation": "διακρίνω",
+     "gloss": "I distinguish, discern, doubt, hesitate",
+     "pos": "verb",
+     "count": 19,
+     "rank": 638
+    },
+    {
+     "id": "Καισάρεια",
+     "lemma": "Καισάρεια",
+     "citation": "Καισάρεια, ας, ἡ",
+     "gloss": "Caesarea",
+     "pos": "noun",
+     "count": 17,
+     "rank": 686
+    },
+    {
+     "id": "κερδαίνω",
+     "lemma": "κερδαίνω",
+     "citation": "κερδαίνω",
+     "gloss": "I gain, win, avoid loss",
+     "pos": "verb",
+     "count": 17,
+     "rank": 691
+    },
+    {
+     "id": "διαλογίζομαι",
+     "lemma": "διαλογίζομαι",
+     "citation": "διαλογίζομαι",
+     "gloss": "I reason, debate, consider",
+     "pos": "verb",
+     "count": 16,
+     "rank": 727
+    },
+    {
+     "id": "προσλαμβάνομαι",
+     "lemma": "προσλαμβάνομαι",
+     "citation": "προσλαμβάνω",
+     "gloss": "I take to myself, welcome",
+     "pos": "verb",
+     "count": 12,
+     "rank": 933
+    },
+    {
+     "id": "ἀπαρνέομαι",
+     "lemma": "ἀπαρνέομαι",
+     "citation": "ἀπαρνέομαι",
+     "gloss": "I deny, disown, disregard",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1021
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-16",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 16",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 16,
+    "from": 1,
+    "to": 28,
+    "verseIds": [
+     "matthew-16-1",
+     "matthew-16-2",
+     "matthew-16-3",
+     "matthew-16-4",
+     "matthew-16-5",
+     "matthew-16-6",
+     "matthew-16-7",
+     "matthew-16-8",
+     "matthew-16-9",
+     "matthew-16-10",
+     "matthew-16-11",
+     "matthew-16-12",
+     "matthew-16-13",
+     "matthew-16-14",
+     "matthew-16-15",
+     "matthew-16-16",
+     "matthew-16-17",
+     "matthew-16-18",
+     "matthew-16-19",
+     "matthew-16-20",
+     "matthew-16-21",
+     "matthew-16-22",
+     "matthew-16-23",
+     "matthew-16-24",
+     "matthew-16-25",
+     "matthew-16-26",
+     "matthew-16-27",
+     "matthew-16-28"
+    ],
+    "reference": "Matthew 16:1–28",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 526,
+     "known": 0.956,
+     "schedulable": 0.956
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-17-1",
+   "type": "vocab",
+   "label": "νεφέλη",
+   "sub": "New words for Matthew 17",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "νεφέλη",
+     "lemma": "νεφέλη",
+     "citation": "νεφέλη, ης, ἡ",
+     "gloss": "a cloud",
+     "pos": "noun",
+     "count": 25,
+     "rank": 532
+    },
+    {
+     "id": "σκηνή",
+     "lemma": "σκηνή",
+     "citation": "σκηνή, ῆς, ἡ",
+     "gloss": "a tent, tabernacle",
+     "pos": "noun",
+     "count": 20,
+     "rank": 623
+    },
+    {
+     "id": "ἀνέχομαι",
+     "lemma": "ἀνέχομαι",
+     "citation": "ἀνέχω",
+     "gloss": "I endure, bear with",
+     "pos": "verb",
+     "count": 15,
+     "rank": 794
+    },
+    {
+     "id": "ὅραμα",
+     "lemma": "ὅραμα",
+     "citation": "ὅραμα, ατος, τό",
+     "gloss": "a spectacle, vision",
+     "pos": "noun",
+     "count": 12,
+     "rank": 958
+    },
+    {
+     "id": "ἀναφέρω",
+     "lemma": "ἀναφέρω",
+     "citation": "ἀναφέρω",
+     "gloss": "I carry up, lead up, offer up",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1093
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-17",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 17",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 17,
+    "from": 1,
+    "to": 27,
+    "verseIds": [
+     "matthew-17-1",
+     "matthew-17-2",
+     "matthew-17-3",
+     "matthew-17-4",
+     "matthew-17-5",
+     "matthew-17-6",
+     "matthew-17-7",
+     "matthew-17-8",
+     "matthew-17-9",
+     "matthew-17-10",
+     "matthew-17-11",
+     "matthew-17-12",
+     "matthew-17-13",
+     "matthew-17-14",
+     "matthew-17-15",
+     "matthew-17-16",
+     "matthew-17-17",
+     "matthew-17-18",
+     "matthew-17-19",
+     "matthew-17-20",
+     "matthew-17-22",
+     "matthew-17-23",
+     "matthew-17-24",
+     "matthew-17-25",
+     "matthew-17-26",
+     "matthew-17-27"
+    ],
+    "reference": "Matthew 17:1–27",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 496,
+     "known": 0.958,
+     "schedulable": 0.958
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-18-1",
+   "type": "vocab",
+   "label": "ἀνάγκη",
+   "sub": "New words for Matthew 18",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀνάγκη",
+     "lemma": "ἀνάγκη",
+     "citation": "ἀνάγκη, ης, ἡ",
+     "gloss": "necessity, constraint, compulsion",
+     "pos": "noun",
+     "count": 17,
+     "rank": 704
+    },
+    {
+     "id": "τάλαντον",
+     "lemma": "τάλαντον",
+     "citation": "τάλαντον, ου, τό",
+     "gloss": "a talent of silver or gold",
+     "pos": "noun",
+     "count": 14,
+     "rank": 833
+    },
+    {
+     "id": "ταπεινόω",
+     "lemma": "ταπεινόω",
+     "citation": "ταπεινόω",
+     "gloss": "I humble, humiliate",
+     "pos": "verb",
+     "count": 14,
+     "rank": 834
+    },
+    {
+     "id": "πρᾶγμα",
+     "lemma": "πρᾶγμα",
+     "citation": "πρᾶγμα, ατος, τό",
+     "gloss": "a thing done, a matter",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1000
+    },
+    {
+     "id": "μακροθυμέω",
+     "lemma": "μακροθυμέω",
+     "citation": "μακροθυμέω",
+     "gloss": "I suffer long, have patience, am forbearing",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1057
+    },
+    {
+     "id": "σύνδουλος",
+     "lemma": "σύνδουλος",
+     "citation": "σύνδουλος, ου, ὁ",
+     "gloss": "a fellow servant, colleague",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1079
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-18",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 18",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 18,
+    "from": 1,
+    "to": 35,
+    "verseIds": [
+     "matthew-18-1",
+     "matthew-18-2",
+     "matthew-18-3",
+     "matthew-18-4",
+     "matthew-18-5",
+     "matthew-18-6",
+     "matthew-18-7",
+     "matthew-18-8",
+     "matthew-18-9",
+     "matthew-18-10",
+     "matthew-18-12",
+     "matthew-18-13",
+     "matthew-18-14",
+     "matthew-18-15",
+     "matthew-18-16",
+     "matthew-18-17",
+     "matthew-18-18",
+     "matthew-18-19",
+     "matthew-18-20",
+     "matthew-18-21",
+     "matthew-18-22",
+     "matthew-18-23",
+     "matthew-18-24",
+     "matthew-18-25",
+     "matthew-18-26",
+     "matthew-18-27",
+     "matthew-18-28",
+     "matthew-18-29",
+     "matthew-18-30",
+     "matthew-18-31",
+     "matthew-18-32",
+     "matthew-18-33",
+     "matthew-18-34",
+     "matthew-18-35"
+    ],
+    "reference": "Matthew 18:1–35",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 669,
+     "known": 0.948,
+     "schedulable": 0.948
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-19-1",
+   "type": "vocab",
+   "label": "πλούσιος",
+   "sub": "New words for Matthew 19",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πλούσιος",
+     "lemma": "πλούσιος",
+     "citation": "πλούσιος, α, ον",
+     "gloss": "rich",
+     "pos": "adjective",
+     "count": 28,
+     "rank": 486
+    },
+    {
+     "id": "κτίζω",
+     "lemma": "κτίζω",
+     "citation": "κτίζω",
+     "gloss": "I create, form, shape, make",
+     "pos": "verb",
+     "count": 15,
+     "rank": 774
+    },
+    {
+     "id": "χωρίζω",
+     "lemma": "χωρίζω",
+     "citation": "χωρίζω",
+     "gloss": "I separate, depart",
+     "pos": "verb",
+     "count": 13,
+     "rank": 887
+    },
+    {
+     "id": "κολλάομαι",
+     "lemma": "κολλάομαι",
+     "citation": "κολλάω",
+     "gloss": "I glue, cleave, keep company with",
+     "pos": "verb",
+     "count": 12,
+     "rank": 919
+    },
+    {
+     "id": "ἀδύνατος",
+     "lemma": "ἀδύνατος",
+     "citation": "ἀδύνατος, ον",
+     "gloss": "incapable, impossible",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1090
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-19",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 19",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 19,
+    "from": 1,
+    "to": 30,
+    "verseIds": [
+     "matthew-19-1",
+     "matthew-19-2",
+     "matthew-19-3",
+     "matthew-19-4",
+     "matthew-19-5",
+     "matthew-19-6",
+     "matthew-19-7",
+     "matthew-19-8",
+     "matthew-19-9",
+     "matthew-19-10",
+     "matthew-19-11",
+     "matthew-19-12",
+     "matthew-19-13",
+     "matthew-19-14",
+     "matthew-19-15",
+     "matthew-19-16",
+     "matthew-19-17",
+     "matthew-19-18",
+     "matthew-19-19",
+     "matthew-19-20",
+     "matthew-19-21",
+     "matthew-19-22",
+     "matthew-19-23",
+     "matthew-19-24",
+     "matthew-19-25",
+     "matthew-19-26",
+     "matthew-19-27",
+     "matthew-19-28",
+     "matthew-19-29",
+     "matthew-19-30"
+    ],
+    "reference": "Matthew 19:1–30",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 536,
+     "known": 0.955,
+     "schedulable": 0.955
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-20-1",
+   "type": "vocab",
+   "label": "ἀδικέω",
+   "sub": "New words for Matthew 20",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀδικέω",
+     "lemma": "ἀδικέω",
+     "citation": "ἀδικέω",
+     "gloss": "I act unjustly towards",
+     "pos": "verb",
+     "count": 28,
+     "rank": 490
+    },
+    {
+     "id": "δέκα",
+     "lemma": "δέκα",
+     "citation": "δέκα",
+     "gloss": "ten",
+     "pos": "adjective",
+     "count": 25,
+     "rank": 526
+    },
+    {
+     "id": "ἀμπελών",
+     "lemma": "ἀμπελών",
+     "citation": "ἀμπελών, ῶνος, ὁ",
+     "gloss": "a vineyard",
+     "pos": "noun",
+     "count": 23,
+     "rank": 574
+    },
+    {
+     "id": "ὡσαύτως",
+     "lemma": "ὡσαύτως",
+     "citation": "ὡσαύτως",
+     "gloss": "likewise",
+     "pos": "adverb",
+     "count": 17,
+     "rank": 718
+    },
+    {
+     "id": "σιωπάω",
+     "lemma": "σιωπάω",
+     "citation": "σιωπάω",
+     "gloss": "I keep silence",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1075
+    },
+    {
+     "id": "ἔνατος",
+     "lemma": "ἔνατος",
+     "citation": "ἔνατος, η, ον",
+     "gloss": "ninth",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1115
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-20",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 20",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 20,
+    "from": 1,
+    "to": 34,
+    "verseIds": [
+     "matthew-20-1",
+     "matthew-20-2",
+     "matthew-20-3",
+     "matthew-20-4",
+     "matthew-20-5",
+     "matthew-20-6",
+     "matthew-20-7",
+     "matthew-20-8",
+     "matthew-20-9",
+     "matthew-20-10",
+     "matthew-20-11",
+     "matthew-20-12",
+     "matthew-20-13",
+     "matthew-20-14",
+     "matthew-20-15",
+     "matthew-20-16",
+     "matthew-20-17",
+     "matthew-20-18",
+     "matthew-20-19",
+     "matthew-20-20",
+     "matthew-20-21",
+     "matthew-20-22",
+     "matthew-20-23",
+     "matthew-20-24",
+     "matthew-20-25",
+     "matthew-20-26",
+     "matthew-20-27",
+     "matthew-20-28",
+     "matthew-20-29",
+     "matthew-20-30",
+     "matthew-20-31",
+     "matthew-20-32",
+     "matthew-20-33",
+     "matthew-20-34"
+    ],
+    "reference": "Matthew 20:1–34",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 539,
+     "known": 0.957,
+     "schedulable": 0.957
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-21-1",
+   "type": "vocab",
+   "label": "παραχρῆμα",
+   "sub": "New words for Matthew 21",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "παραχρῆμα",
+     "lemma": "παραχρῆμα",
+     "citation": "παραχρῆμα",
+     "gloss": "instantly, immediately",
+     "pos": "adverb",
+     "count": 18,
+     "rank": 670
+    },
+    {
+     "id": "κληρονόμος",
+     "lemma": "κληρονόμος",
+     "citation": "κληρονόμος, ου, ὁ",
+     "gloss": "an heir, inheritor",
+     "pos": "noun",
+     "count": 15,
+     "rank": 773
+    },
+    {
+     "id": "κληρονομία",
+     "lemma": "κληρονομία",
+     "citation": "κληρονομία, ας, ἡ",
+     "gloss": "an inheritance",
+     "pos": "noun",
+     "count": 14,
+     "rank": 813
+    },
+    {
+     "id": "ἐλαία",
+     "lemma": "ἐλαία",
+     "citation": "ἐλαία, ας, ἡ",
+     "gloss": "an olive tree",
+     "pos": "noun",
+     "count": 14,
+     "rank": 851
+    },
+    {
+     "id": "ὕψιστος",
+     "lemma": "ὕψιστος",
+     "citation": "ὕψιστος, η, ον",
+     "gloss": "highest, most high, the heights",
+     "pos": "adjective",
+     "count": 13,
+     "rank": 899
+    },
+    {
+     "id": "πόρνη",
+     "lemma": "πόρνη",
+     "citation": "πόρνη, ης, ἡ",
+     "gloss": "a prostitute",
+     "pos": "noun",
+     "count": 12,
+     "rank": 937
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-21",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 21",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 21,
+    "from": 1,
+    "to": 46,
+    "verseIds": [
+     "matthew-21-1",
+     "matthew-21-2",
+     "matthew-21-3",
+     "matthew-21-4",
+     "matthew-21-5",
+     "matthew-21-6",
+     "matthew-21-7",
+     "matthew-21-8",
+     "matthew-21-9",
+     "matthew-21-10",
+     "matthew-21-11",
+     "matthew-21-12",
+     "matthew-21-13",
+     "matthew-21-14",
+     "matthew-21-15",
+     "matthew-21-16",
+     "matthew-21-17",
+     "matthew-21-18",
+     "matthew-21-19",
+     "matthew-21-20",
+     "matthew-21-21",
+     "matthew-21-22",
+     "matthew-21-23",
+     "matthew-21-24",
+     "matthew-21-25",
+     "matthew-21-26",
+     "matthew-21-27",
+     "matthew-21-28",
+     "matthew-21-29",
+     "matthew-21-30",
+     "matthew-21-31",
+     "matthew-21-32",
+     "matthew-21-33",
+     "matthew-21-34",
+     "matthew-21-35",
+     "matthew-21-36",
+     "matthew-21-37",
+     "matthew-21-38",
+     "matthew-21-39",
+     "matthew-21-40",
+     "matthew-21-41",
+     "matthew-21-42",
+     "matthew-21-43",
+     "matthew-21-44",
+     "matthew-21-45",
+     "matthew-21-46"
+    ],
+    "reference": "Matthew 21:1–46",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 864,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-22-1",
+   "type": "vocab",
+   "label": "πίμπλημι",
+   "sub": "New words for Matthew 22",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πίμπλημι",
+     "lemma": "πίμπλημι",
+     "citation": "πίμπλημι",
+     "gloss": "I fill",
+     "pos": "verb",
+     "count": 24,
+     "rank": 547
+    },
+    {
+     "id": "εἰκών",
+     "lemma": "εἰκών",
+     "citation": "εἰκών, όνος, ἡ",
+     "gloss": "an image, likeness, bust",
+     "pos": "noun",
+     "count": 23,
+     "rank": 558
+    },
+    {
+     "id": "κλητός",
+     "lemma": "κλητός",
+     "citation": "κλητός, ή, όν",
+     "gloss": "called, summoned",
+     "pos": "adjective",
+     "count": 10,
+     "rank": 1050
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-22",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 22",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 22,
+    "from": 1,
+    "to": 46,
+    "verseIds": [
+     "matthew-22-1",
+     "matthew-22-2",
+     "matthew-22-3",
+     "matthew-22-4",
+     "matthew-22-5",
+     "matthew-22-6",
+     "matthew-22-7",
+     "matthew-22-8",
+     "matthew-22-9",
+     "matthew-22-10",
+     "matthew-22-11",
+     "matthew-22-12",
+     "matthew-22-13",
+     "matthew-22-14",
+     "matthew-22-15",
+     "matthew-22-16",
+     "matthew-22-17",
+     "matthew-22-18",
+     "matthew-22-19",
+     "matthew-22-20",
+     "matthew-22-21",
+     "matthew-22-22",
+     "matthew-22-23",
+     "matthew-22-24",
+     "matthew-22-25",
+     "matthew-22-26",
+     "matthew-22-27",
+     "matthew-22-28",
+     "matthew-22-29",
+     "matthew-22-30",
+     "matthew-22-31",
+     "matthew-22-32",
+     "matthew-22-33",
+     "matthew-22-34",
+     "matthew-22-35",
+     "matthew-22-36",
+     "matthew-22-37",
+     "matthew-22-38",
+     "matthew-22-39",
+     "matthew-22-40",
+     "matthew-22-41",
+     "matthew-22-42",
+     "matthew-22-43",
+     "matthew-22-44",
+     "matthew-22-45",
+     "matthew-22-46"
+    ],
+    "reference": "Matthew 22:1–46",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 662,
+     "known": 0.95,
+     "schedulable": 0.95
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-23-1",
+   "type": "vocab",
+   "label": "τρόπος",
+   "sub": "New words for Matthew 23",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "τρόπος",
+     "lemma": "τρόπος",
+     "citation": "τρόπος, ου, ὁ",
+     "gloss": "way, manner, character",
+     "pos": "noun",
+     "count": 13,
+     "rank": 885
+    },
+    {
+     "id": "ἔξωθεν",
+     "lemma": "ἔξωθεν",
+     "citation": "ἔξωθεν",
+     "gloss": "from without, outside",
+     "pos": "adverb",
+     "count": 13,
+     "rank": 897
+    },
+    {
+     "id": "Ζαχαρίας",
+     "lemma": "Ζαχαρίας",
+     "citation": "Ζαχαρίας, ου, ὁ",
+     "gloss": "Zechariah",
+     "pos": "noun",
+     "count": 11,
+     "rank": 965
+    },
+    {
+     "id": "γέμω",
+     "lemma": "γέμω",
+     "citation": "γέμω",
+     "gloss": "I am full of",
+     "pos": "verb",
+     "count": 11,
+     "rank": 970
+    },
+    {
+     "id": "κοινωνός",
+     "lemma": "κοινωνός",
+     "citation": "κοινωνός, οῦ, ὁ/ἡ",
+     "gloss": "a sharer, partner",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1051
+    },
+    {
+     "id": "ἀκαθαρσία",
+     "lemma": "ἀκαθαρσία",
+     "citation": "ἀκαθαρσία, ας, ἡ",
+     "gloss": "uncleanness, impurity",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1091
+    },
+    {
+     "id": "ἀσπασμός",
+     "lemma": "ἀσπασμός",
+     "citation": "ἀσπασμός, οῦ, ὁ",
+     "gloss": "a greeting, salutation",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1099
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-23",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 23",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 23,
+    "from": 1,
+    "to": 39,
+    "verseIds": [
+     "matthew-23-1",
+     "matthew-23-2",
+     "matthew-23-3",
+     "matthew-23-4",
+     "matthew-23-5",
+     "matthew-23-6",
+     "matthew-23-7",
+     "matthew-23-8",
+     "matthew-23-9",
+     "matthew-23-10",
+     "matthew-23-11",
+     "matthew-23-12",
+     "matthew-23-13",
+     "matthew-23-15",
+     "matthew-23-16",
+     "matthew-23-17",
+     "matthew-23-18",
+     "matthew-23-19",
+     "matthew-23-20",
+     "matthew-23-21",
+     "matthew-23-22",
+     "matthew-23-23",
+     "matthew-23-24",
+     "matthew-23-25",
+     "matthew-23-26",
+     "matthew-23-27",
+     "matthew-23-28",
+     "matthew-23-29",
+     "matthew-23-30",
+     "matthew-23-31",
+     "matthew-23-32",
+     "matthew-23-33",
+     "matthew-23-34",
+     "matthew-23-35",
+     "matthew-23-36",
+     "matthew-23-37",
+     "matthew-23-38",
+     "matthew-23-39"
+    ],
+    "reference": "Matthew 23:1–39",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 655,
+     "known": 0.911,
+     "schedulable": 0.911
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-24-1",
+   "type": "vocab",
+   "label": "γρηγορέω",
+   "sub": "New words for Matthew 24",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "γρηγορέω",
+     "lemma": "γρηγορέω",
+     "citation": "γρηγορέω",
+     "gloss": "I am awake, am vigilant, watch",
+     "pos": "verb",
+     "count": 22,
+     "rank": 580
+    },
+    {
+     "id": "καθίστημι",
+     "lemma": "καθίστημι",
+     "citation": "καθίστημι/καθιστάνω",
+     "gloss": "I set, establish, appoint, conduct",
+     "pos": "verb",
+     "count": 21,
+     "rank": 602
+    },
+    {
+     "id": "οἰκοδομή",
+     "lemma": "οἰκοδομή",
+     "citation": "οἰκοδομή, ῆς, ἡ",
+     "gloss": "the act of building, a building, edification",
+     "pos": "noun",
+     "count": 18,
+     "rank": 669
+    },
+    {
+     "id": "πόλεμος",
+     "lemma": "πόλεμος",
+     "citation": "πόλεμος, ου, ὁ",
+     "gloss": "a war, battle, strife",
+     "pos": "noun",
+     "count": 18,
+     "rank": 675
+    },
+    {
+     "id": "οἰκουμένη",
+     "lemma": "οἰκουμένη",
+     "citation": "οἰκουμένη, ης, ἡ",
+     "gloss": "the inhabited (Roman) world",
+     "pos": "noun",
+     "count": 15,
+     "rank": 778
+    },
+    {
+     "id": "προλέγω",
+     "lemma": "προλέγω",
+     "citation": "προλέγω",
+     "gloss": "I forewarn",
+     "pos": "verb",
+     "count": 15,
+     "rank": 784
+    },
+    {
+     "id": "οἷος",
+     "lemma": "οἷος",
+     "citation": "οἷος, α, ον",
+     "gloss": "of what kind, such as",
+     "pos": "relative pronoun",
+     "count": 14,
+     "rank": 827
+    },
+    {
+     "id": "τύπτω",
+     "lemma": "τύπτω",
+     "citation": "τύπτω",
+     "gloss": "I beat, strike, wound, inflict punishment",
+     "pos": "verb",
+     "count": 13,
+     "rank": 886
+    },
+    {
+     "id": "λιμός",
+     "lemma": "λιμός",
+     "citation": "λιμός, οῦ, ὁ/ἡ",
+     "gloss": "a famine, hunger",
+     "pos": "noun",
+     "count": 12,
+     "rank": 922
+    },
+    {
+     "id": "πληθύνω",
+     "lemma": "πληθύνω",
+     "citation": "πληθύνω",
+     "gloss": "I increase, multiply",
+     "pos": "verb",
+     "count": 12,
+     "rank": 931
+    },
+    {
+     "id": "σάλπιγξ",
+     "lemma": "σάλπιγξ",
+     "citation": "σάλπιγξ, ιγγος, ἡ",
+     "gloss": "a trumpet",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1001
+    },
+    {
+     "id": "ἐάω",
+     "lemma": "ἐάω",
+     "citation": "ἐάω",
+     "gloss": "I allow, permit, leave",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1028
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-24",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 24",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 24,
+    "from": 1,
+    "to": 51,
+    "verseIds": [
+     "matthew-24-1",
+     "matthew-24-2",
+     "matthew-24-3",
+     "matthew-24-4",
+     "matthew-24-5",
+     "matthew-24-6",
+     "matthew-24-7",
+     "matthew-24-8",
+     "matthew-24-9",
+     "matthew-24-10",
+     "matthew-24-11",
+     "matthew-24-12",
+     "matthew-24-13",
+     "matthew-24-14",
+     "matthew-24-15",
+     "matthew-24-16",
+     "matthew-24-17",
+     "matthew-24-18",
+     "matthew-24-19",
+     "matthew-24-20",
+     "matthew-24-21",
+     "matthew-24-22",
+     "matthew-24-23",
+     "matthew-24-24",
+     "matthew-24-25",
+     "matthew-24-26",
+     "matthew-24-27",
+     "matthew-24-28",
+     "matthew-24-29",
+     "matthew-24-30",
+     "matthew-24-31",
+     "matthew-24-32",
+     "matthew-24-33",
+     "matthew-24-34",
+     "matthew-24-35",
+     "matthew-24-36",
+     "matthew-24-37",
+     "matthew-24-38",
+     "matthew-24-39",
+     "matthew-24-40",
+     "matthew-24-41",
+     "matthew-24-42",
+     "matthew-24-43",
+     "matthew-24-44",
+     "matthew-24-45",
+     "matthew-24-46",
+     "matthew-24-47",
+     "matthew-24-48",
+     "matthew-24-49",
+     "matthew-24-50",
+     "matthew-24-51"
+    ],
+    "reference": "Matthew 24:1–51",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 824,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-25-1",
+   "type": "vocab",
+   "label": "ἀσθενής",
+   "sub": "New words for Matthew 25",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀσθενής",
+     "lemma": "ἀσθενής",
+     "citation": "ἀσθενής, ές",
+     "gloss": "weak, infirm, sick",
+     "pos": "adjective",
+     "count": 26,
+     "rank": 520
+    },
+    {
+     "id": "ἀργύριον",
+     "lemma": "ἀργύριον",
+     "citation": "ἀργύριον, ου, τό",
+     "gloss": "silver, a shekel, money in general",
+     "pos": "noun",
+     "count": 20,
+     "rank": 627
+    },
+    {
+     "id": "ἐπισκέπτομαι",
+     "lemma": "ἐπισκέπτομαι",
+     "citation": "ἐπισκέπτομαι",
+     "gloss": "I look upon, visit, look out, select",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1035
+    },
+    {
+     "id": "ἔλαιον",
+     "lemma": "ἔλαιον",
+     "citation": "ἔλαιον, ου, τό",
+     "gloss": "olive oil",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1036
+    },
+    {
+     "id": "κομίζω",
+     "lemma": "κομίζω",
+     "citation": "κομίζω",
+     "gloss": "I bring, receive, recover",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1052
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-25",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 25",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 25,
+    "from": 1,
+    "to": 46,
+    "verseIds": [
+     "matthew-25-1",
+     "matthew-25-2",
+     "matthew-25-3",
+     "matthew-25-4",
+     "matthew-25-5",
+     "matthew-25-6",
+     "matthew-25-7",
+     "matthew-25-8",
+     "matthew-25-9",
+     "matthew-25-10",
+     "matthew-25-11",
+     "matthew-25-12",
+     "matthew-25-13",
+     "matthew-25-14",
+     "matthew-25-15",
+     "matthew-25-16",
+     "matthew-25-17",
+     "matthew-25-18",
+     "matthew-25-19",
+     "matthew-25-20",
+     "matthew-25-21",
+     "matthew-25-22",
+     "matthew-25-23",
+     "matthew-25-24",
+     "matthew-25-25",
+     "matthew-25-26",
+     "matthew-25-27",
+     "matthew-25-28",
+     "matthew-25-29",
+     "matthew-25-30",
+     "matthew-25-31",
+     "matthew-25-32",
+     "matthew-25-33",
+     "matthew-25-34",
+     "matthew-25-35",
+     "matthew-25-36",
+     "matthew-25-37",
+     "matthew-25-38",
+     "matthew-25-39",
+     "matthew-25-40",
+     "matthew-25-41",
+     "matthew-25-42",
+     "matthew-25-43",
+     "matthew-25-44",
+     "matthew-25-45",
+     "matthew-25-46"
+    ],
+    "reference": "Matthew 25:1–46",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 753,
+     "known": 0.951,
+     "schedulable": 0.951
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-26-1",
+   "type": "vocab",
+   "label": "ξύλον",
+   "sub": "New words for Matthew 26",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ξύλον",
+     "lemma": "ξύλον",
+     "citation": "ξύλον, ου, τό",
+     "gloss": "a staff, cross, anything made of wood",
+     "pos": "noun",
+     "count": 20,
+     "rank": 621
+    },
+    {
+     "id": "πυλών",
+     "lemma": "πυλών",
+     "citation": "πυλών, ῶνος, ὁ",
+     "gloss": "a large gate, a gateway, porch",
+     "pos": "noun",
+     "count": 18,
+     "rank": 674
+    },
+    {
+     "id": "ἄφεσις",
+     "lemma": "ἄφεσις",
+     "citation": "ἄφεσις, εως, ἡ",
+     "gloss": "deliverance, pardon, complete forgiveness",
+     "pos": "noun",
+     "count": 17,
+     "rank": 707
+    },
+    {
+     "id": "παρέχω",
+     "lemma": "παρέχω",
+     "citation": "παρέχω",
+     "gloss": "I offer, provide",
+     "pos": "verb",
+     "count": 16,
+     "rank": 741
+    },
+    {
+     "id": "μακρόθεν",
+     "lemma": "μακρόθεν",
+     "citation": "μακρόθεν",
+     "gloss": "from a distance",
+     "pos": "adverb",
+     "count": 14,
+     "rank": 820
+    },
+    {
+     "id": "πατάσσω",
+     "lemma": "πατάσσω",
+     "citation": "πατάσσω",
+     "gloss": "I strike",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1065
+    },
+    {
+     "id": "ἀφαιρέω",
+     "lemma": "ἀφαιρέω",
+     "citation": "ἀφαιρέω",
+     "gloss": "I take away, smite off",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1100
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-26",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 26",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 26,
+    "from": 1,
+    "to": 75,
+    "verseIds": [
+     "matthew-26-1",
+     "matthew-26-2",
+     "matthew-26-3",
+     "matthew-26-4",
+     "matthew-26-5",
+     "matthew-26-6",
+     "matthew-26-7",
+     "matthew-26-8",
+     "matthew-26-9",
+     "matthew-26-10",
+     "matthew-26-11",
+     "matthew-26-12",
+     "matthew-26-13",
+     "matthew-26-14",
+     "matthew-26-15",
+     "matthew-26-16",
+     "matthew-26-17",
+     "matthew-26-18",
+     "matthew-26-19",
+     "matthew-26-20",
+     "matthew-26-21",
+     "matthew-26-22",
+     "matthew-26-23",
+     "matthew-26-24",
+     "matthew-26-25",
+     "matthew-26-26",
+     "matthew-26-27",
+     "matthew-26-28",
+     "matthew-26-29",
+     "matthew-26-30",
+     "matthew-26-31",
+     "matthew-26-32",
+     "matthew-26-33",
+     "matthew-26-34",
+     "matthew-26-35",
+     "matthew-26-36",
+     "matthew-26-37",
+     "matthew-26-38",
+     "matthew-26-39",
+     "matthew-26-40",
+     "matthew-26-41",
+     "matthew-26-42",
+     "matthew-26-43",
+     "matthew-26-44",
+     "matthew-26-45",
+     "matthew-26-46",
+     "matthew-26-47",
+     "matthew-26-48",
+     "matthew-26-49",
+     "matthew-26-50",
+     "matthew-26-51",
+     "matthew-26-52",
+     "matthew-26-53",
+     "matthew-26-54",
+     "matthew-26-55",
+     "matthew-26-56",
+     "matthew-26-57",
+     "matthew-26-58",
+     "matthew-26-59",
+     "matthew-26-60",
+     "matthew-26-61",
+     "matthew-26-62",
+     "matthew-26-63",
+     "matthew-26-64",
+     "matthew-26-65",
+     "matthew-26-66",
+     "matthew-26-67",
+     "matthew-26-68",
+     "matthew-26-69",
+     "matthew-26-70",
+     "matthew-26-71",
+     "matthew-26-72",
+     "matthew-26-73",
+     "matthew-26-74",
+     "matthew-26-75"
+    ],
+    "reference": "Matthew 26:1–75",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 1240,
+     "known": 0.957,
+     "schedulable": 0.957
+    }
+   }
+  },
+  {
+   "id": "u13-vocab-27-1",
+   "type": "vocab",
+   "label": "δέσμιος",
+   "sub": "New words for Matthew 27",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δέσμιος",
+     "lemma": "δέσμιος",
+     "citation": "δέσμιος, ου, ὁ",
+     "gloss": "one bound, a prisoner",
+     "pos": "noun",
+     "count": 16,
+     "rank": 724
+    },
+    {
+     "id": "ἐγκαταλείπω",
+     "lemma": "ἐγκαταλείπω",
+     "citation": "ἐγκαταλείπω",
+     "gloss": "I abandon, desert",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1106
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u13-read-27",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 27",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 27,
+    "from": 1,
+    "to": 66,
+    "verseIds": [
+     "matthew-27-1",
+     "matthew-27-2",
+     "matthew-27-3",
+     "matthew-27-4",
+     "matthew-27-5",
+     "matthew-27-6",
+     "matthew-27-7",
+     "matthew-27-8",
+     "matthew-27-9",
+     "matthew-27-10",
+     "matthew-27-11",
+     "matthew-27-12",
+     "matthew-27-13",
+     "matthew-27-14",
+     "matthew-27-15",
+     "matthew-27-16",
+     "matthew-27-17",
+     "matthew-27-18",
+     "matthew-27-19",
+     "matthew-27-20",
+     "matthew-27-21",
+     "matthew-27-22",
+     "matthew-27-23",
+     "matthew-27-24",
+     "matthew-27-25",
+     "matthew-27-26",
+     "matthew-27-27",
+     "matthew-27-28",
+     "matthew-27-29",
+     "matthew-27-30",
+     "matthew-27-31",
+     "matthew-27-32",
+     "matthew-27-33",
+     "matthew-27-34",
+     "matthew-27-35",
+     "matthew-27-36",
+     "matthew-27-37",
+     "matthew-27-38",
+     "matthew-27-39",
+     "matthew-27-40",
+     "matthew-27-41",
+     "matthew-27-42",
+     "matthew-27-43",
+     "matthew-27-44",
+     "matthew-27-45",
+     "matthew-27-46",
+     "matthew-27-47",
+     "matthew-27-48",
+     "matthew-27-49",
+     "matthew-27-50",
+     "matthew-27-51",
+     "matthew-27-52",
+     "matthew-27-53",
+     "matthew-27-54",
+     "matthew-27-55",
+     "matthew-27-56",
+     "matthew-27-57",
+     "matthew-27-58",
+     "matthew-27-59",
+     "matthew-27-60",
+     "matthew-27-61",
+     "matthew-27-62",
+     "matthew-27-63",
+     "matthew-27-64",
+     "matthew-27-65",
+     "matthew-27-66"
+    ],
+    "reference": "Matthew 27:1–66",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 1006,
+     "known": 0.922,
+     "schedulable": 0.922
+    }
+   }
+  },
+  {
+   "id": "u13-read-28",
+   "type": "reading",
+   "label": "Κατὰ Μαθθαῖον",
+   "sub": "Read: Matthew 28",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "matthew",
+    "chapter": 28,
+    "from": 1,
+    "to": 20,
+    "verseIds": [
+     "matthew-28-1",
+     "matthew-28-2",
+     "matthew-28-3",
+     "matthew-28-4",
+     "matthew-28-5",
+     "matthew-28-6",
+     "matthew-28-7",
+     "matthew-28-8",
+     "matthew-28-9",
+     "matthew-28-10",
+     "matthew-28-11",
+     "matthew-28-12",
+     "matthew-28-13",
+     "matthew-28-14",
+     "matthew-28-15",
+     "matthew-28-16",
+     "matthew-28-17",
+     "matthew-28-18",
+     "matthew-28-19",
+     "matthew-28-20"
+    ],
+    "reference": "Matthew 28:1–20",
+    "greekTitle": "Κατὰ Μαθθαῖον",
+    "coverage": {
+     "tokens": 329,
+     "known": 0.939,
+     "schedulable": 0.939
+    }
+   }
+  }
+ ]
+}

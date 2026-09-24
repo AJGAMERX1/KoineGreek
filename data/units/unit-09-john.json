@@ -1,0 +1,4038 @@
+{
+ "id": "unit-09-john",
+ "index": 9,
+ "kicker": "Book IX",
+ "title": "Κατὰ Ἰωάννην",
+ "sub": "Read John",
+ "track": "reading",
+ "summary": "Read John chapter by chapter. Before each chapter you learn the words it uses that you have not met yet (only words occurring 10+ times in the NT are scheduled; rarer words are tap-to-gloss).",
+ "lessons": [
+  {
+   "id": "u09-vocab-2-1",
+   "type": "vocab",
+   "label": "ἐγγύς",
+   "sub": "New words for John 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐγγύς",
+     "lemma": "ἐγγύς",
+     "citation": "ἐγγύς",
+     "gloss": "near",
+     "pos": "adverb",
+     "count": 30,
+     "rank": 461
+    },
+    {
+     "id": "διάκονος",
+     "lemma": "διάκονος",
+     "citation": "διάκονος, ου, ὁ/ἡ",
+     "gloss": "a waiter, servant, administrator",
+     "pos": "noun",
+     "count": 29,
+     "rank": 467
+    },
+    {
+     "id": "πάσχα",
+     "lemma": "πάσχα",
+     "citation": "πάσχα, τό",
+     "gloss": "the feast of Passover, the Passover lamb",
+     "pos": "noun",
+     "count": 29,
+     "rank": 470
+    },
+    {
+     "id": "ἐκχέω",
+     "lemma": "ἐκχέω",
+     "citation": "ἐκχέω/ἐκχύν(ν)ω",
+     "gloss": "I pour out, shed",
+     "pos": "verb",
+     "count": 27,
+     "rank": 503
+    },
+    {
+     "id": "ἥκω",
+     "lemma": "ἥκω",
+     "citation": "ἥκω",
+     "gloss": "I have come, am present",
+     "pos": "verb",
+     "count": 27,
+     "rank": 505
+    },
+    {
+     "id": "οὔπω",
+     "lemma": "οὔπω",
+     "citation": "οὔπω",
+     "gloss": "not yet",
+     "pos": "adverb",
+     "count": 26,
+     "rank": 512
+    },
+    {
+     "id": "ἑορτή",
+     "lemma": "ἑορτή",
+     "citation": "ἑορτή, ῆς, ἡ",
+     "gloss": "a festival, feast",
+     "pos": "noun",
+     "count": 25,
+     "rank": 541
+    },
+    {
+     "id": "κεῖμαι",
+     "lemma": "κεῖμαι",
+     "citation": "κεῖμαι",
+     "gloss": "I lie, recline, am laid",
+     "pos": "verb",
+     "count": 24,
+     "rank": 545
+    },
+    {
+     "id": "μιμνῄσκομαι",
+     "lemma": "μιμνῄσκομαι",
+     "citation": "μιμνῄσκω",
+     "gloss": "I remember, recall",
+     "pos": "verb",
+     "count": 23,
+     "rank": 565
+    },
+    {
+     "id": "πωλέω",
+     "lemma": "πωλέω",
+     "citation": "πωλέω",
+     "gloss": "I sell",
+     "pos": "verb",
+     "count": 22,
+     "rank": 590
+    },
+    {
+     "id": "τεσσεράκοντα",
+     "lemma": "τεσσεράκοντα",
+     "citation": "τεσσεράκοντα",
+     "gloss": "forty",
+     "pos": "adjective",
+     "count": 22,
+     "rank": 592
+    },
+    {
+     "id": "Καφαρναούμ",
+     "lemma": "Καφαρναούμ",
+     "citation": "Καφαρναούμ, ἡ",
+     "gloss": "Capernaum",
+     "pos": "noun",
+     "count": 16,
+     "rank": 722
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-2-2",
+   "type": "vocab",
+   "label": "γάμος",
+   "sub": "New words for John 2",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "γάμος",
+     "lemma": "γάμος",
+     "citation": "γάμος, ου, ὁ",
+     "gloss": "a marriage, wedding, wedding-feast",
+     "pos": "noun",
+     "count": 16,
+     "rank": 723
+    },
+    {
+     "id": "ζῆλος",
+     "lemma": "ζῆλος",
+     "citation": "ζῆλος, ου, ὁ",
+     "gloss": "eagerness, zeal, rivalry",
+     "pos": "noun",
+     "count": 16,
+     "rank": 731
+    },
+    {
+     "id": "νυμφίος",
+     "lemma": "νυμφίος",
+     "citation": "νυμφίος, ου, ὁ",
+     "gloss": "a bridegroom",
+     "pos": "noun",
+     "count": 16,
+     "rank": 738
+    },
+    {
+     "id": "ὑστερέω",
+     "lemma": "ὑστερέω",
+     "citation": "ὑστερέω",
+     "gloss": "I am lacking, fall short, suffer need",
+     "pos": "verb",
+     "count": 16,
+     "rank": 757
+    },
+    {
+     "id": "γεύομαι",
+     "lemma": "γεύομαι",
+     "citation": "γεύομαι",
+     "gloss": "I taste, experience",
+     "pos": "verb",
+     "count": 15,
+     "rank": 761
+    },
+    {
+     "id": "τράπεζα",
+     "lemma": "τράπεζα",
+     "citation": "τράπεζα, ης, ἡ",
+     "gloss": "a table for food or business",
+     "pos": "noun",
+     "count": 15,
+     "rank": 790
+    },
+    {
+     "id": "κατεσθίω",
+     "lemma": "κατεσθίω",
+     "citation": "κατεσθίω/κατέσθω",
+     "gloss": "I eat till it is finished",
+     "pos": "verb",
+     "count": 14,
+     "rank": 811
+    },
+    {
+     "id": "ἀνά",
+     "lemma": "ἀνά",
+     "citation": "ἀνά",
+     "gloss": "and, apiece, by, each, every, in, through",
+     "pos": "preposition",
+     "count": 13,
+     "rank": 888
+    },
+    {
+     "id": "ἕξ",
+     "lemma": "ἕξ",
+     "citation": "ἕξ",
+     "gloss": "six",
+     "pos": "adjective",
+     "count": 13,
+     "rank": 898
+    },
+    {
+     "id": "χωρέω",
+     "lemma": "χωρέω",
+     "citation": "χωρέω",
+     "gloss": "I make room, go, receive",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1085
+    },
+    {
+     "id": "ἀναστρέφω",
+     "lemma": "ἀναστρέφω",
+     "citation": "ἀναστρέφω",
+     "gloss": "I overturn, turn upside down, return, (mid. and pass) I conduct myself, live",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1092
+    },
+    {
+     "id": "ἐντεῦθεν",
+     "lemma": "ἐντεῦθεν",
+     "citation": "ἐντεῦθεν",
+     "gloss": "hence, from this place, on this side and on that",
+     "pos": "adverb",
+     "count": 10,
+     "rank": 1110
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-2",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 2",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 2,
+    "from": 1,
+    "to": 25,
+    "verseIds": [
+     "john-2-1",
+     "john-2-2",
+     "john-2-3",
+     "john-2-4",
+     "john-2-5",
+     "john-2-6",
+     "john-2-7",
+     "john-2-8",
+     "john-2-9",
+     "john-2-10",
+     "john-2-11",
+     "john-2-12",
+     "john-2-13",
+     "john-2-14",
+     "john-2-15",
+     "john-2-16",
+     "john-2-17",
+     "john-2-18",
+     "john-2-19",
+     "john-2-20",
+     "john-2-21",
+     "john-2-22",
+     "john-2-23",
+     "john-2-24",
+     "john-2-25"
+    ],
+    "reference": "John 2:1–25",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 430,
+     "known": 0.942,
+     "schedulable": 0.942
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-3-1",
+   "type": "vocab",
+   "label": "φίλος",
+   "sub": "New words for John 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "φίλος",
+     "lemma": "φίλος",
+     "citation": "φίλος, η, ον",
+     "gloss": "friendly, a friend",
+     "pos": "adjective",
+     "count": 29,
+     "rank": 476
+    },
+    {
+     "id": "ἀληθής",
+     "lemma": "ἀληθής",
+     "citation": "ἀληθής, ές",
+     "gloss": "unconcealed, true",
+     "pos": "adjective",
+     "count": 26,
+     "rank": 518
+    },
+    {
+     "id": "κοιλία",
+     "lemma": "κοιλία",
+     "citation": "κοιλία, ας, ἡ",
+     "gloss": "belly, womb, the inner man",
+     "pos": "noun",
+     "count": 23,
+     "rank": 562
+    },
+    {
+     "id": "αὐξάνω",
+     "lemma": "αὐξάνω",
+     "citation": "αὐξάνω/αὔξω",
+     "gloss": "I cause to increase, become greater, grow",
+     "pos": "verb",
+     "count": 21,
+     "rank": 597
+    },
+    {
+     "id": "ὑψόω",
+     "lemma": "ὑψόω",
+     "citation": "ὑψόω",
+     "gloss": "I lift up, exalt",
+     "pos": "verb",
+     "count": 20,
+     "rank": 634
+    },
+    {
+     "id": "ἐπάνω",
+     "lemma": "ἐπάνω",
+     "citation": "ἐπάνω",
+     "gloss": "on the top, above, superior to",
+     "pos": "preposition",
+     "count": 19,
+     "rank": 655
+    },
+    {
+     "id": "ἐπουράνιος",
+     "lemma": "ἐπουράνιος",
+     "citation": "ἐπουράνιος, ον",
+     "gloss": "heavenly, celestial",
+     "pos": "adjective",
+     "count": 19,
+     "rank": 658
+    },
+    {
+     "id": "ἐλέγχω",
+     "lemma": "ἐλέγχω",
+     "citation": "ἐλέγχω",
+     "gloss": "I rebuke, expose",
+     "pos": "verb",
+     "count": 17,
+     "rank": 708
+    },
+    {
+     "id": "σφραγίζω",
+     "lemma": "σφραγίζω",
+     "citation": "σφραγίζω",
+     "gloss": "I set a seal upon",
+     "pos": "verb",
+     "count": 15,
+     "rank": 789
+    },
+    {
+     "id": "μέτρον",
+     "lemma": "μέτρον",
+     "citation": "μέτρον, ου, τό",
+     "gloss": "a measure, measuring rod",
+     "pos": "noun",
+     "count": 14,
+     "rank": 818
+    },
+    {
+     "id": "ἀπειθέω",
+     "lemma": "ἀπειθέω",
+     "citation": "ἀπειθέω",
+     "gloss": "I disobey, rebel, am disloyal",
+     "pos": "verb",
+     "count": 14,
+     "rank": 844
+    },
+    {
+     "id": "ὄφις",
+     "lemma": "ὄφις",
+     "citation": "ὄφις, εως, ὁ",
+     "gloss": "a serpent",
+     "pos": "noun",
+     "count": 14,
+     "rank": 858
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-3-2",
+   "type": "vocab",
+   "label": "ἄνωθεν",
+   "sub": "New words for John 3",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἄνωθεν",
+     "lemma": "ἄνωθεν",
+     "citation": "ἄνωθεν",
+     "gloss": "from above, from the beginning, again",
+     "pos": "adverb",
+     "count": 13,
+     "rank": 891
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-3",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 3",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 3,
+    "from": 1,
+    "to": 36,
+    "verseIds": [
+     "john-3-1",
+     "john-3-2",
+     "john-3-3",
+     "john-3-4",
+     "john-3-5",
+     "john-3-6",
+     "john-3-7",
+     "john-3-8",
+     "john-3-9",
+     "john-3-10",
+     "john-3-11",
+     "john-3-12",
+     "john-3-13",
+     "john-3-14",
+     "john-3-15",
+     "john-3-16",
+     "john-3-17",
+     "john-3-18",
+     "john-3-19",
+     "john-3-20",
+     "john-3-21",
+     "john-3-22",
+     "john-3-23",
+     "john-3-24",
+     "john-3-25",
+     "john-3-26",
+     "john-3-27",
+     "john-3-28",
+     "john-3-29",
+     "john-3-30",
+     "john-3-31",
+     "john-3-32",
+     "john-3-33",
+     "john-3-34",
+     "john-3-35",
+     "john-3-36"
+    ],
+    "reference": "John 3:1–36",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 657,
+     "known": 0.976,
+     "schedulable": 0.976
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-4-1",
+   "type": "vocab",
+   "label": "ἀγοράζω",
+   "sub": "New words for John 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀγοράζω",
+     "lemma": "ἀγοράζω",
+     "citation": "ἀγοράζω",
+     "gloss": "I buy",
+     "pos": "verb",
+     "count": 30,
+     "rank": 459
+    },
+    {
+     "id": "μισθός",
+     "lemma": "μισθός",
+     "citation": "μισθός, οῦ, ὁ",
+     "gloss": "wages, reward",
+     "pos": "noun",
+     "count": 29,
+     "rank": 469
+    },
+    {
+     "id": "χώρα",
+     "lemma": "χώρα",
+     "citation": "χώρα, ας, ἡ",
+     "gloss": "region, land, fields",
+     "pos": "noun",
+     "count": 28,
+     "rank": 489
+    },
+    {
+     "id": "ἐκεῖθεν",
+     "lemma": "ἐκεῖθεν",
+     "citation": "ἐκεῖθεν",
+     "gloss": "thence, from that place",
+     "pos": "adverb",
+     "count": 27,
+     "rank": 502
+    },
+    {
+     "id": "Ἰακώβ",
+     "lemma": "Ἰακώβ",
+     "citation": "Ἰακώβ, ὁ",
+     "gloss": "Jacob",
+     "pos": "noun",
+     "count": 27,
+     "rank": 506
+    },
+    {
+     "id": "ἰάομαι",
+     "lemma": "ἰάομαι",
+     "citation": "ἰάομαι",
+     "gloss": "I heal",
+     "pos": "verb",
+     "count": 26,
+     "rank": 522
+    },
+    {
+     "id": "λευκός",
+     "lemma": "λευκός",
+     "citation": "λευκός, ή, όν",
+     "gloss": "white, bright",
+     "pos": "adjective",
+     "count": 25,
+     "rank": 529
+    },
+    {
+     "id": "σός",
+     "lemma": "σός",
+     "citation": "σός, σή, σόν",
+     "gloss": "yours, thy, thine",
+     "pos": "adjective",
+     "count": 25,
+     "rank": 536
+    },
+    {
+     "id": "παῖς",
+     "lemma": "παῖς",
+     "citation": "παῖς, παιδός, ὁ/ἡ",
+     "gloss": "a boy or girl child",
+     "pos": "noun",
+     "count": 24,
+     "rank": 549
+    },
+    {
+     "id": "σωτήρ",
+     "lemma": "σωτήρ",
+     "citation": "σωτήρ, ῆρος, ὁ",
+     "gloss": "a savior, deliverer, preserver",
+     "pos": "noun",
+     "count": 24,
+     "rank": 551
+    },
+    {
+     "id": "κοπιάω",
+     "lemma": "κοπιάω",
+     "citation": "κοπιάω",
+     "gloss": "I grow weary, toil",
+     "pos": "verb",
+     "count": 23,
+     "rank": 563
+    },
+    {
+     "id": "τελειόω",
+     "lemma": "τελειόω",
+     "citation": "τελειόω",
+     "gloss": "I complete, accomplish, make perfect",
+     "pos": "verb",
+     "count": 23,
+     "rank": 571
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-4-2",
+   "type": "vocab",
+   "label": "θερίζω",
+   "sub": "New words for John 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "θερίζω",
+     "lemma": "θερίζω",
+     "citation": "θερίζω",
+     "gloss": "I reap, gather",
+     "pos": "verb",
+     "count": 21,
+     "rank": 601
+    },
+    {
+     "id": "ἐπαίρω",
+     "lemma": "ἐπαίρω",
+     "citation": "ἐπαίρω",
+     "gloss": "I raise, lift up",
+     "pos": "verb",
+     "count": 19,
+     "rank": 656
+    },
+    {
+     "id": "κόπος",
+     "lemma": "κόπος",
+     "citation": "κόπος, ου, ὁ",
+     "gloss": "trouble, toil, labor",
+     "pos": "noun",
+     "count": 18,
+     "rank": 667
+    },
+    {
+     "id": "βρῶμα",
+     "lemma": "βρῶμα",
+     "citation": "βρῶμα, ατος, τό",
+     "gloss": "food of any kind",
+     "pos": "noun",
+     "count": 17,
+     "rank": 687
+    },
+    {
+     "id": "μήτι",
+     "lemma": "μήτι",
+     "citation": "μήτι",
+     "gloss": "if not, unless",
+     "pos": "particle",
+     "count": 17,
+     "rank": 693
+    },
+    {
+     "id": "πλησίον",
+     "lemma": "πλησίον",
+     "citation": "πλησίον",
+     "gloss": "near, nearby, a neighbor",
+     "pos": "adverb",
+     "count": 17,
+     "rank": 698
+    },
+    {
+     "id": "διψάω",
+     "lemma": "διψάω",
+     "citation": "διψάω",
+     "gloss": "I thirst for, desire earnestly",
+     "pos": "verb",
+     "count": 16,
+     "rank": 729
+    },
+    {
+     "id": "τέρας",
+     "lemma": "τέρας",
+     "citation": "τέρας, ατος, τό",
+     "gloss": "a wonder, portent",
+     "pos": "noun",
+     "count": 16,
+     "rank": 747
+    },
+    {
+     "id": "τροφή",
+     "lemma": "τροφή",
+     "citation": "τροφή, ῆς, ἡ",
+     "gloss": "food, nourishment",
+     "pos": "noun",
+     "count": 16,
+     "rank": 749
+    },
+    {
+     "id": "ἕκτος",
+     "lemma": "ἕκτος",
+     "citation": "ἕκτος, η, ον",
+     "gloss": "sixth",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 856
+    },
+    {
+     "id": "θερισμός",
+     "lemma": "θερισμός",
+     "citation": "θερισμός, οῦ, ὁ",
+     "gloss": "reaping, harvest",
+     "pos": "noun",
+     "count": 13,
+     "rank": 869
+    },
+    {
+     "id": "πρίν",
+     "lemma": "πρίν",
+     "citation": "πρίν",
+     "gloss": "formerly, before",
+     "pos": "adverb",
+     "count": 13,
+     "rank": 881
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-4-3",
+   "type": "vocab",
+   "label": "δεῦτε",
+   "sub": "New words for John 4",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δεῦτε",
+     "lemma": "δεῦτε",
+     "citation": "δεῦτε",
+     "gloss": "come hither, come, hither",
+     "pos": "adverb",
+     "count": 12,
+     "rank": 915
+    },
+    {
+     "id": "πυνθάνομαι",
+     "lemma": "πυνθάνομαι",
+     "citation": "πυνθάνομαι",
+     "gloss": "I ask, inquire",
+     "pos": "verb",
+     "count": 12,
+     "rank": 936
+    },
+    {
+     "id": "Γαλιλαῖος",
+     "lemma": "Γαλιλαῖος",
+     "citation": "Γαλιλαῖος, α, ον",
+     "gloss": "a Galilean",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 964
+    },
+    {
+     "id": "Σαμάρεια",
+     "lemma": "Σαμάρεια",
+     "citation": "Σαμάρεια, ας, ἡ",
+     "gloss": "Samaria",
+     "pos": "noun",
+     "count": 11,
+     "rank": 967
+    },
+    {
+     "id": "βρῶσις",
+     "lemma": "βρῶσις",
+     "citation": "βρῶσις, εως, ἡ",
+     "gloss": "eating, food, a meal, rust",
+     "pos": "noun",
+     "count": 11,
+     "rank": 969
+    },
+    {
+     "id": "δωρεά",
+     "lemma": "δωρεά",
+     "citation": "δωρεά, ᾶς, ἡ",
+     "gloss": "a free gift",
+     "pos": "noun",
+     "count": 11,
+     "rank": 972
+    },
+    {
+     "id": "πηγή",
+     "lemma": "πηγή",
+     "citation": "πηγή, ῆς, ἡ",
+     "gloss": "a fountain, spring, well",
+     "pos": "noun",
+     "count": 11,
+     "rank": 996
+    },
+    {
+     "id": "χωρίον",
+     "lemma": "χωρίον",
+     "citation": "χωρίον, ου, τό",
+     "gloss": "a place, piece of land, field",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1086
+    },
+    {
+     "id": "ὑπαντάω",
+     "lemma": "ὑπαντάω",
+     "citation": "ὑπαντάω",
+     "gloss": "I meet",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1123
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-4",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 4",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 4,
+    "from": 1,
+    "to": 54,
+    "verseIds": [
+     "john-4-1",
+     "john-4-2",
+     "john-4-3",
+     "john-4-4",
+     "john-4-5",
+     "john-4-6",
+     "john-4-7",
+     "john-4-8",
+     "john-4-9",
+     "john-4-10",
+     "john-4-11",
+     "john-4-12",
+     "john-4-13",
+     "john-4-14",
+     "john-4-15",
+     "john-4-16",
+     "john-4-17",
+     "john-4-18",
+     "john-4-19",
+     "john-4-20",
+     "john-4-21",
+     "john-4-22",
+     "john-4-23",
+     "john-4-24",
+     "john-4-25",
+     "john-4-26",
+     "john-4-27",
+     "john-4-28",
+     "john-4-29",
+     "john-4-30",
+     "john-4-31",
+     "john-4-32",
+     "john-4-33",
+     "john-4-34",
+     "john-4-35",
+     "john-4-36",
+     "john-4-37",
+     "john-4-38",
+     "john-4-39",
+     "john-4-40",
+     "john-4-41",
+     "john-4-42",
+     "john-4-43",
+     "john-4-44",
+     "john-4-45",
+     "john-4-46",
+     "john-4-47",
+     "john-4-48",
+     "john-4-49",
+     "john-4-50",
+     "john-4-51",
+     "john-4-52",
+     "john-4-53",
+     "john-4-54"
+    ],
+    "reference": "John 4:1–54",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 936,
+     "known": 0.962,
+     "schedulable": 0.962
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-5-1",
+   "type": "vocab",
+   "label": "ἔξεστι(ν)",
+   "sub": "New words for John 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἔξεστι(ν)",
+     "lemma": "ἔξεστι(ν)",
+     "citation": "ἔξεστι",
+     "gloss": "it is permitted, lawful, possible",
+     "pos": "verb",
+     "count": 31,
+     "rank": 451
+    },
+    {
+     "id": "ὁμοίως",
+     "lemma": "ὁμοίως",
+     "citation": "ὁμοίως",
+     "gloss": "in like manner",
+     "pos": "adverb",
+     "count": 31,
+     "rank": 453
+    },
+    {
+     "id": "φιλέω",
+     "lemma": "φιλέω",
+     "citation": "φιλέω",
+     "gloss": "I love, kiss",
+     "pos": "verb",
+     "count": 25,
+     "rank": 537
+    },
+    {
+     "id": "ἀσθένεια",
+     "lemma": "ἀσθένεια",
+     "citation": "ἀσθένεια, ας, ἡ",
+     "gloss": "want of strength, weakness, illness",
+     "pos": "noun",
+     "count": 24,
+     "rank": 554
+    },
+    {
+     "id": "κατηγορέω",
+     "lemma": "κατηγορέω",
+     "citation": "κατηγορέω",
+     "gloss": "I accuse, charge, prosecute",
+     "pos": "verb",
+     "count": 22,
+     "rank": 585
+    },
+    {
+     "id": "μηκέτι",
+     "lemma": "μηκέτι",
+     "citation": "μηκέτι",
+     "gloss": "no longer",
+     "pos": "adverb",
+     "count": 21,
+     "rank": 604
+    },
+    {
+     "id": "τιμάω",
+     "lemma": "τιμάω",
+     "citation": "τιμάω",
+     "gloss": "I value at a price, honor",
+     "pos": "verb",
+     "count": 21,
+     "rank": 609
+    },
+    {
+     "id": "ταράσσω",
+     "lemma": "ταράσσω",
+     "citation": "ταράσσω",
+     "gloss": "I agitate, stir up, trouble",
+     "pos": "verb",
+     "count": 17,
+     "rank": 701
+    },
+    {
+     "id": "γράμμα",
+     "lemma": "γράμμα",
+     "citation": "γράμμα, ατος, τό",
+     "gloss": "a letter, writings, learning",
+     "pos": "noun",
+     "count": 14,
+     "rank": 806
+    },
+    {
+     "id": "λύχνος",
+     "lemma": "λύχνος",
+     "citation": "λύχνος, ου, ὁ",
+     "gloss": "a lamp",
+     "pos": "noun",
+     "count": 14,
+     "rank": 817
+    },
+    {
+     "id": "χωλός",
+     "lemma": "χωλός",
+     "citation": "χωλός, ή, όν",
+     "gloss": "lame, deprived of a foot",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 837
+    },
+    {
+     "id": "καίω",
+     "lemma": "καίω",
+     "citation": "καίω",
+     "gloss": "I ignite, light, burn",
+     "pos": "verb",
+     "count": 13,
+     "rank": 870
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-5-2",
+   "type": "vocab",
+   "label": "κατάκειμαι",
+   "sub": "New words for John 5",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "κατάκειμαι",
+     "lemma": "κατάκειμαι",
+     "citation": "κατάκειμαι",
+     "gloss": "I recline, am lying ill",
+     "pos": "verb",
+     "count": 12,
+     "rank": 918
+    },
+    {
+     "id": "μεταβαίνω",
+     "lemma": "μεταβαίνω",
+     "citation": "μεταβαίνω",
+     "gloss": "I leave, depart, remove, pass over",
+     "pos": "verb",
+     "count": 12,
+     "rank": 925
+    },
+    {
+     "id": "ζῳοποιέω",
+     "lemma": "ζῳοποιέω",
+     "citation": "ζωοποιέω",
+     "gloss": "I make to live",
+     "pos": "verb",
+     "count": 11,
+     "rank": 978
+    },
+    {
+     "id": "κράβαττος",
+     "lemma": "κράβαττος",
+     "citation": "κράβαττος, ου, ὁ",
+     "gloss": "a bed, mattress, mat",
+     "pos": "noun",
+     "count": 11,
+     "rank": 991
+    },
+    {
+     "id": "τριάκοντα",
+     "lemma": "τριάκοντα",
+     "citation": "τριάκοντα",
+     "gloss": "thirty",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1009
+    },
+    {
+     "id": "χείρων",
+     "lemma": "χείρων",
+     "citation": "χείρων, ον, gen. ονος",
+     "gloss": "worse",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1013
+    },
+    {
+     "id": "ἀγαλλιάω",
+     "lemma": "ἀγαλλιάω",
+     "citation": "ἀγαλλιάω",
+     "gloss": "I exult, am full of joy",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1017
+    },
+    {
+     "id": "ὑγιής",
+     "lemma": "ὑγιής",
+     "citation": "ὑγιής, ές, acc. ὑγιῆ",
+     "gloss": "sound, whole, wholesome",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1039
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-5",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 5",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 5,
+    "from": 1,
+    "to": 47,
+    "verseIds": [
+     "john-5-1",
+     "john-5-2",
+     "john-5-3",
+     "john-5-5",
+     "john-5-6",
+     "john-5-7",
+     "john-5-8",
+     "john-5-9",
+     "john-5-10",
+     "john-5-11",
+     "john-5-12",
+     "john-5-13",
+     "john-5-14",
+     "john-5-15",
+     "john-5-16",
+     "john-5-17",
+     "john-5-18",
+     "john-5-19",
+     "john-5-20",
+     "john-5-21",
+     "john-5-22",
+     "john-5-23",
+     "john-5-24",
+     "john-5-25",
+     "john-5-26",
+     "john-5-27",
+     "john-5-28",
+     "john-5-29",
+     "john-5-30",
+     "john-5-31",
+     "john-5-32",
+     "john-5-33",
+     "john-5-34",
+     "john-5-35",
+     "john-5-36",
+     "john-5-37",
+     "john-5-38",
+     "john-5-39",
+     "john-5-40",
+     "john-5-41",
+     "john-5-42",
+     "john-5-43",
+     "john-5-44",
+     "john-5-45",
+     "john-5-46",
+     "john-5-47"
+    ],
+    "reference": "John 5:1–47",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 790,
+     "known": 0.981,
+     "schedulable": 0.981
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-6-1",
+   "type": "vocab",
+   "label": "σκανδαλίζω",
+   "sub": "New words for John 6",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "σκανδαλίζω",
+     "lemma": "σκανδαλίζω",
+     "citation": "σκανδαλίζω",
+     "gloss": "I cause to stumble",
+     "pos": "verb",
+     "count": 30,
+     "rank": 455
+    },
+    {
+     "id": "μανθάνω",
+     "lemma": "μανθάνω",
+     "citation": "μανθάνω",
+     "gloss": "I learn, ascertain",
+     "pos": "verb",
+     "count": 25,
+     "rank": 531
+    },
+    {
+     "id": "πεινάω",
+     "lemma": "πεινάω",
+     "citation": "πεινάω",
+     "gloss": "I am hungry, needy",
+     "pos": "verb",
+     "count": 23,
+     "rank": 568
+    },
+    {
+     "id": "κἀκεῖνος",
+     "lemma": "κἀκεῖνος",
+     "citation": "κἀκεῖνος, η, ο",
+     "gloss": "and he, she, it, and that",
+     "pos": "demonstrative pronoun",
+     "count": 22,
+     "rank": 586
+    },
+    {
+     "id": "ἐκλέγομαι",
+     "lemma": "ἐκλέγομαι",
+     "citation": "ἐκλέγω",
+     "gloss": "I choose, elect",
+     "pos": "verb",
+     "count": 22,
+     "rank": 595
+    },
+    {
+     "id": "τοσοῦτος",
+     "lemma": "τοσοῦτος",
+     "citation": "τοσοῦτος, αύτη, οῦτον /οῦτο",
+     "gloss": "so great",
+     "pos": "demonstrative pronoun",
+     "count": 20,
+     "rank": 624
+    },
+    {
+     "id": "πότε",
+     "lemma": "πότε",
+     "citation": "πότε",
+     "gloss": "when, at what time",
+     "pos": "adverb",
+     "count": 19,
+     "rank": 651
+    },
+    {
+     "id": "ἀριθμός",
+     "lemma": "ἀριθμός",
+     "citation": "ἀριθμός, οῦ, ὁ",
+     "gloss": "a number, total",
+     "pos": "noun",
+     "count": 18,
+     "rank": 681
+    },
+    {
+     "id": "ἐμβαίνω",
+     "lemma": "ἐμβαίνω",
+     "citation": "ἐμβαίνω",
+     "gloss": "I embark",
+     "pos": "verb",
+     "count": 17,
+     "rank": 709
+    },
+    {
+     "id": "δηνάριον",
+     "lemma": "δηνάριον",
+     "citation": "δηνάριον, ου, τό",
+     "gloss": "a denarius",
+     "pos": "noun",
+     "count": 16,
+     "rank": 726
+    },
+    {
+     "id": "χορτάζω",
+     "lemma": "χορτάζω",
+     "citation": "χορτάζω",
+     "gloss": "I feed, satisfy",
+     "pos": "verb",
+     "count": 15,
+     "rank": 792
+    },
+    {
+     "id": "χόρτος",
+     "lemma": "χόρτος",
+     "citation": "χόρτος, ου, ὁ",
+     "gloss": "grass, hay",
+     "pos": "noun",
+     "count": 15,
+     "rank": 793
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-6-2",
+   "type": "vocab",
+   "label": "ὠφελέω",
+   "sub": "New words for John 6",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ὠφελέω",
+     "lemma": "ὠφελέω",
+     "citation": "ὠφελέω",
+     "gloss": "I help, benefit, do good",
+     "pos": "verb",
+     "count": 15,
+     "rank": 802
+    },
+    {
+     "id": "ἀνάκειμαι",
+     "lemma": "ἀνάκειμαι",
+     "citation": "ἀνάκειμαι",
+     "gloss": "I recline, especially at a dinner-table",
+     "pos": "verb",
+     "count": 14,
+     "rank": 840
+    },
+    {
+     "id": "ἀναχωρέω",
+     "lemma": "ἀναχωρέω",
+     "citation": "ἀναχωρέω",
+     "gloss": "I return, retire, depart, withdraw",
+     "pos": "verb",
+     "count": 14,
+     "rank": 842
+    },
+    {
+     "id": "ἁρπάζω",
+     "lemma": "ἁρπάζω",
+     "citation": "ἁρπάζω",
+     "gloss": "I seize, snatch, obtain by robbery",
+     "pos": "verb",
+     "count": 14,
+     "rank": 847
+    },
+    {
+     "id": "ὀψία",
+     "lemma": "ὀψία",
+     "citation": "ὄψιος, α, ον",
+     "gloss": "evening",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 857
+    },
+    {
+     "id": "ἀναπίπτω",
+     "lemma": "ἀναπίπτω",
+     "citation": "ἀναπίπτω",
+     "gloss": "I lie down, recline, fall back upon",
+     "pos": "verb",
+     "count": 12,
+     "rank": 950
+    },
+    {
+     "id": "εἴκοσι(ν)",
+     "lemma": "εἴκοσι(ν)",
+     "citation": "εἴκοσι",
+     "gloss": "twenty",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 976
+    },
+    {
+     "id": "πρότερος",
+     "lemma": "πρότερος",
+     "citation": "πρότερος, α, ον",
+     "gloss": "former, before",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 999
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-6",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 6",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 6,
+    "from": 1,
+    "to": 71,
+    "verseIds": [
+     "john-6-1",
+     "john-6-2",
+     "john-6-3",
+     "john-6-4",
+     "john-6-5",
+     "john-6-6",
+     "john-6-7",
+     "john-6-8",
+     "john-6-9",
+     "john-6-10",
+     "john-6-11",
+     "john-6-12",
+     "john-6-13",
+     "john-6-14",
+     "john-6-15",
+     "john-6-16",
+     "john-6-17",
+     "john-6-18",
+     "john-6-19",
+     "john-6-20",
+     "john-6-21",
+     "john-6-22",
+     "john-6-23",
+     "john-6-24",
+     "john-6-25",
+     "john-6-26",
+     "john-6-27",
+     "john-6-28",
+     "john-6-29",
+     "john-6-30",
+     "john-6-31",
+     "john-6-32",
+     "john-6-33",
+     "john-6-34",
+     "john-6-35",
+     "john-6-36",
+     "john-6-37",
+     "john-6-38",
+     "john-6-39",
+     "john-6-40",
+     "john-6-41",
+     "john-6-42",
+     "john-6-43",
+     "john-6-44",
+     "john-6-45",
+     "john-6-46",
+     "john-6-47",
+     "john-6-48",
+     "john-6-49",
+     "john-6-50",
+     "john-6-51",
+     "john-6-52",
+     "john-6-53",
+     "john-6-54",
+     "john-6-55",
+     "john-6-56",
+     "john-6-57",
+     "john-6-58",
+     "john-6-59",
+     "john-6-60",
+     "john-6-61",
+     "john-6-62",
+     "john-6-63",
+     "john-6-64",
+     "john-6-65",
+     "john-6-66",
+     "john-6-67",
+     "john-6-68",
+     "john-6-69",
+     "john-6-70",
+     "john-6-71"
+    ],
+    "reference": "John 6:1–71",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 1238,
+     "known": 0.965,
+     "schedulable": 0.965
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-7-1",
+   "type": "vocab",
+   "label": "διδαχή",
+   "sub": "New words for John 7",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "διδαχή",
+     "lemma": "διδαχή",
+     "citation": "διδαχή, ῆς, ἡ",
+     "gloss": "teaching, doctrine",
+     "pos": "noun",
+     "count": 30,
+     "rank": 454
+    },
+    {
+     "id": "κώμη",
+     "lemma": "κώμη",
+     "citation": "κώμη, ης, ἡ",
+     "gloss": "a village",
+     "pos": "noun",
+     "count": 27,
+     "rank": 499
+    },
+    {
+     "id": "μήποτε",
+     "lemma": "μήποτε",
+     "citation": "μήποτε",
+     "gloss": "lest at any time, lest, perhaps",
+     "pos": "conjunction",
+     "count": 25,
+     "rank": 530
+    },
+    {
+     "id": "πάρειμι",
+     "lemma": "πάρειμι",
+     "citation": "πάρειμι",
+     "gloss": "I am present, am near",
+     "pos": "verb",
+     "count": 25,
+     "rank": 534
+    },
+    {
+     "id": "Ἕλλην",
+     "lemma": "Ἕλλην",
+     "citation": "Ἕλλην, ηνος, ὁ",
+     "gloss": "a Hellene, a Greek",
+     "pos": "noun",
+     "count": 25,
+     "rank": 542
+    },
+    {
+     "id": "ὑπηρέτης",
+     "lemma": "ὑπηρέτης",
+     "citation": "ὑπηρέτης, ου, ὁ",
+     "gloss": "a servant, an attendant",
+     "pos": "noun",
+     "count": 20,
+     "rank": 633
+    },
+    {
+     "id": "ἐπιβάλλω",
+     "lemma": "ἐπιβάλλω",
+     "citation": "ἐπιβάλλω",
+     "gloss": "I throw upon, lay, strike upon",
+     "pos": "verb",
+     "count": 18,
+     "rank": 684
+    },
+    {
+     "id": "κρυπτός",
+     "lemma": "κρυπτός",
+     "citation": "κρυπτός, ή, όν",
+     "gloss": "hidden, secret",
+     "pos": "adjective",
+     "count": 17,
+     "rank": 692
+    },
+    {
+     "id": "περιτέμνω",
+     "lemma": "περιτέμνω",
+     "citation": "περιτέμνω",
+     "gloss": "I circumcise",
+     "pos": "verb",
+     "count": 17,
+     "rank": 696
+    },
+    {
+     "id": "ποταμός",
+     "lemma": "ποταμός",
+     "citation": "ποταμός, οῦ, ὁ",
+     "gloss": "a river, torrent",
+     "pos": "noun",
+     "count": 17,
+     "rank": 699
+    },
+    {
+     "id": "ἕτοιμος",
+     "lemma": "ἕτοιμος",
+     "citation": "ἕτοιμος, η, ον",
+     "gloss": "ready, prepared",
+     "pos": "adjective",
+     "count": 17,
+     "rank": 714
+    },
+    {
+     "id": "οὐδέποτε",
+     "lemma": "οὐδέποτε",
+     "citation": "οὐδέποτε",
+     "gloss": "never",
+     "pos": "adverb",
+     "count": 16,
+     "rank": 739
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-7-2",
+   "type": "vocab",
+   "label": "πιάζω",
+   "sub": "New words for John 7",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "πιάζω",
+     "lemma": "πιάζω",
+     "citation": "πιάζω",
+     "gloss": "I lay hold of",
+     "pos": "verb",
+     "count": 12,
+     "rank": 930
+    },
+    {
+     "id": "ὑμέτερος",
+     "lemma": "ὑμέτερος",
+     "citation": "ὑμέτερος, α, ον",
+     "gloss": "your",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1040
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-7",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 7",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 7,
+    "from": 1,
+    "to": 52,
+    "verseIds": [
+     "john-7-1",
+     "john-7-2",
+     "john-7-3",
+     "john-7-4",
+     "john-7-5",
+     "john-7-6",
+     "john-7-7",
+     "john-7-8",
+     "john-7-9",
+     "john-7-10",
+     "john-7-11",
+     "john-7-12",
+     "john-7-13",
+     "john-7-14",
+     "john-7-15",
+     "john-7-16",
+     "john-7-17",
+     "john-7-18",
+     "john-7-19",
+     "john-7-20",
+     "john-7-21",
+     "john-7-22",
+     "john-7-23",
+     "john-7-24",
+     "john-7-25",
+     "john-7-26",
+     "john-7-27",
+     "john-7-28",
+     "john-7-29",
+     "john-7-30",
+     "john-7-31",
+     "john-7-32",
+     "john-7-33",
+     "john-7-34",
+     "john-7-35",
+     "john-7-36",
+     "john-7-37",
+     "john-7-38",
+     "john-7-39",
+     "john-7-40",
+     "john-7-41",
+     "john-7-42",
+     "john-7-43",
+     "john-7-44",
+     "john-7-45",
+     "john-7-46",
+     "john-7-47",
+     "john-7-48",
+     "john-7-49",
+     "john-7-50",
+     "john-7-51",
+     "john-7-52"
+    ],
+    "reference": "John 7:1–52",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 850,
+     "known": 0.979,
+     "schedulable": 0.979
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-8-1",
+   "type": "vocab",
+   "label": "δουλεύω",
+   "sub": "New words for John 8",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "δουλεύω",
+     "lemma": "δουλεύω",
+     "citation": "δουλεύω",
+     "gloss": "I am a slave, am subject to, obey",
+     "pos": "verb",
+     "count": 26,
+     "rank": 508
+    },
+    {
+     "id": "πορνεία",
+     "lemma": "πορνεία",
+     "citation": "πορνεία, ας, ἡ",
+     "gloss": "fornication, idolatry",
+     "pos": "noun",
+     "count": 25,
+     "rank": 535
+    },
+    {
+     "id": "ἐλεύθερος",
+     "lemma": "ἐλεύθερος",
+     "citation": "ἐλεύθερος, α, ον",
+     "gloss": "free, delivered from obligation",
+     "pos": "adjective",
+     "count": 23,
+     "rank": 578
+    },
+    {
+     "id": "κρύπτω",
+     "lemma": "κρύπτω",
+     "citation": "κρύπτω",
+     "gloss": "I hide, conceal, lay up",
+     "pos": "verb",
+     "count": 19,
+     "rank": 643
+    },
+    {
+     "id": "κἄν",
+     "lemma": "κἄν",
+     "citation": "κἄν",
+     "gloss": "and if, even if",
+     "pos": "adverb",
+     "count": 16,
+     "rank": 736
+    },
+    {
+     "id": "ψεῦδος",
+     "lemma": "ψεῦδος",
+     "citation": "ψεῦδος, ους, τό",
+     "gloss": "a lie",
+     "pos": "noun",
+     "count": 10,
+     "rank": 1088
+    },
+    {
+     "id": "ὄντως",
+     "lemma": "ὄντως",
+     "citation": "ὄντως",
+     "gloss": "really, truly",
+     "pos": "adverb",
+     "count": 10,
+     "rank": 1120
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-8",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 8",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 8,
+    "from": 12,
+    "to": 59,
+    "verseIds": [
+     "john-8-12",
+     "john-8-13",
+     "john-8-14",
+     "john-8-15",
+     "john-8-16",
+     "john-8-17",
+     "john-8-18",
+     "john-8-19",
+     "john-8-20",
+     "john-8-21",
+     "john-8-22",
+     "john-8-23",
+     "john-8-24",
+     "john-8-25",
+     "john-8-26",
+     "john-8-27",
+     "john-8-28",
+     "john-8-29",
+     "john-8-30",
+     "john-8-31",
+     "john-8-32",
+     "john-8-33",
+     "john-8-34",
+     "john-8-35",
+     "john-8-36",
+     "john-8-37",
+     "john-8-38",
+     "john-8-39",
+     "john-8-40",
+     "john-8-41",
+     "john-8-42",
+     "john-8-43",
+     "john-8-44",
+     "john-8-45",
+     "john-8-46",
+     "john-8-47",
+     "john-8-48",
+     "john-8-49",
+     "john-8-50",
+     "john-8-51",
+     "john-8-52",
+     "john-8-53",
+     "john-8-54",
+     "john-8-55",
+     "john-8-56",
+     "john-8-57",
+     "john-8-58",
+     "john-8-59"
+    ],
+    "reference": "John 8:12–59",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 905,
+     "known": 0.987,
+     "schedulable": 0.987
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-9-1",
+   "type": "vocab",
+   "label": "ποτέ",
+   "sub": "New words for John 9",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ποτέ",
+     "lemma": "ποτέ",
+     "citation": "ποτέ",
+     "gloss": "at one time or other",
+     "pos": "adverb",
+     "count": 29,
+     "rank": 473
+    },
+    {
+     "id": "κρίμα",
+     "lemma": "κρίμα",
+     "citation": "κρίμα, ατος, τό",
+     "gloss": "a judgment, verdict, lawsuit",
+     "pos": "noun",
+     "count": 27,
+     "rank": 498
+    },
+    {
+     "id": "ἀναβλέπω",
+     "lemma": "ἀναβλέπω",
+     "citation": "ἀναβλέπω",
+     "gloss": "I look up, recover my sight",
+     "pos": "verb",
+     "count": 25,
+     "rank": 540
+    },
+    {
+     "id": "γονεύς",
+     "lemma": "γονεύς",
+     "citation": "γονεύς, έως, ὁ",
+     "gloss": "a parent",
+     "pos": "noun",
+     "count": 20,
+     "rank": 617
+    },
+    {
+     "id": "νίπτω",
+     "lemma": "νίπτω",
+     "citation": "νίπτω",
+     "gloss": "I wash",
+     "pos": "verb",
+     "count": 17,
+     "rank": 694
+    },
+    {
+     "id": "παράγω",
+     "lemma": "παράγω",
+     "citation": "παράγω",
+     "gloss": "I pass by, depart, pass away",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1062
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-9",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 9",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 9,
+    "from": 1,
+    "to": 41,
+    "verseIds": [
+     "john-9-1",
+     "john-9-2",
+     "john-9-3",
+     "john-9-4",
+     "john-9-5",
+     "john-9-6",
+     "john-9-7",
+     "john-9-8",
+     "john-9-9",
+     "john-9-10",
+     "john-9-11",
+     "john-9-12",
+     "john-9-13",
+     "john-9-14",
+     "john-9-15",
+     "john-9-16",
+     "john-9-17",
+     "john-9-18",
+     "john-9-19",
+     "john-9-20",
+     "john-9-21",
+     "john-9-22",
+     "john-9-23",
+     "john-9-24",
+     "john-9-25",
+     "john-9-26",
+     "john-9-27",
+     "john-9-28",
+     "john-9-29",
+     "john-9-30",
+     "john-9-31",
+     "john-9-32",
+     "john-9-33",
+     "john-9-34",
+     "john-9-35",
+     "john-9-36",
+     "john-9-37",
+     "john-9-38",
+     "john-9-39",
+     "john-9-40",
+     "john-9-41"
+    ],
+    "reference": "John 9:1–41",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 689,
+     "known": 0.962,
+     "schedulable": 0.962
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-10-1",
+   "type": "vocab",
+   "label": "φεύγω",
+   "sub": "New words for John 10",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "φεύγω",
+     "lemma": "φεύγω",
+     "citation": "φεύγω",
+     "gloss": "I flee, escape, shun",
+     "pos": "verb",
+     "count": 29,
+     "rank": 477
+    },
+    {
+     "id": "ἁγιάζω",
+     "lemma": "ἁγιάζω",
+     "citation": "ἁγιάζω",
+     "gloss": "I make holy, sanctify",
+     "pos": "verb",
+     "count": 28,
+     "rank": 492
+    },
+    {
+     "id": "βαστάζω",
+     "lemma": "βαστάζω",
+     "citation": "βαστάζω",
+     "gloss": "I carry, carry away, bear",
+     "pos": "verb",
+     "count": 27,
+     "rank": 496
+    },
+    {
+     "id": "βλασφημία",
+     "lemma": "βλασφημία",
+     "citation": "βλασφημία, ας, ἡ",
+     "gloss": "abusive or scurrilous language, blasphemy",
+     "pos": "noun",
+     "count": 18,
+     "rank": 659
+    },
+    {
+     "id": "ποιμήν",
+     "lemma": "ποιμήν",
+     "citation": "ποιμήν, ένος, ὁ",
+     "gloss": "a shepherd",
+     "pos": "noun",
+     "count": 18,
+     "rank": 671
+    },
+    {
+     "id": "κλέπτης",
+     "lemma": "κλέπτης",
+     "citation": "κλέπτης, ου, ὁ",
+     "gloss": "a thief",
+     "pos": "noun",
+     "count": 16,
+     "rank": 734
+    },
+    {
+     "id": "λῃστής",
+     "lemma": "λῃστής",
+     "citation": "λῃστής, οῦ, ὁ",
+     "gloss": "a robber, brigand, bandit",
+     "pos": "noun",
+     "count": 15,
+     "rank": 775
+    },
+    {
+     "id": "θύω",
+     "lemma": "θύω",
+     "citation": "θύω",
+     "gloss": "I sacrifice, kill",
+     "pos": "verb",
+     "count": 14,
+     "rank": 809
+    },
+    {
+     "id": "ἀλλότριος",
+     "lemma": "ἀλλότριος",
+     "citation": "ἀλλότριος, α, ον",
+     "gloss": "belonging to another person, foreign",
+     "pos": "adjective",
+     "count": 14,
+     "rank": 838
+    },
+    {
+     "id": "δαιμονίζομαι",
+     "lemma": "δαιμονίζομαι",
+     "citation": "δαιμονίζομαι",
+     "gloss": "I am demon-possessed",
+     "pos": "verb",
+     "count": 13,
+     "rank": 864
+    },
+    {
+     "id": "κλέπτω",
+     "lemma": "κλέπτω",
+     "citation": "κλέπτω",
+     "gloss": "I steal",
+     "pos": "verb",
+     "count": 13,
+     "rank": 877
+    },
+    {
+     "id": "αὐλή",
+     "lemma": "αὐλή",
+     "citation": "αὐλή, ῆς, ἡ",
+     "gloss": "court-yard, fore-court, palace, house",
+     "pos": "noun",
+     "count": 12,
+     "rank": 904
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-10-2",
+   "type": "vocab",
+   "label": "ἐξάγω",
+   "sub": "New words for John 10",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐξάγω",
+     "lemma": "ἐξάγω",
+     "citation": "ἐξάγω",
+     "gloss": "I lead out",
+     "pos": "verb",
+     "count": 12,
+     "rank": 954
+    },
+    {
+     "id": "μέλει",
+     "lemma": "μέλει",
+     "citation": "μέλει",
+     "gloss": "it is a care, it concerns",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1056
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-10",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 10",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 10,
+    "from": 1,
+    "to": 42,
+    "verseIds": [
+     "john-10-1",
+     "john-10-2",
+     "john-10-3",
+     "john-10-4",
+     "john-10-5",
+     "john-10-6",
+     "john-10-7",
+     "john-10-8",
+     "john-10-9",
+     "john-10-10",
+     "john-10-11",
+     "john-10-12",
+     "john-10-13",
+     "john-10-14",
+     "john-10-15",
+     "john-10-16",
+     "john-10-17",
+     "john-10-18",
+     "john-10-19",
+     "john-10-20",
+     "john-10-21",
+     "john-10-22",
+     "john-10-23",
+     "john-10-24",
+     "john-10-25",
+     "john-10-26",
+     "john-10-27",
+     "john-10-28",
+     "john-10-29",
+     "john-10-30",
+     "john-10-31",
+     "john-10-32",
+     "john-10-33",
+     "john-10-34",
+     "john-10-35",
+     "john-10-36",
+     "john-10-37",
+     "john-10-38",
+     "john-10-39",
+     "john-10-40",
+     "john-10-41",
+     "john-10-42"
+    ],
+    "reference": "John 10:1–42",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 697,
+     "known": 0.97,
+     "schedulable": 0.97
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-11-1",
+   "type": "vocab",
+   "label": "συνέρχομαι",
+   "sub": "New words for John 11",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "συνέρχομαι",
+     "lemma": "συνέρχομαι",
+     "citation": "συνέρχομαι",
+     "gloss": "I come or go with, accompany, assemble",
+     "pos": "verb",
+     "count": 30,
+     "rank": 457
+    },
+    {
+     "id": "Μαρία",
+     "lemma": "Μαρία",
+     "citation": "Μαρία, ας, ἡ",
+     "gloss": "Mary, Miriam",
+     "pos": "noun",
+     "count": 28,
+     "rank": 482
+    },
+    {
+     "id": "προφητεύω",
+     "lemma": "προφητεύω",
+     "citation": "προφητεύω",
+     "gloss": "I foretell, prophesy",
+     "pos": "verb",
+     "count": 28,
+     "rank": 487
+    },
+    {
+     "id": "Μαριάμ",
+     "lemma": "Μαριάμ",
+     "citation": "Μαριάμ, ἡ",
+     "gloss": "Miriam",
+     "pos": "noun",
+     "count": 26,
+     "rank": 507
+    },
+    {
+     "id": "ἀδελφή",
+     "lemma": "ἀδελφή",
+     "citation": "ἀδελφή, ῆς, ἡ",
+     "gloss": "a sister",
+     "pos": "noun",
+     "count": 25,
+     "rank": 538
+    },
+    {
+     "id": "συνέδριον",
+     "lemma": "συνέδριον",
+     "citation": "συνέδριον, ου, τό",
+     "gloss": "a council, the Sanhedrin",
+     "pos": "noun",
+     "count": 22,
+     "rank": 591
+    },
+    {
+     "id": "κοιμάομαι",
+     "lemma": "κοιμάομαι",
+     "citation": "κοιμάω",
+     "gloss": "I fall asleep, am asleep",
+     "pos": "verb",
+     "count": 18,
+     "rank": 666
+    },
+    {
+     "id": "ἔπειτα",
+     "lemma": "ἔπειτα",
+     "citation": "ἔπειτα",
+     "gloss": "then, thereafter, afterwards",
+     "pos": "adverb",
+     "count": 16,
+     "rank": 755
+    },
+    {
+     "id": "Λάζαρος",
+     "lemma": "Λάζαρος",
+     "citation": "Λάζαρος, ου, ὁ",
+     "gloss": "Lazarus, Eliezer",
+     "pos": "noun",
+     "count": 15,
+     "rank": 759
+    },
+    {
+     "id": "θρίξ",
+     "lemma": "θρίξ",
+     "citation": "θρίξ, τριχός, ἡ",
+     "gloss": "a hair",
+     "pos": "noun",
+     "count": 15,
+     "rank": 771
+    },
+    {
+     "id": "συμφέρω",
+     "lemma": "συμφέρω",
+     "citation": "συμφέρω",
+     "gloss": "I collect, am profitable to",
+     "pos": "verb",
+     "count": 15,
+     "rank": 787
+    },
+    {
+     "id": "μύρον",
+     "lemma": "μύρον",
+     "citation": "μύρον, ου, τό",
+     "gloss": "anointing-oil, ointment",
+     "pos": "noun",
+     "count": 14,
+     "rank": 823
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-11-2",
+   "type": "vocab",
+   "label": "ἐνιαυτός",
+   "sub": "New words for John 11",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐνιαυτός",
+     "lemma": "ἐνιαυτός",
+     "citation": "ἐνιαυτός, οῦ, ὁ",
+     "gloss": "a year",
+     "pos": "noun",
+     "count": 14,
+     "rank": 852
+    },
+    {
+     "id": "Μάρθα",
+     "lemma": "Μάρθα",
+     "citation": "Μάρθα, ας, ἡ",
+     "gloss": "Martha",
+     "pos": "noun",
+     "count": 13,
+     "rank": 860
+    },
+    {
+     "id": "Ῥωμαῖος",
+     "lemma": "Ῥωμαῖος",
+     "citation": "Ῥωμαῖος, α, ον",
+     "gloss": "Roman, a Roman citizen",
+     "pos": "adjective",
+     "count": 12,
+     "rank": 962
+    },
+    {
+     "id": "Θωμᾶς",
+     "lemma": "Θωμᾶς",
+     "citation": "Θωμᾶς, ᾶ, ὁ",
+     "gloss": "Thomas",
+     "pos": "noun",
+     "count": 11,
+     "rank": 966
+    },
+    {
+     "id": "τελευτάω",
+     "lemma": "τελευτάω",
+     "citation": "τελευτάω",
+     "gloss": "I end, finish, die",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1008
+    },
+    {
+     "id": "κἀκεῖ",
+     "lemma": "κἀκεῖ",
+     "citation": "κἀκεῖ",
+     "gloss": "and there, and yonder",
+     "pos": "conjunction",
+     "count": 10,
+     "rank": 1054
+    },
+    {
+     "id": "ταχέως",
+     "lemma": "ταχέως",
+     "citation": "ταχέως",
+     "gloss": "soon, quickly, hastily",
+     "pos": "adverb",
+     "count": 10,
+     "rank": 1081
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-11",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 11",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 11,
+    "from": 1,
+    "to": 57,
+    "verseIds": [
+     "john-11-1",
+     "john-11-2",
+     "john-11-3",
+     "john-11-4",
+     "john-11-5",
+     "john-11-6",
+     "john-11-7",
+     "john-11-8",
+     "john-11-9",
+     "john-11-10",
+     "john-11-11",
+     "john-11-12",
+     "john-11-13",
+     "john-11-14",
+     "john-11-15",
+     "john-11-16",
+     "john-11-17",
+     "john-11-18",
+     "john-11-19",
+     "john-11-20",
+     "john-11-21",
+     "john-11-22",
+     "john-11-23",
+     "john-11-24",
+     "john-11-25",
+     "john-11-26",
+     "john-11-27",
+     "john-11-28",
+     "john-11-29",
+     "john-11-30",
+     "john-11-31",
+     "john-11-32",
+     "john-11-33",
+     "john-11-34",
+     "john-11-35",
+     "john-11-36",
+     "john-11-37",
+     "john-11-38",
+     "john-11-39",
+     "john-11-40",
+     "john-11-41",
+     "john-11-42",
+     "john-11-43",
+     "john-11-44",
+     "john-11-45",
+     "john-11-46",
+     "john-11-47",
+     "john-11-48",
+     "john-11-49",
+     "john-11-50",
+     "john-11-51",
+     "john-11-52",
+     "john-11-53",
+     "john-11-54",
+     "john-11-55",
+     "john-11-56",
+     "john-11-57"
+    ],
+    "reference": "John 11:1–57",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 944,
+     "known": 0.959,
+     "schedulable": 0.959
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-12-1",
+   "type": "vocab",
+   "label": "θυγάτηρ",
+   "sub": "New words for John 12",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "θυγάτηρ",
+     "lemma": "θυγάτηρ",
+     "citation": "θυγάτηρ, ατρός, ἡ",
+     "gloss": "a daughter",
+     "pos": "noun",
+     "count": 28,
+     "rank": 483
+    },
+    {
+     "id": "ἀποκαλύπτω",
+     "lemma": "ἀποκαλύπτω",
+     "citation": "ἀποκαλύπτω",
+     "gloss": "I uncover, bring to light, reveal",
+     "pos": "verb",
+     "count": 26,
+     "rank": 519
+    },
+    {
+     "id": "ἀκοή",
+     "lemma": "ἀκοή",
+     "citation": "ἀκοή, ῆς, ἡ",
+     "gloss": "hearing, faculty of hearing, ear",
+     "pos": "noun",
+     "count": 24,
+     "rank": 552
+    },
+    {
+     "id": "δεῖπνον",
+     "lemma": "δεῖπνον",
+     "citation": "δεῖπνον, ου, τό",
+     "gloss": "a dinner, an afternoon or evening meal",
+     "pos": "noun",
+     "count": 16,
+     "rank": 725
+    },
+    {
+     "id": "ἀθετέω",
+     "lemma": "ἀθετέω",
+     "citation": "ἀθετέω",
+     "gloss": "I annul",
+     "pos": "verb",
+     "count": 16,
+     "rank": 750
+    },
+    {
+     "id": "νοέω",
+     "lemma": "νοέω",
+     "citation": "νοέω",
+     "gloss": "I understand, consider",
+     "pos": "verb",
+     "count": 14,
+     "rank": 825
+    },
+    {
+     "id": "σῖτος",
+     "lemma": "σῖτος",
+     "citation": "σῖτος, ου, ὁ",
+     "gloss": "wheat, grain",
+     "pos": "noun",
+     "count": 14,
+     "rank": 832
+    },
+    {
+     "id": "βροντή",
+     "lemma": "βροντή",
+     "citation": "βροντή, ῆς, ἡ",
+     "gloss": "thunder",
+     "pos": "noun",
+     "count": 12,
+     "rank": 909
+    },
+    {
+     "id": "πῶλος",
+     "lemma": "πῶλος",
+     "citation": "πῶλος, ου, ὁ",
+     "gloss": "a colt, young ass",
+     "pos": "noun",
+     "count": 12,
+     "rank": 938
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-12",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 12",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 12,
+    "from": 1,
+    "to": 50,
+    "verseIds": [
+     "john-12-1",
+     "john-12-2",
+     "john-12-3",
+     "john-12-4",
+     "john-12-5",
+     "john-12-6",
+     "john-12-7",
+     "john-12-8",
+     "john-12-9",
+     "john-12-10",
+     "john-12-11",
+     "john-12-12",
+     "john-12-13",
+     "john-12-14",
+     "john-12-15",
+     "john-12-16",
+     "john-12-17",
+     "john-12-18",
+     "john-12-19",
+     "john-12-20",
+     "john-12-21",
+     "john-12-22",
+     "john-12-23",
+     "john-12-24",
+     "john-12-25",
+     "john-12-26",
+     "john-12-27",
+     "john-12-28",
+     "john-12-29",
+     "john-12-30",
+     "john-12-31",
+     "john-12-32",
+     "john-12-33",
+     "john-12-34",
+     "john-12-35",
+     "john-12-36",
+     "john-12-37",
+     "john-12-38",
+     "john-12-39",
+     "john-12-40",
+     "john-12-41",
+     "john-12-42",
+     "john-12-43",
+     "john-12-44",
+     "john-12-45",
+     "john-12-46",
+     "john-12-47",
+     "john-12-48",
+     "john-12-49",
+     "john-12-50"
+    ],
+    "reference": "John 12:1–50",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 890,
+     "known": 0.964,
+     "schedulable": 0.964
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-13-1",
+   "type": "vocab",
+   "label": "καθαρός",
+   "sub": "New words for John 13",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "καθαρός",
+     "lemma": "καθαρός",
+     "citation": "καθαρός, ά, όν",
+     "gloss": "clean, pure, unstained",
+     "pos": "adjective",
+     "count": 26,
+     "rank": 509
+    },
+    {
+     "id": "ἐπεί",
+     "lemma": "ἐπεί",
+     "citation": "ἐπεί",
+     "gloss": "after, for, since, otherwise",
+     "pos": "conjunction",
+     "count": 26,
+     "rank": 521
+    },
+    {
+     "id": "εἶτα",
+     "lemma": "εἶτα",
+     "citation": "εἶτα",
+     "gloss": "then, thereafter, next",
+     "pos": "adverb",
+     "count": 15,
+     "rank": 767
+    },
+    {
+     "id": "τρίς",
+     "lemma": "τρίς",
+     "citation": "τρίς",
+     "gloss": "three times",
+     "pos": "adverb",
+     "count": 12,
+     "rank": 942
+    },
+    {
+     "id": "ἀλέκτωρ",
+     "lemma": "ἀλέκτωρ",
+     "citation": "ἀλέκτωρ, ορος, ὁ",
+     "gloss": "a cock, rooster",
+     "pos": "noun",
+     "count": 12,
+     "rank": 949
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-13",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 13",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 13,
+    "from": 1,
+    "to": 38,
+    "verseIds": [
+     "john-13-1",
+     "john-13-2",
+     "john-13-3",
+     "john-13-4",
+     "john-13-5",
+     "john-13-6",
+     "john-13-7",
+     "john-13-8",
+     "john-13-9",
+     "john-13-10",
+     "john-13-11",
+     "john-13-12",
+     "john-13-13",
+     "john-13-14",
+     "john-13-15",
+     "john-13-16",
+     "john-13-17",
+     "john-13-18",
+     "john-13-19",
+     "john-13-20",
+     "john-13-21",
+     "john-13-22",
+     "john-13-23",
+     "john-13-24",
+     "john-13-25",
+     "john-13-26",
+     "john-13-27",
+     "john-13-28",
+     "john-13-29",
+     "john-13-30",
+     "john-13-31",
+     "john-13-32",
+     "john-13-33",
+     "john-13-34",
+     "john-13-35",
+     "john-13-36",
+     "john-13-37",
+     "john-13-38"
+    ],
+    "reference": "John 13:1–38",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 660,
+     "known": 0.961,
+     "schedulable": 0.961
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-14-1",
+   "type": "vocab",
+   "label": "ἐντέλλομαι",
+   "sub": "New words for John 14",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἐντέλλομαι",
+     "lemma": "ἐντέλλομαι",
+     "citation": "ἐντέλλω",
+     "gloss": "I give orders, command",
+     "pos": "verb",
+     "count": 14,
+     "rank": 853
+    },
+    {
+     "id": "ἐμφανίζω",
+     "lemma": "ἐμφανίζω",
+     "citation": "ἐμφανίζω",
+     "gloss": "I make visible, report against, appear before",
+     "pos": "verb",
+     "count": 10,
+     "rank": 1109
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-14",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 14",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 14,
+    "from": 1,
+    "to": 31,
+    "verseIds": [
+     "john-14-1",
+     "john-14-2",
+     "john-14-3",
+     "john-14-4",
+     "john-14-5",
+     "john-14-6",
+     "john-14-7",
+     "john-14-8",
+     "john-14-9",
+     "john-14-10",
+     "john-14-11",
+     "john-14-12",
+     "john-14-13",
+     "john-14-14",
+     "john-14-15",
+     "john-14-16",
+     "john-14-17",
+     "john-14-18",
+     "john-14-19",
+     "john-14-20",
+     "john-14-21",
+     "john-14-22",
+     "john-14-23",
+     "john-14-24",
+     "john-14-25",
+     "john-14-26",
+     "john-14-27",
+     "john-14-28",
+     "john-14-29",
+     "john-14-30",
+     "john-14-31"
+    ],
+    "reference": "John 14:1–31",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 577,
+     "known": 0.984,
+     "schedulable": 0.984
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-15-1",
+   "type": "vocab",
+   "label": "γνωρίζω",
+   "sub": "New words for John 15",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "γνωρίζω",
+     "lemma": "γνωρίζω",
+     "citation": "γνωρίζω",
+     "gloss": "I make known, declare, know",
+     "pos": "verb",
+     "count": 24,
+     "rank": 544
+    },
+    {
+     "id": "μνημονεύω",
+     "lemma": "μνημονεύω",
+     "citation": "μνημονεύω",
+     "gloss": "I remember, make mention of",
+     "pos": "verb",
+     "count": 21,
+     "rank": 605
+    },
+    {
+     "id": "γεωργός",
+     "lemma": "γεωργός",
+     "citation": "γεωργός, οῦ, ὁ",
+     "gloss": "a worker of the soil, husbandman, vine-dresser",
+     "pos": "noun",
+     "count": 19,
+     "rank": 637
+    },
+    {
+     "id": "ξηραίνω",
+     "lemma": "ξηραίνω",
+     "citation": "ξηραίνω",
+     "gloss": "I dry up, parch, ripen",
+     "pos": "verb",
+     "count": 15,
+     "rank": 777
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-15",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 15",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 15,
+    "from": 1,
+    "to": 27,
+    "verseIds": [
+     "john-15-1",
+     "john-15-2",
+     "john-15-3",
+     "john-15-4",
+     "john-15-5",
+     "john-15-6",
+     "john-15-7",
+     "john-15-8",
+     "john-15-9",
+     "john-15-10",
+     "john-15-11",
+     "john-15-12",
+     "john-15-13",
+     "john-15-14",
+     "john-15-15",
+     "john-15-16",
+     "john-15-17",
+     "john-15-18",
+     "john-15-19",
+     "john-15-20",
+     "john-15-21",
+     "john-15-22",
+     "john-15-23",
+     "john-15-24",
+     "john-15-25",
+     "john-15-26",
+     "john-15-27"
+    ],
+    "reference": "John 15:1–27",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 500,
+     "known": 0.978,
+     "schedulable": 0.978
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-16-1",
+   "type": "vocab",
+   "label": "νικάω",
+   "sub": "New words for John 16",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "νικάω",
+     "lemma": "νικάω",
+     "citation": "νικάω",
+     "gloss": "I conquer, overcome",
+     "pos": "verb",
+     "count": 28,
+     "rank": 485
+    },
+    {
+     "id": "λυπέω",
+     "lemma": "λυπέω",
+     "citation": "λυπέω",
+     "gloss": "I pain, grieve, vex",
+     "pos": "verb",
+     "count": 26,
+     "rank": 510
+    },
+    {
+     "id": "τίκτω",
+     "lemma": "τίκτω",
+     "citation": "τίκτω",
+     "gloss": "I bear, bring forth, produce",
+     "pos": "verb",
+     "count": 18,
+     "rank": 677
+    },
+    {
+     "id": "λύπη",
+     "lemma": "λύπη",
+     "citation": "λύπη, ης, ἡ",
+     "gloss": "pain, grief",
+     "pos": "noun",
+     "count": 16,
+     "rank": 737
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-16",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 16",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 16,
+    "from": 1,
+    "to": 33,
+    "verseIds": [
+     "john-16-1",
+     "john-16-2",
+     "john-16-3",
+     "john-16-4",
+     "john-16-5",
+     "john-16-6",
+     "john-16-7",
+     "john-16-8",
+     "john-16-9",
+     "john-16-10",
+     "john-16-11",
+     "john-16-12",
+     "john-16-13",
+     "john-16-14",
+     "john-16-15",
+     "john-16-16",
+     "john-16-17",
+     "john-16-18",
+     "john-16-19",
+     "john-16-20",
+     "john-16-21",
+     "john-16-22",
+     "john-16-23",
+     "john-16-24",
+     "john-16-25",
+     "john-16-26",
+     "john-16-27",
+     "john-16-28",
+     "john-16-29",
+     "john-16-30",
+     "john-16-31",
+     "john-16-32",
+     "john-16-33"
+    ],
+    "reference": "John 16:1–33",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 580,
+     "known": 0.983,
+     "schedulable": 0.983
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-17-1",
+   "type": "vocab",
+   "label": "ἀπώλεια",
+   "sub": "New words for John 17",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀπώλεια",
+     "lemma": "ἀπώλεια",
+     "citation": "ἀπώλεια, ας, ἡ",
+     "gloss": "destruction, ruin, loss",
+     "pos": "noun",
+     "count": 18,
+     "rank": 680
+    },
+    {
+     "id": "καταβολή",
+     "lemma": "καταβολή",
+     "citation": "καταβολή, ῆς, ἡ",
+     "gloss": "a foundation, depositing, sowing",
+     "pos": "noun",
+     "count": 11,
+     "rank": 983
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-17",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 17",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 17,
+    "from": 1,
+    "to": 26,
+    "verseIds": [
+     "john-17-1",
+     "john-17-2",
+     "john-17-3",
+     "john-17-4",
+     "john-17-5",
+     "john-17-6",
+     "john-17-7",
+     "john-17-8",
+     "john-17-9",
+     "john-17-10",
+     "john-17-11",
+     "john-17-12",
+     "john-17-13",
+     "john-17-14",
+     "john-17-15",
+     "john-17-16",
+     "john-17-17",
+     "john-17-18",
+     "john-17-19",
+     "john-17-20",
+     "john-17-21",
+     "john-17-22",
+     "john-17-23",
+     "john-17-24",
+     "john-17-25",
+     "john-17-26"
+    ],
+    "reference": "John 17:1–26",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 498,
+     "known": 1.0,
+     "schedulable": 1.0
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-18-1",
+   "type": "vocab",
+   "label": "μάχαιρα",
+   "sub": "New words for John 18",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "μάχαιρα",
+     "lemma": "μάχαιρα",
+     "citation": "μάχαιρα, ης, ἡ",
+     "gloss": "a sword",
+     "pos": "noun",
+     "count": 29,
+     "rank": 468
+    },
+    {
+     "id": "χιλίαρχος",
+     "lemma": "χιλίαρχος",
+     "citation": "χιλίαρχος, ου, ὁ",
+     "gloss": "a military tribune",
+     "pos": "noun",
+     "count": 21,
+     "rank": 610
+    },
+    {
+     "id": "αἰτία",
+     "lemma": "αἰτία",
+     "citation": "αἰτία, ας, ἡ",
+     "gloss": "a cause, reason, charge",
+     "pos": "noun",
+     "count": 20,
+     "rank": 614
+    },
+    {
+     "id": "πολλάκις",
+     "lemma": "πολλάκις",
+     "citation": "πολλάκις",
+     "gloss": "many times, often",
+     "pos": "adverb",
+     "count": 18,
+     "rank": 672
+    },
+    {
+     "id": "κακῶς",
+     "lemma": "κακῶς",
+     "citation": "κακῶς",
+     "gloss": "badly, evilly",
+     "pos": "adverb",
+     "count": 16,
+     "rank": 732
+    },
+    {
+     "id": "συλλαμβάνω",
+     "lemma": "συλλαμβάνω",
+     "citation": "συλλαμβάνω",
+     "gloss": "I seize, apprehend, become pregnant",
+     "pos": "verb",
+     "count": 16,
+     "rank": 745
+    },
+    {
+     "id": "γνωστός",
+     "lemma": "γνωστός",
+     "citation": "γνωστός, ή, όν",
+     "gloss": "known, an acquaintance",
+     "pos": "adjective",
+     "count": 15,
+     "rank": 762
+    },
+    {
+     "id": "δέρω",
+     "lemma": "δέρω",
+     "citation": "δέρω",
+     "gloss": "I flay, flog, scourge, beat",
+     "pos": "verb",
+     "count": 15,
+     "rank": 764
+    },
+    {
+     "id": "Ναζωραῖος",
+     "lemma": "Ναζωραῖος",
+     "citation": "Ναζωραῖος, ου, ὁ",
+     "gloss": "Nazarene",
+     "pos": "noun",
+     "count": 13,
+     "rank": 861
+    },
+    {
+     "id": "παιδίσκη",
+     "lemma": "παιδίσκη",
+     "citation": "παιδίσκη, ης, ἡ",
+     "gloss": "a female slave, maidservant, maid.",
+     "pos": "noun",
+     "count": 13,
+     "rank": 878
+    },
+    {
+     "id": "πρωΐ",
+     "lemma": "πρωΐ",
+     "citation": "πρωΐ",
+     "gloss": "early in the morning, at dawn",
+     "pos": "adverb",
+     "count": 12,
+     "rank": 934
+    },
+    {
+     "id": "Βαραββᾶς",
+     "lemma": "Βαραββᾶς",
+     "citation": "Βαραββᾶς, ᾶ, ὁ",
+     "gloss": "Barabbas",
+     "pos": "noun",
+     "count": 11,
+     "rank": 963
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-18-2",
+   "type": "vocab",
+   "label": "εἰσάγω",
+   "sub": "New words for John 18",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "εἰσάγω",
+     "lemma": "εἰσάγω",
+     "citation": "εἰσάγω",
+     "gloss": "I lead in, bring in",
+     "pos": "verb",
+     "count": 11,
+     "rank": 974
+    },
+    {
+     "id": "συγγενής",
+     "lemma": "συγγενής",
+     "citation": "συγγενής, ές",
+     "gloss": "akin, a relative",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 1005
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-18",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 18",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 18,
+    "from": 1,
+    "to": 40,
+    "verseIds": [
+     "john-18-1",
+     "john-18-2",
+     "john-18-3",
+     "john-18-4",
+     "john-18-5",
+     "john-18-6",
+     "john-18-7",
+     "john-18-8",
+     "john-18-9",
+     "john-18-10",
+     "john-18-11",
+     "john-18-12",
+     "john-18-13",
+     "john-18-14",
+     "john-18-15",
+     "john-18-16",
+     "john-18-17",
+     "john-18-18",
+     "john-18-19",
+     "john-18-20",
+     "john-18-21",
+     "john-18-22",
+     "john-18-23",
+     "john-18-24",
+     "john-18-25",
+     "john-18-26",
+     "john-18-27",
+     "john-18-28",
+     "john-18-29",
+     "john-18-30",
+     "john-18-31",
+     "john-18-32",
+     "john-18-33",
+     "john-18-34",
+     "john-18-35",
+     "john-18-36",
+     "john-18-37",
+     "john-18-38",
+     "john-18-39",
+     "john-18-40"
+    ],
+    "reference": "John 18:1–40",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 790,
+     "known": 0.943,
+     "schedulable": 0.943
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-19-1",
+   "type": "vocab",
+   "label": "Καῖσαρ",
+   "sub": "New words for John 19",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "Καῖσαρ",
+     "lemma": "Καῖσαρ",
+     "citation": "Καῖσαρ, αρος, ὁ",
+     "gloss": "Caesar",
+     "pos": "noun",
+     "count": 29,
+     "rank": 464
+    },
+    {
+     "id": "τελέω",
+     "lemma": "τελέω",
+     "citation": "τελέω",
+     "gloss": "I end, accomplish, pay",
+     "pos": "verb",
+     "count": 28,
+     "rank": 488
+    },
+    {
+     "id": "σταυρός",
+     "lemma": "σταυρός",
+     "citation": "σταυρός, οῦ, ὁ",
+     "gloss": "a cross",
+     "pos": "noun",
+     "count": 27,
+     "rank": 501
+    },
+    {
+     "id": "στρατιώτης",
+     "lemma": "στρατιώτης",
+     "citation": "στρατιώτης, ου, ὁ",
+     "gloss": "a soldier",
+     "pos": "noun",
+     "count": 26,
+     "rank": 514
+    },
+    {
+     "id": "περιβάλλω",
+     "lemma": "περιβάλλω",
+     "citation": "περιβάλλω",
+     "gloss": "I cast around, clothe",
+     "pos": "verb",
+     "count": 23,
+     "rank": 569
+    },
+    {
+     "id": "σκεῦος",
+     "lemma": "σκεῦος",
+     "citation": "σκεῦος, ους, τό",
+     "gloss": "a vessel to contain liquid, utensil, tackle",
+     "pos": "noun",
+     "count": 23,
+     "rank": 570
+    },
+    {
+     "id": "στέφανος",
+     "lemma": "στέφανος",
+     "citation": "στέφανος, ου, ὁ",
+     "gloss": "a crown, garland",
+     "pos": "noun",
+     "count": 18,
+     "rank": 676
+    },
+    {
+     "id": "ἐπιτρέπω",
+     "lemma": "ἐπιτρέπω",
+     "citation": "ἐπιτρέπω",
+     "gloss": "I allow, permit",
+     "pos": "verb",
+     "count": 18,
+     "rank": 685
+    },
+    {
+     "id": "ἑκατόν",
+     "lemma": "ἑκατόν",
+     "citation": "ἑκατόν",
+     "gloss": "one hundred",
+     "pos": "adjective",
+     "count": 17,
+     "rank": 713
+    },
+    {
+     "id": "ἄκανθα",
+     "lemma": "ἄκανθα",
+     "citation": "ἄκανθα, ης, ἡ",
+     "gloss": "a thorn-bush",
+     "pos": "noun",
+     "count": 14,
+     "rank": 848
+    },
+    {
+     "id": "Μαγδαληνή",
+     "lemma": "Μαγδαληνή",
+     "citation": "Μαγδαληνή, ῆς, ἡ",
+     "gloss": "Magdalene",
+     "pos": "noun",
+     "count": 12,
+     "rank": 903
+    },
+    {
+     "id": "βῆμα",
+     "lemma": "βῆμα",
+     "citation": "βῆμα, ατος, τό",
+     "gloss": "the space covered by a step of the foot, a tribunal",
+     "pos": "noun",
+     "count": 12,
+     "rank": 910
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-vocab-19-2",
+   "type": "vocab",
+   "label": "ἔθος",
+   "sub": "New words for John 19",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἔθος",
+     "lemma": "ἔθος",
+     "citation": "ἔθος, ους, τό",
+     "gloss": "a custom",
+     "pos": "noun",
+     "count": 12,
+     "rank": 955
+    },
+    {
+     "id": "διαμερίζω",
+     "lemma": "διαμερίζω",
+     "citation": "διαμερίζω",
+     "gloss": "I divide up into parts, break up, distribute",
+     "pos": "verb",
+     "count": 11,
+     "rank": 971
+    },
+    {
+     "id": "κλῆρος",
+     "lemma": "κλῆρος",
+     "citation": "κλῆρος, ου, ὁ",
+     "gloss": "a lot, portion",
+     "pos": "noun",
+     "count": 11,
+     "rank": 989
+    },
+    {
+     "id": "σχίζω",
+     "lemma": "σχίζω",
+     "citation": "σχίζω",
+     "gloss": "I rend, divide asunder",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1007
+    },
+    {
+     "id": "χιτών",
+     "lemma": "χιτών",
+     "citation": "χιτών, ῶνος, ὁ",
+     "gloss": "a tunic, garment, undergarment",
+     "pos": "noun",
+     "count": 11,
+     "rank": 1014
+    },
+    {
+     "id": "ἀντιλέγω",
+     "lemma": "ἀντιλέγω",
+     "citation": "ἀντιλέγω",
+     "gloss": "I speak or say in opposition, contradict",
+     "pos": "verb",
+     "count": 11,
+     "rank": 1020
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-19",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 19",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 19,
+    "from": 1,
+    "to": 42,
+    "verseIds": [
+     "john-19-1",
+     "john-19-2",
+     "john-19-3",
+     "john-19-4",
+     "john-19-5",
+     "john-19-6",
+     "john-19-7",
+     "john-19-8",
+     "john-19-9",
+     "john-19-10",
+     "john-19-11",
+     "john-19-12",
+     "john-19-13",
+     "john-19-14",
+     "john-19-15",
+     "john-19-16",
+     "john-19-17",
+     "john-19-18",
+     "john-19-19",
+     "john-19-20",
+     "john-19-21",
+     "john-19-22",
+     "john-19-23",
+     "john-19-24",
+     "john-19-25",
+     "john-19-26",
+     "john-19-27",
+     "john-19-28",
+     "john-19-29",
+     "john-19-30",
+     "john-19-31",
+     "john-19-32",
+     "john-19-33",
+     "john-19-34",
+     "john-19-35",
+     "john-19-36",
+     "john-19-37",
+     "john-19-38",
+     "john-19-39",
+     "john-19-40",
+     "john-19-41",
+     "john-19-42"
+    ],
+    "reference": "John 19:1–42",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 818,
+     "known": 0.919,
+     "schedulable": 0.919
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-20-1",
+   "type": "vocab",
+   "label": "ἄπιστος",
+   "sub": "New words for John 20",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἄπιστος",
+     "lemma": "ἄπιστος",
+     "citation": "ἄπιστος, ον",
+     "gloss": "unbelieving, incredulous, unchristian, unbeliever",
+     "pos": "adjective",
+     "count": 23,
+     "rank": 576
+    },
+    {
+     "id": "τρέχω",
+     "lemma": "τρέχω",
+     "citation": "τρέχω",
+     "gloss": "I run, exercise myself",
+     "pos": "verb",
+     "count": 20,
+     "rank": 625
+    },
+    {
+     "id": "κλείω",
+     "lemma": "κλείω",
+     "citation": "κλείω",
+     "gloss": "I shut, shut up",
+     "pos": "verb",
+     "count": 16,
+     "rank": 735
+    },
+    {
+     "id": "τύπος",
+     "lemma": "τύπος",
+     "citation": "τύπος, ου, ὁ",
+     "gloss": "a figure, model, type",
+     "pos": "noun",
+     "count": 15,
+     "rank": 791
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-20",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 20",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 20,
+    "from": 1,
+    "to": 31,
+    "verseIds": [
+     "john-20-1",
+     "john-20-2",
+     "john-20-3",
+     "john-20-4",
+     "john-20-5",
+     "john-20-6",
+     "john-20-7",
+     "john-20-8",
+     "john-20-9",
+     "john-20-10",
+     "john-20-11",
+     "john-20-12",
+     "john-20-13",
+     "john-20-14",
+     "john-20-15",
+     "john-20-16",
+     "john-20-17",
+     "john-20-18",
+     "john-20-19",
+     "john-20-20",
+     "john-20-21",
+     "john-20-22",
+     "john-20-23",
+     "john-20-24",
+     "john-20-25",
+     "john-20-26",
+     "john-20-27",
+     "john-20-28",
+     "john-20-29",
+     "john-20-30",
+     "john-20-31"
+    ],
+    "reference": "John 20:1–31",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 614,
+     "known": 0.954,
+     "schedulable": 0.954
+    }
+   }
+  },
+  {
+   "id": "u09-vocab-21-1",
+   "type": "vocab",
+   "label": "ἀρνίον",
+   "sub": "New words for John 21",
+   "drills": [
+    "gloss-mc",
+    "gloss-type",
+    "greek-type",
+    "audio-recognize"
+   ],
+   "vocab": [
+    {
+     "id": "ἀρνίον",
+     "lemma": "ἀρνίον",
+     "citation": "ἀρνίον, ου, τό",
+     "gloss": "a lamb",
+     "pos": "noun",
+     "count": 30,
+     "rank": 460
+    },
+    {
+     "id": "ἰσχύω",
+     "lemma": "ἰσχύω",
+     "citation": "ἰσχύω",
+     "gloss": "I am strong, able",
+     "pos": "verb",
+     "count": 28,
+     "rank": 495
+    },
+    {
+     "id": "νέος",
+     "lemma": "νέος",
+     "citation": "νέος, α, ον",
+     "gloss": "young, new, fresh",
+     "pos": "adjective",
+     "count": 23,
+     "rank": 566
+    },
+    {
+     "id": "ἰχθύς",
+     "lemma": "ἰχθύς",
+     "citation": "ἰχθύς, ύος, ὁ",
+     "gloss": "a fish",
+     "pos": "noun",
+     "count": 20,
+     "rank": 631
+    },
+    {
+     "id": "τολμάω",
+     "lemma": "τολμάω",
+     "citation": "τολμάω",
+     "gloss": "I dare, endure, am bold",
+     "pos": "verb",
+     "count": 16,
+     "rank": 748
+    },
+    {
+     "id": "ἐκτείνω",
+     "lemma": "ἐκτείνω",
+     "citation": "ἐκτείνω",
+     "gloss": "I stretch out, cast forth",
+     "pos": "verb",
+     "count": 16,
+     "rank": 752
+    },
+    {
+     "id": "γυμνός",
+     "lemma": "γυμνός",
+     "citation": "γυμνός, ή, όν",
+     "gloss": "wearing only the under-garment, bare",
+     "pos": "adjective",
+     "count": 15,
+     "rank": 763
+    },
+    {
+     "id": "Ζεβεδαῖος",
+     "lemma": "Ζεβεδαῖος",
+     "citation": "Ζεβεδαῖος, ου, ὁ",
+     "gloss": "Zebedee",
+     "pos": "noun",
+     "count": 12,
+     "rank": 902
+    },
+    {
+     "id": "δίκτυον",
+     "lemma": "δίκτυον",
+     "citation": "δίκτυον, ου, τό",
+     "gloss": "a fishing-net",
+     "pos": "noun",
+     "count": 12,
+     "rank": 914
+    },
+    {
+     "id": "μακρός",
+     "lemma": "μακρός",
+     "citation": "μακρός, ά, όν",
+     "gloss": "long, distant",
+     "pos": "adjective",
+     "count": 11,
+     "rank": 993
+    },
+    {
+     "id": "ποιμαίνω",
+     "lemma": "ποιμαίνω",
+     "citation": "ποιμαίνω",
+     "gloss": "I shepherd, tend",
+     "pos": "verb",
+     "count": 11,
+     "rank": 997
+    }
+   ],
+   "paradigms": []
+  },
+  {
+   "id": "u09-read-21",
+   "type": "reading",
+   "label": "Κατὰ Ἰωάννην",
+   "sub": "Read: John 21",
+   "drills": [
+    "tap-gloss",
+    "read-reveal-rate",
+    "comprehension-mc"
+   ],
+   "vocab": [],
+   "paradigms": [],
+   "reading": {
+    "book": "john",
+    "chapter": 21,
+    "from": 1,
+    "to": 25,
+    "verseIds": [
+     "john-21-1",
+     "john-21-2",
+     "john-21-3",
+     "john-21-4",
+     "john-21-5",
+     "john-21-6",
+     "john-21-7",
+     "john-21-8",
+     "john-21-9",
+     "john-21-10",
+     "john-21-11",
+     "john-21-12",
+     "john-21-13",
+     "john-21-14",
+     "john-21-15",
+     "john-21-16",
+     "john-21-17",
+     "john-21-18",
+     "john-21-19",
+     "john-21-20",
+     "john-21-21",
+     "john-21-22",
+     "john-21-23",
+     "john-21-24",
+     "john-21-25"
+    ],
+    "reference": "John 21:1–25",
+    "greekTitle": "Κατὰ Ἰωάννην",
+    "coverage": {
+     "tokens": 549,
+     "known": 0.933,
+     "schedulable": 0.933
+    }
+   }
+  }
+ ]
+}
