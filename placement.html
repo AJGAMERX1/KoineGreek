@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Placement test</title>
+<script src="js/recover.js"></script>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back to path">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="progress" aria-label="Test progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="unit-sub" id="bookLabel" style="margin:0;white-space:nowrap"></div>
+  </div>
+
+  <div class="drill-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="drill-footer" id="footer" hidden>
+    <button class="btn" id="continueBtn" type="button">Continue</button>
+  </div>
+
+</div>
+
+<script type="module">
+  /*
+    Placement test: six questions per grammar Book, in order, stopping at the
+    first Book not passed. Logic: js/placement.js. View: js/session-view.js.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { loadCurriculum, loadUnit, loadLexicon, loadParadigms, loadIrregularVerbs } from './js/data.js';
+  import { markLessonCompleted, updateVocabItem, updateFormRecord, getVocabItem, getFormRecord } from './js/storage.js';
+  import { buildPlacement, placementIndex, knownRecords, QUESTIONS_PER_BOOK, PASS_MARK } from './js/placement.js';
+  import { SessionView, escapeHtml } from './js/session-view.js';
+  import { initSpeech } from './js/speech.js';
+
+  initTheme(); initPwa(); initSpeech();
+  const view = new SessionView();
+  document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
+  const bookLabel = document.getElementById('bookLabel');
+
+  const state = { books: [], b: 0, q: 0, scores: [], paradigmsById: null, irregular: null, units: [] };
+
+  main().catch((err) => { console.error(err); view.renderError(`Could not load the placement test: ${err.message}.`); });
+
+  async function main() {
+    const [curriculum, lexicon, paradigms, irregular] = await Promise.all([loadCurriculum(), loadLexicon(), loadParadigms(), loadIrregularVerbs()]);
+    const grammarUnits = curriculum.units.filter((u) => u.track === 'grammar');
+    state.units = await Promise.all(grammarUnits.map((u) => loadUnit(u.id)));
+    state.paradigmsById = Object.fromEntries(paradigms.paradigms.map((p) => [p.id, p]));
+    state.irregular = irregular.verbs;
+    state.books = buildPlacement({ units: state.units, lexicon, paradigmsById: state.paradigmsById, irregularVerbs: state.irregular });
+    renderIntro();
+  }
+
+  function renderIntro() {
+    bookLabel.textContent = '';
+    view.renderIntro({
+      kicker: 'Placement test',
+      html: `<div class="card">
+        <div class="rule-title">Already know some Greek?</div>
+        <p class="rule-body">Answer ${QUESTIONS_PER_BOOK} questions per Book, from the Book’s own words, paradigms and strange verbs. Get ${PASS_MARK} right to pass a Book; the test stops at the first Book you don’t pass, and that is where you start. Everything before it is marked done and its words and endings enter your review schedule as already known.</p>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">About ${state.books.length * QUESTIONS_PER_BOOK} questions at most; usually far fewer. You can stop any time with the back arrow and nothing is changed until you confirm at the end.</p>
+      </div>`,
+      buttonLabel: 'Start',
+    }, () => { state.b = 0; state.q = 0; state.scores = []; renderQuestion(); });
+  }
+
+  function renderQuestion() {
+    const book = state.books[state.b];
+    const q = book.questions[state.q];
+    const total = state.books.length * QUESTIONS_PER_BOOK;
+    view.setProgress((state.b * QUESTIONS_PER_BOOK + state.q) / total);
+    bookLabel.textContent = book.unit.kicker;
+    view.renderQuestion({
+      kicker: `${book.unit.kicker} · ${book.unit.sub} · question ${state.q + 1} of ${book.questions.length}`,
+      prompt: q.prompt, promptGreek: q.promptGreek !== false, hint: q.hint, options: q.options, speak: q.promptGreek !== false ? q.prompt : null,
+    }, (input) => {
+      const ok = input === q.answerId;
+      view.markAnswer({ correctId: q.answerId, chosenId: input, ok });
+      state.scores[state.b] = (state.scores[state.b] || 0) + (ok ? 1 : 0);
+      view.showFeedback({ ok, headline: ok ? 'Correct' : 'Not quite', answer: q.answer, reason: q.reason }, next);
+    });
+  }
+
+  function next() {
+    const book = state.books[state.b];
+    state.q++;
+    if (state.q < book.questions.length) { renderQuestion(); return; }
+    // Book finished
+    const passed = (state.scores[state.b] || 0) >= PASS_MARK;
+    if (passed && state.b < state.books.length - 1) { state.b++; state.q = 0; renderQuestion(); return; }
+    renderResult();
+  }
+
+  function renderResult() {
+    view.setProgress(1);
+    const idx = placementIndex(state.scores);
+    const passedUnits = state.units.slice(0, idx);
+    const target = state.units[idx];
+    const known = knownRecords(passedUnits, state.paradigmsById, state.irregular);
+    const rows = state.scores.map((sc, i) => `<div class="book-result"><span><b>${escapeHtml(state.units[i].kicker)}</b> · ${escapeHtml(state.units[i].sub)}</span><span class="${sc >= PASS_MARK ? 'pass' : 'fail'}">${sc} / ${state.books[i].questions.length}</span></div>`).join('');
+    const where = target ? `${target.kicker}: ${target.sub}` : 'Book IX: Read John';
+    view.renderSummary({
+      kicker: 'Your placement',
+      html: `<div class="card">
+        <div class="rule-title">Start at ${escapeHtml(where)}</div>
+        <div style="margin-top:8px">${rows}</div>
+        <p class="rule-body" style="color:var(--muted);font-size:13px;margin-top:12px">${idx ? `Confirming marks ${known.lessons.length} lessons in ${idx} Book${idx > 1 ? 's' : ''} as complete and enters ${Object.keys(known.vocab).length} words and ${Object.keys(known.forms).length} endings into your review schedule, due for a light check in two weeks.` : 'Nothing is skipped: start with Book I.'}</p>
+        ${idx ? `<div style="margin-top:12px"><button class="btn secondary" id="fromStart" type="button">No thanks, start from Book I</button></div>` : ''}
+      </div>`,
+      buttonLabel: idx ? `Start at ${target ? target.kicker : 'Book IX'}` : 'Start at Book I',
+    }, () => { if (idx) apply(known); location.href = 'index.html'; });
+    const fromStart = document.getElementById('fromStart');
+    if (fromStart) fromStart.addEventListener('click', () => { location.href = 'index.html'; });
+  }
+
+  function apply(known) {
+    for (const id of known.lessons) markLessonCompleted(id);
+    for (const [id, rec] of Object.entries(known.vocab)) if (!getVocabItem(id)) updateVocabItem(id, rec);
+    for (const [id, rec] of Object.entries(known.forms)) if (!getFormRecord(id)) updateFormRecord(id, rec);
+  }
+</script>
+
+</body>
+</html>

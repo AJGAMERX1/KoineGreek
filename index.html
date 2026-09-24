@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rhema — Learn Koine Greek</title>
 <meta name="description" content="A Duolingo-style app for learning New Testament Koine Greek.">
+<script src="js/recover.js"></script>
 <meta name="theme-color" content="#16795A">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -55,6 +56,8 @@
     <span>Install Rhema on this device to study offline.</span>
     <button class="btn secondary" id="installBtn" type="button">Install</button>
   </div>
+
+  <div class="placement-link" id="placementLink" hidden>Already know some Greek? <a href="placement.html">Take the placement test</a> and start at your level.</div>
 
   <div class="due-banner" id="dueBanner" hidden>
     <span><strong id="dueCount">0</strong> <span id="dueLabel">words due for review</span></span>
@@ -118,6 +121,9 @@
     document.getElementById('dueBanner').hidden = false;
   }
   document.getElementById('dueBtn').addEventListener('click', () => { location.href = chainHref(chain); });
+
+  // Offer the placement test until the learner has finished a lesson (it stays available in Settings).
+  document.getElementById('placementLink').hidden = getProgress().lessonsCompleted.length > 0;
 
   // ---- lesson path, driven by data/curriculum.json + progress.lessonsCompleted ----
   // The curriculum index lists every Book (unit) and its lessons; full lesson

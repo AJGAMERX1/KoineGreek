@@ -104,7 +104,7 @@ live in `scripts/curriculum.py`; edit that, not the generated JSON.
 
 - **Pure static site** — plain HTML/CSS/JS, no build step required (though one can be added later). Deploys directly to GitHub Pages.
 - **No backend for v1.** All progress/settings/SRS state lives client-side in `localStorage` (schema in `js/storage.js`). If usage grows, `localStorage` can be swapped for `IndexedDB` behind the same `storage.js` API without touching the rest of the app.
-- **PWA** — `manifest.json` + `sw.js` make the app installable ("Add to Home Screen") and usable offline: the app shell, the lexicon, the curriculum index, Unit 1 and John are precached; other units and chapters are cached the first time they are opened. Bump `CACHE_VERSION` in `sw.js` when the shell changes incompatibly. All paths are relative so it works at any GitHub Pages sub-path.
+- **PWA** — `manifest.json` + `sw.js` make the app installable ("Add to Home Screen") and usable offline: the app shell, the lexicon, the curriculum index, Unit 1 and John are precached; other units and chapters are cached the first time they are opened. App files are served network-first (revalidating past the browser's HTTP cache) so a deploy never mixes old and new modules; the cache is the offline fallback. `js/recover.js` clears caches and reloads once if a module graph ever fails to link, and `js/pwa.js` reloads once when an updated worker takes control. Bump `CACHE_VERSION` in `sw.js` on each deploy. All paths are relative so it works at any GitHub Pages sub-path.
 - **Known limitation, stated honestly:** true AI-graded free-text translation ("did the user's exact English wording capture the Greek correctly?") requires a live API call with a secret key, which a static GitHub Pages site *cannot* hold securely. That needs a small external serverless function (Cloudflare Worker / Vercel function / similar) as an adjunct service. **v1 deliberately avoids this** and uses the self-graded reveal-and-compare pattern in Read & Translate instead (show reference translation, learner self-rates). AI-graded translation is a good v2+ feature once a serverless adjunct is worth the added complexity.
 
 ## Theming system: shared data, swappable skin
@@ -171,7 +171,8 @@ koine-greek-app/
 ├── read.html           — Read tab: parallel Greek/English reader (?book=<slug>&chapter=<n>)
 ├── lexicon.html        — Lexicon tab: search + word detail (?q=<lemma> opens it)
 ├── progress.html       — Progress tab: achievement board (opt-in)
-├── settings.html       — Settings / Profile: style, mode, pronunciation, translation, progress, install, backup, credits
+├── settings.html       — Settings / Profile: style, mode, pronunciation, voice, translation, placement, progress, install, backup, credits
+├── placement.html      — placement test ("test out" of Books you already know)
 ├── manifest.json       — web app manifest (installable PWA)
 ├── sw.js               — service worker: offline caching (see Tech architecture)
 ├── icons/              — app icon (SVG source + 192/512/maskable/apple-touch PNGs)
@@ -192,7 +193,9 @@ koine-greek-app/
 │   ├── achievements.js    — achievement definitions + evaluation (no DOM)
 │   ├── chain.js           — the daily review chain (drill → grammar → reading due modes)
 │   ├── speech.js          — pronunciation via the Web Speech API (Greek voice / phonetic respelling)
-│   ├── pwa.js             — service-worker registration + install-prompt capture
+│   ├── placement.js       — placement test: question sampling, pass mark, known-records seeding (no DOM)
+│   ├── recover.js         — classic script: self-heal from a stale-module load (clear caches, reload once)
+│   ├── pwa.js             — service-worker registration, controller-change reload, install-prompt capture
 │   ├── session-view.js    — shared session UI: progress, intro / question / feedback / summary cards, Greek keyboard
 │   ├── data.js            — cached loaders for data/*.json (the only module that fetches content)
 │   └── theme.js            — applies/persists theme + light/dark mode
@@ -251,7 +254,8 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 - [x] Expand verse dataset: all 27 NT books are bundled in `data/gnt/` with KJV/YLT/WEB
 
 **Phase 5 — Polish / stretch**
-- [x] Pronunciation (`js/speech.js`): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
+- [x] Placement test (`placement.html` + `js/placement.js`): six questions per grammar Book from its own words, paradigms and strange verbs; stops at the first Book not passed; confirming marks earlier Books complete and enters their words and endings into the review schedule as known
+- [x] Pronunciation (`js/speech.js`): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses, adjustable speed (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
 - [x] Progress tab (single-player achievement board — a static site has no leaderboard): coverage meters, 73 achievements for words, verses, endings, streaks, Books and XP; opt-in via Settings → "Show Progress tab"
 - [x] Read tab: parallel Greek / English reader over the whole NT (SBLGNT + WEB/KJV/YLT), verse-aligned columns on wide screens, tap-to-gloss, "Study this chapter" hand-off to the curriculum
 - [x] Lexicon tab: all 5,461 lemmas searchable in Greek (accent-insensitive) or English, status per word, detail with attested forms and "add to my words"

@@ -1669,3 +1669,46 @@ button {
   justify-content: center;
   gap: 4px;
 }
+
+/* ---------- Range control (Settings) ---------- */
+
+.rate-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rate-control input[type="range"] {
+  width: 140px;
+  accent-color: var(--primary);
+}
+
+/* ---------- Placement ---------- */
+
+.placement-link {
+  margin: 10px 20px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.placement-link a {
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.book-result {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.book-result b {
+  font-family: var(--font-display);
+}
+
+.book-result .pass { color: var(--ok); }
+.book-result .fail { color: var(--bad); }

@@ -78,8 +78,11 @@ export function respellText(text, scheme) {
 let current = null;
 
 /** Speak Greek text in the learner's pronunciation scheme. Returns the mode used: 'greek-voice' | 'respell' | 'unavailable'. */
-export function speak(text, { scheme = getSettings().pronunciation || 'erasmian', rate = 0.85 } = {}) {
+export function speak(text, { scheme, rate } = {}) {
   if (!available() || !text) return 'unavailable';
+  const s = getSettings();
+  scheme = scheme || s.pronunciation || 'erasmian';
+  rate = rate || clampRate(s.speechRate);
   const synth = window.speechSynthesis;
   synth.cancel();
   const gv = greekVoice();
@@ -93,12 +96,17 @@ export function speak(text, { scheme = getSettings().pronunciation || 'erasmian'
     u = new SpeechSynthesisUtterance(respellText(text, scheme));
     const ev = englishVoice();
     if (ev) { u.voice = ev; u.lang = ev.lang; }
-    u.rate = rate * 0.95;
+    u.rate = rate * 0.9; // respelled syllables need a touch more time than real Greek
     mode = 'respell';
   }
   current = u;
   synth.speak(u);
   return mode;
+}
+
+export function clampRate(r) {
+  const n = Number(r);
+  return Number.isFinite(n) ? Math.min(1.1, Math.max(0.5, n)) : 0.7;
 }
 
 export function stop() { if (available()) window.speechSynthesis.cancel(); }

@@ -113,6 +113,15 @@ const stats = read('data/stats.json');
 check(stats.books.length === 27 && stats.books.every((b) => b.number && b.chapters), 'stats.json books need number + chapters');
 const evalRes = ach.evaluate({ store: { progress: { streak: 0, xp: 0, lessonsCompleted: [], achievements: {} }, vocabSRS: {}, formSRS: {}, readingHistory: {} }, curriculum, lexicon: { items: lexicon.items, byId: lexById, meta: lexicon._meta } });
 check(evalRes.achievements.length > 50 && evalRes.unlockedCount === 0, 'achievements: fresh store should unlock nothing');
+// placement test over all grammar Books
+const placement = await import('../js/placement.js');
+const grammarUnits = curriculum.units.filter((u) => u.track === 'grammar').map((u) => read(`data/units/${u.id}.json`));
+const placementBooks = placement.buildPlacement({ units: grammarUnits, lexicon: lexiconIdx, paradigmsById, irregularVerbs: irregular, rng });
+check(placementBooks.length === 8 && placementBooks.every((b) => b.questions.length === placement.QUESTIONS_PER_BOOK), `placement: every Book needs ${placement.QUESTIONS_PER_BOOK} questions (${placementBooks.map((b) => b.questions.length).join(',')})`);
+for (const b of placementBooks) for (const q of b.questions) check(q.options.length >= 2 && q.options.some((o) => o.id === q.answerId), `placement ${b.unit.id}: MC without correct option (${q.type}: ${q.prompt})`);
+check(placement.placementIndex([6, 5, 4]) === 2 && placement.placementIndex([3]) === 0 && placement.placementIndex([6, 6, 6, 6, 6, 6, 6, 6]) === 8, 'placementIndex');
+const kn = placement.knownRecords(grammarUnits.slice(0, 2), paradigmsById, irregular);
+check(kn.lessons.length === 17 && Object.keys(kn.vocab).length > 100 && Object.keys(kn.forms).length > 50, `knownRecords for Books I–II: ${kn.lessons.length} lessons, ${Object.keys(kn.vocab).length} words, ${Object.keys(kn.forms).length} forms`);
 console.log(`logic: built sessions for ${built} lessons, ${questions} questions generated; ${evalRes.achievements.length} achievements defined`);
 if (fail.length) { console.error(fail.slice(0, 20).join('\n')); process.exit(1); }
 console.log('OK');

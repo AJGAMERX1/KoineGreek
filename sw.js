@@ -3,8 +3,9 @@
 
   Strategy (README § Tech architecture / Roadmap Phase 2):
     * App shell (HTML, CSS, JS, manifest, icons, the core JSON every screen needs):
-      precached on install, then served stale-while-revalidate so a new deploy
-      shows up on the next load without ever blocking on the network.
+      precached on install; served NETWORK-FIRST (revalidating past the HTTP
+      cache) so a deploy is never mixed with stale modules, with the cache as
+      the offline fallback. GitHub Pages is fast enough that this costs little.
     * Content (data/units/*, data/gnt/*): network-first, cached on use, so a
       chapter you have opened once is readable offline.
     * Google Fonts: cached on use (opaque responses), fallback fonts otherwise.
@@ -13,7 +14,7 @@
   All paths are relative to this file so the app works at any GitHub Pages sub-path.
 */
 
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const SHELL_CACHE = `koine-shell-${CACHE_VERSION}`;
 const CONTENT_CACHE = `koine-content-${CACHE_VERSION}`;
 const FONT_CACHE = `koine-fonts-${CACHE_VERSION}`;
@@ -29,6 +30,7 @@ const SHELL = [
   './read.html',
   './lexicon.html',
   './progress.html',
+  './placement.html',
   './manifest.json',
   './css/base.css',
   './css/theme-classic.css',
@@ -48,8 +50,10 @@ const SHELL = [
   './js/achievements.js',
   './js/chain.js',
   './js/speech.js',
+  './js/placement.js',
   './js/session-view.js',
   './js/pwa.js',
+  './js/recover.js',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -70,7 +74,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(SHELL_CACHE)
       // addAll would reject the whole install on one 404; add individually so a missing optional file cannot brick offline mode
-      .then((cache) => Promise.allSettled(SHELL.map((url) => cache.add(url))))
+      .then((cache) => Promise.allSettled(SHELL.map((url) => cache.add(new Request(url, { cache: 'reload' })))))
       .then(() => self.skipWaiting())
   );
 });
@@ -92,7 +96,7 @@ self.addEventListener('fetch', (event) => {
     if (url.pathname.includes('/data/units/') || url.pathname.includes('/data/gnt/')) {
       event.respondWith(networkFirst(req, CONTENT_CACHE));
     } else {
-      event.respondWith(staleWhileRevalidate(req, SHELL_CACHE));
+      event.respondWith(networkFirst(req, SHELL_CACHE, true));
     }
     return;
   }
@@ -114,14 +118,16 @@ async function staleWhileRevalidate(req, cacheName) {
   return offlineFallback(req);
 }
 
-async function networkFirst(req, cacheName) {
+async function networkFirst(req, cacheName, revalidate = false) {
   const cache = await caches.open(cacheName);
   try {
-    const res = await fetch(req);
+    // 'no-cache' makes the browser revalidate with the server instead of trusting its HTTP cache,
+    // so every module of a fresh deploy arrives together.
+    const res = await fetch(revalidate ? new Request(req, { cache: 'no-cache' }) : req);
     if (res && res.ok) cache.put(req, res.clone());
     return res;
   } catch (e) {
-    const cached = await cache.match(req);
+    const cached = await cache.match(req, { ignoreSearch: true });
     return cached || offlineFallback(req);
   }
 }
