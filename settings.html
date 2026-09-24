@@ -145,16 +145,20 @@
 
   </div>
 
+  <div class="bottom-nav" id="nav"></div>
+
 </div>
 
 <script type="module">
   import { initTheme, setTheme, setMode } from './js/theme.js';
+  import { renderNav } from './js/nav.js';
   import { getSettings, setSettings, getProgress, getAllVocabRecords, readStore, exportStore, importStore, resetProgress } from './js/storage.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
   import { available as speechAvailable, greekVoice, speak, respell, clampRate } from './js/speech.js';
 
   initTheme();
   initPwa();
+  renderNav(document.getElementById('nav'), 'profile');
   document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
 
   const PRON_HELP = { erasmian: 'The scheme most seminaries teach: every letter distinct.', koine: 'Reconstructed first-century sound: closer to how the New Testament was heard.' };

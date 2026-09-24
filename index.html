@@ -38,6 +38,12 @@
     </div>
   </div>
 
+  <div class="path-layout">
+
+  <aside class="book-list" id="bookList" aria-label="Books"></aside>
+
+  <div class="path-main">
+
   <div class="unit-header">
     <div class="unit-header-row">
       <div>
@@ -67,6 +73,9 @@
   <div class="lesson-path" id="lessonPath">
     <p style="padding:8px 4px;color:var(--muted);font-size:13px">Loading unit…</p>
   </div>
+
+  </div><!-- /.path-main -->
+  </div><!-- /.path-layout -->
 
   <div class="bottom-nav" id="nav"></div>
 
@@ -166,9 +175,26 @@
   document.getElementById('prevUnit').addEventListener('click', () => { if (unitIndex > 0) { unitIndex--; renderUnit(); } });
   document.getElementById('nextUnit').addEventListener('click', () => { if (curriculum && unitIndex < curriculum.units.length - 1) { unitIndex++; renderUnit(); } });
 
+  function renderBookList() {
+    const done = progress.lessonsCompleted;
+    const list = document.getElementById('bookList');
+    list.innerHTML = curriculum.units.map((u, i) => {
+      const n = u.lessons.filter((l) => done.includes(l.id)).length;
+      return `<button class="book-item ${i === unitIndex ? 'active' : ''} ${n === u.lessons.length ? 'done' : ''}" type="button" data-i="${i}">
+        <span class="book-item-kicker">${escapeHtml(u.kicker)}</span>
+        <span class="book-item-title">${escapeHtml(u.sub)}</span>
+        <span class="book-item-count">${n}/${u.lessons.length}</span>
+      </button>`;
+    }).join('');
+    list.querySelectorAll('.book-item').forEach((b) => b.addEventListener('click', () => { unitIndex = Number(b.dataset.i); renderUnit(); }));
+    const active = list.querySelector('.book-item.active');
+    if (active) active.scrollIntoView({ block: 'nearest' });
+  }
+
   function renderUnit() {
     const unit = curriculum.units[unitIndex];
     const done = progress.lessonsCompleted;
+    renderBookList();
     document.getElementById('unitKicker').textContent = `${unit.kicker} · ${unitIndex + 1} of ${curriculum.units.length}`;
     document.getElementById('unitTitle').textContent = unit.title;
     document.getElementById('unitSub').textContent = unit.sub;

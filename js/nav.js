@@ -3,7 +3,8 @@
   Lexicon, Progress, Profile). The Progress tab is opt-in via
   settings.showProgress (Settings → "Show Progress tab").
 */
-import { getSettings } from './storage.js';
+import { getSettings, getProgress } from './storage.js';
+import { APP_NAME } from './theme.js';
 
 const ICONS = {
   path: '<svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z" fill="currentColor"/></svg>',
@@ -24,7 +25,17 @@ const TABS = [
 /** Render the nav into `container` (a .bottom-nav element) with `active` highlighted. */
 export function renderNav(container, active) {
   const settings = getSettings();
-  container.innerHTML = TABS.filter((t) => !t.optional || settings[t.optional]).map((t) => `
+  const progress = getProgress();
+  document.documentElement.classList.add('has-sidebar');
+  const brand = `
+    <div class="nav-brand">
+      <div class="nav-brand-name">${APP_NAME}</div>
+      <div class="nav-brand-stats">
+        <span class="stat accent"><svg class="stat-icon" viewBox="0 0 24 24"><path d="M12 2c1 3-2 4-2 7a4 4 0 0 0 8 0c0-1-.5-2-1-3 2 1 3 4 3 6a6 6 0 0 1-12 0c0-4 2-6 4-10z" fill="currentColor"/></svg>${progress.streak}</span>
+        <span class="stat gold"><svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>${progress.xp}</span>
+      </div>
+    </div>`;
+  container.innerHTML = brand + TABS.filter((t) => !t.optional || settings[t.optional]).map((t) => `
     <button class="nav-item ${t.id === active ? 'active' : ''}" type="button" data-href="${t.href}" aria-current="${t.id === active ? 'page' : 'false'}">
       ${ICONS[t.id]}<span class="nav-item-label">${t.label}</span>
     </button>`).join('');
