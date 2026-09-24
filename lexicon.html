@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Lexicon</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="topbar lex-bar">
+    <div class="unit-title" style="margin:0;font-size:18px">Lexicon</div>
+    <div class="lex-search">
+      <input class="type-input" id="q" type="search" placeholder="Search Greek (λογ) or English (word)" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Search the lexicon">
+    </div>
+    <div class="chips" id="chips">
+      <button class="pill active" type="button" data-filter="all">All</button>
+      <button class="pill" type="button" data-filter="core">Core 310</button>
+      <button class="pill" type="button" data-filter="studied">My words</button>
+      <button class="pill" type="button" data-filter="due">Due</button>
+      <button class="pill" type="button" data-filter="new">Not yet</button>
+    </div>
+  </div>
+
+  <div class="lex-body" id="body">
+    <p style="padding:20px;color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="gloss-sheet" id="sheet" hidden>
+    <button class="icon-btn sheet-close" id="sheetClose" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+    </button>
+    <div id="sheetBody"></div>
+  </div>
+
+  <div class="bottom-nav" id="nav"></div>
+
+</div>
+
+<script type="module">
+  /*
+    Lexicon tab — every GNT lemma, frequency-ranked, searchable in Greek
+    (accent-insensitive) or English, with the learner's status per word and a
+    detail sheet: citation form, gloss, Strong's/GK, the lesson that teaches
+    it, attested forms with parses, and "add to my words".
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { renderNav } from './js/nav.js';
+  import { loadLexicon, loadForms, loadCurriculum } from './js/data.js';
+  import { getAllVocabRecords, getVocabItem, updateVocabItem } from './js/storage.js';
+  import { scheduleReview } from './js/srs.js';
+  import { searchLexicon, statusOf } from './js/lexicon.js';
+  import { describeParse } from './js/morph.js';
+  import { escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  renderNav(document.getElementById('nav'), 'lexicon');
+
+  const PAGE = 120;
+  const STATUS_LABEL = { strong: 'strong', learning: 'learning', due: 'due', new: 'not yet', 'gloss-only': 'rare' };
+  const state = { lexicon: null, forms: null, records: {}, query: new URLSearchParams(location.search).get('q') || '', filter: 'all', shown: PAGE, lessonsById: new Map(), results: [] };
+
+  const body = document.getElementById('body');
+  const q = document.getElementById('q');
+  const sheet = document.getElementById('sheet');
+  q.value = state.query;
+  q.addEventListener('input', () => { state.query = q.value; state.shown = PAGE; render(); });
+  document.querySelectorAll('#chips .pill').forEach((b) => b.addEventListener('click', () => {
+    state.filter = b.dataset.filter; state.shown = PAGE;
+    document.querySelectorAll('#chips .pill').forEach((x) => x.classList.toggle('active', x === b));
+    render();
+  }));
+  document.getElementById('sheetClose').addEventListener('click', () => { sheet.hidden = true; });
+
+  main().catch((err) => { console.error(err); body.innerHTML = `<div class="card" style="margin:20px">Could not load: ${escapeHtml(err.message)}.</div>`; });
+
+  async function main() {
+    const [lexicon, curriculum] = await Promise.all([loadLexicon(), loadCurriculum()]);
+    state.lexicon = lexicon;
+    state.records = getAllVocabRecords();
+    for (const u of curriculum.units) for (const l of u.lessons) state.lessonsById.set(l.id, { ...l, unit: u });
+    render();
+    loadForms().then((f) => { state.forms = f.forms; });
+    if (state.query) { const first = searchLexicon(lexicon.items, { query: state.query })[0]; if (first && first.lemma === state.query) openDetail(first); }
+  }
+
+  function render() {
+    state.results = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records: state.records });
+    const rows = state.results.slice(0, state.shown);
+    body.innerHTML = `
+      <div class="lex-count">${state.results.length.toLocaleString()} word${state.results.length === 1 ? '' : 's'}${state.query ? ` for “${escapeHtml(state.query)}”` : ''}</div>
+      <div class="lex-list">${rows.map((it) => {
+        const st = statusOf(it, state.records);
+        return `<button class="lex-row" type="button" data-id="${escapeHtml(it.id)}">
+          <span class="lex-lemma">${escapeHtml(it.lemma)}</span>
+          <span class="lex-gloss">${escapeHtml(it.gloss)}</span>
+          <span class="lex-meta">${escapeHtml(it.pos)} · ${it.count}× · <span class="status ${st}">${STATUS_LABEL[st]}</span></span>
+        </button>`;
+      }).join('')}</div>
+      ${state.results.length > state.shown ? `<div style="padding:12px 20px"><button class="btn secondary" id="more" type="button">Show ${Math.min(PAGE, state.results.length - state.shown)} more</button></div>` : ''}`;
+    body.querySelectorAll('.lex-row').forEach((r) => r.addEventListener('click', () => openDetail(state.lexicon.byId.get(r.dataset.id))));
+    const more = document.getElementById('more');
+    if (more) more.addEventListener('click', () => { state.shown += PAGE; render(); });
+  }
+
+  function lessonHref(l) {
+    if (!l) return null;
+    const hasGrammar = (l.paradigms && l.paradigms.length) || l.irregularCount;
+    return l.type === 'alphabet' ? `alphabet.html?lesson=${l.id}` : l.type === 'reading' ? `reading.html?lesson=${l.id}` : hasGrammar ? `grammar.html?lesson=${l.id}` : `drill.html?lesson=${l.id}`;
+  }
+
+  function openDetail(it) {
+    const rec = getVocabItem(it.id);
+    const st = statusOf(it, state.records);
+    const lesson = it.lesson ? state.lessonsById.get(it.lesson) : null;
+    const forms = (state.forms && state.forms[it.id]) || [];
+    const schedulable = it.count >= 10;
+    document.getElementById('sheetBody').innerHTML = `
+      <div class="gloss-head"><span class="gloss-form">${escapeHtml(it.citation)}</span><span class="gloss-pos">${escapeHtml(it.pos)}</span></div>
+      <div class="gloss-lemma" style="margin-top:6px;font-size:17px">${escapeHtml(it.gloss)}</div>
+      <div class="gloss-status">${it.count}× in the New Testament · rank ${it.rank} of ${state.lexicon.items.length}${it.strongs ? ` · Strong's ${Array.isArray(it.strongs) ? it.strongs.join('/') : it.strongs}` : ''}${it.gk ? ` · GK ${Array.isArray(it.gk) ? it.gk.join('/') : it.gk}` : ''}</div>
+      <div class="gloss-status">${rec ? `<span class="status ${st}">${STATUS_LABEL[st]}</span> · reviewed ${rec.repetitions} time${rec.repetitions === 1 ? '' : 's'} in a row · next ${rec.dueDate ? new Date(rec.dueDate).toLocaleDateString() : '—'}` : schedulable ? 'not yet in your vocabulary' : 'rare: glossed when you meet it, never drilled'}</div>
+      ${lesson ? `<div class="gloss-status">Taught in <a href="${lessonHref(lesson)}">${escapeHtml(lesson.unit.kicker)} · ${escapeHtml(lesson.sub)}</a></div>` : ''}
+      ${forms.length ? `<div class="lex-forms"><div class="settings-title" style="margin:12px 0 6px">Forms in the New Testament</div>${forms.slice(0, 14).map((r) => `<div class="lex-form"><span class="greek">${escapeHtml(r[0])}</span><span>${escapeHtml(describeParse(r[1], r[2]))}</span><span class="n">${r[3]}×</span></div>`).join('')}${forms.length > 14 ? `<div class="gloss-status">… and ${forms.length - 14} more</div>` : ''}</div>` : ''}
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        ${!rec && schedulable ? `<button class="btn secondary" id="addWord" type="button">Add to my words</button>` : ''}
+        <a class="btn secondary" href="read.html?book=john&chapter=1">Read</a>
+      </div>`;
+    sheet.hidden = false;
+    const add = document.getElementById('addWord');
+    if (add) add.addEventListener('click', () => {
+      updateVocabItem(it.id, { ...scheduleReview(null, 'miss'), lapses: 0, format: 'lexicon' });
+      state.records = getAllVocabRecords();
+      add.disabled = true; add.textContent = 'Added — due in your next review';
+      render();
+    });
+  }
+</script>
+
+</body>
+</html>

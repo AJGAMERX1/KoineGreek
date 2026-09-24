@@ -76,6 +76,10 @@
 
     <section class="settings-section">
       <div class="settings-title">Progress</div>
+      <div class="settings-row" style="border-top:0;padding-top:0">
+        <div><div class="settings-label">Show Progress tab</div><div class="settings-help">Adds an achievements board to the bottom bar. Single-player: this is a static site, so there is no leaderboard.</div></div>
+        <label class="switch"><input type="checkbox" id="showProgress"><span class="switch-track"></span></label>
+      </div>
       <div class="stat-grid" id="statGrid"></div>
       <p class="settings-help" style="margin-top:10px" id="progressHelp"></p>
     </section>
@@ -129,6 +133,7 @@
 
   function refresh() {
     const s = getSettings();
+    document.getElementById('showProgress').checked = !!s.showProgress;
     document.querySelectorAll('#themeOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.theme === s.theme));
     document.querySelectorAll('#modeOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.mode === s.mode));
     document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.classList.toggle('active', b.dataset.pron === s.pronunciation));
@@ -142,6 +147,7 @@
   document.querySelectorAll('#modeOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setMode(b.dataset.mode); refresh(); }));
   document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ pronunciation: b.dataset.pron }); refresh(); }));
   document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ translation: b.dataset.tr }); refresh(); }));
+  document.getElementById('showProgress').addEventListener('change', (e) => { setSettings({ showProgress: e.target.checked }); refresh(); });
 
   function renderProgress() {
     const p = getProgress();

@@ -22,6 +22,8 @@ function defaultStore() {
       mode: 'light',           // 'light' | 'dark'
       pronunciation: 'erasmian', // 'erasmian' | 'koine'
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
+      showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in
+      lastRead: null,            // { book, chapter } — where the Read tab reopens
     },
     progress: {
       streak: 0,
@@ -29,6 +31,7 @@ function defaultStore() {
       unitsCompleted: [],      // unit ids (data/curriculum.json)
       lessonsCompleted: [],    // lesson ids (e.g. "u01-alphabet-1"); lesson-path state derives from this
       lastActiveDate: null,
+      achievements: {},        // achievement id -> ISO date first seen unlocked (Progress tab)
     },
     vocabSRS: {
       // '<itemId>': { interval, easeFactor, dueDate, repetitions, lastReviewed }
@@ -60,7 +63,7 @@ export function readStore() {
     const base = defaultStore();
     return {
       settings: { ...base.settings, ...(parsed.settings || {}) },
-      progress: { ...base.progress, ...(parsed.progress || {}) },
+      progress: { ...base.progress, ...(parsed.progress || {}), achievements: { ...((parsed.progress || {}).achievements || {}) } },
       vocabSRS: { ...(parsed.vocabSRS || {}) },
       readingHistory: { ...(parsed.readingHistory || {}) },
       formSRS: { ...(parsed.formSRS || {}) },
@@ -170,6 +173,17 @@ export function addXp(amount) {
   store.progress.xp += amount;
   writeStore(store);
   return store.progress;
+}
+
+/** Record first-unlock dates for achievements (called by the Progress tab after evaluating). */
+export function recordAchievements(ids, now = new Date()) {
+  const store = readStore();
+  let changed = false;
+  for (const id of ids) {
+    if (!store.progress.achievements[id]) { store.progress.achievements[id] = now.toISOString().slice(0, 10); changed = true; }
+  }
+  if (changed) writeStore(store);
+  return store.progress.achievements;
 }
 
 export function markLessonCompleted(lessonId) {

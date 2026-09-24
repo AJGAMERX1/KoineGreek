@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Progress</title>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="topbar">
+    <div class="unit-title" style="margin:0;font-size:18px">Progress</div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="settings-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="bottom-nav" id="nav"></div>
+
+</div>
+
+<script type="module">
+  /*
+    Progress tab — a single-player achievement board (there is no server, so
+    no leaderboard). Opt-in via Settings → "Show Progress tab".
+  */
+  import { initTheme } from './js/theme.js';
+  import { initPwa } from './js/pwa.js';
+  import { renderNav } from './js/nav.js';
+  import { loadLexicon, loadCurriculum } from './js/data.js';
+  import { readStore, recordAchievements } from './js/storage.js';
+  import { evaluate, GROUP_ORDER } from './js/achievements.js';
+  import { escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  renderNav(document.getElementById('nav'), 'progress');
+  const body = document.getElementById('body');
+
+  main().catch((err) => { console.error(err); body.innerHTML = `<div class="card">Could not load: ${escapeHtml(err.message)}.</div>`; });
+
+  async function main() {
+    const [lexicon, curriculum] = await Promise.all([loadLexicon(), loadCurriculum()]);
+    const store = readStore();
+    document.getElementById('xpStat').textContent = store.progress.xp;
+    const r = evaluate({ store, curriculum, lexicon });
+    const dates = recordAchievements(r.achievements.filter((a) => a.unlocked).map((a) => a.id));
+    const pct = (x) => `${Math.round(x * 100)}%`;
+    const groups = GROUP_ORDER.map((g) => [g, r.achievements.filter((a) => a.group === g)]).filter(([, l]) => l.length);
+    body.innerHTML = `
+      <section class="settings-section">
+        <div class="settings-title">How much of the New Testament you can read</div>
+        <div class="meter"><div class="meter-label"><span>Words in your vocabulary cover</span><b>${pct(r.coverage.known)}</b></div><div class="progress"><div class="progress-fill" style="width:${pct(r.coverage.known)}"></div></div></div>
+        <div class="meter"><div class="meter-label"><span>Strong words cover</span><b>${pct(r.coverage.strong)}</b></div><div class="progress"><div class="progress-fill gold" style="width:${pct(r.coverage.strong)}"></div></div></div>
+        <p class="settings-help" style="margin-top:8px">Share of all 137,554 running words of the Greek New Testament whose lemma you have studied. The 310 core words alone reach 80%; reading comfortably needs about 95–98% with the rest glossed.</p>
+        <div class="stat-grid" style="margin-top:12px">
+          ${[[r.counts.studied, 'words studied'], [r.counts.strong, 'words strong'], [r.counts.versesRead, 'verses read'], [r.counts.formsSeen, 'endings seen'], [r.counts.formsStrong, 'endings mastered'], [`${r.unitsDone}/${curriculum.units.length}`, 'books done']].map(([v, l]) => `<div class="summary-stat"><b>${v}</b><span>${l}</span></div>`).join('')}
+        </div>
+      </section>
+      <section class="settings-section">
+        <div class="settings-title">Achievements · ${r.unlockedCount} of ${r.achievements.length}</div>
+        ${groups.map(([g, list]) => `
+          <div class="ach-group">${escapeHtml(g)}</div>
+          <div class="ach-list">${list.map((a) => `
+            <div class="ach ${a.unlocked ? 'unlocked' : ''}">
+              <div class="ach-badge">${a.unlocked ? '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>'}</div>
+              <div class="ach-text">
+                <div class="ach-title">${escapeHtml(a.title)}</div>
+                <div class="ach-desc">${escapeHtml(a.desc)}${a.unlocked && dates[a.id] ? ` · unlocked ${dates[a.id]}` : ''}</div>
+                ${a.unlocked ? '' : `<div class="progress ach-bar"><div class="progress-fill" style="width:${Math.round(a.fraction * 100)}%"></div></div><div class="ach-count">${typeof a.value === 'number' ? a.value.toLocaleString() : a.value} / ${a.target.toLocaleString()}</div>`}
+              </div>
+            </div>`).join('')}</div>`).join('')}
+      </section>`;
+  }
+</script>
+
+</body>
+</html>

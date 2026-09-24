@@ -103,6 +103,16 @@ for (const u of curriculum.units) {
     }
   }
 }
-console.log(`logic: built sessions for ${built} lessons, ${questions} questions generated`);
+// lexicon search + achievements + nav-free pages' data
+const lexmod = await import('../js/lexicon.js');
+const ach = await import('../js/achievements.js');
+check(lexmod.searchLexicon(lexicon.items, { query: 'λογ' })[0].lemma === 'λόγος', 'lexicon search: λογ should rank λόγος first');
+check(lexmod.searchLexicon(lexicon.items, { query: 'word' }).some((i) => i.lemma === 'λόγος'), 'lexicon search: "word" should find λόγος');
+check(lexmod.searchLexicon(lexicon.items, { filter: 'core' }).length === 309, 'lexicon core filter should return 309 words');
+const stats = read('data/stats.json');
+check(stats.books.length === 27 && stats.books.every((b) => b.number && b.chapters), 'stats.json books need number + chapters');
+const evalRes = ach.evaluate({ store: { progress: { streak: 0, xp: 0, lessonsCompleted: [], achievements: {} }, vocabSRS: {}, formSRS: {}, readingHistory: {} }, curriculum, lexicon: { items: lexicon.items, byId: lexById, meta: lexicon._meta } });
+check(evalRes.achievements.length > 50 && evalRes.unlockedCount === 0, 'achievements: fresh store should unlock nothing');
+console.log(`logic: built sessions for ${built} lessons, ${questions} questions generated; ${evalRes.achievements.length} achievements defined`);
 if (fail.length) { console.error(fail.slice(0, 20).join('\n')); process.exit(1); }
 console.log('OK');

@@ -88,6 +88,7 @@ POS_NAMES = {
 # Lemmas present in MorphGNT but absent from lexemes.yaml.
 GLOSS_OVERRIDES = {
     "δέω": {"gloss": "I bind, tie; (impersonal δεῖ) it is necessary, one must"},
+    "ἐργάζομαι": {"gloss": "I work, trade, do"},  # upstream typo: "I word"
     "μήν": {"gloss": "surely, indeed (particle)", "citation": "μήν"},
     "συναπάγομαι": {"gloss": "I am carried away with; associate with", "citation": "συναπάγομαι"},
 }
@@ -281,7 +282,7 @@ def build() -> None:
         },
         "items": items,
     }
-    write_json("lexicon.json", lexicon, compact=True)
+    # (lexicon.json is written after the curriculum build below, so items can carry `lesson`)
 
     # ---- forms.json (lemmas with >= FORMS_MIN_COUNT occurrences) ----
     core = {lemma for lemma, c in ranked if c >= FORMS_MIN_COUNT}
@@ -349,7 +350,7 @@ def build() -> None:
         rows = [r for r in chapter_stats if r["book"] == slug]
         toks = sum(r["tokens"] for r in rows)
         book_stats.append({
-            "book": slug, "name": name, "chapters": len(rows), "tokens": toks,
+            "book": slug, "name": name, "number": num, "greekTitle": BOOK_BY_NUM[num][5], "chapters": len(rows), "tokens": toks,
             "coverage": {str(b): round(sum(r["coverage"][str(b)] * r["tokens"] for r in rows) / toks, 4) for b in bands},
         })
     book_stats.sort(key=lambda r: -r["coverage"]["882"])
@@ -369,7 +370,7 @@ def build() -> None:
     import curriculum  # scripts/curriculum.py
     lex_by_id = {i["id"]: i for i in items}
     attested = {(lemma, norm, parse) for (lemma, norm, pos, parse) in forms}
-    curriculum.build(
+    assigned = curriculum.build(
         lex_by_id=lex_by_id,
         ranked=[l for l, _ in ranked],
         attested_forms=attested,
@@ -378,6 +379,11 @@ def build() -> None:
         book_by_num=BOOK_BY_NUM,
         write_json=write_json,
     )
+    for item in items:
+        if item["id"] in assigned:
+            item["lesson"] = assigned[item["id"]]
+    lexicon["_meta"]["lessonNote"] = "item.lesson = id of the lesson that introduces the word (absent for words under scheduleMinCount, which are gloss-only)."
+    write_json("lexicon.json", lexicon, compact=True)
     print("Done.")
 
 

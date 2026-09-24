@@ -13,6 +13,8 @@
   {
    "book": "1-john",
    "name": "1 John",
+   "number": 23,
+   "greekTitle": "Ἰωάννου Αʹ",
    "chapters": 5,
    "tokens": 2137,
    "coverage": {
@@ -26,6 +28,8 @@
   {
    "book": "2-john",
    "name": "2 John",
+   "number": 24,
+   "greekTitle": "Ἰωάννου Βʹ",
    "chapters": 1,
    "tokens": 245,
    "coverage": {
@@ -39,6 +43,8 @@
   {
    "book": "john",
    "name": "John",
+   "number": 4,
+   "greekTitle": "Κατὰ Ἰωάννην",
    "chapters": 21,
    "tokens": 15438,
    "coverage": {
@@ -52,6 +58,8 @@
   {
    "book": "matthew",
    "name": "Matthew",
+   "number": 1,
+   "greekTitle": "Κατὰ Μαθθαῖον",
    "chapters": 28,
    "tokens": 18329,
    "coverage": {
@@ -65,6 +73,8 @@
   {
    "book": "2-thessalonians",
    "name": "2 Thessalonians",
+   "number": 14,
+   "greekTitle": "Πρὸς Θεσσαλονικεῖς Βʹ",
    "chapters": 3,
    "tokens": 820,
    "coverage": {
@@ -78,6 +88,8 @@
   {
    "book": "mark",
    "name": "Mark",
+   "number": 2,
+   "greekTitle": "Κατὰ Μᾶρκον",
    "chapters": 16,
    "tokens": 11286,
    "coverage": {
@@ -91,6 +103,8 @@
   {
    "book": "1-thessalonians",
    "name": "1 Thessalonians",
+   "number": 13,
+   "greekTitle": "Πρὸς Θεσσαλονικεῖς Αʹ",
    "chapters": 5,
    "tokens": 1473,
    "coverage": {
@@ -104,6 +118,8 @@
   {
    "book": "1-corinthians",
    "name": "1 Corinthians",
+   "number": 7,
+   "greekTitle": "Πρὸς Κορινθίους Αʹ",
    "chapters": 16,
    "tokens": 6812,
    "coverage": {
@@ -117,6 +133,8 @@
   {
    "book": "revelation",
    "name": "Revelation",
+   "number": 27,
+   "greekTitle": "Ἀποκάλυψις Ἰωάννου",
    "chapters": 22,
    "tokens": 9833,
    "coverage": {
@@ -130,6 +148,8 @@
   {
    "book": "luke",
    "name": "Luke",
+   "number": 3,
+   "greekTitle": "Κατὰ Λουκᾶν",
    "chapters": 24,
    "tokens": 19446,
    "coverage": {
@@ -143,6 +163,8 @@
   {
    "book": "galatians",
    "name": "Galatians",
+   "number": 9,
+   "greekTitle": "Πρὸς Γαλάτας",
    "chapters": 6,
    "tokens": 2226,
    "coverage": {
@@ -156,6 +178,8 @@
   {
    "book": "romans",
    "name": "Romans",
+   "number": 6,
+   "greekTitle": "Πρὸς Ῥωμαίους",
    "chapters": 16,
    "tokens": 7055,
    "coverage": {
@@ -169,6 +193,8 @@
   {
    "book": "ephesians",
    "name": "Ephesians",
+   "number": 10,
+   "greekTitle": "Πρὸς Ἐφεσίους",
    "chapters": 6,
    "tokens": 2416,
    "coverage": {
@@ -182,6 +208,8 @@
   {
    "book": "3-john",
    "name": "3 John",
+   "number": 25,
+   "greekTitle": "Ἰωάννου Γʹ",
    "chapters": 1,
    "tokens": 219,
    "coverage": {
@@ -195,6 +223,8 @@
   {
    "book": "colossians",
    "name": "Colossians",
+   "number": 12,
+   "greekTitle": "Πρὸς Κολοσσαεῖς",
    "chapters": 4,
    "tokens": 1580,
    "coverage": {
@@ -208,6 +238,8 @@
   {
    "book": "philemon",
    "name": "Philemon",
+   "number": 18,
+   "greekTitle": "Πρὸς Φιλήμονα",
    "chapters": 1,
    "tokens": 334,
    "coverage": {
@@ -221,6 +253,8 @@
   {
    "book": "philippians",
    "name": "Philippians",
+   "number": 11,
+   "greekTitle": "Πρὸς Φιλιππησίους",
    "chapters": 4,
    "tokens": 1626,
    "coverage": {
@@ -234,6 +268,8 @@
   {
    "book": "2-corinthians",
    "name": "2 Corinthians",
+   "number": 8,
+   "greekTitle": "Πρὸς Κορινθίους Βʹ",
    "chapters": 13,
    "tokens": 4473,
    "coverage": {
@@ -247,6 +283,8 @@
   {
    "book": "acts",
    "name": "Acts",
+   "number": 5,
+   "greekTitle": "Πράξεις Ἀποστόλων",
    "chapters": 28,
    "tokens": 18412,
    "coverage": {
@@ -260,6 +298,8 @@
   {
    "book": "hebrews",
    "name": "Hebrews",
+   "number": 19,
+   "greekTitle": "Πρὸς Ἑβραίους",
    "chapters": 13,
    "tokens": 4935,
    "coverage": {
@@ -273,6 +313,8 @@
   {
    "book": "james",
    "name": "James",
+   "number": 20,
+   "greekTitle": "Ἰακώβου",
    "chapters": 5,
    "tokens": 1739,
    "coverage": {
@@ -286,6 +328,8 @@
   {
    "book": "1-peter",
    "name": "1 Peter",
+   "number": 21,
+   "greekTitle": "Πέτρου Αʹ",
    "chapters": 5,
    "tokens": 1678,
    "coverage": {
@@ -299,6 +343,8 @@
   {
    "book": "jude",
    "name": "Jude",
+   "number": 26,
+   "greekTitle": "Ἰούδα",
    "chapters": 1,
    "tokens": 459,
    "coverage": {
@@ -312,6 +358,8 @@
   {
    "book": "2-timothy",
    "name": "2 Timothy",
+   "number": 16,
+   "greekTitle": "Πρὸς Τιμόθεον Βʹ",
    "chapters": 4,
    "tokens": 1235,
    "coverage": {
@@ -325,6 +373,8 @@
   {
    "book": "1-timothy",
    "name": "1 Timothy",
+   "number": 15,
+   "greekTitle": "Πρὸς Τιμόθεον Αʹ",
    "chapters": 6,
    "tokens": 1591,
    "coverage": {
@@ -338,6 +388,8 @@
   {
    "book": "2-peter",
    "name": "2 Peter",
+   "number": 22,
+   "greekTitle": "Πέτρου Βʹ",
    "chapters": 3,
    "tokens": 1098,
    "coverage": {
@@ -351,6 +403,8 @@
   {
    "book": "titus",
    "name": "Titus",
+   "number": 17,
+   "greekTitle": "Πρὸς Τίτον",
    "chapters": 3,
    "tokens": 659,
    "coverage": {

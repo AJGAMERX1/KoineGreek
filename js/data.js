@@ -57,6 +57,10 @@ export function loadAlphabet() {
   return loadJson('./data/alphabet.json');
 }
 
+export function loadStats() {
+  return loadJson('./data/stats.json');
+}
+
 export function loadForms() {
   return loadJson('./data/forms.json');
 }

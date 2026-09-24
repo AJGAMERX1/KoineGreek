@@ -1090,3 +1090,4 @@ def build(lex_by_id, ranked, attested_forms, verses, chapter_stats, book_by_num,
     print("  reading coverage by lesson (known = share of words already introduced; schedulable = share that will ever be scheduled):")
     for lid, ref, cov in reading_rows[:10]:
         print(f"    {lid:28s} {ref:18s} known {cov['known']:.3f}  schedulable {cov['schedulable']:.3f}  ({cov['tokens']} words)")
+    return assigned

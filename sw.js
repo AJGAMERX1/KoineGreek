@@ -13,7 +13,7 @@
   All paths are relative to this file so the app works at any GitHub Pages sub-path.
 */
 
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const SHELL_CACHE = `koine-shell-${CACHE_VERSION}`;
 const CONTENT_CACHE = `koine-content-${CACHE_VERSION}`;
 const FONT_CACHE = `koine-fonts-${CACHE_VERSION}`;
@@ -26,6 +26,9 @@ const SHELL = [
   './reading.html',
   './settings.html',
   './grammar.html',
+  './read.html',
+  './lexicon.html',
+  './progress.html',
   './manifest.json',
   './css/base.css',
   './css/theme-classic.css',
@@ -40,6 +43,9 @@ const SHELL = [
   './js/reading.js',
   './js/morph.js',
   './js/grammar.js',
+  './js/nav.js',
+  './js/lexicon.js',
+  './js/achievements.js',
   './js/session-view.js',
   './js/pwa.js',
   './icons/icon.svg',
@@ -53,6 +59,7 @@ const SHELL = [
   './data/paradigms.json',
   './data/irregular-verbs.json',
   './data/forms.json',
+  './data/stats.json',
   './data/units/unit-01-foundations.json',
   './data/gnt/john.json',
 ];
@@ -80,7 +87,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
 
   if (url.origin === location.origin) {
-    if (url.pathname.includes('/data/units/') || url.pathname.includes('/data/gnt/') || url.pathname.includes('/data/stats.json')) {
+    if (url.pathname.includes('/data/units/') || url.pathname.includes('/data/gnt/')) {
       event.respondWith(networkFirst(req, CONTENT_CACHE));
     } else {
       event.respondWith(staleWhileRevalidate(req, SHELL_CACHE));

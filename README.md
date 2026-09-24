@@ -168,6 +168,9 @@ koine-greek-app/
 ├── drill.html          — vocab drill session (lesson mode: ?lesson=<id>; review mode: ?mode=due)
 ├── alphabet.html       — alphabet lessons (Book I lessons 1–4: ?lesson=u01-alphabet-N)
 ├── reading.html        — Read & Translate (?lesson=<reading lesson id>)
+├── read.html           — Read tab: parallel Greek/English reader (?book=<slug>&chapter=<n>)
+├── lexicon.html        — Lexicon tab: search + word detail (?q=<lemma> opens it)
+├── progress.html       — Progress tab: achievement board (opt-in)
 ├── settings.html       — Settings / Profile: style, mode, pronunciation, translation, progress, install, backup, credits
 ├── manifest.json       — web app manifest (installable PWA)
 ├── sw.js               — service worker: offline caching (see Tech architecture)
@@ -184,6 +187,9 @@ koine-greek-app/
 │   ├── reading.js         — Read & Translate logic: known/unknown annotation, coverage, verse rating → SRS record, XP (no DOM)
 │   ├── morph.js           — decodes MorphGNT part-of-speech + 8-slot parse codes into English
 │   ├── alphabet.js        — alphabet lesson logic: transliteration, syllabification, accent/breathing detection, session builder (no DOM)
+│   ├── nav.js             — shared bottom navigation (Path · Read · Lexicon · [Progress] · Profile)
+│   ├── lexicon.js         — lexicon search/filter + per-word status (no DOM)
+│   ├── achievements.js    — achievement definitions + evaluation (no DOM)
 │   ├── pwa.js             — service-worker registration + install-prompt capture
 │   ├── session-view.js    — shared session UI: progress, intro / question / feedback / summary cards, Greek keyboard
 │   ├── data.js            — cached loaders for data/*.json (the only module that fetches content)
@@ -243,7 +249,10 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 
 **Phase 5 — Polish / stretch**
 - [ ] Audio pronunciation (Erasmian + reconstructed Koine)
-- [ ] Leaderboards/streaks/social sharing
+- [x] Progress tab (single-player achievement board — a static site has no leaderboard): coverage meters, 73 achievements for words, verses, endings, streaks, Books and XP; opt-in via Settings → "Show Progress tab"
+- [x] Read tab: parallel Greek / English reader over the whole NT (SBLGNT + WEB/KJV/YLT), verse-aligned columns on wide screens, tap-to-gloss, "Study this chapter" hand-off to the curriculum
+- [x] Lexicon tab: all 5,461 lemmas searchable in Greek (accent-insensitive) or English, status per word, detail with attested forms and "add to my words"
+- [ ] Social sharing
 - [ ] Optional serverless adjunct for AI-graded free-text translation (see limitation above) — only if justified
 
 ## Running locally
