@@ -35,7 +35,17 @@ export function applyTheme(theme, mode, fonts = {}) {
     if (value && value !== 'theme' && FONTS.some((f) => f.id === value)) root.setAttribute(attr, value);
     else root.removeAttribute(attr);
   }
+  // Browser chrome follows the theme: canvas colour scheme (no white flash), status/title bar colour.
+  const t = root.getAttribute('data-theme');
+  const m = root.getAttribute('data-mode');
+  root.style.colorScheme = m;
+  root.style.backgroundColor = '';
+  const setMeta = () => { const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.setAttribute('content', THEME_BG[t][m === 'dark' ? 1 : 0]); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setMeta, { once: true }); else setMeta();
 }
+
+/** Page backgrounds per theme [light, dark] — kept in sync with css/theme-*.css and js/recover.js. */
+export const THEME_BG = { classic: ['#FFFDF8', '#1B2420'], lexis: ['#F3E9D2', '#241811'], nous: ['#FFFFFF', '#0D0D0D'] };
 
 /** Read saved settings and apply them. Call once on page load. */
 export function initTheme() {

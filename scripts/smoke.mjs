@@ -128,11 +128,15 @@ check(strongs['3056'] && /λόγος/.test(strongs['3056'].lemma), "strongs-gree
 const withStrongs = lexicon.items.filter((i) => i.strongs).length;
 const resolved = lexicon.items.filter((i) => [].concat(i.strongs || []).some((n) => strongs[String(n)])).length;
 check(resolved > withStrongs * 0.95, `strongs: only ${resolved}/${withStrongs} lexicon items resolve to an entry`);
+const verseIds = new Set();
+for (const b of Object.values(books)) for (const ch of Object.values(b.chapters)) for (const v of Object.values(ch)) verseIds.add(v.id);
 for (const slug of Object.keys(books)) {
   const rwp = read(`data/rwp/${slug}.json`); const xr = read(`data/xrefs/${slug}.json`);
-  for (const [ch, vs] of Object.entries(rwp.chapters)) for (const v of Object.keys(vs)) check(books[slug].chapters[ch] && Object.values(books[slug].chapters[ch]).some((x) => x.id === `${slug}-${ch}-${v}`), `rwp ${slug} ${ch}:${v} not in gnt`);
-  for (const [ch, vs] of Object.entries(xr.chapters)) for (const [v, refs] of Object.entries(vs)) { check(books[slug].chapters[ch] && Object.values(books[slug].chapters[ch]).some((x) => x.id === `${slug}-${ch}-${v}`), `xrefs ${slug} ${ch}:${v} not in gnt`); for (const r of refs) check(r.ref && r.book && r.chapter && r.from && typeof r.nt === 'boolean', `xrefs ${slug} ${ch}:${v}: malformed ref`); }
+  for (const [ch, vs] of Object.entries(rwp.chapters)) for (const v of Object.keys(vs)) check(verseIds.has(`${slug}-${ch}-${v}`), `rwp ${slug} ${ch}:${v} not in gnt`);
+  for (const [ch, vs] of Object.entries(xr.chapters)) for (const [v, refs] of Object.entries(vs)) { check(verseIds.has(`${slug}-${ch}-${v}`), `xrefs ${slug} ${ch}:${v} not in gnt`); for (const r of refs) check(r.ref && r.book && r.chapter && r.from && typeof r.nt === 'boolean', `xrefs ${slug} ${ch}:${v}: malformed ref`); }
 }
+const occ = read('data/occurrences.json').occurrences;
+check(occ['λόγος'] && occ['λόγος'].every((id) => verseIds.has(id)) && Object.keys(occ).length === lexicon.items.length, 'occurrences.json: every lemma, every id a real verse');
 const refs = await import('../js/refs.js');
 check(refs.parseReference('Jn 3:16').slug === 'john' && refs.parseReference('1 Cor 13:4-7').verseEnd === 7 && refs.parseReference('Gen 1:1').nt === false && refs.parseReference('nope') === null, 'refs.parseReference');
 console.log(`logic: built sessions for ${built} lessons, ${questions} questions generated; ${evalRes.achievements.length} achievements defined`);

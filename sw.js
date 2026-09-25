@@ -14,7 +14,7 @@
   All paths are relative to this file so the app works at any GitHub Pages sub-path.
 */
 
-const CACHE_VERSION = 'v9';
+const CACHE_VERSION = 'v10';
 const SHELL_CACHE = `koine-shell-${CACHE_VERSION}`;
 const CONTENT_CACHE = `koine-content-${CACHE_VERSION}`;
 const FONT_CACHE = `koine-fonts-${CACHE_VERSION}`;
@@ -69,6 +69,7 @@ const SHELL = [
   './data/forms.json',
   './data/stats.json',
   './data/strongs-greek.json',
+  './data/occurrences.json',
   './data/units/unit-01-foundations.json',
   './data/gnt/john.json',
 ];

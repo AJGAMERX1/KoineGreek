@@ -53,7 +53,7 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadCurriculum } from './js/data.js';
-  import { getProgress, getAllVocabRecords, getVocabItem, updateVocabItem, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { getProgress, getAllVocabRecords, getVocabItem, updateVocabItem, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
   import { scheduleReview } from './js/srs.js';
   import { buildSession, makeQuestion, grade, ratingFor, xpFor, feedback, requeue } from './js/drill.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
@@ -99,18 +99,48 @@
     const curriculum = await loadCurriculum();
     curriculum.units.forEach((u) => u.lessons.forEach((l) => state.unitOfLesson.set(l.id, `${u.kicker} · ${u.sub}`)));
 
+    state.sessionKey = `drill:${mode === 'lesson' ? lessonId : 'due'}`;
+    const saved = getSession(state.sessionKey);
+    if (saved && saved.index > 0 && saved.index < saved.steps.length) {
+      view.renderResume({
+        title: state.lesson ? state.lesson.sub : 'Due reviews',
+        detail: `You were ${saved.index} of ${saved.steps.length} steps in, with ${saved.answered} answered. Resume, or start a fresh session.`,
+      }, () => { restore(saved); renderStep(); }, () => { clearSession(state.sessionKey); startFresh(lessonVocab); });
+      return;
+    }
+    startFresh(lessonVocab);
+  }
+
+  function startFresh(lessonVocab) {
     const session = buildSession({ lessonVocab, records: getAllVocabRecords(), lexicon: state.lexicon });
     state.steps = session.steps;
     state.total = session.steps.length;
     state.newIds = session.newIds;
+    state.index = 0;
     if (!state.steps.length) { renderEmpty(); return; }
     renderStep();
+  }
+
+  // ---- resume support: steps hold lexicon items, so store ids and rehydrate ----
+  function snapshot() {
+    return {
+      steps: state.steps.map((st) => ({ kind: st.kind, itemId: st.item.id, format: st.format, isNew: st.isNew, attempt: st.attempt, secondPass: !!st.secondPass })),
+      index: state.index, answered: state.answered, correctFirstTry: state.correctFirstTry, xpEarned: state.xpEarned,
+      missed: [...state.missed], newIds: state.newIds,
+    };
+  }
+  function restore(saved) {
+    state.steps = saved.steps.map((st) => ({ ...st, item: state.lexicon.byId.get(st.itemId) })).filter((st) => st.item);
+    state.total = state.steps.length; state.index = Math.min(saved.index, state.steps.length);
+    state.answered = saved.answered; state.correctFirstTry = saved.correctFirstTry; state.xpEarned = saved.xpEarned;
+    state.missed = new Set(saved.missed); state.newIds = saved.newIds || [];
   }
 
   function renderStep() {
     view.setProgress(Math.min(state.index, state.total) / Math.max(state.total, 1));
     const step = state.steps[state.index];
     if (!step) { renderSummary(); return; }
+    if (state.index > 0) saveSession(state.sessionKey, snapshot());
     if (step.kind === 'intro') renderIntro(step); else renderQuestion(step);
   }
 
@@ -189,6 +219,7 @@
   }
 
   function renderSummary() {
+    clearSession(state.sessionKey);
     const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
     const firstTries = Math.max(state.answered - retries, 1);
     const accuracy = Math.round((state.correctFirstTry / firstTries) * 100);

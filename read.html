@@ -94,6 +94,7 @@
     books: [], slug: params.get('book') || (settings.lastRead && settings.lastRead.book) || 'john',
     chapter: Number(params.get('chapter')) || (settings.lastRead && settings.lastRead.chapter) || 1,
     targetVerse: Number(params.get('verse')) || null,
+    highlightLemma: params.get('lemma') || null,
     translation: settings.translation || 'web', mark: settings.markUnknown !== false,
     lexicon: null, records: {}, lessons: new Map(), book: null,
     verse: null, word: null, tab: 'word', wp: null, xrefs: null, strongs: null,
@@ -174,7 +175,12 @@
     render();
     if (verse) {
       const row = document.getElementById(`${slug}-${chapter}-${verse}`);
-      if (row) { row.classList.add('target'); row.scrollIntoView({ block: 'center' }); selectVerse(verse, 'wp'); }
+      if (row) {
+        row.classList.add('target'); row.scrollIntoView({ block: 'center' });
+        const hit = state.highlightLemma && row.querySelector('.w.hit');
+        if (hit) tapWord(hit); else selectVerse(verse, 'wp');
+      }
+      state.highlightLemma = null; // one-shot: later navigation shows the chapter plainly
     } else {
       body.scrollTop = 0; window.scrollTo(0, 0);
     }
@@ -194,7 +200,7 @@
       const words = annotate(v, state.lexicon, state.records);
       for (const w of words) if (isWordToken(w)) { tokens++; if (w.known) known++; }
       const gr = words.map((w, i) => isWordToken(w)
-        ? `<span class="w ${state.mark && !w.known ? 'unknown' : 'known'}" data-v="${v.id}" data-i="${i}" role="button" tabindex="0">${escapeHtml(w.t)}</span>`
+        ? `<span class="w ${state.mark && !w.known ? 'unknown' : 'known'}${state.highlightLemma && w.l === state.highlightLemma ? ' hit' : ''}" data-v="${v.id}" data-i="${i}" role="button" tabindex="0">${escapeHtml(w.t)}</span>`
         : `<span class="punct">${escapeHtml(w.t)}</span>`).join(' ');
       const en = v.translations[state.translation] || Object.values(v.translations)[0] || '';
       const num = v.id.split('-').pop();

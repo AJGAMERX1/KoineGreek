@@ -67,7 +67,7 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
-  import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor } from './js/data.js';
+  import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor, loadOccurrences, loadStats, parseVerseId } from './js/data.js';
   import { getAllVocabRecords, getVocabItem, updateVocabItem } from './js/storage.js';
   import { scheduleReview } from './js/srs.js';
   import { searchLexicon, statusOf } from './js/lexicon.js';
@@ -94,7 +94,7 @@
     document.querySelectorAll('#chips .pill').forEach((x) => x.classList.toggle('active', x === b));
     render();
   }));
-  document.getElementById('sheetClose').addEventListener('click', () => { sheet.hidden = true; });
+  document.getElementById('sheetClose').addEventListener('click', () => { sheet.hidden = true; state.openItem = null; });
 
   main().catch((err) => { console.error(err); body.innerHTML = `<div class="card" style="margin:20px">Could not load: ${escapeHtml(err.message)}.</div>`; });
 
@@ -104,8 +104,12 @@
     state.records = getAllVocabRecords();
     for (const u of curriculum.units) for (const l of u.lessons) state.lessonsById.set(l.id, { ...l, unit: u });
     render();
-    loadForms().then((f) => { state.forms = f.forms; });
-    loadStrongs().then((s) => { state.strongs = s; }).catch(() => {});
+    loadForms().then((f) => { state.forms = f.forms; refreshOpen(); });
+    // Secondary data arrives after first paint; if a detail is open, refresh it so the extra sections appear.
+    const refreshOpen = () => { if (state.openItem) openDetail(state.openItem); };
+    loadStrongs().then((s) => { state.strongs = s; refreshOpen(); }).catch(() => {});
+    loadOccurrences().then((o) => { state.occ = o; refreshOpen(); }).catch(() => {});
+    loadStats().then((st) => { state.bookNames = Object.fromEntries(st.books.map((b) => [b.book, b.name])); refreshOpen(); }).catch(() => {});
     if (state.query) { const first = searchLexicon(lexicon.items, { query: state.query })[0]; if (first && first.lemma === state.query) openDetail(first); }
   }
 
@@ -135,12 +139,16 @@
   }
 
   function openDetail(it) {
+    state.openItem = it;
     const rec = getVocabItem(it.id);
     const st = statusOf(it, state.records);
     const lesson = it.lesson ? state.lessonsById.get(it.lesson) : null;
     const forms = (state.forms && state.forms[it.id]) || [];
     const strongs = strongsFor(it, state.strongs);
     const schedulable = it.count >= 10;
+    const occ = (state.occ && state.occ[it.id]) || [];
+    const refLabel = (id) => { const r = parseVerseId(id); return `${(state.bookNames && state.bookNames[r.slug]) || r.slug} ${r.chapter}:${r.verse}`; };
+    const readHref = (id) => { const r = parseVerseId(id); return `read.html?book=${r.slug}&chapter=${r.chapter}&verse=${r.verse}&lemma=${encodeURIComponent(it.id)}`; };
     document.getElementById('sheetBody').innerHTML = `
       <div class="gloss-head"><span class="gloss-form">${escapeHtml(it.citation)}${speakerHtml(it.lemma, { small: true })}</span><span class="gloss-pos">${escapeHtml(it.pos)}</span></div>
       <div class="gloss-lemma" style="margin-top:6px;font-size:17px">${escapeHtml(it.gloss)}</div>
@@ -149,9 +157,10 @@
       ${lesson ? `<div class="gloss-status">Taught in <a href="${lessonHref(lesson)}">${escapeHtml(lesson.unit.kicker)} · ${escapeHtml(lesson.sub)}</a></div>` : ''}
       ${strongs.map((x) => `<div class="strongs"><span class="k">Strong's G${x.number}</span> <b>${escapeHtml(x.lemma || '')}</b> ${escapeHtml(x.translit || '')} <span class="pron">${escapeHtml(x.pron || '')}</span><div>${escapeHtml(x.def)}</div>${x.see && x.see.length ? `<div class="gloss-status">See also ${x.see.map((n) => 'G' + n).join(', ')}</div>` : ''}</div>`).join('')}
       ${forms.length ? `<div class="lex-forms"><div class="settings-title" style="margin:12px 0 6px">Forms in the New Testament</div>${forms.slice(0, 14).map((r) => `<div class="lex-form"><span class="greek">${escapeHtml(r[0])}</span><span>${escapeHtml(describeParse(r[1], r[2]))}</span><span class="n">${r[3]}×</span></div>`).join('')}${forms.length > 14 ? `<div class="gloss-status">… and ${forms.length - 14} more</div>` : ''}</div>` : ''}
+      ${occ.length ? `<div class="lex-forms"><div class="settings-title" style="margin:12px 0 6px">In the New Testament</div><div class="xref-list">${occ.map((id) => `<a class="xref" href="${readHref(id)}">${escapeHtml(refLabel(id))}</a>`).join('')}${it.count > occ.length ? `<span class="gloss-status" style="align-self:center">… ${it.count}× in all</span>` : ''}</div></div>` : ''}
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
         ${!rec && schedulable ? `<button class="btn secondary" id="addWord" type="button">Add to my words</button>` : ''}
-        <a class="btn secondary" href="read.html?book=john&chapter=1">Read</a>
+        ${occ.length ? `<a class="btn secondary" href="${readHref(occ[0])}">Read it in context</a>` : ''}
       </div>`;
     sheet.hidden = false;
     const add = document.getElementById('addWord');

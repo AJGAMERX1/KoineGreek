@@ -60,6 +60,9 @@ export class SessionView {
     this.continueBtn.onclick = onClick;
     this.onContinue = onClick;
     this.footer.hidden = false;
+    let hint = this.footer.querySelector('.key-hint');
+    if (!hint) { hint = document.createElement('span'); hint.className = 'key-hint'; this.footer.appendChild(hint); }
+    hint.innerHTML = '<kbd>Enter</kbd> to continue';
   }
 
   hideFooter() {
@@ -92,7 +95,8 @@ export class SessionView {
         ${hint ? `<div class="prompt-hint">${escapeHtml(hint)}</div>` : ''}
       </div>`;
     if (options) {
-      html += `<div class="options" id="options">` + options.map((o, i) => `
+      const long = options.some((o) => (o.text || '').length > 28);
+      html += `<div class="options ${long ? 'long' : ''}" id="options">` + options.map((o, i) => `
         <button class="option ${o.greek ? 'greek' : ''}" type="button" data-id="${escapeHtml(o.id)}">
           <span class="key">${i + 1}</span><span>${o.html || escapeHtml(o.text)}</span>
         </button>`).join('') + `</div>`;
@@ -160,6 +164,21 @@ export class SessionView {
     this.setProgress(1);
     this.body.innerHTML = `<div class="drill-kicker">${escapeHtml(kicker)}</div>${html}`;
     this.showFooter(buttonLabel, onClick);
+    this.body.scrollTop = 0;
+  }
+
+  /** "Pick up where you left off?" — Resume in the footer, Start over as a secondary button. */
+  renderResume({ title, detail }, onResume, onRestart) {
+    this.onKey = null;
+    this.body.innerHTML = `
+      <div class="drill-kicker">Welcome back</div>
+      <div class="card">
+        <div class="rule-title">${escapeHtml(title)}</div>
+        <p class="rule-body">${escapeHtml(detail)}</p>
+        <div style="margin-top:12px"><button class="btn secondary" id="restartBtn" type="button">Start over</button></div>
+      </div>`;
+    document.getElementById('restartBtn').addEventListener('click', onRestart);
+    this.showFooter('Resume', onResume);
     this.body.scrollTop = 0;
   }
 

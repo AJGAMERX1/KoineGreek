@@ -284,6 +284,26 @@ def build() -> None:
     }
     # (lexicon.json is written after the curriculum build below, so items can carry `lesson`)
 
+    # ---- occurrences.json: first verses (canonical order) where each lemma appears ----
+    OCC_MAX = 8
+    occ = {}
+    for (num, ch, v), words in verses.items():
+        slug = BOOK_BY_NUM[num][2]
+        seen_here = set()
+        for w in words:
+            l = w["l"]
+            if l in seen_here:
+                continue
+            seen_here.add(l)
+            lst = occ.setdefault(l, [])
+            if len(lst) < OCC_MAX:
+                lst.append(f"{slug}-{ch}-{v}")
+    write_json("occurrences.json", {
+        "_meta": {"note": f"For every lemma, the first {OCC_MAX} verses (canonical order) in which it occurs, as verse ids. "
+                          "Total occurrence counts are in lexicon.json (count = tokens, not verses)."},
+        "occurrences": occ,
+    }, compact=True)
+
     # ---- forms.json (lemmas with >= FORMS_MIN_COUNT occurrences) ----
     core = {lemma for lemma, c in ranked if c >= FORMS_MIN_COUNT}
     by_lemma = collections.defaultdict(list)

@@ -16,6 +16,10 @@ html, body {
   height: 100%;
 }
 
+html[data-theme] {
+  background: var(--bg);
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -279,6 +283,7 @@ button {
 
 .lesson-node[data-state="complete"] .node-dot { background: var(--gold); }
 .lesson-node[data-state="active"] .node-dot { background: var(--accent); }
+.lesson-node[data-state="open"] .node-dot { background: var(--primary); }
 .lesson-node[data-state="locked"] .node-dot { background: var(--muted); }
 
 .node-text {
@@ -317,6 +322,21 @@ button {
 
 .lesson-node[data-state="complete"] .node-status { color: var(--gold-dark); }
 .lesson-node[data-state="active"] .node-status { color: var(--accent-dark); }
+.lesson-node[data-state="open"] .node-status { color: var(--primary); }
+
+.lesson-node[data-state="locked"] {
+  cursor: not-allowed;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.lesson-node.shake {
+  animation: shake 0.25s ease;
+}
 
 /* ---------- Bottom nav ---------- */
 
@@ -1985,27 +2005,106 @@ button {
     width: 380px;
   }
 
-  /* --- Session screens (no sidebar): a framed, wider column --- */
+  /* --- Session screens (no sidebar): a real desktop working column ---
+     The phone layout pins the action button to the bottom of the viewport; on a
+     wide window that leaves the button stranded far from the content. Here the
+     footer flows directly under the content, the header is compact and sticky,
+     and the column is wide enough to breathe. */
   html:not(.has-sidebar) .app-shell {
-    max-width: 760px;
+    max-width: 960px;
     min-height: 100vh;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
+    padding: 0 32px 64px;
+  }
+
+  html:not(.has-sidebar) .drill-top {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    padding: 14px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
   }
 
   html:not(.has-sidebar) .drill-body {
-    max-width: 640px;
-    padding-top: 28px;
+    flex: none;
+    overflow: visible;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 36px 0 8px;
+    gap: 18px;
   }
 
   html:not(.has-sidebar) .drill-footer {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    width: 760px;
-    max-width: 100%;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
+    position: static;
+    padding: 12px 0 0;
+    background: transparent;
+    border: 0;
+    justify-content: flex-start;
+  }
+
+  html:not(.has-sidebar) .drill-footer .btn {
+    width: auto;
+    min-width: 240px;
+    max-width: none;
+    padding: 14px 28px;
+  }
+
+  html:not(.has-sidebar) .key-hint {
+    display: inline-block;
+  }
+
+  html:not(.has-sidebar) .options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html:not(.has-sidebar) .options.long {
+    grid-template-columns: 1fr;
+  }
+
+  html:not(.has-sidebar) .type-row {
+    max-width: 560px;
+  }
+
+  html:not(.has-sidebar) .kbd {
+    max-width: 640px;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+
+  html:not(.has-sidebar) .card.prompt {
+    padding: 34px 28px;
+  }
+
+  /* Read & Translate: verse + translation on the left, the gloss panel sticky on the right */
+  html:not(.has-sidebar)[data-screen="reading"] .drill-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 18px 28px;
+    align-items: start;
+  }
+
+  html:not(.has-sidebar)[data-screen="reading"] .drill-body > * {
+    grid-column: 1;
+  }
+
+  html:not(.has-sidebar)[data-screen="reading"] .drill-body > .gloss-panel {
+    grid-column: 2;
+    grid-row: 1 / span 6;
+    position: sticky;
+    top: 84px;
+  }
+
+  html:not(.has-sidebar)[data-screen="reading"] .drill-footer {
+    max-width: none;
+  }
+
+  html:not(.has-sidebar)[data-screen="reading"] .rate-buttons {
+    max-width: 560px;
+  }
+
+  /* Grammar: paradigm tables get the full column */
+  html:not(.has-sidebar) .paradigm td.gr {
+    font-size: 21px;
   }
 
   .prompt-main {
@@ -2297,3 +2396,36 @@ html[data-font-greek="noto-serif"] .verse, html[data-font-greek="noto-serif"] .p
 .font-preview .fp-head { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--ink); }
 .font-preview .fp-greek { font-family: var(--font-greek, var(--font-display)); font-weight: 600; font-size: 22px; line-height: 1.5; color: var(--ink); margin-top: 4px; }
 .font-preview .fp-body { font-family: var(--font-body); font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+/* ---------- Lemma hits (reader, arriving from the Lexicon) ---------- */
+
+.pv-gr .w.hit {
+  background: var(--primary-tint);
+  color: var(--primary);
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px var(--primary-tint);
+}
+
+a.xref {
+  text-decoration: none;
+}
+
+/* ---------- Keyboard hint beside the action button (desktop only) ---------- */
+
+.key-hint {
+  display: none;
+  margin-left: 14px;
+  font-size: 12.5px;
+  color: var(--muted);
+  align-self: center;
+}
+
+.key-hint kbd {
+  font-family: var(--font-display);
+  font-size: 11px;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+}

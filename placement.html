@@ -49,7 +49,7 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { loadCurriculum, loadUnit, loadLexicon, loadParadigms, loadIrregularVerbs } from './js/data.js';
-  import { markLessonCompleted, updateVocabItem, updateFormRecord, getVocabItem, getFormRecord } from './js/storage.js';
+  import { markLessonCompleted, updateVocabItem, updateFormRecord, getVocabItem, getFormRecord, getSession, saveSession, clearSession } from './js/storage.js';
   import { buildPlacement, placementIndex, knownRecords, QUESTIONS_PER_BOOK, PASS_MARK } from './js/placement.js';
   import { SessionView, escapeHtml } from './js/session-view.js';
   import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
@@ -71,6 +71,13 @@
     state.paradigmsById = Object.fromEntries(paradigms.paradigms.map((p) => [p.id, p]));
     state.irregular = irregular.verbs;
     state.books = buildPlacement({ units: state.units, lexicon, paradigmsById: state.paradigmsById, irregularVerbs: state.irregular });
+    const saved = getSession('placement');
+    if (saved && (saved.b > 0 || saved.q > 0)) {
+      view.renderResume({ title: 'Placement test', detail: `You were on ${state.units[saved.b].kicker}, question ${saved.q + 1}. Resume, or start the test again.` },
+        () => { state.books = saved.books; state.b = saved.b; state.q = saved.q; state.scores = saved.scores; renderQuestion(); },
+        () => { clearSession('placement'); renderIntro(); });
+      return;
+    }
     renderIntro();
   }
 
@@ -90,6 +97,7 @@
   function renderQuestion() {
     const book = state.books[state.b];
     const q = book.questions[state.q];
+    if (state.b > 0 || state.q > 0) saveSession('placement', { books: state.books, b: state.b, q: state.q, scores: state.scores });
     const total = state.books.length * QUESTIONS_PER_BOOK;
     view.setProgress((state.b * QUESTIONS_PER_BOOK + state.q) / total);
     bookLabel.textContent = book.unit.kicker;
@@ -116,6 +124,7 @@
   }
 
   function renderResult() {
+    clearSession('placement');
     view.setProgress(1);
     const idx = placementIndex(state.scores);
     const passedUnits = state.units.slice(0, idx);

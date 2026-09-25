@@ -89,6 +89,20 @@ export function strongsFor(item, entries) {
   return nums.map((n) => ({ number: n, ...(entries[String(n)] || {}) })).filter((e) => e.def);
 }
 
+let occIndex = null;
+
+/** First verses (canonical order) where a lemma occurs: { lemma: ["john-1-1", ...] } */
+export async function loadOccurrences() {
+  if (!occIndex) occIndex = (await loadJson('./data/occurrences.json')).occurrences;
+  return occIndex;
+}
+
+/** "john-1-1" → { slug: "john", chapter: 1, verse: 1 } */
+export function parseVerseId(id) {
+  const parts = id.split('-');
+  return { slug: parts.slice(0, -2).join('-'), chapter: Number(parts[parts.length - 2]), verse: Number(parts[parts.length - 1]) };
+}
+
 export function loadForms() {
   return loadJson('./data/forms.json');
 }

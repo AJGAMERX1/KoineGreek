@@ -52,7 +52,7 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadBook, loadWordPictures, loadStrongs, strongsFor } from './js/data.js';
-  import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, getDueVerseIds, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, getDueVerseIds, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
   import { nextInChain, chainLabel } from './js/chain.js';
   import { scheduleReview } from './js/srs.js';
   import { annotate, coverage, xpForVerse, rateVerse, startIndex, suggestWords, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
@@ -65,6 +65,7 @@
   initPwa();
   initSpeech();
   initSfx();
+  document.documentElement.setAttribute('data-screen', 'reading');
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -101,8 +102,30 @@
       return { ...v, number: Number(id.split('-').pop()), chapter: lesson.reading.chapter, bookName: book.book, greekTitle: book.greekTitle };
     });
     state.records = getAllVocabRecords();
+    state.sessionKey = `reading:${lessonId}`;
+    if (await offerResume()) return;
     state.index = startIndex(lesson.reading.verseIds, readStore().readingHistory);
     renderVerse();
+  }
+
+  // ---- resume: verses are rebuilt from the books, only progress and reveals are stored ----
+  function snapshot() {
+    return { verseIds: state.verses.map((v) => v.id), index: state.index, rated: state.rated, xpEarned: state.xpEarned, coverages: state.coverages,
+      reveals: state.allReveals.map((w) => w.l) };
+  }
+  async function offerResume() {
+    const saved = getSession(state.sessionKey);
+    if (!saved || saved.index === 0 || saved.index >= state.verses.length) return false;
+    if (saved.verseIds.join() !== state.verses.map((v) => v.id).join()) return false;
+    return new Promise((resolve) => {
+      view.renderResume({ title: state.lesson ? state.lesson.reading.reference : 'Due verses', detail: `You had read ${saved.rated} of ${state.verses.length} verses. Resume, or start from the first verse.` },
+        () => {
+          state.index = saved.index; state.rated = saved.rated; state.xpEarned = saved.xpEarned; state.coverages = saved.coverages || [];
+          state.allReveals = (saved.reveals || []).map((l) => { const item = state.lexicon.byId.get(l); return item && { l, item, known: !!state.records[l], glossOnly: item.count < 10 }; }).filter(Boolean);
+          renderVerse(); resolve(true);
+        },
+        () => { clearSession(state.sessionKey); state.index = 0; renderVerse(); resolve(true); });
+    });
   }
 
   /** Due-verse review (part of the daily chain): every verse whose reading record is due, oldest first. */
@@ -121,6 +144,8 @@
       const verse = Object.values(book.chapters[String(ch)] || {}).find((x) => x.id === id);
       return verse && { ...verse, number: v, chapter: ch, bookName: book.book, greekTitle: book.greekTitle };
     }).filter(Boolean);
+    state.sessionKey = 'reading:due';
+    if (await offerResume()) return;
     state.index = 0;
     renderVerse();
   }
@@ -150,6 +175,7 @@
   function renderVerse() {
     const verse = state.verses[state.index];
     if (!verse) { renderSummary(); return; }
+    if (state.index > 0) saveSession(state.sessionKey, snapshot());
     view.setProgress(state.index / state.verses.length);
     state.reveals = []; state.revealed = false; state.active = null;
     const words = annotate(verse, state.lexicon, state.records);
@@ -277,6 +303,7 @@
   // ------------------------------------------------------------ summary
 
   function renderSummary() {
+    clearSession(state.sessionKey);
     if (state.rated > 0) { recordActivity(); if (state.lesson) markLessonCompleted(state.lesson.id); playComplete(); }
     const progress = getProgress();
     const tokens = state.coverages.reduce((a, c) => a + c.tokens, 0);

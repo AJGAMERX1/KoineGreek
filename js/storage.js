@@ -30,6 +30,7 @@ function defaultStore() {
       autoSpeak: true,           // when voice is on: speak new words / verses automatically
       speechRate: 0.7,           // 0.5 (slow) … 1.1 (natural); Greek is read slower than the voice's default
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in
+      unlockAll: false,          // lessons open in order unless the learner switches this on (or places out via the test)
       lastRead: null,            // { book, chapter } — where the Read tab reopens
     },
     progress: {
@@ -45,6 +46,10 @@ function defaultStore() {
     },
     readingHistory: {
       // '<verseId>': { attempts, lastRating, interval, easeFactor, dueDate, repetitions, lastReviewed }
+    },
+    sessions: {
+      // in-progress lesson sessions, so quitting mid-lesson loses nothing:
+      // '<screen>:<lesson id | mode>': { savedAt, ...screen-specific snapshot }. Expire after SESSION_TTL_MS.
     },
     formSRS: {
       // endings / principal parts as SRS objects (PEDAGOGY M21). Keys:
@@ -74,6 +79,7 @@ export function readStore() {
       vocabSRS: { ...(parsed.vocabSRS || {}) },
       readingHistory: { ...(parsed.readingHistory || {}) },
       formSRS: { ...(parsed.formSRS || {}) },
+      sessions: { ...(parsed.sessions || {}) },
     };
   } catch (e) {
     console.warn('koine storage: corrupt data, resetting', e);
@@ -114,6 +120,7 @@ export function importStore(json) {
     vocabSRS: { ...(store.vocabSRS || {}) },
     readingHistory: { ...(store.readingHistory || {}) },
     formSRS: { ...(store.formSRS || {}) },
+    sessions: {},
   });
   return readStore();
 }
@@ -236,6 +243,29 @@ export function getDueVocabItems(allItemIds, now = new Date()) {
     if (!rec) return true; // never studied = due
     return new Date(rec.dueDate) <= now;
   });
+}
+
+// ---------- In-progress sessions (resume a lesson) ----------
+
+const SESSION_TTL_MS = 24 * 60 * 60 * 1000;
+
+/** A saved session snapshot, or null if none / expired. */
+export function getSession(key, now = Date.now()) {
+  const s = readStore().sessions[key];
+  if (!s) return null;
+  if (!s.savedAt || now - s.savedAt > SESSION_TTL_MS) { clearSession(key); return null; }
+  return s;
+}
+
+export function saveSession(key, snapshot) {
+  const store = readStore();
+  store.sessions[key] = { ...snapshot, savedAt: Date.now() };
+  writeStore(store);
+}
+
+export function clearSession(key) {
+  const store = readStore();
+  if (store.sessions[key]) { delete store.sessions[key]; writeStore(store); }
 }
 
 // ---------- Form SRS (paradigm cells, principal parts) ----------

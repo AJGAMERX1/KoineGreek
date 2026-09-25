@@ -85,7 +85,7 @@
   import { initTheme, APP_NAME } from './js/theme.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
-  import { getProgress, getAllVocabRecords, getDueVocabItems, getDueFormIds, getDueVerseIds } from './js/storage.js';
+  import { getProgress, getSettings, getAllVocabRecords, getDueVocabItems, getDueFormIds, getDueVerseIds } from './js/storage.js';
   import { chainHref } from './js/chain.js';
 
   // ---- app name ----
@@ -165,11 +165,23 @@
     return i === -1 ? units.length - 1 : i;
   }
 
-  /** complete = in progress.lessonsCompleted; active = first incomplete lesson in the Book; else locked. */
+  /**
+   * Lessons unlock in curriculum order (PEDAGOGY: the path is a scaffold, and later material
+   * assumes the earlier). A lesson is:
+   *   complete — in progress.lessonsCompleted
+   *   active   — the first incomplete lesson in the whole curriculum ("up next")
+   *   open     — incomplete, but the lesson before it is complete (gaps left by the placement test)
+   *   locked   — everything else, unless settings.unlockAll is on
+   */
+  const allLessons = () => curriculum.units.flatMap((u) => u.lessons);
   function lessonState(unit, lesson, done) {
     if (done.includes(lesson.id)) return 'complete';
-    const firstOpen = unit.lessons.find((l) => !done.includes(l.id));
-    return firstOpen && firstOpen.id === lesson.id ? 'active' : 'locked';
+    const seq = allLessons();
+    const i = seq.findIndex((l) => l.id === lesson.id);
+    const firstIncomplete = seq.find((l) => !done.includes(l.id));
+    if (firstIncomplete && firstIncomplete.id === lesson.id) return 'active';
+    if (getSettings().unlockAll || i === 0 || done.includes(seq[i - 1].id)) return 'open';
+    return 'locked';
   }
 
   document.getElementById('prevUnit').addEventListener('click', () => { if (unitIndex > 0) { unitIndex--; renderUnit(); } });
@@ -206,19 +218,23 @@
     unit.lessons.forEach((lesson) => {
       const node = renderNode({ ...lesson, state: lessonState(unit, lesson, done), sub: lessonSub(lesson) });
       // Alphabet lessons open the alphabet screen, reading lessons open Read & Translate (which
-      // sends the learner through the vocab drill first if the passage has new words), and every
-      // other lesson with vocabulary opens the vocab drill. Locked lessons stay openable: the lock
-      // is guidance, not a wall.
-      // Grammar/verb lessons with paradigms or a strange-verb pool open the grammar screen, which
-      // hands off to the vocab drill afterwards.
+      // sends the learner through the vocab drill first if the passage has new words), grammar/verb
+      // lessons with paradigms or a strange-verb pool open the grammar screen (which hands off to the
+      // vocab drill afterwards), and every other lesson with vocabulary opens the vocab drill.
+      // Locked lessons do not open: finish the one before, take the placement test, or switch on
+      // "Unlock all lessons" in Settings.
+      const state = lessonState(unit, lesson, done);
       const hasGrammar = (lesson.paradigms && lesson.paradigms.length) || lesson.irregularCount;
       const href = lesson.type === 'alphabet' ? `alphabet.html?lesson=${encodeURIComponent(lesson.id)}`
         : lesson.type === 'reading' ? `reading.html?lesson=${encodeURIComponent(lesson.id)}`
         : hasGrammar ? `grammar.html?lesson=${encodeURIComponent(lesson.id)}`
         : lesson.vocabCount ? `drill.html?lesson=${encodeURIComponent(lesson.id)}` : null;
-      if (href) {
+      if (href && state !== 'locked') {
         node.classList.add('linked');
         node.addEventListener('click', () => { location.href = href; });
+      } else if (state === 'locked') {
+        node.title = 'Finish the previous lesson first (or unlock all lessons in Settings)';
+        node.addEventListener('click', () => { node.classList.add('shake'); setTimeout(() => node.classList.remove('shake'), 400); });
       }
       container.appendChild(node);
     });
@@ -250,7 +266,8 @@
 
   function statusLabel(state) {
     if (state === 'complete') return 'Completed';
-    if (state === 'active') return 'In progress';
+    if (state === 'active') return 'Up next';
+    if (state === 'open') return 'Ready';
     return 'Locked';
   }
 
@@ -258,7 +275,7 @@
     if (state === 'complete') {
       return '<svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17l-6.1 3.6 1.4-6.8-5.1-4.7 6.9-.8L12 2z" fill="currentColor"/></svg>';
     }
-    if (state === 'active') {
+    if (state === 'active' || state === 'open') {
       return '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5z" fill="currentColor"/></svg>';
     }
     return '<svg viewBox="0 0 24 24"><path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h1zm2 0h8V8a4 4 0 1 0-8 0v2z" fill="currentColor"/></svg>';

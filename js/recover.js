@@ -6,6 +6,30 @@
   works" state until the next manual refresh.
 */
 (function () {
+  // ---- Pre-apply the saved theme before the first paint (no white flash in dark mode) ----
+  // Mirrors js/theme.js applyTheme(); must stay in sync with the FONTS ids there.
+  try {
+    var raw = localStorage.getItem('koine.v1');
+    var st = raw ? JSON.parse(raw).settings || {} : {};
+    var root = document.documentElement;
+    var theme = ['classic', 'lexis', 'nous'].indexOf(st.theme) >= 0 ? st.theme : 'classic';
+    var mode = st.mode === 'dark' ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    root.setAttribute('data-mode', mode);
+    root.style.colorScheme = mode; // browser canvas goes dark immediately, before CSS arrives
+    var fonts = ['baloo', 'garamond', 'grotesk', 'noto-sans', 'noto-serif'];
+    var slots = { fontGreek: 'data-font-greek', fontDisplay: 'data-font-display', fontBody: 'data-font-body' };
+    for (var k in slots) if (fonts.indexOf(st[k]) >= 0) root.setAttribute(slots[k], st[k]);
+    // Backgrounds of the three themes so even the pre-CSS canvas matches (kept in sync with css/theme-*.css)
+    var bg = { classic: ['#FFFDF8', '#1B2420'], lexis: ['#F3E9D2', '#241811'], nous: ['#FFFFFF', '#0D0D0D'] }[theme][mode === 'dark' ? 1 : 0];
+    root.style.backgroundColor = bg;
+    // the <meta name="theme-color"> comes after this script in <head>; set it once the head is parsed
+    document.addEventListener('DOMContentLoaded', function () {
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', bg);
+    });
+  } catch (e) {}
+
   var KEY = 'koine.recovered';
   function looksLikeStaleModules(msg) {
     msg = String(msg || '');

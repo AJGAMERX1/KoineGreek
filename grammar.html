@@ -53,7 +53,7 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadParadigms, loadForms, loadIrregularVerbs } from './js/data.js';
-  import { getProgress, getAllFormRecords, getFormRecord, updateFormRecord, getDueFormIds, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { getProgress, getAllFormRecords, getFormRecord, updateFormRecord, getDueFormIds, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
   import { scheduleReview } from './js/srs.js';
   import { buildGrammarSession, buildDueFormsSession, gradeGrammar, xpForGrammar, ratingForGrammar, requeueGrammar, PART_NAMES } from './js/grammar.js';
   import { parseSlots } from './js/morph.js';
@@ -88,12 +88,22 @@
       const { lesson } = await loadLesson(lessonId);
       state.lesson = lesson;
       document.title = `Rhema — ${lesson.sub}`;
-      state.steps = buildGrammarSession({ lesson, paradigmsById, forms: formsData.forms, lexicon, irregularVerbs: irregular.verbs, records });
     } else {
       document.title = 'Rhema — Review forms';
-      state.steps = buildDueFormsSession({ dueIds: getDueFormIds(), paradigmsById, irregularVerbs: irregular.verbs, records });
-      if (!state.steps.length) { renderEmpty(); return; }
     }
+    state.sessionKey = `grammar:${mode === 'lesson' ? lessonId : 'due'}`;
+    const build = () => (mode === 'lesson'
+      ? buildGrammarSession({ lesson: state.lesson, paradigmsById, forms: formsData.forms, lexicon, irregularVerbs: irregular.verbs, records })
+      : buildDueFormsSession({ dueIds: getDueFormIds(), paradigmsById, irregularVerbs: irregular.verbs, records }));
+    const saved = getSession(state.sessionKey);
+    if (saved && saved.index > 0 && saved.index < saved.steps.length) {
+      view.renderResume({ title: state.lesson ? state.lesson.sub : 'Forms review', detail: `You were ${saved.index} of ${saved.steps.length} steps in. Resume, or start again.` },
+        () => { Object.assign(state, { steps: saved.steps, index: saved.index, answered: saved.answered, correctFirstTry: saved.correctFirstTry, xpEarned: saved.xpEarned, missed: saved.missed || [] }); renderStep(); },
+        () => { clearSession(state.sessionKey); state.steps = build(); state.index = 0; if (!state.steps.length) { renderEmpty(); return; } renderStep(); });
+      return;
+    }
+    state.steps = build();
+    if (!state.steps.length) { renderEmpty(); return; }
     renderStep();
   }
 
@@ -103,6 +113,7 @@
     view.setProgress(state.index / Math.max(state.steps.length, 1));
     const step = state.steps[state.index];
     if (!step) { renderSummary(); return; }
+    if (state.index > 0) saveSession(state.sessionKey, { steps: state.steps, index: state.index, answered: state.answered, correctFirstTry: state.correctFirstTry, xpEarned: state.xpEarned, missed: state.missed });
     const next = () => { state.index++; renderStep(); };
     if (step.kind === 'rule') return view.renderIntro({ kicker: 'First, the idea', html: ruleCard(step.rule), buttonLabel: 'Start' }, next);
     if (step.kind === 'paradigm') return view.renderIntro({ kicker: 'Paradigm', html: paradigmCard(step.paradigm), note: 'Read it aloud, top to bottom. You will be asked for these forms right away.', buttonLabel: 'Drill it' }, next);
@@ -198,6 +209,7 @@
   }
 
   function renderSummary() {
+    clearSession(state.sessionKey);
     const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
     const accuracy = Math.round((state.correctFirstTry / Math.max(state.answered - retries, 1)) * 100);
     if (state.answered > 0) recordActivity();

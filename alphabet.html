@@ -57,7 +57,7 @@
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadAlphabet, loadParadigms, loadBook } from './js/data.js';
-  import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
+  import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
   import { buildAlphabetSession, gradeAlphabet, requeueAlphabet, transliterate, hasSubscript, syllabify, stripMarks } from './js/alphabet.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
   import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
@@ -111,6 +111,14 @@
       extra.plainWords = johnWords.filter((w) => /^[Ͱ-Ͽἀ-῿]+$/.test(w));
       extra.accentWords = extra.plainWords.filter((w) => w.length >= 3);
     }
+    state.sessionKey = `alphabet:${lessonId}`;
+    const saved = getSession(state.sessionKey);
+    if (saved && saved.index > 0 && saved.index < saved.steps.length) {
+      view.renderResume({ title: lesson.sub, detail: `You were ${saved.index} of ${saved.steps.length} steps in. Resume, or start the lesson again.` },
+        () => { Object.assign(state, { steps: saved.steps, index: saved.index, answered: saved.answered, correctFirstTry: saved.correctFirstTry, xpEarned: saved.xpEarned, missed: saved.missed || [] }); renderStep(); },
+        () => { clearSession(state.sessionKey); state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra }); state.index = 0; renderStep(); });
+      return;
+    }
     state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra });
     renderStep();
   }
@@ -121,6 +129,7 @@
     view.setProgress(state.index / Math.max(state.steps.length, 1));
     const step = state.steps[state.index];
     if (!step) { renderSummary(); return; }
+    if (state.index > 0) saveSession(state.sessionKey, { steps: state.steps, index: state.index, answered: state.answered, correctFirstTry: state.correctFirstTry, xpEarned: state.xpEarned, missed: state.missed });
     const next = () => { state.index++; renderStep(); };
     const s = state.scheme;
     const A = state.alphabet;
@@ -243,6 +252,7 @@
   }
 
   function renderSummary() {
+    clearSession(state.sessionKey);
     const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
     const accuracy = Math.round((state.correctFirstTry / Math.max(state.answered - retries, 1)) * 100);
     if (state.answered > 0) { recordActivity(); markLessonCompleted(state.lesson.id); }
