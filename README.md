@@ -129,7 +129,7 @@ Rather than picking one, style is a **user-selectable Settings preference** (lik
 - **One shared data/logic layer** — lesson data, exercise state, SRS scheduling, progress — identical regardless of theme.
 - **A swappable presentation layer** — each theme is a CSS file (`css/theme-*.css`) scoped under `[data-theme="…"]` (and `[data-theme="…"][data-mode="dark"]` for dark variants), applied to the *same* HTML structure. `js/theme.js` applies the saved theme/mode as `data-theme`/`data-mode` attributes on `<html>` at load and whenever Settings changes it.
 
-`settings.html` holds the live theme + light/dark switcher (it started life as a demo panel on the lesson path). Build every screen the same way — shared markup/data, theme-scoped CSS — rather than duplicating a screen per theme.
+`settings.html` holds the live theme + light/dark switcher (it started life as a demo panel on the lesson path), plus **font mix-and-match**: three slots (Greek text, headings, body) that default to the theme's choice but can take any of the five families the themes use, so a learner can run Nous colours with the Lexis Greek. Themes expose `--font-greek` (defaults to `--font-display`); Greek-text components use it. Build every screen the same way — shared markup/data, theme-scoped CSS — rather than duplicating a screen per theme.
 
 ## Data model
 

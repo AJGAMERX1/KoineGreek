@@ -28,6 +28,7 @@
 
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Noto Sans', sans-serif;
+  --font-greek: var(--font-display); /* Greek text; overridable per learner via html[data-font-greek] */
 
   --radius-lg: 2px;
 }

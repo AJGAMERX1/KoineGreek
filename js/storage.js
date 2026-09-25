@@ -20,6 +20,9 @@ function defaultStore() {
     settings: {
       theme: 'classic',        // 'classic' | 'lexis' | 'nous'
       mode: 'light',           // 'light' | 'dark'
+      fontGreek: 'theme',      // font overrides (mix and match): 'theme' or a FONTS id from theme.js
+      fontDisplay: 'theme',
+      fontBody: 'theme',
       pronunciation: 'erasmian', // 'erasmian' | 'koine'
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
       sfx: true,                 // answer sound cues (right / wrong / done)

@@ -289,7 +289,7 @@ button {
 }
 
 .node-label {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 16px;
   color: var(--ink);
@@ -489,7 +489,7 @@ button {
 }
 
 .prompt-main {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 40px;
   line-height: 1.15;
@@ -508,7 +508,7 @@ button {
 }
 
 .intro-citation {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-size: 18px;
   color: var(--muted);
   margin-top: 4px;
@@ -561,7 +561,7 @@ button {
 }
 
 .option.greek {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 22px;
 }
@@ -602,7 +602,7 @@ button {
 }
 
 .type-input.greek {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 24px;
 }
@@ -624,7 +624,7 @@ button {
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--ink);
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-size: 18px;
   font-weight: 600;
 }
@@ -734,7 +734,7 @@ button {
 }
 
 .summary-list .greek {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
 }
 
@@ -764,7 +764,7 @@ button {
   justify-content: center;
   align-items: baseline;
   gap: 24px;
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 84px;
   line-height: 1;
@@ -829,7 +829,7 @@ button {
 }
 
 .rule-example .gr {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 18px;
   color: var(--ink);
@@ -854,7 +854,7 @@ button {
 }
 
 .ref-table td.gr {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 22px;
   color: var(--primary);
@@ -887,7 +887,7 @@ button {
 /* ---------- Read & Translate ---------- */
 
 .verse {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 600;
   font-size: 26px;
   line-height: 1.7;
@@ -950,7 +950,7 @@ button {
 }
 
 .gloss-form {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 24px;
   color: var(--ink);
@@ -1177,7 +1177,7 @@ button {
 }
 
 .paradigm td.gr {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 19px;
   color: var(--ink);
@@ -1269,7 +1269,7 @@ button {
 }
 
 .pv-gr {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 600;
   font-size: 22px;
   line-height: 1.65;
@@ -1421,7 +1421,7 @@ button {
 }
 
 .lex-lemma {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 19px;
   color: var(--ink);
@@ -1464,7 +1464,7 @@ button {
 }
 
 .lex-form .greek {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-weight: 700;
   font-size: 16px;
 }
@@ -2165,7 +2165,7 @@ button {
 }
 
 .wp-text .gr, .wp-text i {
-  font-family: var(--font-display);
+  font-family: var(--font-greek, var(--font-display));
   font-style: normal;
   font-weight: 700;
 }
@@ -2256,3 +2256,44 @@ button {
     overflow-y: auto;
   }
 }
+
+/* =====================================================================
+   Font mix-and-match (Settings → Style → Fonts). Three slots — Greek text,
+   headings, body — each either the theme's own choice or one of the five
+   families every theme already loads. Selectors on <html> outrank the
+   theme files' [data-theme] blocks regardless of stylesheet order.
+   ===================================================================== */
+
+html[data-font-greek="baloo"]    { --font-greek: 'Baloo 2', sans-serif; }
+html[data-font-greek="garamond"] { --font-greek: 'EB Garamond', serif; }
+html[data-font-greek="grotesk"]  { --font-greek: 'Space Grotesk', sans-serif; }
+html[data-font-greek="noto-sans"]  { --font-greek: 'Noto Sans', sans-serif; }
+html[data-font-greek="noto-serif"] { --font-greek: 'Noto Serif', serif; }
+
+html[data-font-display="baloo"]    { --font-display: 'Baloo 2', sans-serif; }
+html[data-font-display="garamond"] { --font-display: 'EB Garamond', serif; }
+html[data-font-display="grotesk"]  { --font-display: 'Space Grotesk', sans-serif; }
+html[data-font-display="noto-sans"]  { --font-display: 'Noto Sans', sans-serif; }
+html[data-font-display="noto-serif"] { --font-display: 'Noto Serif', serif; }
+
+html[data-font-body="baloo"]    { --font-body: 'Baloo 2', sans-serif; }
+html[data-font-body="garamond"] { --font-body: 'EB Garamond', serif; }
+html[data-font-body="grotesk"]  { --font-body: 'Space Grotesk', sans-serif; }
+html[data-font-body="noto-sans"]  { --font-body: 'Noto Sans', sans-serif; }
+html[data-font-body="noto-serif"] { --font-body: 'Noto Serif', serif; }
+
+/* Garamond and Noto Serif run small at a given px size; nudge Greek set in them. */
+html[data-font-greek="garamond"] .verse, html[data-font-greek="garamond"] .pv-gr, html[data-font-greek="garamond"] .prompt-main,
+html[data-font-greek="noto-serif"] .verse, html[data-font-greek="noto-serif"] .pv-gr { font-size: 1.08em; }
+
+.font-preview {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 14px);
+  background: var(--bg);
+}
+
+.font-preview .fp-head { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--ink); }
+.font-preview .fp-greek { font-family: var(--font-greek, var(--font-display)); font-weight: 600; font-size: 22px; line-height: 1.5; color: var(--ink); margin-top: 4px; }
+.font-preview .fp-body { font-family: var(--font-body); font-size: 14px; color: var(--muted); margin-top: 4px; }

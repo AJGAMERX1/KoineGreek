@@ -54,6 +54,23 @@
           <button class="theme-option" type="button" data-mode="dark">Dark</button>
         </div>
       </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Greek text</div><div class="settings-help">The font for Greek words, verses and paradigms. Mix and match: Nous colours with the Lexis Greek, for example.</div></div>
+        <div class="theme-option-group wrap" id="fontGreekOptions"></div>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Headings</div></div>
+        <div class="theme-option-group wrap" id="fontDisplayOptions"></div>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Body text</div></div>
+        <div class="theme-option-group wrap" id="fontBodyOptions"></div>
+      </div>
+      <div class="font-preview" aria-label="Font preview">
+        <div class="fp-head">Book I · Foundations</div>
+        <div class="fp-greek">Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν.</div>
+        <div class="fp-body">In the beginning was the Word, and the Word was with God.</div>
+      </div>
     </section>
 
     <section class="settings-section">
@@ -159,7 +176,7 @@
 </div>
 
 <script type="module">
-  import { initTheme, setTheme, setMode } from './js/theme.js';
+  import { initTheme, setTheme, setMode, setFont, FONTS, FONT_SLOTS } from './js/theme.js';
   import { renderNav } from './js/nav.js';
   import { getSettings, setSettings, getProgress, getAllVocabRecords, readStore, exportStore, importStore, resetProgress } from './js/storage.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
@@ -174,8 +191,15 @@
   const PRON_HELP = { erasmian: 'The scheme most seminaries teach: every letter distinct.', koine: 'Reconstructed first-century sound: closer to how the New Testament was heard.' };
   const TR_HELP = { web: 'World English Bible — modern, readable, public domain.', kjv: 'King James Version — traditional wording.', ylt: "Young's Literal Translation — closest to the Greek word order." };
 
+  for (const slot of FONT_SLOTS) {
+    const box = document.getElementById(`${slot}Options`);
+    box.innerHTML = FONTS.map((f) => `<button class="theme-option" type="button" data-font="${f.id}" title="${f.theme ? `The ${f.theme} theme’s font` : ''}">${f.label}</button>`).join('');
+    box.querySelectorAll('.theme-option').forEach((b) => b.addEventListener('click', () => { setFont(slot, b.dataset.font); refresh(); }));
+  }
+
   function refresh() {
     const s = getSettings();
+    for (const slot of FONT_SLOTS) document.querySelectorAll(`#${slot}Options .theme-option`).forEach((b) => b.classList.toggle('active', b.dataset.font === (s[slot] || 'theme')));
     document.getElementById('showProgress').checked = !!s.showProgress;
     document.getElementById('voice').checked = s.voice === true;
     document.querySelectorAll('.voice-dependent').forEach((row) => row.classList.toggle('disabled', s.voice !== true));
