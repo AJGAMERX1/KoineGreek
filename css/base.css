@@ -2073,3 +2073,186 @@ button {
     padding: 4px 0;
   }
 }
+
+/* ---------- Beta badge + disabled settings rows ---------- */
+
+.beta {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.settings-row.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ---------- Study drawer (reader), jump box, Word Pictures, Strong's ---------- */
+
+.jump-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.jump-input {
+  width: 150px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.jump-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.jump-note {
+  font-size: 12px;
+  color: var(--bad);
+  margin-left: 4px;
+}
+
+.drawer-tabs {
+  display: flex;
+  gap: 4px;
+  margin: -4px 0 10px;
+}
+
+.drawer-tab {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.drawer-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.drawer-ref {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.wp-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-line;
+}
+
+.wp-text .gr, .wp-text i {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.wp-source {
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.xref-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.xref {
+  padding: 5px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5px;
+}
+
+.xref.ot {
+  color: var(--muted);
+  cursor: default;
+}
+
+.strongs {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.strongs .k {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.strongs .pron {
+  color: var(--muted);
+}
+
+.more-btn {
+  margin-top: 8px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.wp-card {
+  margin-top: 4px;
+}
+
+.wp-card .rule-title {
+  font-size: 15px;
+}
+
+.pv-row.target {
+  background: var(--primary-tint);
+  border-radius: 10px;
+}
+
+.pv-num {
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .reader-shell .gloss-sheet {
+    width: 420px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+}

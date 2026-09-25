@@ -33,6 +33,10 @@
       <button class="icon-btn" id="nextCh" type="button" aria-label="Next chapter">
         <svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+      <form class="jump-form" id="jumpForm" autocomplete="off">
+        <input class="jump-input" id="jumpInput" type="text" placeholder="Go to… Jn 3:16" aria-label="Go to reference" spellcheck="false">
+        <span class="jump-note" id="jumpNote"></span>
+      </form>
     </div>
     <div class="reader-tools">
       <div class="pill-group" id="trPills"></div>
@@ -48,6 +52,11 @@
     <button class="icon-btn sheet-close" id="sheetClose" type="button" aria-label="Close">
       <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
     </button>
+    <div class="drawer-tabs" id="drawerTabs">
+      <button class="drawer-tab active" type="button" data-tab="word">Word</button>
+      <button class="drawer-tab" type="button" data-tab="wp">Word Pictures</button>
+      <button class="drawer-tab" type="button" data-tab="xref">Cross-refs</button>
+    </div>
     <div id="sheetBody"></div>
   </div>
 
@@ -58,18 +67,19 @@
 <script type="module">
   /*
     Read tab — parallel Greek / English reader over the whole NT (SBLGNT +
-    WEB/KJV/YLT), Logos-style: verse-aligned columns on wide screens, verse
-    pairs on phones, every Greek word one tap from its gloss and parse (M23).
-    Not a lesson: nothing here is scheduled or scored; "Study this chapter"
-    hands off to the curriculum's reading lesson when one exists.
+    WEB/KJV/YLT), Logos-style, with a study drawer: the tapped word (gloss,
+    parse, Strong's), Robertson's Word Pictures for the verse, and Treasury
+    of Scripture Knowledge cross-references. A jump box accepts references
+    like "Jn 3:16". Not a lesson: nothing here is scheduled or scored.
   */
   import { initTheme } from './js/theme.js';
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
-  import { loadBook, loadLexicon, loadCurriculum, loadStats } from './js/data.js';
+  import { loadBook, loadLexicon, loadCurriculum, loadStats, loadWordPictures, loadXrefs, loadStrongs, strongsFor } from './js/data.js';
   import { getSettings, setSettings, getAllVocabRecords } from './js/storage.js';
   import { annotate, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
   import { describeParse, describePos } from './js/morph.js';
+  import { parseReference } from './js/refs.js';
   import { escapeHtml, speakerHtml } from './js/session-view.js';
   import { initSpeech } from './js/speech.js';
 
@@ -83,13 +93,17 @@
   const state = {
     books: [], slug: params.get('book') || (settings.lastRead && settings.lastRead.book) || 'john',
     chapter: Number(params.get('chapter')) || (settings.lastRead && settings.lastRead.chapter) || 1,
+    targetVerse: Number(params.get('verse')) || null,
     translation: settings.translation || 'web', mark: settings.markUnknown !== false,
     lexicon: null, records: {}, lessons: new Map(), book: null,
+    verse: null, word: null, tab: 'word', wp: null, xrefs: null, strongs: null,
   };
 
   const body = document.getElementById('body');
   const sheet = document.getElementById('sheet');
-  document.getElementById('sheetClose').addEventListener('click', () => { sheet.hidden = true; body.querySelectorAll('.w.active').forEach((el) => el.classList.remove('active')); });
+  const sheetBody = document.getElementById('sheetBody');
+  document.getElementById('sheetClose').addEventListener('click', closeSheet);
+  document.querySelectorAll('#drawerTabs .drawer-tab').forEach((t) => t.addEventListener('click', () => { state.tab = t.dataset.tab; renderSheet(); }));
 
   main().catch((err) => { console.error(err); body.innerHTML = `<div class="card" style="margin:20px">Could not load: ${escapeHtml(err.message)}. Run from a local server (see README).</div>`; });
 
@@ -108,12 +122,25 @@
     document.getElementById('nextCh').addEventListener('click', () => step(1));
     document.getElementById('trPills').innerHTML = TRANSLATIONS.map((t) => `<button class="pill" type="button" data-tr="${t.id}" title="${escapeHtml(t.name)}">${t.label}</button>`).join('');
     document.querySelectorAll('#trPills .pill').forEach((p) => p.addEventListener('click', () => { state.translation = p.dataset.tr; setSettings({ translation: state.translation }); render(); }));
-    const markToggle = document.getElementById('markToggle');
-    markToggle.addEventListener('click', () => { state.mark = !state.mark; setSettings({ markUnknown: state.mark }); render(); });
-    await go(state.slug, state.chapter);
+    document.getElementById('markToggle').addEventListener('click', () => { state.mark = !state.mark; setSettings({ markUnknown: state.mark }); render(); });
+    document.getElementById('jumpForm').addEventListener('submit', (e) => { e.preventDefault(); jump(document.getElementById('jumpInput').value); });
+    loadStrongs().then((s) => { state.strongs = s; }).catch(() => {});
+    await go(state.slug, state.chapter, state.targetVerse);
   }
 
   function bookMeta() { return state.books.find((b) => b.book === state.slug); }
+
+  // ---------------------------------------------------------------- navigation
+
+  function jump(text) {
+    const note = document.getElementById('jumpNote');
+    const ref = parseReference(text);
+    if (!ref) { note.textContent = 'Not a reference'; return; }
+    if (!ref.nt) { note.textContent = `${ref.name} is Old Testament — only the New Testament is included`; return; }
+    note.textContent = '';
+    go(ref.slug, ref.chapter || 1, ref.verse);
+    document.getElementById('jumpInput').value = '';
+  }
 
   function step(delta) {
     const meta = bookMeta();
@@ -124,22 +151,36 @@
     go(slug, ch);
   }
 
-  async function go(slug, chapter) {
-    state.slug = slug; state.chapter = chapter;
-    if (!state.book || state.book.slug !== slug) state.book = await loadBook(slug);
+  async function go(slug, chapter, verse = null) {
+    state.slug = slug; state.chapter = chapter; state.targetVerse = verse;
+    if (!state.book || state.book.slug !== slug) {
+      state.book = await loadBook(slug);
+      state.wp = null; state.xrefs = null;
+      const refresh = () => { if (!sheet.hidden) renderSheet(); };
+      loadWordPictures(slug).then((d) => { if (state.book.slug === slug) { state.wp = d; refresh(); } }).catch(() => { state.wp = false; refresh(); });
+      loadXrefs(slug).then((d) => { if (state.book.slug === slug) { state.xrefs = d; refresh(); } }).catch(() => { state.xrefs = false; refresh(); });
+    }
     if (!state.book.chapters[String(chapter)]) { state.chapter = 1; chapter = 1; }
     setSettings({ lastRead: { book: slug, chapter } });
-    history.replaceState(null, '', `?book=${slug}&chapter=${chapter}`);
+    history.replaceState(null, '', `?book=${slug}&chapter=${chapter}${verse ? `&verse=${verse}` : ''}`);
     const meta = bookMeta();
     document.getElementById('bookSel').value = slug;
     const chSel = document.getElementById('chSel');
     chSel.innerHTML = Array.from({ length: meta.chapters }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('');
     chSel.value = String(chapter);
-    document.title = `Rhema — ${meta.name} ${chapter}`;
-    sheet.hidden = true;
+    document.title = `Rhema — ${meta.name} ${chapter}${verse ? `:${verse}` : ''}`;
+    state.verse = null; state.word = null;
+    closeSheet();
     render();
-    body.scrollTop = 0;
+    if (verse) {
+      const row = document.getElementById(`${slug}-${chapter}-${verse}`);
+      if (row) { row.classList.add('target'); row.scrollIntoView({ block: 'center' }); selectVerse(verse, 'wp'); }
+    } else {
+      body.scrollTop = 0; window.scrollTo(0, 0);
+    }
   }
+
+  // ---------------------------------------------------------------- rendering
 
   function render() {
     document.querySelectorAll('#trPills .pill').forEach((p) => p.classList.toggle('active', p.dataset.tr === state.translation));
@@ -157,39 +198,106 @@
         : `<span class="punct">${escapeHtml(w.t)}</span>`).join(' ');
       const en = v.translations[state.translation] || Object.values(v.translations)[0] || '';
       const num = v.id.split('-').pop();
-      return `<div class="pv-row" id="${v.id}"><div class="pv-num">${num}</div><div class="pv-gr" lang="grc">${gr}${speakerHtml(v.words.map((w) => w.t).join(' '), { small: true, verse: true })}</div><div class="pv-en">${escapeHtml(en)}</div></div>`;
+      return `<div class="pv-row" id="${v.id}"><div class="pv-num" data-verse="${num}" title="Study this verse" role="button" tabindex="0">${num}</div><div class="pv-gr" lang="grc">${gr}${speakerHtml(v.words.map((w) => w.t).join(' '), { small: true, verse: true })}</div><div class="pv-en">${escapeHtml(en)}</div></div>`;
     }).join('');
     body.innerHTML = `
       <div class="reader-head">
         <div>
           <div class="drill-kicker">${escapeHtml(state.book.greekTitle)}</div>
           <div class="unit-title" style="margin:0">${escapeHtml(meta.name)} ${state.chapter}</div>
-          <div class="unit-sub">SBL Greek New Testament · ${escapeHtml(trName)} · ${tokens ? Math.round((known / tokens) * 100) : 0}% of words in your vocabulary</div>
+          <div class="unit-sub">SBL Greek New Testament · ${escapeHtml(trName)} · ${tokens ? Math.round((known / tokens) * 100) : 0}% of words in your vocabulary · tap a verse number for notes and cross-references</div>
         </div>
         ${lessonId ? `<a class="btn secondary" href="reading.html?lesson=${encodeURIComponent(lessonId)}">Study this chapter</a>` : ''}
       </div>
       <div class="pv-head"><div></div><div>Greek</div><div>English</div></div>
       ${rows}
       <div class="reader-foot"><button class="btn secondary" id="footPrev" type="button">‹ Previous</button><button class="btn" id="footNext" type="button">Next chapter ›</button></div>`;
-    body.querySelectorAll('.w').forEach((el) => el.addEventListener('click', () => tap(el)));
+    body.querySelectorAll('.w').forEach((el) => el.addEventListener('click', () => tapWord(el)));
+    body.querySelectorAll('.pv-num').forEach((el) => el.addEventListener('click', () => selectVerse(Number(el.dataset.verse), 'wp')));
     document.getElementById('footPrev').addEventListener('click', () => step(-1));
     document.getElementById('footNext').addEventListener('click', () => step(1));
   }
 
-  function tap(el) {
-    const v = Object.values(state.book.chapters[String(state.chapter)]).find((x) => x.id === el.dataset.v);
+  function verseObj(num) {
+    return Object.values(state.book.chapters[String(state.chapter)]).find((x) => x.id === `${state.slug}-${state.chapter}-${num}`);
+  }
+
+  function selectVerse(num, tab) {
+    state.verse = num; state.word = null;
+    if (tab) state.tab = tab;
+    body.querySelectorAll('.pv-row.target').forEach((r) => r.classList.remove('target'));
+    const row = document.getElementById(`${state.slug}-${state.chapter}-${num}`);
+    if (row) row.classList.add('target');
+    sheet.hidden = false;
+    renderSheet();
+  }
+
+  function tapWord(el) {
+    const num = Number(el.dataset.v.split('-').pop());
+    const v = verseObj(num);
     const w = annotate(v, state.lexicon, state.records)[Number(el.dataset.i)];
     if (!w.item) return;
     body.querySelectorAll('.w.active').forEach((x) => x.classList.remove('active'));
     el.classList.add('active');
+    state.verse = num; state.word = w; state.tab = 'word';
+    body.querySelectorAll('.pv-row.target').forEach((r) => r.classList.remove('target'));
+    sheet.hidden = false;
+    renderSheet();
+  }
+
+  function closeSheet() {
+    sheet.hidden = true;
+    body.querySelectorAll('.w.active').forEach((el) => el.classList.remove('active'));
+  }
+
+  function renderSheet() {
+    document.querySelectorAll('#drawerTabs .drawer-tab').forEach((t) => t.classList.toggle('active', t.dataset.tab === state.tab));
+    const meta = bookMeta();
+    const ref = state.verse ? `${meta.name} ${state.chapter}:${state.verse}` : `${meta.name} ${state.chapter}`;
+    if (state.tab === 'word') { sheetBody.innerHTML = wordHtml(); wireWord(); return; }
+    if (state.tab === 'wp') {
+      if (!state.verse) { sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)}</div><div class="gloss-status">Tap a verse number to see Robertson's note on it.</div>`; return; }
+      const text = state.wp && state.wp.chapters[String(state.chapter)] && state.wp.chapters[String(state.chapter)][String(state.verse)];
+      sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)} · Word Pictures</div>` +
+        (state.wp === null ? '<div class="gloss-status">Loading…</div>' : text ? `<div class="wp-text">${wpMarkup(text)}</div><div class="wp-source">A. T. Robertson, Word Pictures in the New Testament (1930–33).</div>` : '<div class="gloss-status">No note on this verse.</div>');
+      return;
+    }
+    // cross-refs
+    if (!state.verse) { sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)}</div><div class="gloss-status">Tap a verse number to see its cross-references.</div>`; return; }
+    const refs = state.xrefs && state.xrefs.chapters[String(state.chapter)] && state.xrefs.chapters[String(state.chapter)][String(state.verse)];
+    sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)} · Cross-references</div>` +
+      (state.xrefs === null ? '<div class="gloss-status">Loading…</div>' : refs && refs.length
+        ? `<div class="xref-list">${refs.map((r) => `<button class="xref ${r.nt ? '' : 'ot'}" type="button" ${r.nt ? `data-book="${r.book}" data-chapter="${r.chapter}" data-verse="${r.from}"` : 'title="Old Testament — not included in this app"'}>${escapeHtml(r.ref)}</button>`).join('')}</div><div class="wp-source">Treasury of Scripture Knowledge. Grey references are Old Testament.</div>`
+        : '<div class="gloss-status">No cross-references for this verse.</div>');
+    sheetBody.querySelectorAll('.xref[data-book]').forEach((b) => b.addEventListener('click', () => go(b.dataset.book, Number(b.dataset.chapter), Number(b.dataset.verse))));
+  }
+
+  /** Bold the leading English lemma-phrase of each Word Pictures paragraph and mark Greek in parentheses. */
+  function wpMarkup(text) {
+    return escapeHtml(text).split('\n\n').map((p) => p.replace(/^([^(\n]{1,80}?)\s*\(([^)]*[Ͱ-Ͽ][^)]*)\)/, '<b>$1</b> (<span class="gr">$2</span>)')).join('\n\n');
+  }
+
+  function wordHtml() {
+    const w = state.word;
+    if (!w) return `<div class="drawer-ref">${escapeHtml(bookMeta().name)} ${state.chapter}${state.verse ? `:${state.verse}` : ''}</div><div class="gloss-status">Tap any Greek word for its form, parse and meaning.</div>`;
     const it = w.item;
     const status = w.known ? 'in your vocabulary' : w.glossOnly ? `rare (${it.count}× in the NT)` : 'not yet in your vocabulary';
-    document.getElementById('sheetBody').innerHTML = `
-      <div class="gloss-head"><span class="gloss-form">${escapeHtml(normalizedForm(w))}</span><span class="gloss-pos">${escapeHtml(describePos(w.p, w.m))}</span></div>
+    const strongs = strongsFor(it, state.strongs);
+    return `
+      <div class="gloss-head"><span class="gloss-form">${escapeHtml(normalizedForm(w))}${speakerHtml(normalizedForm(w), { small: true })}</span><span class="gloss-pos">${escapeHtml(describePos(w.p, w.m))}</span></div>
       <div class="gloss-parse">${escapeHtml(describeParse(w.p, w.m))}</div>
       <div class="gloss-lemma"><span class="k">from</span> <b>${escapeHtml(it.citation)}</b> — ${escapeHtml(it.gloss)}</div>
-      <div class="gloss-status">${escapeHtml(status)} · rank ${it.rank} · <a href="lexicon.html?q=${encodeURIComponent(it.lemma)}">open in Lexicon</a></div>`;
-    sheet.hidden = false;
+      <div class="gloss-status">${escapeHtml(status)} · rank ${it.rank} · <a href="lexicon.html?q=${encodeURIComponent(it.lemma)}">open in Lexicon</a></div>
+      ${strongs.length ? `<button class="more-btn" type="button" id="moreStrongs">More · Strong's ${strongs.map((s) => 'G' + s.number).join(', ')}</button><div id="strongsBox" hidden>${strongs.map(strongsHtml).join('')}</div>` : ''}`;
+  }
+
+  function strongsHtml(s) {
+    return `<div class="strongs"><span class="k">Strong's G${s.number}</span> <b>${escapeHtml(s.lemma || '')}</b> ${escapeHtml(s.translit || '')} <span class="pron">${escapeHtml(s.pron || '')}</span><div>${escapeHtml(s.def)}</div></div>`;
+  }
+
+  function wireWord() {
+    const btn = document.getElementById('moreStrongs');
+    if (btn) btn.addEventListener('click', () => { const box = document.getElementById('strongsBox'); box.hidden = !box.hidden; btn.textContent = box.hidden ? btn.textContent.replace('Less', 'More') : btn.textContent.replace('More', 'Less'); });
   }
 </script>
 

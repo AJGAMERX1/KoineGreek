@@ -20,6 +20,11 @@ export function available() {
   return typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
 }
 
+/** The voice feature is opt-in (beta). Speaker buttons are hidden and nothing is spoken until settings.voice is true. */
+export function voiceEnabled() {
+  return available() && getSettings().voice === true;
+}
+
 let voiceList = [];
 function refreshVoices() { if (available()) voiceList = window.speechSynthesis.getVoices() || []; }
 if (available()) { refreshVoices(); window.speechSynthesis.onvoiceschanged = refreshVoices; }
@@ -111,7 +116,7 @@ let sequenceToken = 0;
 
 /** Speak Greek text in the learner's pronunciation scheme. Returns the mode used: 'greek-voice' | 'respell' | 'unavailable'. */
 export function speak(text, { scheme, rate } = {}) {
-  if (!available() || !text) return 'unavailable';
+  if (!voiceEnabled() || !text) return 'unavailable';
   const s = getSettings();
   scheme = scheme || s.pronunciation || 'erasmian';
   rate = rate || clampRate(s.speechRate);
@@ -142,7 +147,7 @@ export function speak(text, { scheme, rate } = {}) {
  * than single words. Returns the mode used.
  */
 export function speakVerse(text, opts = {}) {
-  if (!available() || !text) return 'unavailable';
+  if (!voiceEnabled() || !text) return 'unavailable';
   const s = getSettings();
   const scheme = opts.scheme || s.pronunciation || 'erasmian';
   const rate = (opts.rate || clampRate(s.speechRate)) * 0.92;
@@ -195,13 +200,13 @@ export function initSpeech() {
     btn.classList.add('speaking');
     setTimeout(() => btn.classList.remove('speaking'), 1200);
   });
-  if (!available()) document.documentElement.classList.add('no-speech');
-  return available();
+  if (!voiceEnabled()) document.documentElement.classList.add('no-speech');
+  return voiceEnabled();
 }
 
 /** Speak automatically when the learner has auto-speak on (new words, verses). */
 export function autoSpeak(text, { verse = false } = {}) {
   const s = getSettings();
-  if (s.autoSpeak === false) return;
+  if (!voiceEnabled() || s.autoSpeak === false) return;
   if (verse) speakVerse(text); else speak(text);
 }

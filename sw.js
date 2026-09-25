@@ -14,7 +14,7 @@
   All paths are relative to this file so the app works at any GitHub Pages sub-path.
 */
 
-const CACHE_VERSION = 'v7';
+const CACHE_VERSION = 'v8';
 const SHELL_CACHE = `koine-shell-${CACHE_VERSION}`;
 const CONTENT_CACHE = `koine-content-${CACHE_VERSION}`;
 const FONT_CACHE = `koine-fonts-${CACHE_VERSION}`;
@@ -51,6 +51,7 @@ const SHELL = [
   './js/chain.js',
   './js/speech.js',
   './js/sfx.js',
+  './js/refs.js',
   './js/placement.js',
   './js/session-view.js',
   './js/pwa.js',
@@ -67,6 +68,7 @@ const SHELL = [
   './data/irregular-verbs.json',
   './data/forms.json',
   './data/stats.json',
+  './data/strongs-greek.json',
   './data/units/unit-01-foundations.json',
   './data/gnt/john.json',
 ];
@@ -94,7 +96,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
 
   if (url.origin === location.origin) {
-    if (url.pathname.includes('/data/units/') || url.pathname.includes('/data/gnt/')) {
+    if (url.pathname.includes('/data/units/') || url.pathname.includes('/data/gnt/') || url.pathname.includes('/data/rwp/') || url.pathname.includes('/data/xrefs/')) {
       event.respondWith(networkFirst(req, CONTENT_CACHE));
     } else {
       event.respondWith(networkFirst(req, SHELL_CACHE, true));

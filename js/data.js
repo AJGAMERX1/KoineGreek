@@ -61,6 +61,34 @@ export function loadStats() {
   return loadJson('./data/stats.json');
 }
 
+/** Robertson's Word Pictures for one NT book: { chapters: { "1": { "1": "text…" } } } */
+export function loadWordPictures(slug) {
+  return loadJson(`./data/rwp/${slug}.json`);
+}
+
+/** Treasury of Scripture Knowledge cross-references for one NT book. */
+export function loadXrefs(slug) {
+  return loadJson(`./data/xrefs/${slug}.json`);
+}
+
+let strongsIndex = null;
+
+/** Strong's Greek dictionary entries keyed by number (string), only those our lexicon links to. */
+export async function loadStrongs() {
+  if (!strongsIndex) {
+    const d = await loadJson('./data/strongs-greek.json');
+    strongsIndex = d.entries;
+  }
+  return strongsIndex;
+}
+
+/** The Strong's entries for a lexicon item (its `strongs` field may be one number or several). */
+export function strongsFor(item, entries) {
+  if (!item || !item.strongs || !entries) return [];
+  const nums = Array.isArray(item.strongs) ? item.strongs : [item.strongs];
+  return nums.map((n) => ({ number: n, ...(entries[String(n)] || {}) })).filter((e) => e.def);
+}
+
 export function loadForms() {
   return loadJson('./data/forms.json');
 }

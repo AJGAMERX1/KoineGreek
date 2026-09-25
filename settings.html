@@ -86,10 +86,14 @@
         <label class="switch"><input type="checkbox" id="sfx"><span class="switch-track"></span></label>
       </div>
       <div class="settings-row">
-        <div><div class="settings-label">Speak new words and verses</div><div class="settings-help">Speaker buttons always work; this reads new words and each verse aloud automatically.</div></div>
+        <div><div class="settings-label">Voice <span class="beta">Beta</span></div><div class="settings-help">Adds speaker buttons to lessons, the reader and the Lexicon, using the voices built into your device. Off by default: the Koine scheme needs a Greek voice on your device and Erasmian is an approximation read by an English voice. Expect rough edges.</div></div>
+        <label class="switch"><input type="checkbox" id="voice"><span class="switch-track"></span></label>
+      </div>
+      <div class="settings-row voice-dependent">
+        <div><div class="settings-label">Speak new words and verses</div><div class="settings-help">Reads new words and each verse aloud automatically. Speaker buttons work either way.</div></div>
         <label class="switch"><input type="checkbox" id="autoSpeak"><span class="switch-track"></span></label>
       </div>
-      <div class="settings-row">
+      <div class="settings-row voice-dependent">
         <div><div class="settings-label">Speed</div><div class="settings-help" id="rateHelp"></div></div>
         <div class="rate-control">
           <span class="settings-help">slow</span>
@@ -97,7 +101,7 @@
           <span class="settings-help">natural</span>
         </div>
       </div>
-      <div class="settings-row">
+      <div class="settings-row voice-dependent">
         <div><div class="settings-label">Try it</div><div class="settings-help" id="voiceHelp"></div></div>
         <div class="theme-option-group">
           <button class="theme-option" type="button" data-say="λόγος">λόγος</button>
@@ -143,6 +147,7 @@
         <p><b>Rhema</b> (ῥῆμα, "word") teaches New Testament Koine Greek with spaced retrieval and real text from day one. It is a static site: nothing you do here leaves your device.</p>
         <p>Greek text: <b>SBL Greek New Testament</b>. Copyright © 2010 Society of Biblical Literature and Logos Bible Software (CC BY 4.0). Morphology, lemmas and glosses: <b>MorphGNT</b> — Tauber, J. K., ed. (2017) <i>MorphGNT: SBLGNT Edition</i>, v6.12 (CC BY-SA 3.0), with glosses from the public-domain Dodson lexicon.</p>
         <p>Reference translations: <b>World English Bible</b> (public domain; "World English Bible" is a trademark of eBible.org), <b>King James Version</b> (1769) and <b>Young's Literal Translation</b> (public domain).</p>
+        <p>Study helps, from CrossWire SWORD modules: <b>Strong's Greek Dictionary</b> (James Strong, 1890; public domain), <b>Robertson's Word Pictures in the New Testament</b> (A. T. Robertson, 1930–33; free non-commercial distribution) and the <b>Treasury of Scripture Knowledge</b> (c. 1880; public domain).</p>
         <p>Pronunciation schemes: Erasmian (the common seminary scheme) and reconstructed Koine (after Randall Buth, Biblical Language Center).</p>
       </div>
     </section>
@@ -172,6 +177,8 @@
   function refresh() {
     const s = getSettings();
     document.getElementById('showProgress').checked = !!s.showProgress;
+    document.getElementById('voice').checked = s.voice === true;
+    document.querySelectorAll('.voice-dependent').forEach((row) => row.classList.toggle('disabled', s.voice !== true));
     document.getElementById('autoSpeak').checked = s.autoSpeak !== false;
     document.getElementById('sfx').checked = s.sfx !== false;
     document.getElementById('speechRate').value = clampRate(s.speechRate);
@@ -191,6 +198,7 @@
   document.querySelectorAll('#pronOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ pronunciation: b.dataset.pron }); refresh(); }));
   document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ translation: b.dataset.tr }); refresh(); }));
   document.getElementById('showProgress').addEventListener('change', (e) => { setSettings({ showProgress: e.target.checked }); refresh(); });
+  document.getElementById('voice').addEventListener('change', (e) => { setSettings({ voice: e.target.checked }); refresh(); if (e.target.checked) speak('λόγος'); });
   document.getElementById('autoSpeak').addEventListener('change', (e) => { setSettings({ autoSpeak: e.target.checked }); refresh(); });
   document.getElementById('sfx').addEventListener('change', (e) => { setSettings({ sfx: e.target.checked }); refresh(); if (e.target.checked) playCorrect(); });
   const rateInput = document.getElementById('speechRate');
@@ -200,6 +208,7 @@
 
   function refreshVoiceHelp(s) {
     const el = document.getElementById('voiceHelp');
+    if (s.voice !== true) { el.textContent = 'Turn Voice on to hear words and verses.'; return; }
     if (!speechAvailable()) { el.textContent = 'This browser has no speech voices, so speaker buttons are hidden.'; return; }
     const gv = greekVoice();
     if (s.pronunciation === 'koine') {

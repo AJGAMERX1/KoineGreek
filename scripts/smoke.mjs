@@ -122,6 +122,19 @@ for (const b of placementBooks) for (const q of b.questions) check(q.options.len
 check(placement.placementIndex([6, 5, 4]) === 2 && placement.placementIndex([3]) === 0 && placement.placementIndex([6, 6, 6, 6, 6, 6, 6, 6]) === 8, 'placementIndex');
 const kn = placement.knownRecords(grammarUnits.slice(0, 2), paradigmsById, irregular);
 check(kn.lessons.length === 17 && Object.keys(kn.vocab).length > 100 && Object.keys(kn.forms).length > 50, `knownRecords for Books I–II: ${kn.lessons.length} lessons, ${Object.keys(kn.vocab).length} words, ${Object.keys(kn.forms).length} forms`);
+// study helps (Strong's, Word Pictures, cross-references) + reference parser
+const strongs = read('data/strongs-greek.json').entries;
+check(strongs['3056'] && /λόγος/.test(strongs['3056'].lemma), "strongs-greek.json: G3056 should be λόγος");
+const withStrongs = lexicon.items.filter((i) => i.strongs).length;
+const resolved = lexicon.items.filter((i) => [].concat(i.strongs || []).some((n) => strongs[String(n)])).length;
+check(resolved > withStrongs * 0.95, `strongs: only ${resolved}/${withStrongs} lexicon items resolve to an entry`);
+for (const slug of Object.keys(books)) {
+  const rwp = read(`data/rwp/${slug}.json`); const xr = read(`data/xrefs/${slug}.json`);
+  for (const [ch, vs] of Object.entries(rwp.chapters)) for (const v of Object.keys(vs)) check(books[slug].chapters[ch] && Object.values(books[slug].chapters[ch]).some((x) => x.id === `${slug}-${ch}-${v}`), `rwp ${slug} ${ch}:${v} not in gnt`);
+  for (const [ch, vs] of Object.entries(xr.chapters)) for (const [v, refs] of Object.entries(vs)) { check(books[slug].chapters[ch] && Object.values(books[slug].chapters[ch]).some((x) => x.id === `${slug}-${ch}-${v}`), `xrefs ${slug} ${ch}:${v} not in gnt`); for (const r of refs) check(r.ref && r.book && r.chapter && r.from && typeof r.nt === 'boolean', `xrefs ${slug} ${ch}:${v}: malformed ref`); }
+}
+const refs = await import('../js/refs.js');
+check(refs.parseReference('Jn 3:16').slug === 'john' && refs.parseReference('1 Cor 13:4-7').verseEnd === 7 && refs.parseReference('Gen 1:1').nt === false && refs.parseReference('nope') === null, 'refs.parseReference');
 console.log(`logic: built sessions for ${built} lessons, ${questions} questions generated; ${evalRes.achievements.length} achievements defined`);
 if (fail.length) { console.error(fail.slice(0, 20).join('\n')); process.exit(1); }
 console.log('OK');

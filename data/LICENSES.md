@@ -12,6 +12,9 @@ below, plus hand-authored reference grammar in `scripts/curriculum.py`
 | `gnt/*.json` → `translations.kjv`, `translations.ylt` | King James Version (1769), Young's Literal Translation (1898), via https://github.com/scrollmapper/bible_databases | **Public domain** (packaging: MIT) | — |
 | `gnt/*.json` → `translations.web` | **World English Bible** from https://ebible.org/Scriptures/eng-web_vpl.zip | **Public domain** | "World English Bible" is a trademark of eBible.org. |
 | `alphabet.json`, `paradigms.json`, `irregular-verbs.json`, `curriculum.json`, `units/*.json` | Hand-authored in `scripts/curriculum.py`; glosses/counts merged from the lexicon | Same license as this repository | Paradigm cells are validated against forms attested in MorphGNT (`attested: true`). |
+| `strongs-greek.json` (Strong's Greek dictionary entries: lemma, transliteration, pronunciation, definition) | **Strong's Greek Dictionary** (James Strong, 1890), CrossWire SWORD module `StrongsGreek` v2.0, https://www.crosswire.org/sword/modules/ (`packages/rawzip/StrongsGreek.zip`) | **Public domain** (module conf: `DistributionLicense=Public Domain`) | Only the numbers referenced by `lexicon.json` plus one hop of "from N" links are bundled; built by `node scripts/build_sword.mjs`. |
+| `xrefs/*.json` (cross-references for every NT verse) | **Treasury of Scripture Knowledge** (Canne, Browne, Blayney, Scott and others, c. 1880), CrossWire SWORD module `TSK` v1.4 (`packages/rawzip/TSK.zip`) | **Public domain** (module conf: `DistributionLicense=Public Domain`) | NT source verses only; OT and NT targets kept. Built by `node scripts/build_sword.mjs`. |
+| `rwp/*.json` (verse-by-verse notes) | **Robertson's Word Pictures in the New Testament** (A. T. Robertson, 6 vols., 1930–33), CrossWire SWORD module `RWP` v2.0 (`packages/rawzip/RWP.zip`) | Vols 1–4 **public domain**; vols 5–6 "Copyrighted; Free non-commercial distribution" per the module conf (see notes) | Text source www.bf.org via CrossWire. Built by `node scripts/build_sword.mjs`. |
 
 ## Rules
 
@@ -19,3 +22,15 @@ below, plus hand-authored reference grammar in `scripts/curriculum.py`
 * Keep the SBLGNT attribution line and the MorphGNT citation visible in the app's About/credits screen.
 * CC BY-SA content (morphology, lexicon glosses) means derived data files must stay shareable under a compatible license.
 * Regenerate rather than hand-edit generated files: `python3 scripts/build_data.py`.
+
+## Study helps from CrossWire SWORD modules
+
+`node scripts/build_sword.mjs` downloads the three modules above into `scripts/cache/sword/` (gitignored), reads them with the parsers in `scripts/sword/` (ported from the author's BibleStudy project's reverse-engineered SWORD readers) and writes `strongs-greek.json`, `rwp/` and `xrefs/`. Markup is stripped to plain text; paragraph breaks are kept.
+
+* **Strong's Greek** and **TSK** are public domain. Their module confs both carry `DistributionLicense=Public Domain`.
+* **RWP** is the one source here that is not wholly public domain. Its module conf says, verbatim:
+
+  `DistributionLicense=Copyrighted; Free non-commercial distribution`
+
+  and its About text states: "Vol 1,2,3,4 Public Domain", "Volume 5 (c) 1932. Renewal 1960 Broadman Press. All rights reserved. Used by permission. [Copyright expires Dec. 31, 2006.]", "Volume 6 (c) 1933. Renewal 1960 Broadman Press. All rights reserved. Used by permission. [Copyright expires Dec. 31, 2007.]". In Robertson's volume plan vol. 5 covers John and Hebrews and vol. 6 the General Epistles and Revelation (vols 1–4: Matthew–Mark, Luke, Acts, the Pauline Epistles). Per the module's own note those copyrights expired at the end of 2006 and 2007, but the conf's license line still reads non-commercial, so: **keep this app non-commercial while RWP is bundled, or drop `data/rwp/` (delete the folder and the RWP loader) before any commercial use.** Credit "Robertson's Word Pictures in the New Testament, A. T. Robertson (1930–33), via CrossWire Bible Society" in the app's credits.
+* All three derived files are regenerated, never hand-edited. Versification: the modules use the KJV scheme; entries for verses SBLGNT omits (e.g. Matthew 17:21, John 5:4, 7:53–8:11, Acts 8:37) are dropped at build time, and TSK's 2 Corinthians 13:13–14 are remapped onto SBLGNT 13:12–13.

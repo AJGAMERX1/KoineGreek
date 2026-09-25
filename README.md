@@ -96,6 +96,14 @@ NASB, or other modern copyrighted translations.**
 python3 scripts/build_data.py
 ```
 
+```bash
+node scripts/build_sword.mjs
+```
+
+The first derives everything from SBLGNT/MorphGNT and the translations; the second
+derives the study helps (Strong's, Word Pictures, cross-references) from CrossWire
+SWORD modules.
+
 Downloads the sources into `scripts/cache/` (gitignored) on first run, then writes
 everything under `data/`. Hand-authored reference grammar and the lesson spine
 live in `scripts/curriculum.py`; edit that, not the generated JSON.
@@ -189,6 +197,7 @@ koine-greek-app/
 │   ├── reading.js         — Read & Translate logic: known/unknown annotation, coverage, verse rating → SRS record, XP (no DOM)
 │   ├── morph.js           — decodes MorphGNT part-of-speech + 8-slot parse codes into English
 │   ├── alphabet.js        — alphabet lesson logic: transliteration, syllabification, accent/breathing detection, session builder (no DOM)
+│   ├── refs.js            — Bible reference parser + 66-book alias model (reader jump box, cross-refs)
 │   ├── nav.js             — shared bottom navigation (Path · Read · Lexicon · [Progress] · Profile)
 │   ├── lexicon.js         — lexicon search/filter + per-word status (no DOM)
 │   ├── achievements.js    — achievement definitions + evaluation (no DOM)
@@ -214,6 +223,9 @@ koine-greek-app/
     ├── irregular-verbs.json — principal parts for the strange-verb drill pool
     ├── alphabet.json     — letters, diphthongs, breathing, accents, both pronunciation schemes
     ├── stats.json        — per-chapter lexical coverage, used to sequence reading
+    ├── strongs-greek.json — Strong's Greek definitions for lemmas in the lexicon
+    ├── rwp/<book>.json   — Robertson's Word Pictures, per verse
+    ├── xrefs/<book>.json — Treasury of Scripture Knowledge cross-references, per verse
     └── gnt/<book>.json   — every NT verse: tagged words + KJV / YLT / WEB
 ```
 
@@ -257,8 +269,9 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 
 **Phase 5 — Polish / stretch**
 - [x] Placement test (`placement.html` + `js/placement.js`): six questions per grammar Book from its own words, paradigms and strange verbs; stops at the first Book not passed; confirming marks earlier Books complete and enters their words and endings into the review schedule as known
+- [x] Study helps from CrossWire SWORD modules (`scripts/build_sword.mjs`): Robertson's Word Pictures per verse (after the reveal in Read & Translate, and a drawer tab in the reader), Strong's Greek definitions (Lexicon detail and a "More" expander in every gloss sheet), Treasury of Scripture Knowledge cross-references (reader drawer tab, New Testament targets clickable), and a reference jump box in the reader ("Jn 3:16", `js/refs.js`)
 - [x] Answer sound cues (`js/sfx.js`, Web Audio, no files): chime for right, soft buzz for wrong, tick on rating a verse, flourish on finishing; Settings → Sound
-- [x] Pronunciation (`js/speech.js`): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses, adjustable speed (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API (text is converted to monotonic first — modern Greek voices fall silent on polytonic marks); verses are read clause by clause with a breath at commas and a longer pause at full stops; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
+- [x] Pronunciation (`js/speech.js`) — opt-in **beta** (Settings → Sound → Voice, off by default): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses, adjustable speed (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API (text is converted to monotonic first — modern Greek voices fall silent on polytonic marks); verses are read clause by clause with a breath at commas and a longer pause at full stops; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
 - [x] Progress tab (single-player achievement board — a static site has no leaderboard): coverage meters, 73 achievements for words, verses, endings, streaks, Books and XP; opt-in via Settings → "Show Progress tab"
 - [x] Read tab: parallel Greek / English reader over the whole NT (SBLGNT + WEB/KJV/YLT), verse-aligned columns on wide screens, tap-to-gloss, "Study this chapter" hand-off to the curriculum
 - [x] Lexicon tab: all 5,461 lemmas searchable in Greek (accent-insensitive) or English, status per word, detail with attested forms and "add to my words"
