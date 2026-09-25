@@ -60,11 +60,13 @@
   import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted } from './js/storage.js';
   import { buildAlphabetSession, gradeAlphabet, requeueAlphabet, transliterate, hasSubscript, syllabify, stripMarks } from './js/alphabet.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
   import { initSpeech, autoSpeak } from './js/speech.js';
 
   initTheme();
   initPwa();
   initSpeech();
+  initSfx();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -223,6 +225,7 @@
   function answer(step, input) {
     const ok = gradeAlphabet(step, input, state.alphabet);
     view.markAnswer({ correctId: step.answerId || null, chosenId: step.options ? input : null, ok });
+    if (ok) playCorrect(); else playWrong();
     const xp = (!ok || step.attempt > 1) ? 0 : (step.typed || step.format === 'read-word' ? 5 : 2);
     if (xp) { state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; }
     state.answered++;
@@ -243,6 +246,7 @@
     const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
     const accuracy = Math.round((state.correctFirstTry / Math.max(state.answered - retries, 1)) * 100);
     if (state.answered > 0) { recordActivity(); markLessonCompleted(state.lesson.id); }
+    if (state.answered > 0) playComplete();
     const progress = getProgress();
     const missed = [...new Map(state.missed.map((s) => [s.answer || s.word, s])).values()];
     view.renderSummary({

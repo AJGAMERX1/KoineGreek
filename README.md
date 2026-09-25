@@ -193,7 +193,8 @@ koine-greek-app/
 │   ├── lexicon.js         — lexicon search/filter + per-word status (no DOM)
 │   ├── achievements.js    — achievement definitions + evaluation (no DOM)
 │   ├── chain.js           — the daily review chain (drill → grammar → reading due modes)
-│   ├── speech.js          — pronunciation via the Web Speech API (Greek voice / phonetic respelling)
+│   ├── speech.js          — pronunciation via the Web Speech API (Greek voice / phonetic respelling; monotonic conversion; phrased verses)
+│   ├── sfx.js             — synthesized answer sound cues (Web Audio)
 │   ├── placement.js       — placement test: question sampling, pass mark, known-records seeding (no DOM)
 │   ├── recover.js         — classic script: self-heal from a stale-module load (clear caches, reload once)
 │   ├── pwa.js             — service-worker registration, controller-change reload, install-prompt capture
@@ -256,7 +257,8 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 
 **Phase 5 — Polish / stretch**
 - [x] Placement test (`placement.html` + `js/placement.js`): six questions per grammar Book from its own words, paradigms and strange verbs; stops at the first Book not passed; confirming marks earlier Books complete and enters their words and endings into the review schedule as known
-- [x] Pronunciation (`js/speech.js`): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses, adjustable speed (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
+- [x] Answer sound cues (`js/sfx.js`, Web Audio, no files): chime for right, soft buzz for wrong, tick on rating a verse, flourish on finishing; Settings → Sound
+- [x] Pronunciation (`js/speech.js`): speaker buttons on every Greek prompt, verse and lexicon entry, auto-speak for new words and verses, adjustable speed (Settings → Voice). Koine scheme uses the device's Greek voice via the Web Speech API (text is converted to monotonic first — modern Greek voices fall silent on polytonic marks); verses are read clause by clause with a breath at commas and a longer pause at full stops; Erasmian (no such voice exists anywhere) is a phonetic respelling read by an English voice, labelled as an approximation. No audio files are bundled.
 - [x] Progress tab (single-player achievement board — a static site has no leaderboard): coverage meters, 73 achievements for words, verses, endings, streaks, Books and XP; opt-in via Settings → "Show Progress tab"
 - [x] Read tab: parallel Greek / English reader over the whole NT (SBLGNT + WEB/KJV/YLT), verse-aligned columns on wide screens, tap-to-gloss, "Study this chapter" hand-off to the curriculum
 - [x] Lexicon tab: all 5,461 lemmas searchable in Greek (accent-insensitive) or English, status per word, detail with attested forms and "add to my words"

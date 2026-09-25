@@ -52,9 +52,10 @@
   import { markLessonCompleted, updateVocabItem, updateFormRecord, getVocabItem, getFormRecord } from './js/storage.js';
   import { buildPlacement, placementIndex, knownRecords, QUESTIONS_PER_BOOK, PASS_MARK } from './js/placement.js';
   import { SessionView, escapeHtml } from './js/session-view.js';
+  import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
   import { initSpeech } from './js/speech.js';
 
-  initTheme(); initPwa(); initSpeech();
+  initTheme(); initPwa(); initSpeech(); initSfx();
   const view = new SessionView();
   document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
   const bookLabel = document.getElementById('bookLabel');
@@ -98,6 +99,7 @@
     }, (input) => {
       const ok = input === q.answerId;
       view.markAnswer({ correctId: q.answerId, chosenId: input, ok });
+      if (ok) playCorrect(); else playWrong();
       state.scores[state.b] = (state.scores[state.b] || 0) + (ok ? 1 : 0);
       view.showFeedback({ ok, headline: ok ? 'Correct' : 'Not quite', answer: q.answer, reason: q.reason }, next);
     });

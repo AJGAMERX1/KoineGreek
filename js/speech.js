@@ -73,9 +73,41 @@ export function respellText(text, scheme) {
   }).filter(Boolean).join(' ');
 }
 
+// ---- text preparation ----------------------------------------------------
+
+/**
+ * Modern Greek voices expect MONOTONIC text. Polytonic marks (breathings,
+ * circumflex, grave, iota subscript) make them stumble or fall silent — ὁ
+ * came out as nothing. Convert: drop breathings and subscripts, turn grave
+ * and circumflex into the acute (tonos), keep the dieresis, remove "(ν)".
+ */
+export function toMonotonic(text) {
+  return text.normalize('NFD')
+    .replace(/[\u0313\u0314\u0345]/g, '')      // smooth, rough breathing, iota subscript
+    .replace(/[\u0300\u0342]/g, '\u0301')      // grave, perispomeni → acute
+    .replace(/\(ν\)/g, 'ν')
+    .normalize('NFC');
+}
+
+/** Split a verse into clauses at punctuation; each chunk carries the pause that follows it (ms). */
+export function phraseChunks(text) {
+  const out = [];
+  const re = /([^.,;·!?:]+)([.,;·!?:]*)/g;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    const chunk = m[1].trim();
+    if (!chunk) continue;
+    const p = m[2];
+    const pause = /[.;·!?:]/.test(p) ? 650 : p ? 350 : 0;
+    out.push({ text: chunk, pause });
+  }
+  return out;
+}
+
 // ---- speaking ------------------------------------------------------------
 
 let current = null;
+let sequenceToken = 0;
 
 /** Speak Greek text in the learner's pronunciation scheme. Returns the mode used: 'greek-voice' | 'respell' | 'unavailable'. */
 export function speak(text, { scheme, rate } = {}) {
@@ -89,7 +121,7 @@ export function speak(text, { scheme, rate } = {}) {
   let u;
   let mode;
   if (scheme === 'koine' && gv) {
-    u = new SpeechSynthesisUtterance(text);
+    u = new SpeechSynthesisUtterance(toMonotonic(text));
     u.voice = gv; u.lang = gv.lang; u.rate = rate;
     mode = 'greek-voice';
   } else {
@@ -104,17 +136,51 @@ export function speak(text, { scheme, rate } = {}) {
   return mode;
 }
 
+/**
+ * Speak a verse the way a reader would: clause by clause, with a breath at
+ * commas and a longer pause at full stops and raised dots, a little slower
+ * than single words. Returns the mode used.
+ */
+export function speakVerse(text, opts = {}) {
+  if (!available() || !text) return 'unavailable';
+  const s = getSettings();
+  const scheme = opts.scheme || s.pronunciation || 'erasmian';
+  const rate = (opts.rate || clampRate(s.speechRate)) * 0.92;
+  const chunks = phraseChunks(text);
+  if (!chunks.length) return 'unavailable';
+  const synth = window.speechSynthesis;
+  synth.cancel();
+  const token = ++sequenceToken;
+  const gv = greekVoice();
+  const useGreek = scheme === 'koine' && gv;
+  const ev = englishVoice();
+  let i = 0;
+  const next = () => {
+    if (token !== sequenceToken || i >= chunks.length) return;
+    const c = chunks[i++];
+    const u = new SpeechSynthesisUtterance(useGreek ? toMonotonic(c.text) : respellText(c.text, scheme));
+    if (useGreek) { u.voice = gv; u.lang = gv.lang; u.rate = rate; }
+    else { if (ev) { u.voice = ev; u.lang = ev.lang; } u.rate = rate * 0.9; }
+    u.onend = () => { if (token === sequenceToken) setTimeout(next, c.pause); };
+    u.onerror = () => { if (token === sequenceToken) setTimeout(next, 150); };
+    current = u;
+    synth.speak(u);
+  };
+  next();
+  return useGreek ? 'greek-voice' : 'respell';
+}
+
 export function clampRate(r) {
   const n = Number(r);
   return Number.isFinite(n) ? Math.min(1.1, Math.max(0.5, n)) : 0.7;
 }
 
-export function stop() { if (available()) window.speechSynthesis.cancel(); }
+export function stop() { sequenceToken++; if (available()) window.speechSynthesis.cancel(); }
 
 /** Markup for a speaker button; clicks are handled by initSpeech()'s delegation. */
-export function speakerHtml(text, { small = false } = {}) {
+export function speakerHtml(text, { small = false, verse = false } = {}) {
   const esc = String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-  return `<button class="speak-btn ${small ? 'small' : ''}" type="button" data-speak="${esc}" aria-label="Listen" title="Listen">
+  return `<button class="speak-btn ${small ? 'small' : ''}" type="button" data-speak="${esc}" ${verse ? 'data-speak-mode="verse"' : ''} aria-label="Listen" title="Listen">
     <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7.5 7.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>`;
 }
@@ -125,7 +191,7 @@ export function initSpeech() {
     const btn = e.target.closest && e.target.closest('[data-speak]');
     if (!btn) return;
     e.preventDefault(); e.stopPropagation();
-    speak(btn.dataset.speak);
+    if (btn.dataset.speakMode === 'verse') speakVerse(btn.dataset.speak); else speak(btn.dataset.speak);
     btn.classList.add('speaking');
     setTimeout(() => btn.classList.remove('speaking'), 1200);
   });
@@ -134,8 +200,8 @@ export function initSpeech() {
 }
 
 /** Speak automatically when the learner has auto-speak on (new words, verses). */
-export function autoSpeak(text) {
+export function autoSpeak(text, { verse = false } = {}) {
   const s = getSettings();
   if (s.autoSpeak === false) return;
-  speak(text);
+  if (verse) speakVerse(text); else speak(text);
 }

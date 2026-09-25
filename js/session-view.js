@@ -16,9 +16,9 @@ export function escapeHtml(str) {
 }
 
 /** Speaker button markup (same as js/speech.js's; duplicated here so the view stays dependency-free). */
-export function speakerHtml(text, { small = false } = {}) {
+export function speakerHtml(text, { small = false, verse = false } = {}) {
   const esc = String(text).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-  return `<button class="speak-btn ${small ? 'small' : ''}" type="button" data-speak="${esc}" aria-label="Listen" title="Listen">
+  return `<button class="speak-btn ${small ? 'small' : ''}" type="button" data-speak="${esc}" ${verse ? 'data-speak-mode="verse"' : ''} aria-label="Listen" title="Listen">
     <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a4 4 0 0 1 0 7M18.5 6a7.5 7.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>`;
 }

@@ -59,10 +59,12 @@
   import { describeParse, describePos } from './js/morph.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
   import { initSpeech, autoSpeak } from './js/speech.js';
+  import { initSfx, playTick, playComplete } from './js/sfx.js';
 
   initTheme();
   initPwa();
   initSpeech();
+  initSfx();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -163,14 +165,14 @@
       ${rule}
       <div class="card">
         <div class="verse" id="verse" lang="grc">${words.map((w, i) => wordHtml(w, i)).join(' ')}</div>
-        <div class="verse-meta"><span>${Math.round(cov.knownShare * 100)}% of these words are in your vocabulary${speakerHtml(verseText(verse), { small: true })}</span><span class="legend"><span class="w unknown">dotted</span> = tap for meaning</span></div>
+        <div class="verse-meta"><span>${Math.round(cov.knownShare * 100)}% of these words are in your vocabulary${speakerHtml(verseText(verse), { small: true, verse: true })}</span><span class="legend"><span class="w unknown">dotted</span> = tap for meaning</span></div>
       </div>
       <div class="gloss-panel" id="gloss" hidden></div>
       <div id="reveal"></div>`;
     view.body.scrollTop = 0;
     view.body.querySelectorAll('.w[data-i]').forEach((el) => el.addEventListener('click', () => tapWord(Number(el.dataset.i))));
     view.showFooter('Reveal the translation', reveal);
-    autoSpeak(verseText(verse));
+    autoSpeak(verseText(verse), { verse: true });
   }
 
   function verseText(verse) { return verse.words.map((w) => w.t).join(' '); }
@@ -236,6 +238,7 @@
   }
 
   function rate(rating) {
+    playTick();
     const verse = state.verses[state.index];
     const next = rateVerse(getReadingRecord(verse.id), rating, state.reveals);
     setReadingRecord(verse.id, next);
@@ -249,7 +252,7 @@
   // ------------------------------------------------------------ summary
 
   function renderSummary() {
-    if (state.rated > 0) { recordActivity(); if (state.lesson) markLessonCompleted(state.lesson.id); }
+    if (state.rated > 0) { recordActivity(); if (state.lesson) markLessonCompleted(state.lesson.id); playComplete(); }
     const progress = getProgress();
     const tokens = state.coverages.reduce((a, c) => a + c.tokens, 0);
     const known = state.coverages.reduce((a, c) => a + c.known, 0);

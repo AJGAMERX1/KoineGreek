@@ -58,12 +58,14 @@
   import { buildGrammarSession, buildDueFormsSession, gradeGrammar, xpForGrammar, ratingForGrammar, requeueGrammar, PART_NAMES } from './js/grammar.js';
   import { parseSlots } from './js/morph.js';
   import { SessionView, escapeHtml } from './js/session-view.js';
+  import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
   import { initSpeech } from './js/speech.js';
   import { nextInChain, chainLabel } from './js/chain.js';
 
   initTheme();
   initPwa();
   initSpeech();
+  initSfx();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -174,6 +176,7 @@
   function answer(step, input) {
     const ok = gradeGrammar(step, input);
     view.markAnswer({ correctId: step.answerId || null, chosenId: step.options ? input : null, ok });
+    if (ok) playCorrect(); else playWrong();
     const rating = ratingForGrammar(step, ok);
     if (rating) {
       const prev = getFormRecord(step.srsId);
@@ -198,6 +201,7 @@
     const retries = state.steps.filter((s) => s.kind === 'question' && s.attempt > 1).length;
     const accuracy = Math.round((state.correctFirstTry / Math.max(state.answered - retries, 1)) * 100);
     if (state.answered > 0) recordActivity();
+    if (state.answered > 0) playComplete();
     const hasVocab = state.lesson && state.lesson.vocab && state.lesson.vocab.length;
     if (state.lesson && !hasVocab && state.answered > 0) markLessonCompleted(state.lesson.id);
     const progress = getProgress();

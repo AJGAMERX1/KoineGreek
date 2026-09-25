@@ -80,7 +80,11 @@
     </section>
 
     <section class="settings-section">
-      <div class="settings-title">Voice</div>
+      <div class="settings-title">Sound</div>
+      <div class="settings-row">
+        <div><div class="settings-label">Answer sounds</div><div class="settings-help">A chime for right, a soft buzz for wrong, a flourish when a session ends.</div></div>
+        <label class="switch"><input type="checkbox" id="sfx"><span class="switch-track"></span></label>
+      </div>
       <div class="settings-row">
         <div><div class="settings-label">Speak new words and verses</div><div class="settings-help">Speaker buttons always work; this reads new words and each verse aloud automatically.</div></div>
         <label class="switch"><input type="checkbox" id="autoSpeak"><span class="switch-track"></span></label>
@@ -97,7 +101,7 @@
         <div><div class="settings-label">Try it</div><div class="settings-help" id="voiceHelp"></div></div>
         <div class="theme-option-group">
           <button class="theme-option" type="button" data-say="λόγος">λόγος</button>
-          <button class="theme-option" type="button" data-say="Ἐν ἀρχῇ ἦν ὁ λόγος">John 1:1</button>
+          <button class="theme-option" type="button" data-say="Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.">John 1:1</button>
         </div>
       </div>
     </section>
@@ -154,7 +158,8 @@
   import { renderNav } from './js/nav.js';
   import { getSettings, setSettings, getProgress, getAllVocabRecords, readStore, exportStore, importStore, resetProgress } from './js/storage.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
-  import { available as speechAvailable, greekVoice, speak, respell, clampRate } from './js/speech.js';
+  import { available as speechAvailable, greekVoice, speak, speakVerse, respell, clampRate } from './js/speech.js';
+  import { playCorrect } from './js/sfx.js';
 
   initTheme();
   initPwa();
@@ -168,6 +173,7 @@
     const s = getSettings();
     document.getElementById('showProgress').checked = !!s.showProgress;
     document.getElementById('autoSpeak').checked = s.autoSpeak !== false;
+    document.getElementById('sfx').checked = s.sfx !== false;
     document.getElementById('speechRate').value = clampRate(s.speechRate);
     document.getElementById('rateHelp').textContent = `${Math.round(clampRate(s.speechRate) * 100)}% of the voice’s normal speed. Slower is better while the sounds are new.`;
     refreshVoiceHelp(s);
@@ -186,10 +192,11 @@
   document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ translation: b.dataset.tr }); refresh(); }));
   document.getElementById('showProgress').addEventListener('change', (e) => { setSettings({ showProgress: e.target.checked }); refresh(); });
   document.getElementById('autoSpeak').addEventListener('change', (e) => { setSettings({ autoSpeak: e.target.checked }); refresh(); });
+  document.getElementById('sfx').addEventListener('change', (e) => { setSettings({ sfx: e.target.checked }); refresh(); if (e.target.checked) playCorrect(); });
   const rateInput = document.getElementById('speechRate');
   rateInput.addEventListener('input', () => { setSettings({ speechRate: clampRate(rateInput.value) }); refresh(); });
   rateInput.addEventListener('change', () => speak('λόγος'));
-  document.querySelectorAll('[data-say]').forEach((b) => b.addEventListener('click', () => speak(b.dataset.say)));
+  document.querySelectorAll('[data-say]').forEach((b) => b.addEventListener('click', () => (b.dataset.say.includes(' ') ? speakVerse(b.dataset.say) : speak(b.dataset.say))));
 
   function refreshVoiceHelp(s) {
     const el = document.getElementById('voiceHelp');

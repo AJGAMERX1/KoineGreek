@@ -22,6 +22,7 @@ function defaultStore() {
       mode: 'light',           // 'light' | 'dark'
       pronunciation: 'erasmian', // 'erasmian' | 'koine'
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
+      sfx: true,                 // answer sound cues (right / wrong / done)
       autoSpeak: true,           // speak new words / verses automatically (speaker buttons always work)
       speechRate: 0.7,           // 0.5 (slow) … 1.1 (natural); Greek is read slower than the voice's default
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in

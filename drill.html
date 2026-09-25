@@ -57,12 +57,14 @@
   import { scheduleReview } from './js/srs.js';
   import { buildSession, makeQuestion, grade, ratingFor, xpFor, feedback, requeue } from './js/drill.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
   import { initSpeech, autoSpeak } from './js/speech.js';
   import { nextInChain, chainLabel } from './js/chain.js';
 
   initTheme();
   initPwa();
   initSpeech();
+  initSfx();
   const view = new SessionView();
   const xpStat = document.getElementById('xpStat');
   xpStat.textContent = getProgress().xp;
@@ -152,6 +154,7 @@
     const result = grade(q, input);
     const step = q.step;
     view.markAnswer({ correctId: q.item.id, chosenId: q.options ? input : null, ok: result.correct });
+    if (result.correct) playCorrect(); else playWrong();
 
     const rating = ratingFor(q, result);
     if (rating) {
@@ -190,6 +193,7 @@
     const firstTries = Math.max(state.answered - retries, 1);
     const accuracy = Math.round((state.correctFirstTry / firstTries) * 100);
     if (state.answered > 0) recordActivity();
+    if (state.answered > 0) playComplete();
     // A reading lesson is completed by reading it, not by learning its prep words.
     if (state.lesson && state.lesson.type !== 'reading' && state.newIds.every((id) => getVocabItem(id))) markLessonCompleted(state.lesson.id);
     const progress = getProgress();
