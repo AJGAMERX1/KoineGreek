@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Verse study</title>
+<script src="js/recover.js"></script>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="drill-top">
+    <button class="icon-btn" id="backBtn" type="button" aria-label="Back">
+      <svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="unit-title" id="title" style="margin:0;font-size:18px;flex:1">Verse study</div>
+  </div>
+
+  <div class="drill-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+</div>
+
+<script type="module">
+  /*
+    Verse study — the long-form page behind every "Read more": the verse with
+    every word glossed, Robertson's Word Pictures in full, and cross-references.
+    Reached from the reader / lesson drawers; the back arrow returns there.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initDev } from './js/dev.js';
+  import { initPwa } from './js/pwa.js';
+  import { loadBook, loadLexicon, loadWordPictures, loadXrefs, loadStrongs, strongsFor, loadStats } from './js/data.js';
+  import { getAllVocabRecords, getSettings } from './js/storage.js';
+  import { annotate, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
+  import { describeParse } from './js/morph.js';
+  import { escapeHtml, speakerHtml } from './js/session-view.js';
+  import { initSpeech } from './js/speech.js';
+
+  initTheme(); initPwa(); initDev(); initSpeech();
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('book') || 'john';
+  const chapter = Number(params.get('chapter')) || 1;
+  const verseNum = Number(params.get('verse')) || 1;
+  const focus = params.get('focus') || 'wp'; // wp | xref | words
+  const body = document.getElementById('body');
+  const back = params.get('back') || `read.html?book=${slug}&chapter=${chapter}&verse=${verseNum}`;
+  document.getElementById('backBtn').addEventListener('click', () => { if (history.length > 1 && document.referrer) history.back(); else location.href = back; });
+
+  main().catch((err) => { console.error(err); body.innerHTML = `<div class="card">Could not load: ${escapeHtml(err.message)}.</div>`; });
+
+  async function main() {
+    const [book, lexicon, stats] = await Promise.all([loadBook(slug), loadLexicon(), loadStats()]);
+    const meta = stats.books.find((b) => b.book === slug);
+    const verse = Object.values(book.chapters[String(chapter)] || {}).find((v) => v.id === `${slug}-${chapter}-${verseNum}`);
+    if (!verse) throw new Error('verse not found');
+    const ref = `${meta.name} ${chapter}:${verseNum}`;
+    document.title = `Rhema — ${ref}`;
+    document.getElementById('title').textContent = ref;
+    const records = getAllVocabRecords();
+    const words = annotate(verse, lexicon, records);
+    const tr = getSettings().translation || 'web';
+    const en = verse.translations[tr] || Object.values(verse.translations)[0] || '';
+    const greek = verse.words.map((w) => w.t).join(' ');
+    body.innerHTML = `
+      <div class="drill-kicker">${escapeHtml(book.greekTitle)} · ${escapeHtml(ref)}</div>
+      <div class="card">
+        <div class="verse" lang="grc">${escapeHtml(greek)}${speakerHtml(greek, { small: true, verse: true })}</div>
+        <div class="tr-text" style="margin-top:10px;color:var(--muted)">${escapeHtml(en)} <span class="gloss-status">(${TRANSLATIONS.find((t) => t.id === tr).label})</span></div>
+      </div>
+      <div class="card" id="wp"><div class="rule-title">Word Pictures</div><div class="gloss-status">Loading…</div></div>
+      <div class="card" id="xrefs"><div class="rule-title">Cross-references</div><div class="gloss-status">Loading…</div></div>
+      <div class="card" id="words"><div class="rule-title">Every word</div>
+        ${words.filter(isWordToken).map((w) => `<div class="study-word"><span class="greek">${escapeHtml(normalizedForm(w))}</span><span><b>${escapeHtml(w.item ? w.item.gloss : '')}</b><br><span class="gloss-status">${escapeHtml(describeParse(w.p, w.m))} · from ${escapeHtml(w.item ? w.item.citation : w.l)}${w.item ? ` · <a href="lexicon.html?q=${encodeURIComponent(w.item.lemma)}">Lexicon</a>` : ''}</span></span></div>`).join('')}
+      </div>`;
+    loadWordPictures(slug).then((d) => {
+      const text = d.chapters[String(chapter)] && d.chapters[String(chapter)][String(verseNum)];
+      document.getElementById('wp').innerHTML = `<div class="rule-title">Word Pictures</div>` + (text
+        ? `<div class="wp-text" style="margin-top:8px">${escapeHtml(text).split('\n\n').map((p) => p.replace(/^([^(\n]{1,80}?)\s*\(([^)]*[Ͱ-Ͽ][^)]*)\)/, '<b>$1</b> (<span class="gr">$2</span>)')).join('\n\n')}</div><div class="wp-source">A. T. Robertson, Word Pictures in the New Testament (1930–33).</div>`
+        : '<div class="gloss-status">No note on this verse.</div>');
+    }).catch(() => { document.getElementById('wp').querySelector('.gloss-status').textContent = 'Not available.'; });
+    loadXrefs(slug).then((d) => {
+      const refs = d.chapters[String(chapter)] && d.chapters[String(chapter)][String(verseNum)];
+      document.getElementById('xrefs').innerHTML = `<div class="rule-title">Cross-references</div>` + (refs && refs.length
+        ? `<div class="xref-list" style="margin-top:8px">${refs.map((r) => r.nt ? `<a class="xref" href="study.html?book=${r.book}&chapter=${r.chapter}&verse=${r.from}">${escapeHtml(r.ref)}</a>` : `<span class="xref ot" title="Old Testament — not included">${escapeHtml(r.ref)}</span>`).join('')}</div><div class="wp-source">Treasury of Scripture Knowledge. Grey references are Old Testament.</div>`
+        : '<div class="gloss-status">No cross-references for this verse.</div>');
+    }).catch(() => { document.getElementById('xrefs').querySelector('.gloss-status').textContent = 'Not available.'; });
+    const target = document.getElementById(focus === 'xref' ? 'xrefs' : focus === 'words' ? 'words' : 'wp');
+    if (target && focus !== 'wp') setTimeout(() => target.scrollIntoView({ block: 'start' }), 300);
+  }
+</script>
+
+</body>
+</html>

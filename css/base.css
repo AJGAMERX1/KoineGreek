@@ -2522,3 +2522,182 @@ canvas.scribe {
   resize: vertical;
   margin-top: 8px;
 }
+
+/* =====================================================================
+   Compact study drawers, phone reader ergonomics (YouVersion-style)
+   ===================================================================== */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.gloss-sheet {
+  max-height: min(46vh, 46dvh);
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px 12px 16px;
+}
+
+.gloss-sheet[hidden] {
+  display: none;
+}
+
+.drawer-head {
+  flex-shrink: 0;
+  padding-right: 34px;
+}
+
+.sheet-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+  padding-right: 4px;
+  overflow-wrap: anywhere;
+}
+
+.gloss-sheet .sheet-close {
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  background: var(--surface);
+}
+
+.gloss-sheet .more-btn,
+.gloss-panel .more-btn {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.gloss-panel {
+  overflow-wrap: anywhere;
+}
+
+.wp-text, .gloss-lemma, .gloss-form, .strongs, .lex-form {
+  overflow-wrap: anywhere;
+}
+
+.study-word {
+  display: grid;
+  grid-template-columns: minmax(84px, auto) 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13.5px;
+}
+
+.study-word .greek {
+  font-family: var(--font-greek, var(--font-display));
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.study-word a {
+  color: var(--primary);
+}
+
+/* reader header: never wider than the phone */
+.reader-bar {
+  overflow: hidden;
+}
+
+.reader-nav {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.reader-nav .select {
+  max-width: 128px;
+}
+
+.jump-input {
+  width: 118px;
+}
+
+.fab {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  /* Bottom nav pinned: Home is always one tap away, even mid-chapter */
+  .bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .app-shell {
+    padding-bottom: calc(66px + env(safe-area-inset-bottom));
+  }
+
+  /* the reader's own scroller is the page now; keep the top bar in view */
+  .reader-bar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  .reader-body {
+    flex: none;
+    overflow: visible;
+    padding-bottom: 40px;
+  }
+
+  .reader-foot {
+    display: none;
+  }
+
+  /* floating chapter arrows above the nav, as in YouVersion */
+  .fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: calc(78px + env(safe-area-inset-bottom));
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 1;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+    z-index: 5;
+  }
+
+  .fab-prev { left: calc(12px + env(safe-area-inset-left)); }
+  .fab-next { right: calc(12px + env(safe-area-inset-right)); }
+
+  /* the drawer sits above the nav and never covers the arrows' row entirely */
+  .gloss-sheet {
+    bottom: calc(70px + env(safe-area-inset-bottom));
+    width: calc(100% - 16px);
+  }
+
+  .jump-form {
+    flex-basis: 100%;
+  }
+
+  .jump-input {
+    flex: 1;
+    width: auto;
+  }
+
+  /* lists that used to be page scrollers scroll with the page */
+  .lex-body, .settings-body, .lesson-path {
+    flex: none;
+    overflow: visible;
+  }
+
+  .lesson-path {
+    padding-bottom: 24px;
+  }
+}

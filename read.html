@@ -52,12 +52,14 @@
     <button class="icon-btn sheet-close" id="sheetClose" type="button" aria-label="Close">
       <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
     </button>
+    <div class="drawer-head">
     <div class="drawer-tabs" id="drawerTabs">
       <button class="drawer-tab active" type="button" data-tab="word">Word</button>
       <button class="drawer-tab" type="button" data-tab="wp">Word Pictures</button>
       <button class="drawer-tab" type="button" data-tab="xref">Cross-refs</button>
     </div>
-    <div id="sheetBody"></div>
+    </div>
+    <div class="sheet-scroll" id="sheetBody"></div>
   </div>
 
   <div class="bottom-nav" id="nav"></div>
@@ -219,11 +221,15 @@
       </div>
       <div class="pv-head"><div></div><div>Greek</div><div>English</div></div>
       ${rows}
-      <div class="reader-foot"><button class="btn secondary" id="footPrev" type="button">‹ Previous</button><button class="btn" id="footNext" type="button">Next chapter ›</button></div>`;
+      <div class="reader-foot"><button class="btn secondary" id="footPrev" type="button">‹ Previous</button><button class="btn" id="footNext" type="button">Next chapter ›</button></div>
+      <button class="fab fab-prev" id="fabPrev" type="button" aria-label="Previous chapter">‹</button>
+      <button class="fab fab-next" id="fabNext" type="button" aria-label="Next chapter">›</button>`;
     body.querySelectorAll('.w').forEach((el) => el.addEventListener('click', () => tapWord(el)));
     body.querySelectorAll('.pv-num').forEach((el) => el.addEventListener('click', () => selectVerse(Number(el.dataset.verse), 'wp')));
     document.getElementById('footPrev').addEventListener('click', () => step(-1));
     document.getElementById('footNext').addEventListener('click', () => step(1));
+    document.getElementById('fabPrev').addEventListener('click', () => step(-1));
+    document.getElementById('fabNext').addEventListener('click', () => step(1));
   }
 
   function verseObj(num) {
@@ -266,18 +272,30 @@
     if (state.tab === 'wp') {
       if (!state.verse) { sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)}</div><div class="gloss-status">Tap a verse number to see Robertson's note on it.</div>`; return; }
       const text = state.wp && state.wp.chapters[String(state.chapter)] && state.wp.chapters[String(state.chapter)][String(state.verse)];
+      const studyHref = `study.html?book=${state.slug}&chapter=${state.chapter}&verse=${state.verse}&focus=wp`;
       sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)} · Word Pictures</div>` +
-        (state.wp === null ? '<div class="gloss-status">Loading…</div>' : text ? `<div class="wp-text">${wpMarkup(text)}</div><div class="wp-source">A. T. Robertson, Word Pictures in the New Testament (1930–33).</div>` : '<div class="gloss-status">No note on this verse.</div>');
+        (state.wp === null ? '<div class="gloss-status">Loading…</div>' : text
+          ? `<div class="wp-text">${wpMarkup(excerpt(text))}</div><a class="more-btn" href="${studyHref}">Read more →</a>`
+          : '<div class="gloss-status">No note on this verse.</div>');
       return;
     }
     // cross-refs
     if (!state.verse) { sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)}</div><div class="gloss-status">Tap a verse number to see its cross-references.</div>`; return; }
     const refs = state.xrefs && state.xrefs.chapters[String(state.chapter)] && state.xrefs.chapters[String(state.chapter)][String(state.verse)];
+    const XREF_SHOWN = 10;
     sheetBody.innerHTML = `<div class="drawer-ref">${escapeHtml(ref)} · Cross-references</div>` +
       (state.xrefs === null ? '<div class="gloss-status">Loading…</div>' : refs && refs.length
-        ? `<div class="xref-list">${refs.map((r) => `<button class="xref ${r.nt ? '' : 'ot'}" type="button" ${r.nt ? `data-book="${r.book}" data-chapter="${r.chapter}" data-verse="${r.from}"` : 'title="Old Testament — not included in this app"'}>${escapeHtml(r.ref)}</button>`).join('')}</div><div class="wp-source">Treasury of Scripture Knowledge. Grey references are Old Testament.</div>`
+        ? `<div class="xref-list">${refs.slice(0, XREF_SHOWN).map((r) => `<button class="xref ${r.nt ? '' : 'ot'}" type="button" ${r.nt ? `data-book="${r.book}" data-chapter="${r.chapter}" data-verse="${r.from}"` : 'title="Old Testament — not included in this app"'}>${escapeHtml(r.ref)}</button>`).join('')}</div>${refs.length > XREF_SHOWN ? `<a class="more-btn" href="study.html?book=${state.slug}&chapter=${state.chapter}&verse=${state.verse}&focus=xref">All ${refs.length} →</a>` : ''}`
         : '<div class="gloss-status">No cross-references for this verse.</div>');
     sheetBody.querySelectorAll('.xref[data-book]').forEach((b) => b.addEventListener('click', () => go(b.dataset.book, Number(b.dataset.chapter), Number(b.dataset.verse))));
+  }
+
+  /** First paragraph (or so) of a note, for the compact drawer; the study page has the whole thing. */
+  function excerpt(text, max = 320) {
+    const first = text.split('\n\n')[0];
+    if (first.length <= max) return first;
+    const cut = first.slice(0, max);
+    return cut.slice(0, Math.max(cut.lastIndexOf('. '), cut.lastIndexOf(' '))) + '…';
   }
 
   /** Bold the leading English lemma-phrase of each Word Pictures paragraph and mark Greek in parentheses. */
@@ -295,18 +313,12 @@
       <div class="gloss-head"><span class="gloss-form">${escapeHtml(normalizedForm(w))}${speakerHtml(normalizedForm(w), { small: true })}</span><span class="gloss-pos">${escapeHtml(describePos(w.p, w.m))}</span></div>
       <div class="gloss-parse">${escapeHtml(describeParse(w.p, w.m))}</div>
       <div class="gloss-lemma"><span class="k">from</span> <b>${escapeHtml(it.citation)}</b> — ${escapeHtml(it.gloss)}</div>
-      <div class="gloss-status">${escapeHtml(status)} · rank ${it.rank} · <a href="lexicon.html?q=${encodeURIComponent(it.lemma)}">open in Lexicon</a></div>
-      ${strongs.length ? `<button class="more-btn" type="button" id="moreStrongs">More · Strong's ${strongs.map((s) => 'G' + s.number).join(', ')}</button><div id="strongsBox" hidden>${strongs.map(strongsHtml).join('')}</div>` : ''}`;
+      <div class="gloss-status">${escapeHtml(status)} · rank ${it.rank}</div>
+      ${strongs.length ? `<div class="gloss-status" style="margin-top:6px">${escapeHtml(excerpt(strongs[0].def, 140))}</div>` : ''}
+      <a class="more-btn" href="lexicon.html?q=${encodeURIComponent(it.lemma)}">Read more in the Lexicon →</a>`;
   }
 
-  function strongsHtml(s) {
-    return `<div class="strongs"><span class="k">Strong's G${s.number}</span> <b>${escapeHtml(s.lemma || '')}</b> ${escapeHtml(s.translit || '')} <span class="pron">${escapeHtml(s.pron || '')}</span><div>${escapeHtml(s.def)}</div></div>`;
-  }
-
-  function wireWord() {
-    const btn = document.getElementById('moreStrongs');
-    if (btn) btn.addEventListener('click', () => { const box = document.getElementById('strongsBox'); box.hidden = !box.hidden; btn.textContent = box.hidden ? btn.textContent.replace('Less', 'More') : btn.textContent.replace('More', 'Less'); });
-  }
+  function wireWord() {}
 </script>
 
 </body>

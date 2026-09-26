@@ -232,9 +232,8 @@
       <div class="gloss-parse">${escapeHtml(describeParse(w.p, w.m))}</div>
       <div class="gloss-lemma"><span class="k">from</span> <b>${escapeHtml(it.citation)}</b> — ${escapeHtml(it.gloss)}</div>
       <div class="gloss-status">${escapeHtml(status)}</div>
-      ${strongs.length ? `<button class="more-btn" type="button" id="moreStrongs">More · Strong's ${strongs.map((x) => 'G' + x.number).join(', ')}</button><div id="strongsBox" hidden>${strongs.map((x) => `<div class="strongs"><span class="k">Strong's G${x.number}</span> <b>${escapeHtml(x.lemma || '')}</b> ${escapeHtml(x.translit || '')} <span class="pron">${escapeHtml(x.pron || '')}</span><div>${escapeHtml(x.def)}</div></div>`).join('')}</div>` : ''}`;
-    const more = document.getElementById('moreStrongs');
-    if (more) more.addEventListener('click', () => { const box = document.getElementById('strongsBox'); box.hidden = !box.hidden; more.textContent = (box.hidden ? 'More' : 'Less') + more.textContent.slice(more.textContent.indexOf(' ·')); });
+      ${strongs.length ? `<div class="gloss-status" style="margin-top:6px">${escapeHtml(strongs[0].def.length > 140 ? strongs[0].def.slice(0, 140).replace(/\s\S*$/, '') + '…' : strongs[0].def)}</div>` : ''}
+      <a class="more-btn" href="lexicon.html?q=${encodeURIComponent(it.lemma)}">Read more in the Lexicon →</a>`;
     panel.scrollIntoView({ block: 'nearest' });
   }
 
@@ -287,8 +286,10 @@
     const slug = verse.id.split('-').slice(0, -2).join('-');
     if (!state.wp[slug]) { el.innerHTML = '<div class="gloss-status">Loading…</div>'; try { state.wp[slug] = await loadWordPictures(slug); } catch (e) { state.wp[slug] = { chapters: {} }; } }
     const text = state.wp[slug].chapters[String(verse.chapter)] && state.wp[slug].chapters[String(verse.chapter)][String(verse.number)];
+    const first = text ? text.split('\n\n')[0] : '';
+    const short = first.length > 320 ? first.slice(0, 320).replace(/\s\S*$/, '') + '…' : first;
     el.innerHTML = text
-      ? `<div class="wp-text" style="margin-top:10px">${escapeHtml(text).split('\n\n').map((p) => p.replace(/^([^(\n]{1,80}?)\s*\(([^)]*[\u0370-\u03ff][^)]*)\)/, '<b>$1</b> (<span class="gr">$2</span>)')).join('\n\n')}</div><div class="wp-source">A. T. Robertson, Word Pictures in the New Testament (1930–33). Robertson prints Greek without accents.</div>`
+      ? `<div class="wp-text" style="margin-top:10px">${escapeHtml(short).replace(/^([^(\n]{1,80}?)\s*\(([^)]*[\u0370-\u03ff][^)]*)\)/, '<b>$1</b> (<span class="gr">$2</span>)')}</div><a class="more-btn" href="study.html?book=${slug}&chapter=${verse.chapter}&verse=${verse.number}&focus=wp&back=${encodeURIComponent(location.pathname.split('/').pop() + location.search)}">Read more →</a>`
       : '<div class="gloss-status" style="margin-top:8px">No note on this verse.</div>';
   }
 
