@@ -69,8 +69,8 @@
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
   import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor, loadOccurrences, loadStats, parseVerseId } from './js/data.js';
-  import { getAllVocabRecords, getVocabItem, updateVocabItem, getSettings, addXp } from './js/storage.js';
-  import { createScribe } from './js/scribe.js';
+  import { getAllVocabRecords, getVocabItem, updateVocabItem, getSettings, addXp, recordHandwriting, getHandwritingRecord } from './js/storage.js';
+  import { createScribe, describeScore } from './js/scribe.js';
   import { scheduleReview } from './js/srs.js';
   import { searchLexicon, statusOf } from './js/lexicon.js';
   import { describeParse } from './js/morph.js';
@@ -181,9 +181,11 @@
       box.querySelector('[data-act=undo]').addEventListener('click', () => scribe.undo());
       box.querySelector('[data-act=clear]').addEventListener('click', () => scribe.clear());
       box.querySelector('[data-act=check]').addEventListener('click', () => {
-        const cov = scribe.coverage(); const ok = cov >= 0.55 && scribe.inkLength() > 80;
-        if (ok) addXp(2);
-        document.getElementById('traceMsg').textContent = ok ? `Nice hand — ${Math.round(cov * 100)}% covered · +2 XP` : `${Math.round(cov * 100)}% covered — follow the faint letters and check again.`;
+        const sc = scribe.score(); const ok = sc.pass;
+        // XP only the first time each word is traced from the Lexicon (the Write tab is the place to practise)
+        const first = ok && !getHandwritingRecord(`word:${word}`);
+        if (ok) { recordHandwriting(`word:${word}`, sc.coverage); if (first) addXp(2); }
+        document.getElementById('traceMsg').textContent = (ok ? 'Nice hand — ' : '') + describeScore(sc, 'the word') + (first ? ' · +2 XP' : '');
       });
     });
     const add = document.getElementById('addWord');

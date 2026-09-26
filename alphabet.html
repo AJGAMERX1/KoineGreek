@@ -58,10 +58,10 @@
   import { initDev, devSkipButton } from './js/dev.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadAlphabet, loadParadigms, loadBook } from './js/data.js';
-  import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
+  import { getProgress, getSettings, setSettings, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession, recordHandwriting } from './js/storage.js';
   import { buildAlphabetSession, gradeAlphabet, requeueAlphabet, transliterate, hasSubscript, syllabify, stripMarks } from './js/alphabet.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
-  import { createScribe } from './js/scribe.js';
+  import { createScribe, describeScore } from './js/scribe.js';
   import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
   import { initSpeech, autoSpeak } from './js/speech.js';
 
@@ -205,7 +205,6 @@
     }
   }
 
-  const TRACE_PASS = 0.55; // share of the letter's strokes that must have ink near them
 
   function renderTrace(step, next) {
     const l = step.letter;
@@ -230,12 +229,12 @@
     document.getElementById('scribeClear').addEventListener('click', () => scribe.clear());
     document.getElementById('scribeSkip').addEventListener('click', () => { scribe.destroy(); next(); });
     view.showFooter('Check my letter', () => {
-      const cov = scribe.coverage();
-      const ok = cov >= TRACE_PASS && scribe.inkLength() > 40;
-      if (ok) { const xp = 3; state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; playCorrect(); }
+      const sc = scribe.score();
+      const ok = sc.pass;
+      if (ok) { const xp = 3; state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; playCorrect(); recordHandwriting(`letter:${l.lower[0]}`, sc.coverage); }
       else playWrong();
-      view.showFeedback({ ok, headline: ok ? 'Nice hand' : 'Trace a little more', answer: `${l.upper} ${l.lower} — ${l.name}`,
-        reason: ok ? `${Math.round(cov * 100)}% of the letter covered.` : `${Math.round(cov * 100)}% covered — follow the faint shape, then check again.`, xp: ok ? 3 : 0 },
+      view.showFeedback({ ok, headline: ok ? 'Nice hand' : sc.precision < 0.5 && sc.enough ? 'Stay on the letter' : 'Trace a little more', answer: `${l.upper} ${l.lower} — ${l.name}`,
+        reason: describeScore(sc, 'the letter'), xp: ok ? 3 : 0 },
         () => { scribe.destroy(); next(); }, ok ? 'Continue' : 'Try again');
       if (!ok) view.continueBtn.onclick = () => { document.getElementById('feedback').className = 'feedback'; view.showFooter('Check my letter', view.continueBtn.onclick); renderTrace(step, next); };
     });
@@ -264,10 +263,11 @@
     document.getElementById('scribeClear').addEventListener('click', () => scribe.clear());
     document.getElementById('scribeSkip').addEventListener('click', () => { scribe.destroy(); next(); });
     view.showFooter('Check my writing', () => {
-      const cov = scribe.coverage();
-      const ok = cov >= TRACE_PASS && scribe.inkLength() > 80;
+      const sc = scribe.score();
+      const ok = sc.pass;
       if (ok) { state.xpEarned += 4; xpStat.textContent = addXp(4).xp; playCorrect(); } else playWrong();
-      view.showFeedback({ ok, headline: ok ? 'Nice hand' : 'Trace a little more', answer: step.word, reason: `${Math.round(cov * 100)}% of the word covered.`, xp: ok ? 4 : 0 },
+      if (ok) recordHandwriting(`word:${step.word}`, sc.coverage);
+      view.showFeedback({ ok, headline: ok ? 'Nice hand' : sc.precision < 0.5 && sc.enough ? 'Stay on the word' : 'Trace a little more', answer: step.word, reason: describeScore(sc, 'the word'), xp: ok ? 4 : 0 },
         () => { scribe.destroy(); next(); }, ok ? 'Continue' : 'Try again');
       if (!ok) view.continueBtn.onclick = () => renderTraceWord(step, next);
     });

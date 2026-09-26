@@ -2715,3 +2715,134 @@ html, body {
   padding: 0 5px;
   font-size: 9px;
 }
+
+/* ---------- Handwriting tab (write.html) ---------- */
+
+.write-modes {
+  padding: 8px 20px 4px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.write-modes .chips {
+  justify-content: center;
+}
+
+.write-body {
+  max-width: 680px;
+  gap: 12px;
+}
+
+.write-summary {
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.write-letters {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.write-letter {
+  font-family: var(--font-greek, var(--font-display));
+  font-size: 22px;
+  font-weight: 600;
+  padding: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  position: relative;
+}
+
+.write-letter.done::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+.write-letter.active {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
+.write-card .write-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.write-card .write-sub {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin-top: 2px;
+}
+
+.write-msg {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--muted);
+  min-height: 1.4em;
+}
+
+.write-xp {
+  color: var(--gold, var(--primary));
+  font-weight: 700;
+}
+
+.write-verse-text {
+  margin-top: 12px;
+  font-family: var(--font-greek, var(--font-display));
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.write-picker {
+  display: flex;
+  gap: 8px;
+}
+
+.write-picker .select {
+  flex: 1;
+  min-width: 0;
+}
+
+.write-picker .select:first-child {
+  flex: 2;
+}
+
+.write-picker .jump-input {
+  width: 100%;
+  flex: 1;
+}
+
+.write-list .lex-row {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.write-list .lex-lemma.done::after {
+  content: ' ✓';
+  color: var(--ok);
+  font-size: 13px;
+}
+
+.jump-input.bad {
+  border-color: var(--bad);
+}
+
+@media (max-width: 420px) {
+  .write-letters {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

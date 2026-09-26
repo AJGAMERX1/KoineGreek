@@ -179,6 +179,7 @@ koine-greek-app/
 ├── reading.html        — Read & Translate (?lesson=<reading lesson id>)
 ├── read.html           — Read tab: parallel Greek/English reader (?book=<slug>&chapter=<n>)
 ├── lexicon.html        — Lexicon tab: search + word detail (?q=<lemma> opens it)
+├── write.html             — Handwriting tab (beta): trace letters, words, whole verses; free pad
 ├── progress.html       — Progress tab: achievement board (opt-in)
 ├── settings.html       — Settings / Profile: style, mode, pronunciation, voice, translation, placement, progress, install, backup, credits
 ├── placement.html      — placement test ("test out" of Books you already know)
@@ -198,7 +199,7 @@ koine-greek-app/
 │   ├── morph.js           — decodes MorphGNT part-of-speech + 8-slot parse codes into English
 │   ├── alphabet.js        — alphabet lesson logic: transliteration, syllabification, accent/breathing detection, session builder (no DOM)
 │   ├── dev.js             — developer testing mode (password gate, seed / due / advance-day tools, skip buttons)
-│   ├── scribe.js          — handwriting canvas (letter tracing with coverage score, freehand writing pad)
+│   ├── scribe.js          — handwriting canvas (tracing with coverage + precision score, wrapped verse guides, freehand pad)
 │   ├── refs.js            — Bible reference parser + 66-book alias model (reader jump box, cross-refs)
 │   ├── nav.js             — shared bottom navigation (Path · Read · Lexicon · [Progress] · Profile)
 │   ├── lexicon.js         — lexicon search/filter + per-word status (no DOM)
@@ -289,7 +290,7 @@ Note: those mockups are built in Claude's artifact "Design Component" format (`.
 6. [x] **Dev testing mode.** A hidden mode for exercising the app without grinding through it, unlocked from Settings with a simple password ("Logos"). Not security — the site is static and the check is client-side — just a gate so casual users don't stumble into it. When on: every lesson unlocked regardless of item 2; a "Jump to lesson" picker; buttons to seed a sample learner (words, endings, verses, streak, XP) and to make everything due right now; skip to the summary of any session; time-travel the clock (advance a day) to test spaced repetition; show raw records for the current item; and a visible "DEV" badge so it is never mistaken for real progress. Turning it off restores normal behaviour; a reset returns the store to a clean state.
 7. [x] **Installed-app polish (iPhone + Mac).** Standalone display mode: safe-area padding, `100dvh` layouts, no rubber-band overscroll, no double-tap zoom on controls, status-bar style per theme, a proper splash/launch background, external links opening outside the app, Mac "Add to Dock" checked in Safari.
 8. [x] **Writing assignments.** A "Write & translate" step at the end of reading lessons: copy the verse by hand (paper, or on-screen with the tracing canvas), then type your own translation and compare against the reference; self-rated, XP-rewarded, recorded in the reading history.
-9. [x] **Handwriting tracing (Beta, off by default).** Settings → Learning → Handwriting practice. When on: trace each letter and word in the alphabet lessons over a faint guide with finger, pencil or mouse (stroke coverage check), trace any headword from its Lexicon entry, and use the on-screen pad in writing assignments.
+9. [x] **Handwriting (Beta, on by default; Settings → Learning → Handwriting practice turns it off).** A Write tab in the bottom bar: trace all 24 letters, any word from the Lexicon, or whole verses (book/chapter/verse picker and jump box) over a faint guide with finger, pencil or mouse, plus a free lined pad. The checker scores coverage *and* precision, so ink outside the shape counts against you and filling the box fails. Also: tracing steps in the alphabet lessons, “Trace it” on Lexicon entries, the on-screen pad in writing assignments, and a Handwriting achievement group.
 
 ## Running locally
 

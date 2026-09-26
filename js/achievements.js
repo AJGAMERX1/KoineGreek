@@ -39,6 +39,13 @@ export function evaluate({ store, curriculum, lexicon }) {
   [1, 10, 50, 200].forEach((n) => add('Reading', `written-${n}`, n === 1 ? 'First scribe' : `${n} verses written`, `Copy out and translate ${n} verse${n > 1 ? 's' : ''} by hand.`, written, n));
   [10, 100, 1000].forEach((n) => add('Reading', `nailed-${n}`, `${n} nailed`, `Rate ${n} verses "Nailed it".`, nailed, n));
 
+  const hw = store.handwriting || {};
+  const hwKeys = Object.keys(hw);
+  const traced = (kind) => hwKeys.filter((k) => k.startsWith(kind + ':')).length;
+  add('Handwriting', 'letters-24', 'Every letter by hand', 'Trace all 24 letters of the alphabet.', traced('letter'), 24);
+  [10, 100, 310].forEach((n) => add('Handwriting', `words-traced-${n}`, `${n} words traced`, `Trace ${n} different words.`, traced('word'), n));
+  [1, 10, 50, 200].forEach((n) => add('Handwriting', `verses-traced-${n}`, n === 1 ? 'First verse by hand' : `${n} verses traced`, `Trace ${n} whole verse${n > 1 ? 's' : ''} in the Write tab.`, traced('verse'), n));
+
   const formsSeen = Object.keys(forms).length;
   const formsStrong = Object.values(forms).filter((r) => r.repetitions >= 3).length;
   [25, 100, 300, 796].forEach((n) => add('Grammar', `forms-${n}`, `${n} endings`, `Review ${n} paradigm cells or principal parts.`, formsSeen, n));
@@ -60,4 +67,4 @@ export function evaluate({ store, curriculum, lexicon }) {
   };
 }
 
-export const GROUP_ORDER = ['Habit', 'Vocabulary', 'Reading', 'Grammar', 'Path', 'The New Testament', 'XP'];
+export const GROUP_ORDER = ['Habit', 'Vocabulary', 'Reading', 'Handwriting', 'Grammar', 'Path', 'The New Testament', 'XP'];

@@ -27,7 +27,7 @@ function defaultStore() {
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
       sfx: true,                 // answer sound cues (right / wrong / done)
       voice: false,              // BETA: spoken pronunciation via the device's voices; off until the learner opts in
-      handwriting: false,        // BETA: tracing canvas for letters and words, on-screen writing pad
+      handwriting: true,         // BETA: Handwriting tab + tracing steps in lessons + Lexicon 'Trace it' + assignment pad
       autoSpeak: true,           // when voice is on: speak new words / verses automatically
       speechRate: 0.7,           // 0.5 (slow) … 1.1 (natural); Greek is read slower than the voice's default
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in
@@ -52,6 +52,10 @@ function defaultStore() {
     sessions: {
       // in-progress lesson sessions, so quitting mid-lesson loses nothing:
       // '<screen>:<lesson id | mode>': { savedAt, ...screen-specific snapshot }. Expire after SESSION_TTL_MS.
+    },
+    handwriting: {
+      // tracing records from the Handwriting tab / lessons / Lexicon:
+      //   'letter:α' | 'word:λόγος' | 'verse:john-1-1' -> { count, best (0..1), last (ISO) }
     },
     formSRS: {
       // endings / principal parts as SRS objects (PEDAGOGY M21). Keys:
@@ -81,6 +85,7 @@ export function readStore() {
       vocabSRS: { ...(parsed.vocabSRS || {}) },
       readingHistory: { ...(parsed.readingHistory || {}) },
       formSRS: { ...(parsed.formSRS || {}) },
+      handwriting: { ...(parsed.handwriting || {}) },
       sessions: { ...(parsed.sessions || {}) },
     };
   } catch (e) {
@@ -300,6 +305,23 @@ export function getDueVerseIds(now = new Date()) {
     .filter(([, r]) => r.dueDate && new Date(r.dueDate) <= now)
     .sort((a, b) => new Date(a[1].dueDate) - new Date(b[1].dueDate))
     .map(([id]) => id);
+}
+
+/** Handwriting: 'letter:α' | 'word:λόγος' | 'verse:john-1-1' → { count, best, last } */
+export function getHandwritingRecord(key) {
+  return readStore().handwriting[key] || null;
+}
+
+export function getAllHandwritingRecords() {
+  return readStore().handwriting;
+}
+
+export function recordHandwriting(key, score, now = new Date()) {
+  const store = readStore();
+  const prev = store.handwriting[key] || { count: 0, best: 0 };
+  store.handwriting[key] = { count: prev.count + 1, best: Math.max(prev.best || 0, score || 0), last: now.toISOString() };
+  writeStore(store);
+  return store.handwriting[key];
 }
 
 export function getReadingRecord(verseId) {

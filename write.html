@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhema — Handwriting</title>
+<script src="js/recover.js"></script>
+<meta name="theme-color" content="#16795A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rhema">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/theme-classic.css">
+<link rel="stylesheet" href="css/theme-lexis.css">
+<link rel="stylesheet" href="css/theme-nous.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <div class="topbar">
+    <div class="unit-title" style="margin:0;font-size:18px">Handwriting <span class="beta">Beta</span></div>
+    <div class="stat gold">
+      <svg class="stat-icon" viewBox="0 0 24 24"><path d="M4 9l4-6h8l4 6-10 12L4 9z" fill="currentColor"/></svg>
+      <span id="xpStat">0</span>
+    </div>
+  </div>
+
+  <div class="write-modes">
+    <div class="chips" id="modes">
+      <button class="pill active" type="button" data-mode="letters">Letters</button>
+      <button class="pill" type="button" data-mode="words">Words</button>
+      <button class="pill" type="button" data-mode="verses">Verses</button>
+      <button class="pill" type="button" data-mode="free">Free pad</button>
+    </div>
+  </div>
+
+  <div class="settings-body write-body" id="body">
+    <p style="color:var(--muted);font-size:13px">Loading…</p>
+  </div>
+
+  <div class="bottom-nav" id="nav"></div>
+
+</div>
+
+<script type="module">
+  /*
+    Handwriting tab (beta; shown while settings.handwriting is on) — trace any
+    letter, any Lexicon word, or a whole verse over a faint guide, or write
+    freehand on a lined pad. The checker (js/scribe.js) wants the guide covered
+    AND the ink kept on it, so filling the box scores nothing.
+  */
+  import { initTheme } from './js/theme.js';
+  import { initDev } from './js/dev.js';
+  import { initPwa } from './js/pwa.js';
+  import { renderNav } from './js/nav.js';
+  import { initSfx, playCorrect, playWrong } from './js/sfx.js';
+  import { loadAlphabet, loadLexicon, loadBook } from './js/data.js';
+  import { getSettings, getProgress, addXp, recordActivity, recordHandwriting, getHandwritingRecord, getAllHandwritingRecords, getAllVocabRecords } from './js/storage.js';
+  import { createScribe, describeScore } from './js/scribe.js';
+  import { searchLexicon } from './js/lexicon.js';
+  import { BOOKS, parseReference } from './js/refs.js';
+  import { escapeHtml } from './js/session-view.js';
+
+  initTheme();
+  initPwa();
+  initDev();
+  initSfx();
+  renderNav(document.getElementById('nav'), 'write');
+
+  const body = document.getElementById('body');
+  const xpStat = document.getElementById('xpStat');
+  xpStat.textContent = getProgress().xp;
+  const params = new URLSearchParams(location.search);
+  const XP = { letter: 1, word: 2, verse: 6 };
+  const NT = BOOKS.filter((b) => b[2] >= 40).map((b) => ({ slug: b[0], name: b[1] }));
+  const state = { mode: params.get('mode') || (params.get('word') ? 'words' : params.get('book') ? 'verses' : 'letters'), alphabet: null, lexicon: null, upper: false, letterIndex: 0, query: params.get('word') || '', filter: 'core', book: null, books: new Map(), verseRef: null, scribe: null };
+
+  document.getElementById('modes').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-mode]'); if (!b) return;
+    state.mode = b.dataset.mode; render();
+  });
+
+  function setModeChip() { document.querySelectorAll('#modes .pill').forEach((p) => p.classList.toggle('active', p.dataset.mode === state.mode)); }
+  function done(kind) { return Object.keys(getAllHandwritingRecords()).filter((k) => k.startsWith(kind + ':')).length; }
+  function summary() {
+    return `<div class="write-summary">${done('letter')}/24 letters · ${done('word')} words · ${done('verse')} verses traced by hand</div>`;
+  }
+  function destroyScribe() { if (state.scribe) { state.scribe.destroy(); state.scribe = null; } }
+
+  // ---------- shared tracing card ----------
+  // kind: 'letter'|'word'|'verse'; key: record key; guide text; opts for createScribe
+  function traceCard({ kind, key, guide, title, sub, opts = {}, onNext, nextLabel = 'Next' }) {
+    destroyScribe();
+    const rec = getHandwritingRecord(key);
+    const card = document.createElement('div');
+    card.className = 'card write-card';
+    card.innerHTML = `
+      <div class="write-title">${title}</div>
+      ${sub ? `<div class="write-sub">${sub}</div>` : ''}
+      <div class="scribe-wrap" id="scribeWrap"></div>
+      <div class="scribe-tools">
+        <button class="pill" type="button" data-act="undo">Undo</button>
+        <button class="pill" type="button" data-act="clear">Clear</button>
+        <button class="btn" type="button" data-act="check" style="padding:8px 18px">Check</button>
+        ${onNext ? `<button class="pill" type="button" data-act="next">${nextLabel} →</button>` : ''}
+      </div>
+      <div class="write-msg" id="traceMsg">${rec ? `Traced ${rec.count}× · best ${Math.round(rec.best * 100)}% covered` : 'Trace the faint shape. Stay on it: ink outside the lines counts against you.'}</div>`;
+    return { card, mount() {
+      const wrap = card.querySelector('#scribeWrap');
+      const w = Math.min(opts.maxWidth || 520, wrap.clientWidth || 320);
+      state.scribe = createScribe(wrap, { width: w, ...opts.scribe(w) });
+      const msg = card.querySelector('#traceMsg');
+      card.querySelector('[data-act=undo]').addEventListener('click', () => state.scribe.undo());
+      card.querySelector('[data-act=clear]').addEventListener('click', () => { state.scribe.clear(); msg.textContent = ''; });
+      if (onNext) card.querySelector('[data-act=next]').addEventListener('click', onNext);
+      card.querySelector('[data-act=check]').addEventListener('click', () => {
+        const sc = state.scribe.score();
+        const what = kind === 'letter' ? 'the letter' : kind === 'word' ? 'the word' : 'the verse';
+        if (sc.pass) {
+          const first = !getHandwritingRecord(key);
+          recordHandwriting(key, sc.coverage);
+          recordActivity();
+          const xp = first ? XP[kind] : Math.max(1, Math.round(XP[kind] / 3));
+          xpStat.textContent = addXp(xp).xp;
+          playCorrect();
+          msg.innerHTML = `<b>Nice hand.</b> ${escapeHtml(describeScore(sc, what))} <span class="write-xp">+${xp} XP</span>`;
+        } else {
+          playWrong();
+          msg.textContent = describeScore(sc, what);
+        }
+      });
+    } };
+  }
+
+  // ---------- Letters ----------
+  function renderLetters() {
+    const letters = state.alphabet.letters;
+    const l = letters[state.letterIndex];
+    const grid = letters.map((x, i) => `<button class="write-letter ${i === state.letterIndex ? 'active' : ''} ${getHandwritingRecord(`letter:${x.lower[0]}`) ? 'done' : ''}" type="button" data-i="${i}" lang="grc">${state.upper ? x.upper : x.lower[0]}</button>`).join('');
+    body.innerHTML = `${summary()}<div class="write-letters" id="letterGrid">${grid}</div>
+      <div class="chips" style="justify-content:center"><button class="pill ${state.upper ? '' : 'active'}" type="button" data-case="lower">lower case</button><button class="pill ${state.upper ? 'active' : ''}" type="button" data-case="upper">CAPITALS</button></div>`;
+    const guide = state.upper ? l.upper : (l.lower[0] === 'σ' ? 'σ' : l.lower[0]);
+    const t = traceCard({ kind: 'letter', key: `letter:${l.lower[0]}`, guide, title: `${escapeHtml(l.upper)} ${escapeHtml(l.lower)} · ${escapeHtml(l.name)}`,
+      sub: `sounds like ${escapeHtml(l[getSettings().pronunciation] || l.erasmian || '')}${l.lower.length > 1 ? ` · ${escapeHtml(l.lower.slice(2))} at the end of a word` : ''}`,
+      opts: { maxWidth: 340, scribe: (w) => ({ height: Math.round(w * 0.8), guide }) },
+      onNext: () => { state.letterIndex = (state.letterIndex + 1) % letters.length; renderLetters(); } });
+    body.appendChild(t.card); t.mount();
+    document.getElementById('letterGrid').addEventListener('click', (e) => { const b = e.target.closest('[data-i]'); if (!b) return; state.letterIndex = Number(b.dataset.i); renderLetters(); });
+    body.querySelectorAll('[data-case]').forEach((b) => b.addEventListener('click', () => { state.upper = b.dataset.case === 'upper'; renderLetters(); }));
+  }
+
+  // ---------- Words ----------
+  function renderWords() {
+    const records = getAllVocabRecords();
+    body.innerHTML = `${summary()}
+      <div class="lex-search"><input class="type-input" id="q" type="search" placeholder="Search Greek (λογ) or English (word)" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Search words" value="${escapeHtml(state.query)}"></div>
+      <div class="chips" id="wordChips">
+        <button class="pill ${state.filter === 'core' ? 'active' : ''}" type="button" data-filter="core">Core 310</button>
+        <button class="pill ${state.filter === 'studied' ? 'active' : ''}" type="button" data-filter="studied">My words</button>
+        <button class="pill ${state.filter === 'all' ? 'active' : ''}" type="button" data-filter="all">All</button>
+      </div>
+      <div id="wordTrace"></div>
+      <div class="write-list" id="wordList"></div>`;
+    const list = document.getElementById('wordList');
+    const q = document.getElementById('q');
+    const showList = () => {
+      const hits = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records }).slice(0, 60);
+      list.innerHTML = hits.map((it) => `<button class="lex-row" type="button" data-id="${escapeHtml(it.id)}"><span class="lex-lemma ${getHandwritingRecord(`word:${it.lemma.split(/[,;/]/)[0].trim()}`) ? 'done' : ''}" lang="grc">${escapeHtml(it.lemma)}</span><span class="lex-gloss">${escapeHtml(it.gloss)}</span></button>`).join('') || `<div class="lex-count">No words match.</div>`;
+    };
+    const pick = (it) => {
+      const word = it.lemma.split(/[,;/]/)[0].trim();
+      const t = traceCard({ kind: 'word', key: `word:${word}`, guide: word, title: `<span lang="grc">${escapeHtml(it.citation || it.lemma)}</span>`, sub: `${escapeHtml(it.gloss)} · ${it.count}× in the New Testament`,
+        opts: { scribe: (w) => ({ height: Math.round(w * 0.42), guide: word, guideSize: Math.round(w / Math.max(4, word.length) * 1.15) }) } });
+      const box = document.getElementById('wordTrace'); box.innerHTML = ''; box.appendChild(t.card); t.mount();
+      box.scrollIntoView({ block: 'nearest' });
+    };
+    q.addEventListener('input', () => { state.query = q.value; showList(); });
+    document.getElementById('wordChips').addEventListener('click', (e) => { const b = e.target.closest('[data-filter]'); if (!b) return; state.filter = b.dataset.filter; renderWords(); });
+    list.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (!b) return; pick(state.lexicon.byId.get(b.dataset.id)); });
+    showList();
+    if (state.query) { const first = state.lexicon.byId.get(state.query) || searchLexicon(state.lexicon.items, { query: state.query, filter: 'all', records })[0]; if (first) pick(first); }
+  }
+
+  // ---------- Verses ----------
+  async function book(slug) { if (!state.books.has(slug)) state.books.set(slug, await loadBook(slug)); return state.books.get(slug); }
+  async function renderVerses() {
+    const last = getSettings().lastRead;
+    if (!state.verseRef) state.verseRef = { slug: params.get('book') || (last && last.book) || 'john', chapter: Number(params.get('chapter')) || (last && last.chapter) || 1, verse: Number(params.get('verse')) || 1 };
+    const b = await book(state.verseRef.slug);
+    const chapters = Object.keys(b.chapters).map(Number).sort((a, c) => a - c);
+    if (!b.chapters[state.verseRef.chapter]) state.verseRef.chapter = chapters[0];
+    const verses = Object.keys(b.chapters[state.verseRef.chapter]).map(Number).sort((a, c) => a - c);
+    if (!b.chapters[state.verseRef.chapter][state.verseRef.verse]) state.verseRef.verse = verses[0];
+    const v = b.chapters[state.verseRef.chapter][state.verseRef.verse];
+    const text = v.words.map((w) => w.t).join(' ').replace(/\s+([,.;·!?])/g, '$1');
+    const en = v.translations[getSettings().translation] || Object.values(v.translations)[0] || '';
+    body.innerHTML = `${summary()}
+      <div class="write-picker">
+        <select class="select" id="bookSel" aria-label="Book">${NT.map((x) => `<option value="${x.slug}" ${x.slug === state.verseRef.slug ? 'selected' : ''}>${escapeHtml(x.name)}</option>`).join('')}</select>
+        <select class="select" id="chapSel" aria-label="Chapter">${chapters.map((c) => `<option value="${c}" ${c === state.verseRef.chapter ? 'selected' : ''}>${c}</option>`).join('')}</select>
+        <select class="select" id="verseSel" aria-label="Verse">${verses.map((n) => `<option value="${n}" ${n === state.verseRef.verse ? 'selected' : ''}>${n}</option>`).join('')}</select>
+      </div>
+      <div class="write-picker"><input class="jump-input" id="jumpInput" type="text" placeholder="Go to… Jn 3:16" aria-label="Go to reference" spellcheck="false"></div>
+      <div id="verseTrace"></div>`;
+    const ref = `${NT.find((x) => x.slug === state.verseRef.slug).name} ${state.verseRef.chapter}:${state.verseRef.verse}`;
+    const t = traceCard({ kind: 'verse', key: `verse:${v.id}`, guide: text, title: escapeHtml(ref), sub: escapeHtml(en),
+      opts: { maxWidth: 640, scribe: (w) => ({ guide: text, wrap: true, autoHeight: true, guideSize: w < 400 ? 34 : 40, penWidth: 4, minInk: Math.min(1400, text.length * 9) }) },
+      onNext: () => { const i = verses.indexOf(state.verseRef.verse); if (i + 1 < verses.length) state.verseRef.verse = verses[i + 1]; else { const c = chapters.indexOf(state.verseRef.chapter); if (c + 1 < chapters.length) { state.verseRef.chapter = chapters[c + 1]; state.verseRef.verse = 1; } } renderVerses(); },
+      nextLabel: 'Next verse' });
+    t.card.insertAdjacentHTML('beforeend', `<div class="write-verse-text" lang="grc">${escapeHtml(text)}</div><a class="more-btn" href="read.html?book=${state.verseRef.slug}&chapter=${state.verseRef.chapter}&verse=${state.verseRef.verse}">Open in the reader →</a>`);
+    const box = document.getElementById('verseTrace'); box.appendChild(t.card); t.mount();
+    document.getElementById('bookSel').addEventListener('change', (e) => { state.verseRef = { slug: e.target.value, chapter: 1, verse: 1 }; renderVerses(); });
+    document.getElementById('chapSel').addEventListener('change', (e) => { state.verseRef.chapter = Number(e.target.value); state.verseRef.verse = 1; renderVerses(); });
+    document.getElementById('verseSel').addEventListener('change', (e) => { state.verseRef.verse = Number(e.target.value); renderVerses(); });
+    const jump = document.getElementById('jumpInput');
+    jump.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const r = parseReference(jump.value);
+      if (!r || !r.nt) { jump.classList.add('bad'); setTimeout(() => jump.classList.remove('bad'), 600); return; }
+      state.verseRef = { slug: r.slug, chapter: r.chapter || 1, verse: r.verse || 1 }; jump.blur(); renderVerses();
+    });
+  }
+
+  // ---------- Free pad ----------
+  function renderFree() {
+    destroyScribe();
+    body.innerHTML = `${summary()}<div class="card write-card">
+      <div class="write-title">Free writing</div>
+      <div class="write-sub">Lined paper, no checker. Copy a verse from memory, practise a paradigm, or just get the letters flowing.</div>
+      <div class="scribe-wrap" id="scribeWrap"></div>
+      <div class="scribe-tools"><button class="pill" type="button" data-act="undo">Undo</button><button class="pill" type="button" data-act="clear">Clear</button></div>
+    </div>`;
+    const wrap = document.getElementById('scribeWrap');
+    const w = Math.min(640, wrap.clientWidth || 320);
+    state.scribe = createScribe(wrap, { width: w, height: Math.round(w * 0.9), lines: true, penWidth: 4 });
+    body.querySelector('[data-act=undo]').addEventListener('click', () => state.scribe.undo());
+    body.querySelector('[data-act=clear]').addEventListener('click', () => state.scribe.clear());
+  }
+
+  async function render() {
+    setModeChip();
+    destroyScribe();
+    if (state.mode === 'letters') renderLetters();
+    else if (state.mode === 'words') renderWords();
+    else if (state.mode === 'verses') await renderVerses();
+    else renderFree();
+    body.scrollTop = 0;
+  }
+
+  async function main() {
+    if (!getSettings().handwriting) {
+      body.innerHTML = `<div class="card"><p>Handwriting practice is switched off. Turn it on under <a href="settings.html">Profile → Learning → Handwriting practice</a>.</p></div>`;
+      return;
+    }
+    try {
+      [state.alphabet, state.lexicon] = await Promise.all([loadAlphabet(), loadLexicon()]);
+    } catch (e) {
+      body.innerHTML = `<p style="color:var(--wrong)">Could not load the alphabet or lexicon. Run from a local server (see README).</p>`;
+      throw e;
+    }
+    render();
+  }
+  main();
+</script>
+
+</body>
+</html>
