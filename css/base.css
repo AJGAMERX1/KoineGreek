@@ -20,6 +20,30 @@ html[data-theme] {
   background: var(--bg);
 }
 
+/* Installed-app behaviour (iPhone / iPad / Mac Add to Dock): no rubber-band bounce or
+   pull-to-refresh, no double-tap zoom on controls, no long-press callouts, no tap flash. */
+html, body {
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a, .w, .pv-num, .lesson-node, .nav-item, .option, .kbd button {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+}
+
+input, textarea, select, canvas {
+  touch-action: manipulation;
+}
+
+canvas.scribe {
+  touch-action: none; /* the pen canvas takes every gesture */
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
@@ -43,9 +67,12 @@ button {
   max-width: 480px;
   margin: 0 auto;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background: var(--bg);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 @media (min-width: 900px) {
@@ -62,6 +89,7 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
+  padding-top: calc(16px + env(safe-area-inset-top));
   border-bottom: 1px solid var(--border);
   background: var(--surface);
 }
@@ -438,6 +466,7 @@ button {
   align-items: center;
   gap: 14px;
   padding: 12px 20px;
+  padding-top: calc(12px + env(safe-area-inset-top));
   border-bottom: 1px solid var(--border);
   background: var(--surface);
 }
@@ -479,6 +508,8 @@ button {
 .drill-body {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 20px 20px 120px;
   display: flex;
   flex-direction: column;
@@ -699,7 +730,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 14px 20px max(14px, env(safe-area-inset-bottom));
+  padding: 14px calc(20px + env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left));
   background: var(--surface);
   border-top: 1px solid var(--border);
   display: flex;
@@ -1061,6 +1092,7 @@ button {
 .settings-body {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 20px 20px 110px;
   display: flex;
   flex-direction: column;
@@ -1252,6 +1284,7 @@ button {
 .reader-body {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 16px 16px 120px;
 }
 
@@ -1359,7 +1392,7 @@ button {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 72px;
+  bottom: calc(72px + env(safe-area-inset-bottom));
   width: min(560px, calc(100% - 24px));
   background: var(--surface);
   border: 1.5px solid var(--primary);
@@ -1413,6 +1446,7 @@ button {
 .lex-body {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0 0 120px;
 }
 
@@ -1819,6 +1853,7 @@ button {
     margin: 0 0 0 232px;
     padding: 0 40px 40px;
     min-height: 100vh;
+    min-height: 100dvh;
   }
 
   .has-sidebar .reader-shell {
@@ -2013,6 +2048,7 @@ button {
   html:not(.has-sidebar) .app-shell {
     max-width: 960px;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 0 32px 64px;
   }
 
@@ -2428,4 +2464,61 @@ a.xref {
   border-radius: 6px;
   background: var(--surface);
   color: var(--ink);
+}
+
+/* ---------- Dev mode ---------- */
+
+.dev-badge {
+  position: fixed;
+  top: calc(6px + env(safe-area-inset-top));
+  right: 8px;
+  z-index: 50;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: var(--bad);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.dev-pill {
+  border-color: var(--bad);
+  color: var(--bad);
+  white-space: nowrap;
+}
+
+/* ---------- Handwriting (tracing + writing pad) ---------- */
+
+.scribe-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+canvas.scribe {
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-lg, 14px);
+  background: var(--bg);
+  max-width: 100%;
+  cursor: crosshair;
+}
+
+.scribe-tools {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.assign-input {
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+  margin-top: 8px;
 }

@@ -187,7 +187,8 @@ export function buildAlphabetSession({ lesson, alphabet, lexicon, scheme = 'eras
     // blocks of 4: intro each, then ask each (M9)
     for (let i = 0; i < letters.length; i += 4) {
       const block = letters.slice(i, i + 4);
-      block.forEach((l) => steps.push({ kind: 'intro-letter', letter: l, example: exampleWord(lexicon, l.lower[0]) }));
+      // each letter: meet it, then trace it (handwriting builds the shape into the hand and the eye)
+      block.forEach((l) => { steps.push({ kind: 'intro-letter', letter: l, example: exampleWord(lexicon, l.lower[0]) }); steps.push({ kind: 'trace', letter: l }); });
       shuffle(block, rng).forEach((l) => steps.push(letterQuestion('name-mc', l, letters, alphabet, sound, rng)));
     }
     // mixed pass over all letters, one random format each (M8)

@@ -11,7 +11,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Rhema">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
@@ -83,6 +83,7 @@
 
 <script type="module">
   import { initTheme, APP_NAME } from './js/theme.js';
+  import { initDev } from './js/dev.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
   import { getProgress, getSettings, getAllVocabRecords, getDueVocabItems, getDueFormIds, getDueVerseIds } from './js/storage.js';
@@ -95,6 +96,7 @@
   // ---- theme + mode, wired to js/theme.js + js/storage.js ----
   initTheme();
   initPwa();
+  initDev();
 
   renderNav(document.getElementById('nav'), 'path');
 
@@ -180,7 +182,7 @@
     const i = seq.findIndex((l) => l.id === lesson.id);
     const firstIncomplete = seq.find((l) => !done.includes(l.id));
     if (firstIncomplete && firstIncomplete.id === lesson.id) return 'active';
-    if (getSettings().unlockAll || i === 0 || done.includes(seq[i - 1].id)) return 'open';
+    if (getSettings().unlockAll || getSettings().dev || i === 0 || done.includes(seq[i - 1].id)) return 'open';
     return 'locked';
   }
 

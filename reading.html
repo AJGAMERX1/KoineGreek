@@ -10,7 +10,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Rhema">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
@@ -50,6 +50,7 @@
     Logic: js/reading.js + js/morph.js. Shared UI: js/session-view.js.
   */
   import { initTheme } from './js/theme.js';
+  import { initDev, devSkipButton } from './js/dev.js';
   import { initPwa } from './js/pwa.js';
   import { loadLesson, loadLexicon, loadBook, loadWordPictures, loadStrongs, strongsFor } from './js/data.js';
   import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, getDueVerseIds, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
@@ -58,11 +59,13 @@
   import { annotate, coverage, xpForVerse, rateVerse, startIndex, suggestWords, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
   import { describeParse, describePos } from './js/morph.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
+  import { createScribe } from './js/scribe.js';
   import { initSpeech, autoSpeak } from './js/speech.js';
   import { initSfx, playTick, playComplete } from './js/sfx.js';
 
   initTheme();
   initPwa();
+  initDev();
   initSpeech();
   initSfx();
   document.documentElement.setAttribute('data-screen', 'reading');
@@ -105,6 +108,7 @@
     state.sessionKey = `reading:${lessonId}`;
     if (await offerResume()) return;
     state.index = startIndex(lesson.reading.verseIds, readStore().readingHistory);
+    devSkipButton(() => { state.index = state.verses.length; state.assignmentDone = true; renderVerse(); });
     renderVerse();
   }
 
@@ -174,7 +178,7 @@
 
   function renderVerse() {
     const verse = state.verses[state.index];
-    if (!verse) { renderSummary(); return; }
+    if (!verse) { if (state.lesson && !state.assignmentDone) { renderAssignment(); return; } renderSummary(); return; }
     if (state.index > 0) saveSession(state.sessionKey, snapshot());
     view.setProgress(state.index / state.verses.length);
     state.reveals = []; state.revealed = false; state.active = null;
@@ -300,6 +304,85 @@
     renderVerse();
   }
 
+  // ------------------------------------------------------------ writing assignment (M17: production)
+
+  /**
+   * Write & translate: copy the first verse of the passage by hand (on paper or on
+   * screen), then translate it from memory and compare with the reference.
+   */
+  function renderAssignment() {
+    const verse = state.verses[0];
+    const text = verseText(verse);
+    view.onKey = null;
+    view.hideFooter();
+    view.setProgress(0.95);
+    view.body.innerHTML = `
+      <div class="drill-kicker">Write &amp; translate · ${escapeHtml(verse.bookName)} ${verse.chapter}:${verse.number}</div>
+      <div class="card">
+        <div class="rule-title">1 · Copy the verse by hand</div>
+        <p class="rule-body">Writing a verse out fixes its shapes and endings far better than reading it. Use paper, or write on the pad below.</p>
+        <div class="verse" style="margin-top:10px" lang="grc" id="assignVerse">${escapeHtml(text)}</div>
+        <div class="scribe-tools" style="margin-top:12px">
+          <button class="pill" type="button" id="padToggle">Write on screen</button>
+          <button class="pill" type="button" id="hideVerse">Hide the verse</button>
+        </div>
+        <div class="scribe-wrap" id="padWrap" hidden></div>
+        <div class="scribe-tools" id="padTools" hidden>
+          <button class="pill" type="button" id="padUndo">Undo</button>
+          <button class="pill" type="button" id="padClear">Clear</button>
+          <button class="pill" type="button" id="padMore">More room</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rule-title">2 · Translate it in your own words</div>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">From memory if you can. Then reveal the reference translations and rate yourself.</p>
+        <textarea class="type-input assign-input" id="assignTr" rows="3" placeholder="Your translation…"></textarea>
+      </div>
+      <div id="assignReveal"></div>
+      <p class="session-note">Not now? <a href="#" id="assignSkip">Skip the assignment</a> (no XP).</p>`;
+    let pad = null;
+    const padWrap = document.getElementById('padWrap');
+    document.getElementById('padToggle').addEventListener('click', () => {
+      padWrap.hidden = !padWrap.hidden; document.getElementById('padTools').hidden = padWrap.hidden;
+      if (!padWrap.hidden && !pad) { const w = Math.min(560, padWrap.clientWidth || 320); pad = createScribe(padWrap, { width: w, height: 220, lines: true, penWidth: 3 }); }
+    });
+    document.getElementById('padUndo').addEventListener('click', () => pad && pad.undo());
+    document.getElementById('padClear').addEventListener('click', () => pad && pad.clear());
+    document.getElementById('padMore').addEventListener('click', () => { if (!pad) return; const w = pad.canvas.clientWidth; const h = pad.canvas.clientHeight + 120; pad.destroy(); pad = createScribe(padWrap, { width: w, height: h, lines: true, penWidth: 3 }); });
+    document.getElementById('hideVerse').addEventListener('click', (e) => { const v = document.getElementById('assignVerse'); v.style.visibility = v.style.visibility === 'hidden' ? '' : 'hidden'; e.target.textContent = v.style.visibility === 'hidden' ? 'Show the verse' : 'Hide the verse'; });
+    document.getElementById('assignSkip').addEventListener('click', (e) => { e.preventDefault(); state.assignmentDone = true; renderSummary(); });
+    view.showFooter('Reveal the translations', () => {
+      const mine = document.getElementById('assignTr').value.trim();
+      const box = document.getElementById('assignReveal');
+      box.innerHTML = `
+        <div class="card">
+          <div class="rule-title" style="font-size:15px">Reference translations</div>
+          ${TRANSLATIONS.map((t) => verse.translations[t.id] ? `<div class="wp-text" style="margin-top:8px"><b>${t.label}</b> ${escapeHtml(verse.translations[t.id])}</div>` : '').join('')}
+          ${mine ? `<div class="wp-text" style="margin-top:10px;color:var(--primary)"><b>You</b> ${escapeHtml(mine)}</div>` : ''}
+        </div>
+        <div class="rate">
+          <div class="rate-label">How close was your translation?</div>
+          <div class="rate-buttons">
+            <button class="rate-btn miss" type="button" data-rating="miss">Missed it</button>
+            <button class="rate-btn close" type="button" data-rating="close">Close</button>
+            <button class="rate-btn nailed" type="button" data-rating="nailed">Nailed it</button>
+          </div>
+        </div>`;
+      view.hideFooter();
+      box.querySelectorAll('.rate-btn').forEach((b) => b.addEventListener('click', () => {
+        const rating = b.dataset.rating;
+        const xp = { nailed: 16, close: 12, miss: 8 }[rating] + (pad && !pad.isEmpty() ? 4 : 0);
+        const prev = getReadingRecord(verse.id) || {};
+        setReadingRecord(verse.id, { ...prev, written: new Date().toISOString().slice(0, 10), myTranslation: mine || null, writtenRating: rating });
+        state.xpEarned += xp; xpStat.textContent = addXp(xp).xp;
+        state.written = true; state.assignmentDone = true;
+        playTick();
+        renderSummary();
+      }));
+      box.scrollIntoView({ block: 'nearest' });
+    });
+  }
+
   // ------------------------------------------------------------ summary
 
   function renderSummary() {
@@ -318,7 +401,7 @@
           <div class="summary-stat"><b>${tokens ? Math.round((known / tokens) * 100) : 0}%</b><span>words known</span></div>
           <div class="summary-stat"><b>+${state.xpEarned}</b><span>xp</span></div>
         </div>
-        <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Each verse is now scheduled like a word: the ones you missed come back tomorrow.</p>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">Streak: ${progress.streak} day${progress.streak === 1 ? '' : 's'}. Each verse is now scheduled like a word: the ones you missed come back tomorrow.${state.written ? ' Your written verse and translation are saved with it.' : ''}</p>
         ${tapped.length ? `<div class="summary-list"><div style="font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)">Words you looked up</div>` +
           tapped.map((w) => `<div><span class="greek">${escapeHtml(w.item.lemma)}</span> — ${escapeHtml(w.item.gloss)}${w.glossOnly ? ' <span style="color:var(--muted)">(rare)</span>' : ''}</div>`).join('') + `</div>` : ''}
         ${suggestions.length ? `<div style="margin-top:14px"><button class="btn secondary" id="addWords" type="button">Add ${suggestions.length} looked-up word${suggestions.length === 1 ? '' : 's'} to my vocabulary</button></div>` : ''}

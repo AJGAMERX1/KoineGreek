@@ -31,6 +31,7 @@ function defaultStore() {
       speechRate: 0.7,           // 0.5 (slow) … 1.1 (natural); Greek is read slower than the voice's default
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in
       unlockAll: false,          // lessons open in order unless the learner switches this on (or places out via the test)
+      dev: false,                // developer testing mode (Settings → Developer, password "Logos"); see js/dev.js
       lastRead: null,            // { book, chapter } — where the Read tab reopens
     },
     progress: {

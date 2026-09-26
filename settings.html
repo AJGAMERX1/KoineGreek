@@ -10,7 +10,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Rhema">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
@@ -162,6 +162,39 @@
       </div>
     </section>
 
+    <section class="settings-section" id="dev">
+      <div class="settings-title">Developer</div>
+      <div id="devOff">
+        <div class="settings-row">
+          <div><div class="settings-label">Dev testing mode</div><div class="settings-help">For testing the app without grinding through it. Unlocks every lesson, adds skip buttons and test data tools. Progress made in dev mode is test data.</div></div>
+          <button class="btn secondary" id="devEnable" type="button">Enable</button>
+        </div>
+      </div>
+      <div id="devOn" hidden>
+        <div class="settings-row">
+          <div><div class="settings-label">Dev mode is on <span class="beta" style="background:var(--bad)">Dev</span></div><div class="settings-help">Every lesson is unlocked; session screens have "Skip to end"; drills show raw records.</div></div>
+          <button class="btn secondary" id="devDisable" type="button">Turn off</button>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Jump to lesson</div></div>
+          <select class="select" id="devJump" style="max-width:260px"><option value="">Choose…</option></select>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Seed a sample learner</div><div class="settings-help">Books I–II complete, their words and endings scheduled (a third due now), John 1 read, 7-day streak.</div></div>
+          <button class="btn secondary" id="devSeed" type="button">Seed</button>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Make everything due now</div></div>
+          <button class="btn secondary" id="devDue" type="button">Make due</button>
+        </div>
+        <div class="settings-row">
+          <div><div class="settings-label">Advance the clock a day</div><div class="settings-help">Shifts every due date and the last study day back by one day.</div></div>
+          <button class="btn secondary" id="devDay" type="button">+1 day</button>
+        </div>
+        <p class="settings-help" id="devMsg"></p>
+      </div>
+    </section>
+
     <section class="settings-section">
       <div class="settings-title">About &amp; credits</div>
       <div class="about">
@@ -183,12 +216,14 @@
   import { initTheme, setTheme, setMode, setFont, FONTS, FONT_SLOTS } from './js/theme.js';
   import { renderNav } from './js/nav.js';
   import { getSettings, setSettings, getProgress, getAllVocabRecords, readStore, exportStore, importStore, resetProgress } from './js/storage.js';
+  import { initDev, isDev, enableDev, disableDev, devSeedSample, devMakeAllDue, devAdvanceDay, devLessonList } from './js/dev.js';
   import { initPwa, canInstall, onInstallAvailable, promptInstall, isStandalone } from './js/pwa.js';
   import { available as speechAvailable, greekVoice, speak, speakVerse, respell, clampRate } from './js/speech.js';
   import { playCorrect } from './js/sfx.js';
 
   initTheme();
   initPwa();
+  initDev();
   renderNav(document.getElementById('nav'), 'profile');
   document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
 
@@ -314,6 +349,28 @@
     resetProgress();
     refresh();
   });
+
+  // ---- developer mode ----
+  function refreshDev() {
+    const on = isDev();
+    document.getElementById('devOff').hidden = on;
+    document.getElementById('devOn').hidden = !on;
+    if (on) initDev();
+    else { const b = document.getElementById('devBadge'); if (b) b.remove(); }
+  }
+  document.getElementById('devEnable').addEventListener('click', () => {
+    const pw = prompt('Dev mode password:');
+    if (pw === null) return;
+    if (enableDev(pw)) { refreshDev(); document.getElementById('devMsg').textContent = 'Dev mode on.'; }
+    else alert('Wrong password.');
+  });
+  document.getElementById('devDisable').addEventListener('click', () => { disableDev(); refreshDev(); refresh(); });
+  document.getElementById('devSeed').addEventListener('click', async () => { const r = await devSeedSample(); document.getElementById('devMsg').textContent = `Seeded: ${r.lessons} lessons, ${r.words} words, ${r.forms} endings, ${r.verses} verses.`; refresh(); });
+  document.getElementById('devDue').addEventListener('click', () => { const n = devMakeAllDue(); document.getElementById('devMsg').textContent = `${n} items are due now.`; });
+  document.getElementById('devDay').addEventListener('click', () => { devAdvanceDay(); document.getElementById('devMsg').textContent = 'Advanced one day.'; refresh(); });
+  devLessonList().then((list) => { const sel = document.getElementById('devJump'); sel.innerHTML += list.map((l) => `<option value="${l.href}">${l.label}</option>`).join(''); sel.addEventListener('change', () => { if (sel.value) location.href = sel.value; }); });
+  refreshDev();
+  if (location.hash === '#dev') document.getElementById('dev').scrollIntoView();
 
   refresh();
 </script>

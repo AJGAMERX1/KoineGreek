@@ -35,6 +35,8 @@ export function evaluate({ store, curriculum, lexicon }) {
   const versesRead = Object.keys(reading).length;
   [1, 10, 100, 500, 1000, 3000, 7927].forEach((n) => add('Reading', `verses-${n}`, n === 7927 ? 'The whole New Testament' : `${n} verse${n > 1 ? 's' : ''}`, n === 7927 ? 'Every verse read and rated.' : `Read and rate ${n} verse${n > 1 ? 's' : ''}.`, versesRead, n));
   const nailed = Object.values(reading).filter((r) => r.lastRating === 'nailed').length;
+  const written = Object.values(reading).filter((r) => r.written).length;
+  [1, 10, 50, 200].forEach((n) => add('Reading', `written-${n}`, n === 1 ? 'First scribe' : `${n} verses written`, `Copy out and translate ${n} verse${n > 1 ? 's' : ''} by hand.`, written, n));
   [10, 100, 1000].forEach((n) => add('Reading', `nailed-${n}`, `${n} nailed`, `Rate ${n} verses "Nailed it".`, nailed, n));
 
   const formsSeen = Object.keys(forms).length;

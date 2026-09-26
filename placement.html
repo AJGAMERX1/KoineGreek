@@ -10,7 +10,7 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Rhema">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=EB+Garamond:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@400;600;700&display=swap">
@@ -47,6 +47,7 @@
     first Book not passed. Logic: js/placement.js. View: js/session-view.js.
   */
   import { initTheme } from './js/theme.js';
+  import { initDev, devSkipButton } from './js/dev.js';
   import { initPwa } from './js/pwa.js';
   import { loadCurriculum, loadUnit, loadLexicon, loadParadigms, loadIrregularVerbs } from './js/data.js';
   import { markLessonCompleted, updateVocabItem, updateFormRecord, getVocabItem, getFormRecord, getSession, saveSession, clearSession } from './js/storage.js';
@@ -55,7 +56,7 @@
   import { initSfx, playCorrect, playWrong, playComplete } from './js/sfx.js';
   import { initSpeech } from './js/speech.js';
 
-  initTheme(); initPwa(); initSpeech(); initSfx();
+  initTheme(); initPwa(); initDev(); initSpeech(); initSfx();
   const view = new SessionView();
   document.getElementById('backBtn').addEventListener('click', () => { location.href = 'index.html'; });
   const bookLabel = document.getElementById('bookLabel');
@@ -71,6 +72,7 @@
     state.paradigmsById = Object.fromEntries(paradigms.paradigms.map((p) => [p.id, p]));
     state.irregular = irregular.verbs;
     state.books = buildPlacement({ units: state.units, lexicon, paradigmsById: state.paradigmsById, irregularVerbs: state.irregular });
+    devSkipButton(() => { state.scores = state.books.map(() => 6); renderResult(); }, 'Pass all');
     const saved = getSession('placement');
     if (saved && (saved.b > 0 || saved.q > 0)) {
       view.renderResume({ title: 'Placement test', detail: `You were on ${state.units[saved.b].kicker}, question ${saved.q + 1}. Resume, or start the test again.` },
