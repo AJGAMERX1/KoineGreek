@@ -229,7 +229,7 @@
     document.getElementById('scribeClear').addEventListener('click', () => scribe.clear());
     document.getElementById('scribeSkip').addEventListener('click', () => { scribe.destroy(); next(); });
     view.showFooter('Check my letter', () => {
-      const sc = scribe.score();
+      const sc = scribe.score(); scribe.showResult();
       const ok = sc.pass;
       if (ok) { const xp = 3; state.xpEarned += xp; xpStat.textContent = addXp(xp).xp; playCorrect(); recordHandwriting(`letter:${l.lower[0]}`, sc.coverage); }
       else playWrong();
@@ -263,7 +263,7 @@
     document.getElementById('scribeClear').addEventListener('click', () => scribe.clear());
     document.getElementById('scribeSkip').addEventListener('click', () => { scribe.destroy(); next(); });
     view.showFooter('Check my writing', () => {
-      const sc = scribe.score();
+      const sc = scribe.score(); scribe.showResult();
       const ok = sc.pass;
       if (ok) { state.xpEarned += 4; xpStat.textContent = addXp(4).xp; playCorrect(); } else playWrong();
       if (ok) recordHandwriting(`word:${step.word}`, sc.coverage);

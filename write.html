@@ -51,9 +51,15 @@
 <script type="module">
   /*
     Handwriting tab (beta; shown while settings.handwriting is on) — trace any
-    letter, any Lexicon word, or a whole verse over a faint guide, or write
-    freehand on a lined pad. The checker (js/scribe.js) wants the guide covered
-    AND the ink kept on it, so filling the box scores nothing.
+    letter, any Lexicon word, or a verse (split into parts that fit the screen
+    at a comfortable size), or write freehand on a lined pad.
+    Guide modes: Trace (clear guide), Faint (ghost guide), Recall (letters and
+    words only: no guide while writing; ink is fitted to the shape, then checked).
+    Pen size, text size and guide mode persist in settings (handwritingPen /
+    handwritingSize / handwritingGuide). Full screen covers the app (and uses the
+    Fullscreen API where the browser has it) and follows rotation.
+    The checker (js/scribe.js) wants the guide covered AND the ink kept on it;
+    after a check the canvas marks missed parts (gold) and stray ink (red).
   */
   import { initTheme } from './js/theme.js';
   import { initDev } from './js/dev.js';
@@ -61,8 +67,8 @@
   import { renderNav } from './js/nav.js';
   import { initSfx, playCorrect, playWrong } from './js/sfx.js';
   import { loadAlphabet, loadLexicon, loadBook, loadSearchForms } from './js/data.js';
-  import { getSettings, getProgress, addXp, recordActivity, recordHandwriting, getHandwritingRecord, getAllHandwritingRecords, getAllVocabRecords } from './js/storage.js';
-  import { createScribe, describeScore } from './js/scribe.js';
+  import { getSettings, setSettings, getProgress, addXp, recordActivity, recordHandwriting, getHandwritingRecord, getAllHandwritingRecords, getAllVocabRecords } from './js/storage.js';
+  import { createScribe, describeScore, PEN_SIZES } from './js/scribe.js';
   import { searchLexicon } from './js/lexicon.js';
   import { BOOKS, parseReference } from './js/refs.js';
   import { escapeHtml } from './js/session-view.js';
@@ -78,8 +84,18 @@
   xpStat.textContent = getProgress().xp;
   const params = new URLSearchParams(location.search);
   const XP = { letter: 1, word: 2, verse: 6 };
+  const SIZE_MUL = { S: 0.85, M: 1, L: 1.2 };
+  const PEN_ORDER = ['fine', 'medium', 'bold'];
+  const SIZE_ORDER = ['S', 'M', 'L'];
   const NT = BOOKS.filter((b) => b[2] >= 40).map((b) => ({ slug: b[0], name: b[1] }));
-  const state = { mode: params.get('mode') || (params.get('word') ? 'words' : params.get('book') ? 'verses' : 'letters'), alphabet: null, lexicon: null, upper: false, letterIndex: 0, query: params.get('word') || '', filter: 'core', book: null, books: new Map(), verseRef: null, scribe: null };
+  const state = {
+    mode: params.get('mode') || (params.get('word') ? 'words' : params.get('book') ? 'verses' : 'letters'),
+    alphabet: null, lexicon: null, upper: false, letterIndex: 0, query: params.get('word') || '', filter: 'core',
+    books: new Map(), verseRef: null, scribe: null, formIndex: null,
+    item: null, host: null, card: null, fs: false, apiFs: false,
+    verse: null, // { key, words, wordsDone, scores: [] } for the verse being written
+  };
+  const prefs = () => { const s = getSettings(); return { pen: PEN_SIZES[s.handwritingPen] ? s.handwritingPen : 'fine', size: SIZE_MUL[s.handwritingSize] ? s.handwritingSize : 'M', guide: ['trace', 'faint', 'memory'].includes(s.handwritingGuide) ? s.handwritingGuide : 'trace' }; };
 
   document.getElementById('modes').addEventListener('click', (e) => {
     const b = e.target.closest('[data-mode]'); if (!b) return;
@@ -89,68 +105,224 @@
   function setModeChip() { document.querySelectorAll('#modes .pill').forEach((p) => p.classList.toggle('active', p.dataset.mode === state.mode)); }
   function done(kind) { return Object.keys(getAllHandwritingRecords()).filter((k) => k.startsWith(kind + ':')).length; }
   function summary() {
-    return `<div class="write-summary">${done('letter')}/24 letters · ${done('word')} words · ${done('verse')} verses traced by hand</div>`;
+    return `<div class="write-summary">${done('letter')}/24 letters · ${done('word')} words · ${done('verse')} verses written by hand</div>`;
   }
   function destroyScribe() { if (state.scribe) { state.scribe.destroy(); state.scribe = null; } }
 
-  // ---------- shared tracing card ----------
-  // kind: 'letter'|'word'|'verse'; key: record key; guide text; opts for createScribe
-  function traceCard({ kind, key, guide, title, sub, opts = {}, onNext, nextLabel = 'Next' }) {
+  const ICON_FS = '<svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const ICON_EXIT = '<svg viewBox="0 0 24 24"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  // ---------- verse parts: split the verse into chunks that fit `lines` lines at `font` px ----------
+  function splitParts(words, font, width, lines) {
+    const m = document.createElement('canvas').getContext('2d');
+    m.font = `${font}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-greek').trim() || 'serif'}`;
+    const max = width - 28;
+    const parts = []; let cur = []; let lineCount = 1; let line = '';
+    for (const w of words) {
+      const test = line ? `${line} ${w}` : w;
+      if (m.measureText(test).width <= max || !line) { line = test; cur.push(w); continue; }
+      if (lineCount < lines) { lineCount++; line = w; cur.push(w); continue; }
+      parts.push(cur); cur = [w]; line = w; lineCount = 1;
+    }
+    if (cur.length) parts.push(cur);
+    return parts;
+  }
+
+  // ---------- the tracing card (letters, words, verses, free pad) ----------
+  // item: { kind: 'letter'|'word'|'verse'|'free', key, guide, title, memoryTitle, sub, onNext, nextLabel, extraHtml }
+  function showTrace(item, host) {
+    state.item = item; state.host = host;
+    mountCard();
+  }
+
+  function mountCard() {
+    const item = state.item, host = state.host;
+    if (!item || !host) return;
     destroyScribe();
-    const rec = getHandwritingRecord(key);
+    if (state.card) state.card.remove();
+    const p = prefs();
+    const guideMode = item.kind === 'verse' && p.guide === 'memory' ? 'faint' : p.guide;
+    const rec = item.key ? getHandwritingRecord(item.key) : null;
     const card = document.createElement('div');
-    card.className = 'card write-card';
+    card.className = `card write-card${state.fs ? ' fs' : ''}`;
+    const title = guideMode === 'memory' && item.memoryTitle ? item.memoryTitle : item.title;
     card.innerHTML = `
-      <div class="write-title">${title}</div>
-      ${sub ? `<div class="write-sub">${sub}</div>` : ''}
+      <div class="write-head">
+        <div class="write-head-text"><div class="write-title">${title}</div>${item.sub ? `<div class="write-sub">${item.sub}</div>` : ''}</div>
+        <button class="icon-btn write-fs-btn" type="button" data-act="fs" aria-label="${state.fs ? 'Exit full screen' : 'Full screen'}" title="${state.fs ? 'Exit full screen' : 'Full screen'}">${state.fs ? ICON_EXIT : ICON_FS}</button>
+      </div>
+      <div class="write-ctrl">
+        ${item.kind === 'free' ? '<span class="write-ctrl-label">Free writing · no checker</span>' : `<div class="seg" role="group" aria-label="Guide">
+          <button type="button" data-guide="trace" class="${guideMode === 'trace' ? 'active' : ''}">Trace</button>
+          <button type="button" data-guide="faint" class="${guideMode === 'faint' ? 'active' : ''}">Faint</button>
+          ${item.kind !== 'verse' ? `<button type="button" data-guide="memory" class="${guideMode === 'memory' ? 'active' : ''}">Recall</button>` : ''}
+        </div>`}
+        <span class="write-ctrl-spacer"></span>
+        <button class="ctrl-btn" type="button" data-act="pen" aria-label="Pen: ${p.pen}" title="Pen: ${p.pen}"><span class="pen-dot" style="width:${PEN_SIZES[p.pen] * 2}px;height:${PEN_SIZES[p.pen] * 2}px"></span></button>
+        ${item.kind === 'free' ? '' : `<button class="ctrl-btn" type="button" data-act="size" aria-label="Text size ${p.size}" title="Text size">A<small>${p.size}</small></button>`}
+      </div>
+      ${item.kind === 'verse' ? '<div class="write-parts" id="parts"></div>' : ''}
       <div class="scribe-wrap" id="scribeWrap"></div>
       <div class="scribe-tools">
         <button class="pill" type="button" data-act="undo">Undo</button>
         <button class="pill" type="button" data-act="clear">Clear</button>
-        <button class="btn" type="button" data-act="check" style="padding:8px 18px">Check</button>
-        ${onNext ? `<button class="pill" type="button" data-act="next">${nextLabel} →</button>` : ''}
+        ${item.kind === 'free' ? '' : '<button class="btn" type="button" data-act="check">Check</button>'}
+        ${item.onNext ? `<button class="pill" type="button" data-act="next">${item.nextLabel || 'Next'} →</button>` : ''}
       </div>
-      <div class="write-msg" id="traceMsg">${rec ? `Traced ${rec.count}× · best ${Math.round(rec.best * 100)}% covered` : 'Trace the faint shape. Stay on it: ink outside the lines counts against you.'}</div>`;
-    return { card, mount() {
-      const wrap = card.querySelector('#scribeWrap');
-      const w = Math.min(opts.maxWidth || 520, wrap.clientWidth || 320);
-      state.scribe = createScribe(wrap, { width: w, ...opts.scribe(w) });
-      const msg = card.querySelector('#traceMsg');
-      card.querySelector('[data-act=undo]').addEventListener('click', () => state.scribe.undo());
-      card.querySelector('[data-act=clear]').addEventListener('click', () => { state.scribe.clear(); msg.textContent = ''; });
-      if (onNext) card.querySelector('[data-act=next]').addEventListener('click', onNext);
-      card.querySelector('[data-act=check]').addEventListener('click', () => {
-        const sc = state.scribe.score();
-        const what = kind === 'letter' ? 'the letter' : kind === 'word' ? 'the word' : 'the verse';
-        if (sc.pass) {
-          const first = !getHandwritingRecord(key);
-          recordHandwriting(key, sc.coverage);
-          recordActivity();
-          const xp = first ? XP[kind] : Math.max(1, Math.round(XP[kind] / 3));
-          xpStat.textContent = addXp(xp).xp;
-          playCorrect();
-          msg.innerHTML = `<b>Nice hand.</b> ${escapeHtml(describeScore(sc, what))} <span class="write-xp">+${xp} XP</span>`;
-        } else {
-          playWrong();
-          msg.textContent = describeScore(sc, what);
-        }
-      });
-    } };
+      <div class="write-msg" id="traceMsg">${item.kind === 'free' ? '' : rec ? `Written ${rec.count}× · best ${Math.round(rec.best * 100)}%` : guideMode === 'memory' ? 'Write it from memory, any size. Check fits your ink to the real shape.' : 'Trace the shape. Ink outside the lines counts against you.'}</div>
+      ${state.fs ? '' : item.extraHtml || ''}`;
+    host.appendChild(card);
+    state.card = card;
+    document.documentElement.classList.toggle('write-fs-open', state.fs);
+
+    const wrap = card.querySelector('#scribeWrap');
+    const mul = SIZE_MUL[p.size];
+    let W, H;
+    if (state.fs) { W = Math.max(240, wrap.clientWidth - 4); H = Math.max(160, wrap.clientHeight - 4); }
+    else W = Math.min(item.kind === 'verse' || item.kind === 'free' ? 680 : 560, wrap.clientWidth || 320);
+    const phone = Math.min(W, H || W) < 520;
+    let opts;
+    if (item.kind === 'letter') {
+      const h = state.fs ? H : Math.round(Math.min(W * 0.85, 380));
+      opts = { height: h, guide: item.guide, guideSize: Math.round((state.fs ? Math.min(h * 0.6, W * 0.7) : h * 0.62) * mul) };
+    } else if (item.kind === 'word') {
+      const h = state.fs ? H : Math.round(Math.min(W * 0.55, 300));
+      opts = { height: h, guide: item.guide, guideSize: Math.round((state.fs ? h * 0.46 : h * 0.58) * mul) };
+    } else if (item.kind === 'verse') {
+      const font = Math.round((state.fs ? (phone ? 56 : 78) : (phone ? 44 : 54)) * mul);
+      const lines = state.fs ? Math.max(1, Math.min(5, Math.floor((H - 14) / (font * 1.7)))) : 2;
+      const v = state.verse;
+      const parts = splitParts(v.words, font, W, lines);
+      // progress is kept per word, so it survives re-splitting (full screen, text size, rotation)
+      const starts = []; let acc = 0; for (const p of parts) { starts.push(acc); acc += p.length; }
+      const partDone = (i) => { for (let k = starts[i]; k < starts[i] + parts[i].length; k++) if (!v.done.has(k)) return false; return true; };
+      let part = -1;
+      if (v.focus != null) part = starts.findIndex((st, i) => v.focus >= st && v.focus < st + parts[i].length);
+      if (part < 0) part = parts.findIndex((_, i) => !partDone(i));
+      if (part < 0) part = parts.length - 1;
+      v.parts = parts; v.part = part; v.partStart = starts[part]; v.partDone = partDone;
+      renderParts();
+      opts = state.fs ? { height: H, guide: parts[part].join(' '), wrap: true, guideSize: font } : { guide: parts[part].join(' '), wrap: true, autoHeight: true, guideSize: font };
+      opts.minInk = Math.min(900, parts[part].join(' ').length * 8);
+    } else {
+      opts = { height: state.fs ? H : Math.round(Math.min(W * 0.9, 520)), lines: true };
+    }
+    state.scribe = createScribe(wrap, { width: W, guideMode, ...opts });
+
+    const msg = card.querySelector('#traceMsg');
+    card.querySelector('[data-act=undo]').addEventListener('click', () => state.scribe.undo());
+    card.querySelector('[data-act=clear]').addEventListener('click', () => { state.scribe.clear(); if (item.kind !== 'free') msg.textContent = ''; });
+    card.querySelector('[data-act=fs]').addEventListener('click', toggleFullscreen);
+    card.querySelector('[data-act=pen]').addEventListener('click', () => {
+      const next = PEN_ORDER[(PEN_ORDER.indexOf(prefs().pen) + 1) % PEN_ORDER.length];
+      setSettings({ handwritingPen: next });
+      state.scribe.setPen(PEN_SIZES[next]);
+      const b = card.querySelector('[data-act=pen]'); b.title = b.ariaLabel = `Pen: ${next}`;
+      const dot = b.querySelector('.pen-dot'); dot.style.width = dot.style.height = `${PEN_SIZES[next] * 2}px`;
+    });
+    const sizeBtn = card.querySelector('[data-act=size]');
+    if (sizeBtn) sizeBtn.addEventListener('click', () => { setSettings({ handwritingSize: SIZE_ORDER[(SIZE_ORDER.indexOf(prefs().size) + 1) % SIZE_ORDER.length] }); mountCard(); });
+    card.querySelectorAll('[data-guide]').forEach((b) => b.addEventListener('click', () => { setSettings({ handwritingGuide: b.dataset.guide }); mountCard(); }));
+    if (item.onNext) card.querySelector('[data-act=next]').addEventListener('click', item.onNext);
+    const check = card.querySelector('[data-act=check]');
+    if (check) check.addEventListener('click', () => doCheck(item, guideMode, msg));
+    if (item.afterMount) item.afterMount(card);
   }
+
+  function renderParts() {
+    const el = document.getElementById('parts'); const v = state.verse;
+    if (!el || !v || !v.parts) return;
+    if (v.parts.length < 2) { el.innerHTML = ''; return; }
+    el.innerHTML = `<span class="write-parts-label">Part ${v.part + 1} of ${v.parts.length}</span>${v.parts.map((_, i) => `<button type="button" class="part-dot ${i === v.part ? 'current' : ''} ${v.partDone(i) ? 'done' : ''}" data-part="${i}" aria-label="Part ${i + 1}"></button>`).join('')}`;
+    el.querySelectorAll('[data-part]').forEach((b) => b.addEventListener('click', () => {
+      const i = Number(b.dataset.part); v.focus = v.parts.slice(0, i).reduce((a, x) => a + x.length, 0); mountCard();
+    }));
+  }
+
+  function doCheck(item, guideMode, msg) {
+    const sc = state.scribe.score();
+    state.scribe.showResult();
+    const what = item.kind === 'letter' ? 'the letter' : item.kind === 'word' ? 'the word' : 'this part';
+    if (!sc.pass) { playWrong(); msg.textContent = describeScore(sc, what); return; }
+    if (item.kind === 'verse') {
+      const v = state.verse;
+      for (let k = v.partStart; k < v.partStart + v.parts[v.part].length; k++) v.done.add(k);
+      v.covs.push(sc.coverage); v.focus = null;
+      if (v.done.size < v.words.length) {
+        playCorrect();
+        msg.innerHTML = `<b>Part ${v.part + 1} done.</b> Next part…`;
+        setTimeout(() => { if (state.item === item) mountCard(); }, 900);
+        return;
+      }
+      const avg = v.covs.reduce((a, x) => a + x, 0) / Math.max(1, v.covs.length);
+      const first = !getHandwritingRecord(item.key);
+      recordHandwriting(item.key, avg); recordActivity();
+      const xp = first ? XP.verse : 2;
+      xpStat.textContent = addXp(xp).xp;
+      playCorrect();
+      renderParts();
+      msg.innerHTML = `<b>Verse written.</b> Every part checked · ${Math.round(avg * 100)}% average <span class="write-xp">+${xp} XP</span>`;
+      v.done = new Set(); v.covs = [];
+      return;
+    }
+    const first = !getHandwritingRecord(item.key);
+    recordHandwriting(item.key, sc.coverage); recordActivity();
+    const xp = (first ? XP[item.kind] : Math.max(1, Math.round(XP[item.kind] / 3))) + (guideMode === 'memory' ? 1 : 0);
+    xpStat.textContent = addXp(xp).xp;
+    playCorrect();
+    msg.innerHTML = `<b>${guideMode === 'memory' ? 'From memory!' : 'Nice hand.'}</b> ${escapeHtml(describeScore(sc, what))} <span class="write-xp">+${xp} XP</span>`;
+  }
+
+  // ---------- full screen ----------
+  async function toggleFullscreen() {
+    state.fs = !state.fs;
+    const el = document.documentElement;
+    if (state.fs && el.requestFullscreen && !document.fullscreenElement) {
+      try { await el.requestFullscreen({ navigationUI: 'hide' }); state.apiFs = true; } catch (e) { state.apiFs = false; }
+    } else if (!state.fs && document.fullscreenElement) {
+      try { await document.exitFullscreen(); } catch (e) { /* already out */ }
+      state.apiFs = false;
+    }
+    mountCard();
+    if (!state.fs && state.card) state.card.scrollIntoView({ block: 'nearest' });
+  }
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement && state.fs && state.apiFs) { state.fs = false; state.apiFs = false; mountCard(); }
+  });
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    if (!state.fs) return;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if (state.fs) mountCard(); }, 250);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!state.card || /INPUT|SELECT|TEXTAREA/.test((e.target && e.target.tagName) || '')) return;
+    if (e.key === 'Escape' && state.fs) { e.preventDefault(); toggleFullscreen(); }
+    else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); state.scribe && state.scribe.undo(); }
+    else if (e.key === 'Enter') { const b = state.card.querySelector('[data-act=check]'); if (b) { e.preventDefault(); b.click(); } }
+    else if (e.key === 'ArrowRight') { const b = state.card.querySelector('[data-act=next]'); if (b) { e.preventDefault(); b.click(); } }
+  });
 
   // ---------- Letters ----------
   function renderLetters() {
     const letters = state.alphabet.letters;
     const l = letters[state.letterIndex];
     const grid = letters.map((x, i) => `<button class="write-letter ${i === state.letterIndex ? 'active' : ''} ${getHandwritingRecord(`letter:${x.lower[0]}`) ? 'done' : ''}" type="button" data-i="${i}" lang="grc">${state.upper ? x.upper : x.lower[0]}</button>`).join('');
-    body.innerHTML = `${summary()}<div class="write-letters" id="letterGrid">${grid}</div>
-      <div class="chips" style="justify-content:center"><button class="pill ${state.upper ? '' : 'active'}" type="button" data-case="lower">lower case</button><button class="pill ${state.upper ? 'active' : ''}" type="button" data-case="upper">CAPITALS</button></div>`;
-    const guide = state.upper ? l.upper : (l.lower[0] === 'σ' ? 'σ' : l.lower[0]);
-    const t = traceCard({ kind: 'letter', key: `letter:${l.lower[0]}`, guide, title: `${escapeHtml(l.upper)} ${escapeHtml(l.lower)} · ${escapeHtml(l.name)}`,
+    body.innerHTML = `${summary()}
+      <div class="write-letter-bar">
+        <div class="seg" role="group" aria-label="Case"><button type="button" data-case="lower" class="${state.upper ? '' : 'active'}">α</button><button type="button" data-case="upper" class="${state.upper ? 'active' : ''}">Α</button></div>
+        <div class="write-letters" id="letterGrid">${grid}</div>
+      </div>
+      <div id="traceHost"></div>`;
+    const guide = state.upper ? l.upper : l.lower[0];
+    showTrace({
+      kind: 'letter', key: `letter:${l.lower[0]}`, guide,
+      title: `${escapeHtml(l.upper)} ${escapeHtml(l.lower)} · ${escapeHtml(l.name)}`,
+      memoryTitle: `Write ${state.upper ? 'capital' : 'small'} <b>${escapeHtml(l.name)}</b>`,
       sub: `sounds like ${escapeHtml(l[getSettings().pronunciation] || l.erasmian || '')}${l.lower.length > 1 ? ` · ${escapeHtml(l.lower.slice(2))} at the end of a word` : ''}`,
-      opts: { maxWidth: 340, scribe: (w) => ({ height: Math.round(w * 0.8), guide }) },
-      onNext: () => { state.letterIndex = (state.letterIndex + 1) % letters.length; renderLetters(); } });
-    body.appendChild(t.card); t.mount();
+      onNext: () => { state.letterIndex = (state.letterIndex + 1) % letters.length; renderLetters(); },
+    }, document.getElementById('traceHost'));
+    const active = document.querySelector('#letterGrid .active'); if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
     document.getElementById('letterGrid').addEventListener('click', (e) => { const b = e.target.closest('[data-i]'); if (!b) return; state.letterIndex = Number(b.dataset.i); renderLetters(); });
     body.querySelectorAll('[data-case]').forEach((b) => b.addEventListener('click', () => { state.upper = b.dataset.case === 'upper'; renderLetters(); }));
   }
@@ -159,7 +331,7 @@
   function renderWords() {
     const records = getAllVocabRecords();
     body.innerHTML = `${summary()}
-      <div class="lex-search"><input class="type-input" id="q" type="search" placeholder="λόγος, λόγου, logos, or word" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Search words" value="${escapeHtml(state.query)}"></div>
+      <div class="lex-search"><input class="type-input" id="q" type="search" placeholder="λόγος, λόγου, logos, or word" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-label="Search words" value="${escapeHtml(state.query)}"></div>
       <div class="chips" id="wordChips">
         <button class="pill ${state.filter === 'core' ? 'active' : ''}" type="button" data-filter="core">Core 310</button>
         <button class="pill ${state.filter === 'studied' ? 'active' : ''}" type="button" data-filter="studied">My words</button>
@@ -169,24 +341,30 @@
       <div class="write-list" id="wordList"></div>`;
     const list = document.getElementById('wordList');
     const q = document.getElementById('q');
+    let hits = [];
     const showList = () => {
-      const hits = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records, formIndex: state.formIndex }).slice(0, 60);
-      list.innerHTML = hits.map((it) => `<button class="lex-row" type="button" data-id="${escapeHtml(it.id)}"><span class="lex-lemma ${getHandwritingRecord(`word:${it.lemma.split(/[,;/]/)[0].trim()}`) ? 'done' : ''}" lang="grc">${escapeHtml(it.lemma)}</span><span class="lex-gloss">${escapeHtml(it.gloss)}</span></button>`).join('') || `<div class="lex-count">No words match.</div>`;
+      hits = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records, formIndex: state.formIndex }).slice(0, 60);
+      list.innerHTML = hits.map((it) => `<button class="lex-row" type="button" data-id="${escapeHtml(it.id)}"><span class="lex-lemma ${getHandwritingRecord(`word:${headword(it)}`) ? 'done' : ''}" lang="grc">${escapeHtml(it.lemma)}</span><span class="lex-gloss">${escapeHtml(it.gloss)}</span></button>`).join('') || `<div class="lex-count">No words match.</div>`;
     };
     const pick = (it) => {
-      const word = it.lemma.split(/[,;/]/)[0].trim();
-      const t = traceCard({ kind: 'word', key: `word:${word}`, guide: word, title: `<span lang="grc">${escapeHtml(it.citation || it.lemma)}</span>`, sub: `${escapeHtml(it.gloss)} · ${it.count}× in the New Testament`,
-        opts: { scribe: (w) => ({ height: Math.round(w * 0.42), guide: word, guideSize: Math.round(w / Math.max(4, word.length) * 1.15) }) } });
-      const box = document.getElementById('wordTrace'); box.innerHTML = ''; box.appendChild(t.card); t.mount();
-      box.scrollIntoView({ block: 'nearest' });
+      const word = headword(it);
+      showTrace({
+        kind: 'word', key: `word:${word}`, guide: word,
+        title: `<span lang="grc">${escapeHtml(it.citation || it.lemma)}</span>`,
+        sub: `${escapeHtml(it.gloss)} · ${it.count}× in the New Testament`,
+        onNext: () => { const i = hits.findIndex((h) => h.id === it.id); const n = hits[(i + 1) % Math.max(1, hits.length)]; if (n) pick(n); },
+        nextLabel: 'Next word',
+      }, document.getElementById('wordTrace'));
+      if (!state.fs) document.getElementById('wordTrace').scrollIntoView({ block: 'nearest' });
     };
     q.addEventListener('input', () => { state.query = q.value; showList(); });
     if (!state.formIndex) loadSearchForms().then((idx) => { state.formIndex = idx; if (state.query && state.mode === 'words' && document.getElementById('wordList')) showList(); }).catch(() => {});
     document.getElementById('wordChips').addEventListener('click', (e) => { const b = e.target.closest('[data-filter]'); if (!b) return; state.filter = b.dataset.filter; renderWords(); });
     list.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (!b) return; pick(state.lexicon.byId.get(b.dataset.id)); });
     showList();
-    if (state.query) { const first = state.lexicon.byId.get(state.query) || searchLexicon(state.lexicon.items, { query: state.query, filter: 'all', records })[0]; if (first) pick(first); }
+    if (state.query) { const first = state.lexicon.byId.get(state.query) || hits[0]; if (first) pick(first); }
   }
+  const headword = (it) => it.lemma.replace(/\([^)]*\)/g, '').split(/[,;/]/)[0].trim();
 
   // ---------- Verses ----------
   async function book(slug) { if (!state.books.has(slug)) state.books.set(slug, await loadBook(slug)); return state.books.get(slug); }
@@ -201,6 +379,9 @@
     const v = b.chapters[state.verseRef.chapter][state.verseRef.verse];
     const text = v.words.map((w) => w.t).join(' ').replace(/\s+([,.;·!?])/g, '$1');
     const en = v.translations[getSettings().translation] || Object.values(v.translations)[0] || '';
+    // SBLGNT textual-variant signs (⸀ ⸂ ⸃ …) are apparatus marks, not letters: leave them out of the handwriting guide
+    const clean = text.replace(/[\u2e00-\u2e7f]/g, '').replace(/\s+/g, ' ').trim();
+    if (!state.verse || state.verse.key !== `verse:${v.id}`) state.verse = { key: `verse:${v.id}`, words: clean.split(' ').filter(Boolean), done: new Set(), covs: [], focus: null };
     body.innerHTML = `${summary()}
       <div class="write-picker">
         <select class="select" id="bookSel" aria-label="Book">${NT.map((x) => `<option value="${x.slug}" ${x.slug === state.verseRef.slug ? 'selected' : ''}>${escapeHtml(x.name)}</option>`).join('')}</select>
@@ -210,12 +391,17 @@
       <div class="write-picker"><input class="jump-input" id="jumpInput" type="text" placeholder="Go to… Jn 3:16" aria-label="Go to reference" spellcheck="false"></div>
       <div id="verseTrace"></div>`;
     const ref = `${NT.find((x) => x.slug === state.verseRef.slug).name} ${state.verseRef.chapter}:${state.verseRef.verse}`;
-    const t = traceCard({ kind: 'verse', key: `verse:${v.id}`, guide: text, title: escapeHtml(ref), sub: escapeHtml(en),
-      opts: { maxWidth: 640, scribe: (w) => ({ guide: text, wrap: true, autoHeight: true, guideSize: w < 400 ? 34 : 40, penWidth: 4, minInk: Math.min(1400, text.length * 9) }) },
-      onNext: () => { const i = verses.indexOf(state.verseRef.verse); if (i + 1 < verses.length) state.verseRef.verse = verses[i + 1]; else { const c = chapters.indexOf(state.verseRef.chapter); if (c + 1 < chapters.length) { state.verseRef.chapter = chapters[c + 1]; state.verseRef.verse = 1; } } renderVerses(); },
-      nextLabel: 'Next verse' });
-    t.card.insertAdjacentHTML('beforeend', `<div class="write-verse-text" lang="grc">${escapeHtml(text)}</div><a class="more-btn" href="read.html?book=${state.verseRef.slug}&chapter=${state.verseRef.chapter}&verse=${state.verseRef.verse}">Open in the reader →</a>`);
-    const box = document.getElementById('verseTrace'); box.appendChild(t.card); t.mount();
+    const nextVerse = () => {
+      const i = verses.indexOf(state.verseRef.verse);
+      if (i + 1 < verses.length) state.verseRef.verse = verses[i + 1];
+      else { const c = chapters.indexOf(state.verseRef.chapter); if (c + 1 < chapters.length) { state.verseRef.chapter = chapters[c + 1]; state.verseRef.verse = 1; } }
+      renderVerses();
+    };
+    showTrace({
+      kind: 'verse', key: `verse:${v.id}`, title: escapeHtml(ref), sub: escapeHtml(en),
+      onNext: nextVerse, nextLabel: 'Next verse',
+      extraHtml: `<div class="write-verse-text" lang="grc">${escapeHtml(clean)}</div><a class="more-btn" href="read.html?book=${state.verseRef.slug}&chapter=${state.verseRef.chapter}&verse=${state.verseRef.verse}">Open in the reader →</a>`,
+    }, document.getElementById('verseTrace'));
     document.getElementById('bookSel').addEventListener('change', (e) => { state.verseRef = { slug: e.target.value, chapter: 1, verse: 1 }; renderVerses(); });
     document.getElementById('chapSel').addEventListener('change', (e) => { state.verseRef.chapter = Number(e.target.value); state.verseRef.verse = 1; renderVerses(); });
     document.getElementById('verseSel').addEventListener('change', (e) => { state.verseRef.verse = Number(e.target.value); renderVerses(); });
@@ -230,28 +416,19 @@
 
   // ---------- Free pad ----------
   function renderFree() {
-    destroyScribe();
-    body.innerHTML = `${summary()}<div class="card write-card">
-      <div class="write-title">Free writing</div>
-      <div class="write-sub">Lined paper, no checker. Copy a verse from memory, practise a paradigm, or just get the letters flowing.</div>
-      <div class="scribe-wrap" id="scribeWrap"></div>
-      <div class="scribe-tools"><button class="pill" type="button" data-act="undo">Undo</button><button class="pill" type="button" data-act="clear">Clear</button></div>
-    </div>`;
-    const wrap = document.getElementById('scribeWrap');
-    const w = Math.min(640, wrap.clientWidth || 320);
-    state.scribe = createScribe(wrap, { width: w, height: Math.round(w * 0.9), lines: true, penWidth: 4 });
-    body.querySelector('[data-act=undo]').addEventListener('click', () => state.scribe.undo());
-    body.querySelector('[data-act=clear]').addEventListener('click', () => state.scribe.clear());
+    body.innerHTML = `${summary()}<div id="freeHost"></div>`;
+    showTrace({ kind: 'free', title: 'Free writing', sub: 'Lined paper. Copy a verse from memory, practise a paradigm, or just get the letters flowing.' }, document.getElementById('freeHost'));
   }
 
   async function render() {
     setModeChip();
     destroyScribe();
+    state.card = null; state.item = null;
     if (state.mode === 'letters') renderLetters();
     else if (state.mode === 'words') renderWords();
     else if (state.mode === 'verses') await renderVerses();
     else renderFree();
-    body.scrollTop = 0;
+    if (!state.fs) body.scrollTop = 0;
   }
 
   async function main() {
@@ -262,7 +439,7 @@
     try {
       [state.alphabet, state.lexicon] = await Promise.all([loadAlphabet(), loadLexicon()]);
     } catch (e) {
-      body.innerHTML = `<p style="color:var(--wrong)">Could not load the alphabet or lexicon. Run from a local server (see README).</p>`;
+      body.innerHTML = `<p style="color:var(--bad)">Could not load the alphabet or lexicon. Run from a local server (see README).</p>`;
       throw e;
     }
     render();

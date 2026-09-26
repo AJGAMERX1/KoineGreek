@@ -2959,3 +2959,234 @@ html, body {
   font-size: 11.5px;
   color: var(--muted);
 }
+
+/* ---------- Write tab v2: header, controls, verse parts, full screen ---------- */
+
+.write-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.write-head-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.write-fs-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.write-fs-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.write-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.write-ctrl-spacer {
+  flex: 1;
+}
+
+.write-ctrl-label {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.seg {
+  display: inline-flex;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.seg button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 6px 11px;
+}
+
+.seg button + button {
+  border-left: 1.5px solid var(--border);
+}
+
+.seg button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0;
+}
+
+.ctrl-btn small {
+  font-size: 9px;
+  margin-left: 1px;
+  color: var(--muted);
+}
+
+.pen-dot {
+  display: block;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.write-card .scribe-tools .btn {
+  padding: 8px 20px;
+}
+
+.write-parts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.write-parts-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-right: 4px;
+}
+
+.part-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: transparent;
+}
+
+.part-dot.done {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+
+.part-dot.current {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.write-card canvas.scribe {
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* full screen: the card covers the app; the canvas takes all the room between the controls */
+.write-card.fs {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  padding: max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+}
+
+.write-card.fs .write-title {
+  font-size: 16px;
+}
+
+.write-card.fs .write-sub {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12.5px;
+}
+
+.write-card.fs .write-ctrl,
+.write-card.fs .write-parts {
+  margin-top: 6px;
+}
+
+.write-card.fs .scribe-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.write-card.fs .scribe-tools {
+  margin-top: 8px;
+}
+
+.write-card.fs .write-msg {
+  margin-top: 6px;
+  min-height: 1.2em;
+}
+
+html.write-fs-open,
+html.write-fs-open body {
+  overflow: hidden;
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .write-card.fs .write-sub,
+  .write-card.fs .write-msg:empty {
+    display: none;
+  }
+}
+
+/* Write tab: letters in one scrollable row so the canvas stays on screen */
+.write-letter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.write-letter-bar .seg button {
+  font-family: var(--font-greek, var(--font-display));
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
+.write-letter-bar .write-letters {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 3px 2px;
+  flex: 1;
+  min-width: 0;
+  scroll-snap-type: x proximity;
+}
+
+.write-letter-bar .write-letters::-webkit-scrollbar {
+  display: none;
+}
+
+.write-letter-bar .write-letter {
+  flex: 0 0 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 20px;
+  scroll-snap-align: center;
+}

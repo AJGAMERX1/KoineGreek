@@ -27,7 +27,10 @@ function defaultStore() {
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
       sfx: true,                 // answer sound cues (right / wrong / done)
       voice: false,              // BETA: spoken pronunciation via the device's voices; off until the learner opts in
-      handwriting: true,         // BETA: Handwriting tab + tracing steps in lessons + Lexicon 'Trace it' + assignment pad
+      handwriting: true,         // BETA: Write tab + tracing steps in lessons + assignment pad
+      handwritingPen: 'fine',    // pen width: 'fine' | 'medium' | 'bold' (js/scribe.js PEN_SIZES)
+      handwritingSize: 'M',      // Write tab guide text size: 'S' | 'M' | 'L'
+      handwritingGuide: 'trace', // Write tab guide: 'trace' | 'faint' | 'memory' (Recall; letters and words only)
       autoSpeak: true,           // when voice is on: speak new words / verses automatically
       speechRate: 0.7,           // 0.5 (slow) … 1.1 (natural); Greek is read slower than the voice's default
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in
