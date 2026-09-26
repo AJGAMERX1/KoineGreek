@@ -135,6 +135,15 @@
 
   function bookMeta() { return state.books.find((b) => b.book === state.slug); }
 
+  /** On phones the body is the scroller, on desktop the reader body; reset all of them. */
+  function scrollToTop() {
+    body.scrollTop = 0;
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
+
   // ---------------------------------------------------------------- navigation
 
   function jump(text) {
@@ -186,7 +195,7 @@
       }
       state.highlightLemma = null; // one-shot: later navigation shows the chapter plainly
     } else {
-      body.scrollTop = 0; window.scrollTo(0, 0);
+      scrollToTop();
     }
   }
 

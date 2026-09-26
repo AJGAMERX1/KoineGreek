@@ -324,7 +324,7 @@
         <p class="rule-body">Writing a verse out fixes its shapes and endings far better than reading it. Use paper, or write on the pad below.</p>
         <div class="verse" style="margin-top:10px" lang="grc" id="assignVerse">${escapeHtml(text)}</div>
         <div class="scribe-tools" style="margin-top:12px">
-          <button class="pill" type="button" id="padToggle">Write on screen</button>
+          ${getSettings().handwriting === true ? '<button class="pill" type="button" id="padToggle">Write on screen <span class="beta">Beta</span></button>' : ''}
           <button class="pill" type="button" id="hideVerse">Hide the verse</button>
         </div>
         <div class="scribe-wrap" id="padWrap" hidden></div>
@@ -343,7 +343,8 @@
       <p class="session-note">Not now? <a href="#" id="assignSkip">Skip the assignment</a> (no XP).</p>`;
     let pad = null;
     const padWrap = document.getElementById('padWrap');
-    document.getElementById('padToggle').addEventListener('click', () => {
+    const padToggle = document.getElementById('padToggle');
+    if (padToggle) padToggle.addEventListener('click', () => {
       padWrap.hidden = !padWrap.hidden; document.getElementById('padTools').hidden = padWrap.hidden;
       if (!padWrap.hidden && !pad) { const w = Math.min(560, padWrap.clientWidth || 320); pad = createScribe(padWrap, { width: w, height: 220, lines: true, penWidth: 3 }); }
     });

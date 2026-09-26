@@ -176,7 +176,7 @@ function letterOptions(alphabet, target, lessonLetters, rng, n = 3) {
  *   scheme:   'erasmian' | 'koine'
  *   extra:    { subscriptWords, plainWords, accentWords } optional word pools for lessons 3–4
  */
-export function buildAlphabetSession({ lesson, alphabet, lexicon, scheme = 'erasmian', extra = {}, rng = Math.random }) {
+export function buildAlphabetSession({ lesson, alphabet, lexicon, scheme = 'erasmian', extra = {}, rng = Math.random, handwriting = false }) {
   const steps = [];
   const sound = (l) => l[scheme];
   if (lesson.rule) steps.push({ kind: 'rule', rule: lesson.rule });
@@ -188,7 +188,7 @@ export function buildAlphabetSession({ lesson, alphabet, lexicon, scheme = 'eras
     for (let i = 0; i < letters.length; i += 4) {
       const block = letters.slice(i, i + 4);
       // each letter: meet it, then trace it (handwriting builds the shape into the hand and the eye)
-      block.forEach((l) => { steps.push({ kind: 'intro-letter', letter: l, example: exampleWord(lexicon, l.lower[0]) }); steps.push({ kind: 'trace', letter: l }); });
+      block.forEach((l) => { steps.push({ kind: 'intro-letter', letter: l, example: exampleWord(lexicon, l.lower[0]) }); if (handwriting) steps.push({ kind: 'trace', letter: l }); });
       shuffle(block, rng).forEach((l) => steps.push(letterQuestion('name-mc', l, letters, alphabet, sound, rng)));
     }
     // mixed pass over all letters, one random format each (M8)
@@ -197,6 +197,8 @@ export function buildAlphabetSession({ lesson, alphabet, lexicon, scheme = 'eras
     // read whole words made of letters learned so far (production, M17)
     const pool = wordsFor(lexicon, allLearned.map((l) => l.lower[0]));
     pick(pool.slice(0, 40), 4, rng).forEach((w) => steps.push({ kind: 'question', format: 'read-word', word: w.lemma, gloss: w.gloss, attempt: 1 }));
+    // handwriting mode: copy two whole words by hand after reading them
+    if (handwriting) pick(pool.slice(0, 40), 2, rng).forEach((w) => steps.push({ kind: 'trace-word', word: w.lemma, gloss: w.gloss }));
   }
 
   const sections = lesson.alphabet.sections || [];
@@ -228,6 +230,7 @@ export function buildAlphabetSession({ lesson, alphabet, lexicon, scheme = 'eras
         reason: 'The tiny iota under α, η or ω is silent but usually marks the dative case.', attempt: 1 });
     }
     pick(extra.plainWords || [], 4, rng).forEach((w) => steps.push({ kind: 'question', format: 'read-word', word: w, attempt: 1 }));
+    if (handwriting) pick(extra.plainWords || [], 2, rng).forEach((w) => steps.push({ kind: 'trace-word', word: w }));
   }
 
   if (sections.includes('accents')) {

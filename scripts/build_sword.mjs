@@ -134,6 +134,30 @@ function buildStrongs(moduleDir) {
     return { def, see: [...new Set(see)], refs: [...refs] };
   }
 
+  // The CrossWire module carries a few artefacts: Chinese connective text in
+  // pronunciation fields ("或" = "or") and, for G3588, in the definition; stray
+  // braces; alternate forms glued onto the pronunciation. Clean them here so
+  // the app never shows them.
+  const CJK = /[\u3000-\u9fff\uf900-\ufaff\uff00-\uffef]/g;
+  const cleanPron = (p) => String(p || '').split(/[}\u3000-\u9fff]/)[0].replace(/[{}]/g, '').trim();
+  const cleanDef = (d) => String(d || '').replace(CJK, ' ').replace(/[{}]/g, '').replace(/[ \t]{2,}/g, ' ').replace(/ +\n/g, '\n').trim();
+  const DEF_OVERRIDES = {
+    3958: "including the forms πάθω (path'-o) and πένθω (pen'-tho), used only in certain tenses for it; apparently a primary verb; to experience a sensation or impression (usually painful):--feel, passion, suffer, vex.",
+    3588: 'including the feminine ἡ (hay) and the neuter τό (to) in all their inflections; the definite article; the (sometimes to be supplied, at others omitted, in English idiom):--the, this, that, one, he, she, it, etc.',
+  };
+  // A few source entries have a mangled header (e.g. G3958: "πάσχω,pavscw" / "3958 pascho {pas'-kho} 包括 …").
+  const cleanLemma = (l) => String(l || '').split(',')[0].replace(CJK, '').trim();
+  const cleanTranslit = (t, n) => {
+    let s = String(t || '').replace(/^"?\s*\d+\s+/, '').replace(CJK, ' ');
+    const m = s.match(/^([A-Za-z'\-]+)\s*\{([^}]*)\}/);
+    if (m) return { translit: m[1], pron: m[2].trim() };
+    return { translit: s.replace(/[{}"()]/g, ' ').replace(/\s{2,}/g, ' ').trim(), pron: '' };
+  };
+  const finish = (n, e, def) => {
+    const t = cleanTranslit(e.translit, n);
+    return { lemma: cleanLemma(e.lemma), translit: t.translit, pron: cleanPron(e.pron) || t.pron, def: DEF_OVERRIDES[n] || cleanDef(def) };
+  };
+
   const entries = {};
   let matched = 0;
   const missing = [];
@@ -143,7 +167,7 @@ function buildStrongs(moduleDir) {
     if (!e) { missing.push(n); continue; }
     matched++;
     const { def, see, refs } = shape(e);
-    entries[n] = { lemma: e.lemma, translit: e.translit, pron: e.pron, def };
+    entries[n] = finish(n, e, def);
     if (see.length) entries[n].see = see;
     for (const r of refs) if (!wanted.has(r)) linked.add(r);
   }
@@ -153,7 +177,7 @@ function buildStrongs(moduleDir) {
     if (!e) continue;
     const { def, see } = shape(e);
     if (!def || def.startsWith('@@@@')) continue; // placeholder entries in the module
-    entries[n] = { lemma: e.lemma, translit: e.translit, pron: e.pron, def, linked: true };
+    entries[n] = { ...finish(n, e, def), linked: true };
     if (see.length) entries[n].see = see;
     linkedCount++;
   }

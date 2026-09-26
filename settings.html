@@ -83,6 +83,10 @@
         </div>
       </div>
       <div class="settings-row">
+        <div><div class="settings-label">Handwriting practice <span class="beta">Beta</span></div><div class="settings-help">Trace letters and words with a finger, pencil or mouse: in the alphabet lessons, on any word in the Lexicon, and an on-screen pad for writing assignments. Experimental; the coverage check is rough.</div></div>
+        <label class="switch"><input type="checkbox" id="handwriting"><span class="switch-track"></span></label>
+      </div>
+      <div class="settings-row">
         <div><div class="settings-label">Unlock all lessons</div><div class="settings-help">Lessons normally open in order. Switch this on to open any lesson from the path.</div></div>
         <label class="switch"><input type="checkbox" id="unlockAll"><span class="switch-track"></span></label>
       </div>
@@ -241,6 +245,7 @@
     for (const slot of FONT_SLOTS) document.querySelectorAll(`#${slot}Options .theme-option`).forEach((b) => b.classList.toggle('active', b.dataset.font === (s[slot] || 'theme')));
     document.getElementById('showProgress').checked = !!s.showProgress;
     document.getElementById('unlockAll').checked = !!s.unlockAll;
+    document.getElementById('handwriting').checked = !!s.handwriting;
     document.getElementById('voice').checked = s.voice === true;
     document.querySelectorAll('.voice-dependent').forEach((row) => row.classList.toggle('disabled', s.voice !== true));
     document.getElementById('autoSpeak').checked = s.autoSpeak !== false;
@@ -263,6 +268,7 @@
   document.querySelectorAll('#trOptions .theme-option').forEach((b) => b.addEventListener('click', () => { setSettings({ translation: b.dataset.tr }); refresh(); }));
   document.getElementById('showProgress').addEventListener('change', (e) => { setSettings({ showProgress: e.target.checked }); refresh(); });
   document.getElementById('unlockAll').addEventListener('change', (e) => { setSettings({ unlockAll: e.target.checked }); refresh(); });
+  document.getElementById('handwriting').addEventListener('change', (e) => { setSettings({ handwriting: e.target.checked }); refresh(); });
   document.getElementById('voice').addEventListener('change', (e) => { setSettings({ voice: e.target.checked }); refresh(); if (e.target.checked) speak('λόγος'); });
   document.getElementById('autoSpeak').addEventListener('change', (e) => { setSettings({ autoSpeak: e.target.checked }); refresh(); });
   document.getElementById('sfx').addEventListener('change', (e) => { setSettings({ sfx: e.target.checked }); refresh(); if (e.target.checked) playCorrect(); });

@@ -27,6 +27,7 @@ function defaultStore() {
       translation: 'web',        // reference translation in Read & Translate: 'web' | 'kjv' | 'ylt'
       sfx: true,                 // answer sound cues (right / wrong / done)
       voice: false,              // BETA: spoken pronunciation via the device's voices; off until the learner opts in
+      handwriting: false,        // BETA: tracing canvas for letters and words, on-screen writing pad
       autoSpeak: true,           // when voice is on: speak new words / verses automatically
       speechRate: 0.7,           // 0.5 (slow) … 1.1 (natural); Greek is read slower than the voice's default
       showProgress: false,       // Progress (achievements) tab in the bottom nav is opt-in

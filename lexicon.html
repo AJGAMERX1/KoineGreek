@@ -69,7 +69,8 @@
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
   import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor, loadOccurrences, loadStats, parseVerseId } from './js/data.js';
-  import { getAllVocabRecords, getVocabItem, updateVocabItem } from './js/storage.js';
+  import { getAllVocabRecords, getVocabItem, updateVocabItem, getSettings, addXp } from './js/storage.js';
+  import { createScribe } from './js/scribe.js';
   import { scheduleReview } from './js/srs.js';
   import { searchLexicon, statusOf } from './js/lexicon.js';
   import { describeParse } from './js/morph.js';
@@ -163,8 +164,28 @@
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
         ${!rec && schedulable ? `<button class="btn secondary" id="addWord" type="button">Add to my words</button>` : ''}
         ${occ.length ? `<a class="btn secondary" href="${readHref(occ[0])}">Read it in context</a>` : ''}
-      </div>`;
+        ${getSettings().handwriting === true ? `<button class="btn secondary" id="traceWord" type="button">Trace it <span class="beta">Beta</span></button>` : ''}
+      </div>
+      <div id="traceBox" hidden></div>`;
     sheet.hidden = false;
+    const traceBtn = document.getElementById('traceWord');
+    if (traceBtn) traceBtn.addEventListener('click', () => {
+      const box = document.getElementById('traceBox');
+      if (!box.hidden) { box.hidden = true; box.innerHTML = ''; return; }
+      box.hidden = false;
+      box.innerHTML = `<div class="scribe-wrap"></div><div class="scribe-tools"><button class="pill" type="button" data-act="undo">Undo</button><button class="pill" type="button" data-act="clear">Clear</button><button class="pill" type="button" data-act="check">Check</button></div><div class="gloss-status" id="traceMsg" style="text-align:center"></div>`;
+      const wrap = box.querySelector('.scribe-wrap');
+      const w = Math.min(520, wrap.clientWidth || 300);
+      const word = it.lemma.split(/[,;/]/)[0].trim();
+      const scribe = createScribe(wrap, { width: w, height: Math.round(w * 0.42), guide: word, guideFont: `${Math.round(w / Math.max(4, word.length) * 1.15)}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-greek').trim() || 'serif'}` });
+      box.querySelector('[data-act=undo]').addEventListener('click', () => scribe.undo());
+      box.querySelector('[data-act=clear]').addEventListener('click', () => scribe.clear());
+      box.querySelector('[data-act=check]').addEventListener('click', () => {
+        const cov = scribe.coverage(); const ok = cov >= 0.55 && scribe.inkLength() > 80;
+        if (ok) addXp(2);
+        document.getElementById('traceMsg').textContent = ok ? `Nice hand — ${Math.round(cov * 100)}% covered · +2 XP` : `${Math.round(cov * 100)}% covered — follow the faint letters and check again.`;
+      });
+    });
     const add = document.getElementById('addWord');
     if (add) add.addEventListener('click', () => {
       updateVocabItem(it.id, { ...scheduleReview(null, 'miss'), lapses: 0, format: 'lexicon' });

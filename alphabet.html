@@ -119,10 +119,10 @@
     if (saved && saved.index > 0 && saved.index < saved.steps.length) {
       view.renderResume({ title: lesson.sub, detail: `You were ${saved.index} of ${saved.steps.length} steps in. Resume, or start the lesson again.` },
         () => { Object.assign(state, { steps: saved.steps, index: saved.index, answered: saved.answered, correctFirstTry: saved.correctFirstTry, xpEarned: saved.xpEarned, missed: saved.missed || [] }); renderStep(); },
-        () => { clearSession(state.sessionKey); state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra }); state.index = 0; renderStep(); });
+        () => { clearSession(state.sessionKey); state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra, handwriting: getSettings().handwriting === true }); state.index = 0; renderStep(); });
       return;
     }
-    state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra });
+    state.steps = buildAlphabetSession({ lesson, alphabet, lexicon, scheme: state.scheme, extra, handwriting: getSettings().handwriting === true });
     devSkipButton(() => { state.index = state.steps.length; renderStep(); });
     renderStep();
   }
@@ -155,6 +155,8 @@
       }
       case 'trace':
         return renderTrace(step, next);
+      case 'trace-word':
+        return renderTraceWord(step, next);
       case 'intro-vowels':
         return view.renderIntro({ kicker: 'Vowels', html: `<div class="card">
           <div class="rule-title">Seven vowels</div>
@@ -236,6 +238,38 @@
         reason: ok ? `${Math.round(cov * 100)}% of the letter covered.` : `${Math.round(cov * 100)}% covered — follow the faint shape, then check again.`, xp: ok ? 3 : 0 },
         () => { scribe.destroy(); next(); }, ok ? 'Continue' : 'Try again');
       if (!ok) view.continueBtn.onclick = () => { document.getElementById('feedback').className = 'feedback'; view.showFooter('Check my letter', view.continueBtn.onclick); renderTrace(step, next); };
+    });
+  }
+
+  function renderTraceWord(step, next) {
+    view.onKey = null;
+    view.hideFooter();
+    view.body.innerHTML = `
+      <div class="drill-kicker">Write it · <span class="beta">Beta</span></div>
+      <div class="card prompt">
+        <div class="prompt-main">${escapeHtml(step.word)}</div>
+        <div class="prompt-hint">${step.gloss ? escapeHtml(step.gloss) + ' · ' : ''}trace the word, then say it aloud</div>
+        <div class="scribe-wrap" id="scribeWrap"></div>
+        <div class="scribe-tools">
+          <button class="pill" type="button" id="scribeUndo">Undo</button>
+          <button class="pill" type="button" id="scribeClear">Clear</button>
+          <button class="pill" type="button" id="scribeSkip">Skip</button>
+        </div>
+      </div>
+      <div class="feedback" id="feedback"></div>`;
+    const wrap = document.getElementById('scribeWrap');
+    const w = Math.min(560, wrap.clientWidth || 320);
+    const scribe = createScribe(wrap, { width: w, height: Math.round(w * 0.42), guide: step.word, guideFont: `${Math.round(w / Math.max(4, step.word.length) * 1.15)}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-greek').trim() || 'serif'}` });
+    document.getElementById('scribeUndo').addEventListener('click', () => scribe.undo());
+    document.getElementById('scribeClear').addEventListener('click', () => scribe.clear());
+    document.getElementById('scribeSkip').addEventListener('click', () => { scribe.destroy(); next(); });
+    view.showFooter('Check my writing', () => {
+      const cov = scribe.coverage();
+      const ok = cov >= TRACE_PASS && scribe.inkLength() > 80;
+      if (ok) { state.xpEarned += 4; xpStat.textContent = addXp(4).xp; playCorrect(); } else playWrong();
+      view.showFeedback({ ok, headline: ok ? 'Nice hand' : 'Trace a little more', answer: step.word, reason: `${Math.round(cov * 100)}% of the word covered.`, xp: ok ? 4 : 0 },
+        () => { scribe.destroy(); next(); }, ok ? 'Continue' : 'Try again');
+      if (!ok) view.continueBtn.onclick = () => renderTraceWord(step, next);
     });
   }
 
