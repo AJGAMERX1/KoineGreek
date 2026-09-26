@@ -2846,3 +2846,106 @@ html, body {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
+
+/* ---------- Lexicon detail sheet: compact, pinned header, body scrolls ---------- */
+
+#sheetBody {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
+
+.gloss-sheet [hidden] {
+  display: none !important;
+}
+
+.lex-head {
+  padding-right: 34px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.lex-head .gloss-form {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.lex-sub {
+  margin-top: 3px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.lex-sub .gloss-pos {
+  font-size: 10.5px;
+}
+
+.lex-sheet-body {
+  padding-top: 4px;
+}
+
+.lex-sheet-body .strongs {
+  font-size: 13px;
+}
+
+.lex-section {
+  margin: 12px 0 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lex-sheet-body .lex-form {
+  grid-template-columns: minmax(64px, auto) 1fr auto;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.lex-sheet-body .lex-form .greek {
+  font-size: 15px;
+}
+
+.lex-sheet-body .xref {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.occ-more {
+  display: contents;
+}
+
+.more-toggle {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12.5px;
+}
+
+.lex-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lex-actions .btn {
+  padding: 8px 12px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+@media (max-width: 899px) {
+  .lex-detail .gloss-sheet {
+    max-height: min(48vh, 48dvh);
+  }
+}

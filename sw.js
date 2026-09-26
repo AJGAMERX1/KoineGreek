@@ -14,7 +14,7 @@
   All paths are relative to this file so the app works at any GitHub Pages sub-path.
 */
 
-const CACHE_VERSION = 'v15';
+const CACHE_VERSION = 'v16';
 const SHELL_CACHE = `koine-shell-${CACHE_VERSION}`;
 const CONTENT_CACHE = `koine-content-${CACHE_VERSION}`;
 const FONT_CACHE = `koine-fonts-${CACHE_VERSION}`;

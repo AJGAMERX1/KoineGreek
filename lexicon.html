@@ -69,8 +69,7 @@
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
   import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor, loadOccurrences, loadStats, parseVerseId } from './js/data.js';
-  import { getAllVocabRecords, getVocabItem, updateVocabItem, getSettings, addXp, recordHandwriting, getHandwritingRecord } from './js/storage.js';
-  import { createScribe, describeScore } from './js/scribe.js';
+  import { getAllVocabRecords, getVocabItem, updateVocabItem } from './js/storage.js';
   import { scheduleReview } from './js/srs.js';
   import { searchLexicon, statusOf } from './js/lexicon.js';
   import { describeParse } from './js/morph.js';
@@ -152,42 +151,44 @@
     const occ = (state.occ && state.occ[it.id]) || [];
     const refLabel = (id) => { const r = parseVerseId(id); return `${(state.bookNames && state.bookNames[r.slug]) || r.slug} ${r.chapter}:${r.verse}`; };
     const readHref = (id) => { const r = parseVerseId(id); return `read.html?book=${r.slug}&chapter=${r.chapter}&verse=${r.verse}&lemma=${encodeURIComponent(it.id)}`; };
+    const fmt = (n) => Number(n).toLocaleString();
+    const nums = (v) => (Array.isArray(v) ? v.join('/') : v);
+    // Compact by default; every long block has a toggle so the full text is one tap away.
+    const DEF_SHORT = 120, FORMS_SHORT = 5, OCC_SHORT = 6;
+    const clip = (t) => { const x = String(t || ''); if (x.length <= DEF_SHORT) return null; const cut = x.slice(0, DEF_SHORT); return cut.slice(0, Math.max(cut.lastIndexOf(' '), 100)) + '…'; };
+    const more = (id, label) => `<button class="more-toggle" type="button" data-more="${id}" data-label="${escapeHtml(label)}">${escapeHtml(label)}</button>`;
+    const formRow = (r) => `<div class="lex-form"><span class="greek">${escapeHtml(r[0])}</span><span>${escapeHtml(describeParse(r[1], r[2]))}</span><span class="n">${fmt(r[3])}×</span></div>`;
+    const occChip = (id) => `<a class="xref" href="${readHref(id)}">${escapeHtml(refLabel(id))}</a>`;
+    const statusLine = rec
+      ? `<span class="status ${st}">${STATUS_LABEL[st]}</span> · next review ${rec.dueDate ? new Date(rec.dueDate).toLocaleDateString() : '—'}`
+      : schedulable ? 'not studied yet' : 'rare, gloss only';
     document.getElementById('sheetBody').innerHTML = `
-      <div class="gloss-head"><span class="gloss-form">${escapeHtml(it.citation)}${speakerHtml(it.lemma, { small: true })}</span><span class="gloss-pos">${escapeHtml(it.pos)}</span></div>
-      <div class="gloss-lemma" style="margin-top:6px;font-size:17px">${escapeHtml(it.gloss)}</div>
-      <div class="gloss-status">${it.count}× in the New Testament · rank ${it.rank} of ${state.lexicon.items.length}${it.strongs ? ` · Strong's ${Array.isArray(it.strongs) ? it.strongs.join('/') : it.strongs}` : ''}${it.gk ? ` · GK ${Array.isArray(it.gk) ? it.gk.join('/') : it.gk}` : ''}</div>
-      <div class="gloss-status">${rec ? `<span class="status ${st}">${STATUS_LABEL[st]}</span> · reviewed ${rec.repetitions} time${rec.repetitions === 1 ? '' : 's'} in a row · next ${rec.dueDate ? new Date(rec.dueDate).toLocaleDateString() : '—'}` : schedulable ? 'not yet in your vocabulary' : 'rare: glossed when you meet it, never drilled'}</div>
-      ${lesson ? `<div class="gloss-status">Taught in <a href="${lessonHref(lesson)}">${escapeHtml(lesson.unit.kicker)} · ${escapeHtml(lesson.sub)}</a></div>` : ''}
-      ${strongs.map((x) => `<div class="strongs"><span class="k">Strong's G${x.number}</span> <b>${escapeHtml(x.lemma || '')}</b> ${escapeHtml(x.translit || '')} <span class="pron">${escapeHtml(x.pron || '')}</span><div>${escapeHtml(x.def)}</div>${x.see && x.see.length ? `<div class="gloss-status">See also ${x.see.map((n) => 'G' + n).join(', ')}</div>` : ''}</div>`).join('')}
-      ${forms.length ? `<div class="lex-forms"><div class="settings-title" style="margin:12px 0 6px">Forms in the New Testament</div>${forms.slice(0, 14).map((r) => `<div class="lex-form"><span class="greek">${escapeHtml(r[0])}</span><span>${escapeHtml(describeParse(r[1], r[2]))}</span><span class="n">${r[3]}×</span></div>`).join('')}${forms.length > 14 ? `<div class="gloss-status">… and ${forms.length - 14} more</div>` : ''}</div>` : ''}
-      ${occ.length ? `<div class="lex-forms"><div class="settings-title" style="margin:12px 0 6px">In the New Testament</div><div class="xref-list">${occ.map((id) => `<a class="xref" href="${readHref(id)}">${escapeHtml(refLabel(id))}</a>`).join('')}${it.count > occ.length ? `<span class="gloss-status" style="align-self:center">… ${it.count}× in all</span>` : ''}</div></div>` : ''}
-      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-        ${!rec && schedulable ? `<button class="btn secondary" id="addWord" type="button">Add to my words</button>` : ''}
-        ${occ.length ? `<a class="btn secondary" href="${readHref(occ[0])}">Read it in context</a>` : ''}
-        ${getSettings().handwriting === true ? `<button class="btn secondary" id="traceWord" type="button">Trace it <span class="beta">Beta</span></button>` : ''}
+      <div class="drawer-head lex-head">
+        <div class="gloss-head"><span class="gloss-form">${escapeHtml(it.citation)}${speakerHtml(it.lemma, { small: true })}</span></div>
+        <div class="lex-sub"><span class="gloss-pos">${escapeHtml(it.pos)}</span> · ${escapeHtml(it.gloss)}</div>
       </div>
-      <div id="traceBox" hidden></div>`;
+      <div class="sheet-scroll lex-sheet-body">
+        <div class="gloss-status">${fmt(it.count)}× · rank ${fmt(it.rank)}${it.strongs ? ` · G${nums(it.strongs)}` : ''}${it.gk ? ` · GK ${nums(it.gk)}` : ''} · ${statusLine}</div>
+        ${lesson ? `<div class="gloss-status">Taught in <a href="${lessonHref(lesson)}">${escapeHtml(lesson.unit.kicker)} · ${escapeHtml(lesson.sub)}</a></div>` : ''}
+        ${strongs.map((x, i) => { const short = clip(x.def); return `<div class="strongs"><div><span class="k">Strong's G${x.number}</span> <span class="pron">${escapeHtml(x.translit || '')}${x.pron && x.pron !== x.translit ? ` · ${escapeHtml(x.pron)}` : ''}</span></div>
+          ${short ? `<div data-short="def${i}">${escapeHtml(short)}</div><div data-full="def${i}" hidden>${escapeHtml(x.def)}${x.see && x.see.length ? `<div class="gloss-status">See also ${x.see.map((n) => 'G' + n).join(', ')}</div>` : ''}</div>${more(`def${i}`, 'Full definition')}`
+            : `<div>${escapeHtml(x.def)}</div>`}</div>`; }).join('')}
+        ${forms.length ? `<div class="lex-forms"><div class="lex-section">Forms · ${forms.length}</div>${forms.slice(0, FORMS_SHORT).map(formRow).join('')}${forms.length > FORMS_SHORT ? `<div data-full="forms" hidden>${forms.slice(FORMS_SHORT).map(formRow).join('')}</div>${more('forms', `All ${forms.length} forms`)}` : ''}</div>` : ''}
+        ${occ.length ? `<div class="lex-forms"><div class="lex-section">In the New Testament</div><div class="xref-list">${occ.slice(0, OCC_SHORT).map(occChip).join('')}<span data-full="occ" hidden class="occ-more">${occ.slice(OCC_SHORT).map(occChip).join('')}</span></div>${occ.length > OCC_SHORT ? more('occ', `${occ.length - OCC_SHORT} more verses`) : ''}</div>` : ''}
+        <div class="lex-actions">
+          ${!rec && schedulable ? `<button class="btn secondary" id="addWord" type="button">Add to my words</button>` : ''}
+          ${occ.length ? `<a class="btn secondary" href="${readHref(occ[0])}">Read in context</a>` : ''}
+        </div>
+      </div>`;
     sheet.hidden = false;
-    const traceBtn = document.getElementById('traceWord');
-    if (traceBtn) traceBtn.addEventListener('click', () => {
-      const box = document.getElementById('traceBox');
-      if (!box.hidden) { box.hidden = true; box.innerHTML = ''; return; }
-      box.hidden = false;
-      box.innerHTML = `<div class="scribe-wrap"></div><div class="scribe-tools"><button class="pill" type="button" data-act="undo">Undo</button><button class="pill" type="button" data-act="clear">Clear</button><button class="pill" type="button" data-act="check">Check</button></div><div class="gloss-status" id="traceMsg" style="text-align:center"></div>`;
-      const wrap = box.querySelector('.scribe-wrap');
-      const w = Math.min(520, wrap.clientWidth || 300);
-      const word = it.lemma.split(/[,;/]/)[0].trim();
-      const scribe = createScribe(wrap, { width: w, height: Math.round(w * 0.42), guide: word, guideFont: `${Math.round(w / Math.max(4, word.length) * 1.15)}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-greek').trim() || 'serif'}` });
-      box.querySelector('[data-act=undo]').addEventListener('click', () => scribe.undo());
-      box.querySelector('[data-act=clear]').addEventListener('click', () => scribe.clear());
-      box.querySelector('[data-act=check]').addEventListener('click', () => {
-        const sc = scribe.score(); const ok = sc.pass;
-        // XP only the first time each word is traced from the Lexicon (the Write tab is the place to practise)
-        const first = ok && !getHandwritingRecord(`word:${word}`);
-        if (ok) { recordHandwriting(`word:${word}`, sc.coverage); if (first) addXp(2); }
-        document.getElementById('traceMsg').textContent = (ok ? 'Nice hand — ' : '') + describeScore(sc, 'the word') + (first ? ' · +2 XP' : '');
-      });
-    });
+    const scroller = sheet.querySelector('.sheet-scroll'); if (scroller) scroller.scrollTop = 0;
+    sheet.querySelectorAll('[data-more]').forEach((b) => b.addEventListener('click', () => {
+      const id = b.dataset.more;
+      const full = sheet.querySelector(`[data-full="${id}"]`); const short = sheet.querySelector(`[data-short="${id}"]`);
+      const open = full.hidden;
+      full.hidden = !open; if (short) short.hidden = open;
+      b.textContent = open ? 'Show less' : b.dataset.label;
+    }));
     const add = document.getElementById('addWord');
     if (add) add.addEventListener('click', () => {
       updateVocabItem(it.id, { ...scheduleReview(null, 'miss'), lapses: 0, format: 'lexicon' });
