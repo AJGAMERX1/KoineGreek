@@ -2949,3 +2949,13 @@ html, body {
     max-height: min(48vh, 48dvh);
   }
 }
+
+/* Lexicon search: the inflected form or transliteration that matched (λόγου → λόγος) */
+.lex-via {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11.5px;
+  color: var(--muted);
+}

@@ -97,6 +97,16 @@ export async function loadOccurrences() {
   return occIndex;
 }
 
+let searchFormIndex = null;
+/** Every inflected form in the text, for the Lexicon search: Map(normalized form → [{ id, form }]). */
+export async function loadSearchForms() {
+  if (!searchFormIndex) {
+    const { buildFormIndex } = await import('./lexicon.js');
+    searchFormIndex = buildFormIndex((await loadJson('./data/search-forms.json')).forms);
+  }
+  return searchFormIndex;
+}
+
 /** "john-1-1" → { slug: "john", chapter: 1, verse: 1 } */
 export function parseVerseId(id) {
   const parts = id.split('-');

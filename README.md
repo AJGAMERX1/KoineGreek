@@ -222,6 +222,7 @@ koine-greek-app/
     ├── units/<id>.json   — full lesson content per Book (vocab, paradigms, rule, reading refs + coverage)
     ├── lexicon.json      — all 5,461 GNT lemmas, frequency-ranked, with gloss / pos / citation form
     ├── forms.json        — attested inflected forms + parse + count for every 10+ lemma (parsing drills)
+    ├── search-forms.json — every inflected form in the text, per lemma (Lexicon search; scripts/build_search_index.mjs)
     ├── paradigms.json    — 73 paradigms, cells validated against attested forms
     ├── irregular-verbs.json — principal parts for the strange-verb drill pool
     ├── alphabet.json     — letters, diphthongs, breathing, accents, both pronunciation schemes

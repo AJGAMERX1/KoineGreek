@@ -139,6 +139,33 @@ const occ = read('data/occurrences.json').occurrences;
 check(occ['λόγος'] && occ['λόγος'].every((id) => verseIds.has(id)) && Object.keys(occ).length === lexicon.items.length, 'occurrences.json: every lemma, every id a real verse');
 const refs = await import('../js/refs.js');
 check(refs.parseReference('Jn 3:16').slug === 'john' && refs.parseReference('1 Cor 13:4-7').verseEnd === 7 && refs.parseReference('Gen 1:1').nt === false && refs.parseReference('nope') === null, 'refs.parseReference');
+// ---- Lexicon search: lemmas, inflected forms (common and rare), transliteration, English ----
+{
+  const { searchLexiconDetailed, buildFormIndex } = await import('../js/lexicon.js');
+  const formIndex = buildFormIndex(read('data/search-forms.json').forms);
+  const top = (q) => { const r = searchLexiconDetailed(lexicon.items, { query: q, formIndex }); return r[0] && r[0].item.id; };
+  const cases = [
+    ['λόγος', 'λόγος'], ['λογος', 'λόγος'], ['ΛΟΓΟΣ', 'λόγος'], ['λόγου', 'λόγος'], ['θεοῦ', 'θεός'], ['ἦν', 'εἰμί'], ['τοῦ', 'ὁ'],
+    ['εἶπεν', 'λέγω'], ['ἠγάπησεν', 'ἀγαπάω'], ['πνεύματι', 'πνεῦμα'], ['Ἰησοῦ', 'Ἰησοῦς'], ['δι’', 'διά'],
+    ['logos', 'λόγος'], ['agape', 'ἀγάπη'], ['Christos', 'Χριστός'], ['psyche', 'ψυχή'], ['ecclesia', 'ἐκκλησία'], ['hamartia', 'ἁμαρτία'],
+    ['word', 'λόγος'], ['love', 'ἀγαπάω'], ['God', 'θεός'],
+  ];
+  for (const [q, want] of cases) check(top(q) === want, `search "${q}": expected ${want}, got ${top(q)}`);
+  // every rare lemma (1–3 uses) is found by its own lemma and by each of its attested forms
+  const sf = read('data/search-forms.json').forms;
+  let rareChecked = 0;
+  for (const it of lexicon.items.filter((i) => i.count <= 3)) {
+    const byLemma = searchLexiconDetailed(lexicon.items, { query: it.lemma, formIndex }).slice(0, 5).map((o) => o.item.id);
+    check(byLemma.includes(it.id), `search rare lemma "${it.lemma}" not in top 5`);
+    for (const f of (sf[it.id] || '').split(' ').filter(Boolean)) {
+      const r = searchLexiconDetailed(lexicon.items, { query: f, formIndex }).slice(0, 5).map((o) => o.item.id);
+      check(r.includes(it.id), `search rare form "${f}" (${it.lemma}) not in top 5`);
+    }
+    rareChecked++;
+  }
+  console.log(`search: ${cases.length} spot checks, ${rareChecked} rare lemmas + their forms`);
+}
+
 console.log(`logic: built sessions for ${built} lessons, ${questions} questions generated; ${evalRes.achievements.length} achievements defined`);
 if (fail.length) { console.error(fail.slice(0, 20).join('\n')); process.exit(1); }
 console.log('OK');

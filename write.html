@@ -60,7 +60,7 @@
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
   import { initSfx, playCorrect, playWrong } from './js/sfx.js';
-  import { loadAlphabet, loadLexicon, loadBook } from './js/data.js';
+  import { loadAlphabet, loadLexicon, loadBook, loadSearchForms } from './js/data.js';
   import { getSettings, getProgress, addXp, recordActivity, recordHandwriting, getHandwritingRecord, getAllHandwritingRecords, getAllVocabRecords } from './js/storage.js';
   import { createScribe, describeScore } from './js/scribe.js';
   import { searchLexicon } from './js/lexicon.js';
@@ -159,7 +159,7 @@
   function renderWords() {
     const records = getAllVocabRecords();
     body.innerHTML = `${summary()}
-      <div class="lex-search"><input class="type-input" id="q" type="search" placeholder="Search Greek (λογ) or English (word)" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Search words" value="${escapeHtml(state.query)}"></div>
+      <div class="lex-search"><input class="type-input" id="q" type="search" placeholder="λόγος, λόγου, logos, or word" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Search words" value="${escapeHtml(state.query)}"></div>
       <div class="chips" id="wordChips">
         <button class="pill ${state.filter === 'core' ? 'active' : ''}" type="button" data-filter="core">Core 310</button>
         <button class="pill ${state.filter === 'studied' ? 'active' : ''}" type="button" data-filter="studied">My words</button>
@@ -170,7 +170,7 @@
     const list = document.getElementById('wordList');
     const q = document.getElementById('q');
     const showList = () => {
-      const hits = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records }).slice(0, 60);
+      const hits = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records, formIndex: state.formIndex }).slice(0, 60);
       list.innerHTML = hits.map((it) => `<button class="lex-row" type="button" data-id="${escapeHtml(it.id)}"><span class="lex-lemma ${getHandwritingRecord(`word:${it.lemma.split(/[,;/]/)[0].trim()}`) ? 'done' : ''}" lang="grc">${escapeHtml(it.lemma)}</span><span class="lex-gloss">${escapeHtml(it.gloss)}</span></button>`).join('') || `<div class="lex-count">No words match.</div>`;
     };
     const pick = (it) => {
@@ -181,6 +181,7 @@
       box.scrollIntoView({ block: 'nearest' });
     };
     q.addEventListener('input', () => { state.query = q.value; showList(); });
+    if (!state.formIndex) loadSearchForms().then((idx) => { state.formIndex = idx; if (state.query && state.mode === 'words' && document.getElementById('wordList')) showList(); }).catch(() => {});
     document.getElementById('wordChips').addEventListener('click', (e) => { const b = e.target.closest('[data-filter]'); if (!b) return; state.filter = b.dataset.filter; renderWords(); });
     list.addEventListener('click', (e) => { const b = e.target.closest('[data-id]'); if (!b) return; pick(state.lexicon.byId.get(b.dataset.id)); });
     showList();

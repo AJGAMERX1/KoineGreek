@@ -26,7 +26,7 @@
   <div class="topbar lex-bar">
     <div class="unit-title" style="margin:0;font-size:18px">Lexicon</div>
     <div class="lex-search">
-      <input class="type-input" id="q" type="search" placeholder="Search Greek (λογ) or English (word)" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Search the lexicon">
+      <input class="type-input" id="q" type="search" placeholder="λόγος, λόγου, logos, or word" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-label="Search the lexicon in Greek, any form, transliteration or English">
     </div>
     <div class="chips" id="chips">
       <button class="pill active" type="button" data-filter="all">All</button>
@@ -68,10 +68,10 @@
   import { initDev } from './js/dev.js';
   import { initPwa } from './js/pwa.js';
   import { renderNav } from './js/nav.js';
-  import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor, loadOccurrences, loadStats, parseVerseId } from './js/data.js';
+  import { loadLexicon, loadForms, loadCurriculum, loadStrongs, strongsFor, loadOccurrences, loadStats, parseVerseId, loadSearchForms } from './js/data.js';
   import { getAllVocabRecords, getVocabItem, updateVocabItem } from './js/storage.js';
   import { scheduleReview } from './js/srs.js';
-  import { searchLexicon, statusOf } from './js/lexicon.js';
+  import { searchLexiconDetailed, statusOf } from './js/lexicon.js';
   import { describeParse } from './js/morph.js';
   import { escapeHtml, speakerHtml } from './js/session-view.js';
   import { initSpeech } from './js/speech.js';
@@ -112,18 +112,20 @@
     loadStrongs().then((s) => { state.strongs = s; refreshOpen(); }).catch(() => {});
     loadOccurrences().then((o) => { state.occ = o; refreshOpen(); }).catch(() => {});
     loadStats().then((st) => { state.bookNames = Object.fromEntries(st.books.map((b) => [b.book, b.name])); refreshOpen(); }).catch(() => {});
-    if (state.query) { const first = searchLexicon(lexicon.items, { query: state.query })[0]; if (first && first.lemma === state.query) openDetail(first); }
+    // every inflected form (θεοῦ, ἠγάπησεν…), so a word copied from a verse is found; re-run the search once it arrives
+    loadSearchForms().then((idx) => { state.formIndex = idx; if (state.query) render(); }).catch(() => {});
+    if (state.query) { const first = searchLexiconDetailed(lexicon.items, { query: state.query })[0]; if (first && first.item.lemma === state.query) openDetail(first.item); }
   }
 
   function render() {
-    state.results = searchLexicon(state.lexicon.items, { query: state.query, filter: state.filter, records: state.records });
+    state.results = searchLexiconDetailed(state.lexicon.items, { query: state.query, filter: state.filter, records: state.records, formIndex: state.formIndex });
     const rows = state.results.slice(0, state.shown);
     body.innerHTML = `
       <div class="lex-count">${state.results.length.toLocaleString()} word${state.results.length === 1 ? '' : 's'}${state.query ? ` for “${escapeHtml(state.query)}”` : ''}</div>
-      <div class="lex-list">${rows.map((it) => {
+      <div class="lex-list">${rows.map(({ item: it, via }) => {
         const st = statusOf(it, state.records);
         return `<button class="lex-row" type="button" data-id="${escapeHtml(it.id)}">
-          <span class="lex-lemma">${escapeHtml(it.lemma)}</span>
+          <span class="lex-lemma">${escapeHtml(it.lemma)}${via ? `<span class="lex-via">${escapeHtml(via)}</span>` : ''}</span>
           <span class="lex-gloss">${escapeHtml(it.gloss)}</span>
           <span class="lex-meta">${escapeHtml(it.pos)} · ${it.count}× · <span class="status ${st}">${STATUS_LABEL[st]}</span></span>
         </button>`;
