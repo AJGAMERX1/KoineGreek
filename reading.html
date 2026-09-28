@@ -56,12 +56,12 @@
   import { getProgress, getSettings, setSettings, getAllVocabRecords, getVocabItem, updateVocabItem, readStore, getReadingRecord, setReadingRecord, getDueVerseIds, addXp, recordActivity, markLessonCompleted, getSession, saveSession, clearSession } from './js/storage.js';
   import { nextInChain, chainLabel } from './js/chain.js';
   import { scheduleReview } from './js/srs.js';
-  import { annotate, coverage, xpForVerse, rateVerse, startIndex, suggestWords, isWordToken, normalizedForm, TRANSLATIONS } from './js/reading.js';
+  import { annotate, coverage, xpForVerse, rateVerse, startIndex, suggestWords, isWordToken, normalizedForm, TRANSLATIONS, gradeTranslation } from './js/reading.js';
   import { describeParse, describePos } from './js/morph.js';
   import { SessionView, escapeHtml, speakerHtml } from './js/session-view.js';
   import { createScribe } from './js/scribe.js';
   import { initSpeech, autoSpeak } from './js/speech.js';
-  import { initSfx, playTick, playComplete } from './js/sfx.js';
+  import { initSfx, playTick, playComplete, playCorrect } from './js/sfx.js';
 
   initTheme();
   initPwa();
@@ -336,7 +336,7 @@
       </div>
       <div class="card">
         <div class="rule-title">2 · Translate it in your own words</div>
-        <p class="rule-body" style="color:var(--muted);font-size:13px">From memory if you can. Then reveal the reference translations and rate yourself.</p>
+        <p class="rule-body" style="color:var(--muted);font-size:13px">From memory if you can, in your own words — it's checked for meaning, not for matching a Bible's wording.</p>
         <textarea class="type-input assign-input" id="assignTr" rows="3" placeholder="Your translation…"></textarea>
       </div>
       <div id="assignReveal"></div>
@@ -353,36 +353,51 @@
     document.getElementById('padMore').addEventListener('click', () => { if (!pad) return; const w = pad.canvas.clientWidth; const h = pad.canvas.clientHeight + 120; pad.destroy(); pad = createScribe(padWrap, { width: w, height: h, lines: true, penWidth: 3 }); });
     document.getElementById('hideVerse').addEventListener('click', (e) => { const v = document.getElementById('assignVerse'); v.style.visibility = v.style.visibility === 'hidden' ? '' : 'hidden'; e.target.textContent = v.style.visibility === 'hidden' ? 'Show the verse' : 'Hide the verse'; });
     document.getElementById('assignSkip').addEventListener('click', (e) => { e.preventDefault(); state.assignmentDone = true; renderSummary(); });
-    view.showFooter('Reveal the translations', () => {
-      const mine = document.getElementById('assignTr').value.trim();
+    const RATING_LABEL = { nailed: 'Nailed it', close: 'Close', miss: 'Not yet' };
+    let result = null, mine = '';
+    const check = () => {
+      mine = document.getElementById('assignTr').value.trim();
       const box = document.getElementById('assignReveal');
+      if (!mine) {
+        box.innerHTML = `<div class="card grade-card"><div class="grade-note">Write your translation first — any wording is fine. Or skip the assignment below.</div></div>`;
+        return;
+      }
+      const refs = TRANSLATIONS.map((t) => verse.translations[t.id]).filter(Boolean);
+      result = gradeTranslation(verse, state.lexicon, mine, refs);
+      const req = result.tokens.filter((x) => !x.optional);
+      const got = req.filter((x) => x.status === 'ok').length;
+      const firstMeaning = (g) => String(g || '').split(/[,;]/)[0].trim();
       box.innerHTML = `
-        <div class="card">
-          <div class="rule-title" style="font-size:15px">Reference translations</div>
-          ${TRANSLATIONS.map((t) => verse.translations[t.id] ? `<div class="wp-text" style="margin-top:8px"><b>${t.label}</b> ${escapeHtml(verse.translations[t.id])}</div>` : '').join('')}
-          ${mine ? `<div class="wp-text" style="margin-top:10px;color:var(--primary)"><b>You</b> ${escapeHtml(mine)}</div>` : ''}
-        </div>
-        <div class="rate">
-          <div class="rate-label">How close was your translation?</div>
-          <div class="rate-buttons">
-            <button class="rate-btn miss" type="button" data-rating="miss">Missed it</button>
-            <button class="rate-btn close" type="button" data-rating="close">Close</button>
-            <button class="rate-btn nailed" type="button" data-rating="nailed">Nailed it</button>
+        <div class="card grade-card grade-${result.rating}">
+          <div class="grade-head"><span class="grade-badge">${RATING_LABEL[result.rating]}</span>
+            <span class="grade-score">${Math.max(got, Math.round(result.coverage * req.length))} of ${req.length} words carried over</span></div>
+          <div class="grade-verse" lang="grc">${result.tokens.map((x) => `<span class="gw ${x.status}" title="${escapeHtml(firstMeaning(x.gloss))}">${escapeHtml(x.t)}</span>`).join(' ')}</div>
+          ${result.missed.length
+            ? `<div class="grade-missed">Not in your translation: ${result.missed.slice(0, 8).map((x) => `<span lang="grc">${escapeHtml(x.t)}</span> <span class="gm">${escapeHtml(firstMeaning(x.gloss))}</span>`).join(' · ')}</div>`
+            : '<div class="grade-missed">Every word is accounted for.</div>'}
+          ${result.offTopic > 0.4 ? '<div class="grade-note">Some of your words don’t match anything in this verse — compare with the translations below.</div>' : ''}
+          <div class="grade-refs">
+            ${TRANSLATIONS.map((t) => verse.translations[t.id] ? `<div class="wp-text"><b>${t.label}</b> ${escapeHtml(verse.translations[t.id])}</div>` : '').join('')}
+            <div class="wp-text" style="color:var(--primary)"><b>You</b> ${escapeHtml(mine)}</div>
           </div>
+          <div class="scribe-tools" style="justify-content:flex-start"><button class="pill" type="button" id="regrade">Edit above, then check again</button></div>
         </div>`;
-      view.hideFooter();
-      box.querySelectorAll('.rate-btn').forEach((b) => b.addEventListener('click', () => {
-        const rating = b.dataset.rating;
-        const xp = { nailed: 16, close: 12, miss: 8 }[rating] + (pad && !pad.isEmpty() ? 4 : 0);
-        const prev = getReadingRecord(verse.id) || {};
-        setReadingRecord(verse.id, { ...prev, written: new Date().toISOString().slice(0, 10), myTranslation: mine || null, writtenRating: rating });
-        state.xpEarned += xp; xpStat.textContent = addXp(xp).xp;
-        state.written = true; state.assignmentDone = true;
-        playTick();
-        renderSummary();
-      }));
+      document.getElementById('regrade').addEventListener('click', () => { document.getElementById('assignTr').focus(); check(); });
+      if (result.rating === 'nailed') playCorrect(); else playTick();
+      view.showFooter('Continue', finish);
       box.scrollIntoView({ block: 'nearest' });
-    });
+    };
+    const finish = () => {
+      if (!result) return;
+      const rating = result.rating;
+      const xp = { nailed: 16, close: 12, miss: 8 }[rating] + (pad && !pad.isEmpty() ? 4 : 0);
+      const prev = getReadingRecord(verse.id) || {};
+      setReadingRecord(verse.id, { ...prev, written: new Date().toISOString().slice(0, 10), myTranslation: mine || null, writtenRating: rating, writtenScore: Math.round(result.coverage * 100) / 100 });
+      state.xpEarned += xp; xpStat.textContent = addXp(xp).xp;
+      state.written = true; state.assignmentDone = true;
+      renderSummary();
+    };
+    view.showFooter('Check my translation', check);
   }
 
   // ------------------------------------------------------------ summary

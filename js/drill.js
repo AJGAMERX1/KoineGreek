@@ -57,9 +57,18 @@ const STOP = new Set(('a an the of to i be am is are was were been being or and 
 // Object and possessive pronouns answer for the subject form: "me" for ἐγώ ("I"), "them" for "they".
 const PRONOUN = { me: 'i', my: 'i', mine: 'i', him: 'he', his: 'he', her: 'she', hers: 'she', them: 'they', their: 'they', us: 'we', our: 'we', your: 'you', yours: 'you' };
 
-/** Crude English stem so "loving / loved / loves / love" and "says / say" meet. */
-function stemEnglish(w) {
-  let s = w;
+// Irregular English verb forms → base, so "said", "came", "saw", "given" meet "say", "come", "see", "give".
+const IRREGULAR = Object.fromEntries(('was:be were:be been:be is:be are:be am:be went:go gone:go came:come saw:see seen:see said:say ' +
+  'gave:give given:give took:take taken:take knew:know known:know made:make did:do done:do had:have has:have spoke:speak spoken:speak ' +
+  'told:tell heard:hear wrote:write written:write ate:eat eaten:eat drank:drink began:begin begun:begin sent:send led:lead found:find ' +
+  'stood:stand sat:sit rose:rise risen:rise fell:fall fallen:fall bore:bear born:bear became:become brought:bring thought:think ' +
+  'sought:seek taught:teach bought:buy sold:sell held:hold kept:keep left:leave lost:lose threw:throw thrown:throw chose:choose ' +
+  'chosen:choose forgave:forgive forgiven:forgive got:get ran:run men:man women:woman children:child brethren:brother feet:foot ' +
+  'hath:have doth:do saith:say spake:speak shalt:shall wilt:will art:be thee:you thou:you thy:you thine:you ye:you').split(' ').map((p) => p.split(':')));
+
+/** Crude English stem so "loving / loved / loves / love", "says / say" and "said / say" meet. */
+export function stemEnglish(w) {
+  let s = IRREGULAR[w] || w;
   if (s.length > 4 && s.endsWith('ies')) s = `${s.slice(0, -3)}y`;
   else if (s.length > 5 && s.endsWith('ing')) s = s.slice(0, -3);
   else if (s.length > 4 && s.endsWith('ed')) s = s.slice(0, -2);
@@ -70,13 +79,13 @@ function stemEnglish(w) {
 }
 // Light verbs and fillers: they can complete a match but never make one on their own ("I make holy" ≠ "I make unclean").
 const WEAK = new Set('make made give gave take took come came go went put set have had get got do did all most up out back down off over well into away'.split(' '));
-function sameWord(a, b) {
+export function sameWord(a, b) {
   if (a === b || stemEnglish(a) === stemEnglish(b)) return true;
   // typos only on longer words, where a one-letter slip can't turn one real word into another (live/like, heart/hear)
   const n = Math.min(a.length, b.length);
   return n >= 6 && levenshtein(a, b) <= (n >= 9 ? 2 : 1);
 }
-const contentWords = (s) => normalizeEnglish(s).split(' ').map((w) => PRONOUN[w] || w).filter((w) => w && !STOP.has(w));
+export const contentWords = (s) => normalizeEnglish(s).split(' ').map((w) => PRONOUN[w] || w).filter((w) => w && !STOP.has(w));
 
 /**
  * Typed English gloss, graded generously: the learner needs one meaning, not the whole gloss, in any wording.

@@ -156,6 +156,38 @@ check(refs.parseReference('Jn 3:16').slug === 'john' && refs.parseReference('1 C
   console.log(`meanings: ${yes.length + no.length} spot checks, ${n} listed meanings accepted`);
 }
 
+// ---- Write & translate: free translations graded on meaning, generously ----
+{
+  const { gradeTranslation } = await import('../js/reading.js');
+  const lex = { byId: lexById };
+  const V = (b, c, v) => books[b].chapters[c][v];
+  const G = (v, text) => gradeTranslation(v, lex, text, Object.values(v.translations)).rating;
+  const cases = [
+    [V('john', '1', '1'), 'In the beginning existed the Word, and the Word existed with the God, and God existed with the word', ['nailed']],
+    [V('john', '1', '1'), 'At the start there was the Word. The Word was with God and the Word was divine.', ['nailed']],
+    [V('john', '1', '1'), 'In the beginning was the Word', ['close']],
+    [V('john', '1', '1'), 'Jesus wept', ['miss']],
+    [V('john', '1', '1'), 'the cat sat on the mat and ate fish', ['miss']],
+    [V('john', '3', '16'), 'God loved the world so much that he gave his only son, so that everyone who believes in him will not die but will have eternal life', ['nailed']],
+    [V('john', '3', '16'), 'God loved the world and gave his son', ['close']],
+    [V('romans', '6', '23'), 'Sin pays out death, but God gives the free gift of eternal life in Christ Jesus our Lord', ['nailed']],
+    [V('matthew', '5', '3'), 'Blessed are the poor in spirit, because the kingdom of heaven belongs to them', ['nailed']],
+  ];
+  for (const [v, text, want] of cases) { const r = G(v, text); check(want.includes(r), `translation of ${v.id} "${text.slice(0, 30)}…" graded ${r}, expected ${want.join('/')}`); }
+  // each Bible translation, graded against the other two, is never a miss; another verse's text never nails it
+  const all = Object.values(books).flatMap((b) => Object.values(b.chapters).flatMap((c) => Object.values(c))).filter((v) => Object.keys(v.translations).length >= 2);
+  let refMiss = 0, wrongNailed = 0, n = 0;
+  for (let i = 0; i < all.length; i += 37) {
+    const v = all[i]; const ids = Object.keys(v.translations); n++;
+    for (const id of ids) if (gradeTranslation(v, lex, v.translations[id], ids.filter((x) => x !== id).map((x) => v.translations[x])).rating === 'miss') refMiss++;
+    const o = all[(i * 7 + 13) % all.length];
+    if (o.id !== v.id && G(v, Object.values(o.translations)[0]) === 'nailed') wrongNailed++;
+  }
+  check(refMiss <= 1, `${refMiss} Bible translations graded "miss" in the sample`);
+  check(wrongNailed === 0, `${wrongNailed} wrong-verse answers graded "nailed"`);
+  console.log(`translations: ${cases.length} spot checks, ${n} verses × references (misses ${refMiss}), wrong-verse nailed ${wrongNailed}`);
+}
+
 // ---- Lexicon search: lemmas, inflected forms (common and rare), transliteration, English ----
 {
   const { searchLexiconDetailed, buildFormIndex } = await import('../js/lexicon.js');
