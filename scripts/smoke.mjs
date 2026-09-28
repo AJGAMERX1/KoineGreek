@@ -139,6 +139,23 @@ const occ = read('data/occurrences.json').occurrences;
 check(occ['λόγος'] && occ['λόγος'].every((id) => verseIds.has(id)) && Object.keys(occ).length === lexicon.items.length, 'occurrences.json: every lemma, every id a real verse');
 const refs = await import('../js/refs.js');
 check(refs.parseReference('Jn 3:16').slug === 'john' && refs.parseReference('1 Cor 13:4-7').verseEnd === 7 && refs.parseReference('Gen 1:1').nt === false && refs.parseReference('nope') === null, 'refs.parseReference');
+// ---- typed meanings are graded generously: one meaning, any wording; guesses still fail ----
+{
+  const { checkGloss } = await import('../js/drill.js');
+  const g = (lemma) => lexById.get(lemma).gloss;
+  const yes = [['εἰς', 'in or among'], ['εἰς', 'Into, for'], ['λόγος', 'the word of God'], ['λόγος', 'divine speech'], ['ἀγαπάω', 'loving'],
+    ['ἀγαπάω', 'he loves'], ['λέγω', 'he says'], ['ἐγώ', 'me'], ['γίνομαι', 'to be born'], ['ἄνθρωπος', 'human'], ['Χριστός', 'Messiah'],
+    ['ἔχω', 'posess'], ['ἵνα', 'so that'], ['δέ', 'on the other hand'], ['ὁ', 'the']];
+  const no = [['εἰς', 'out of'], ['λόγος', 'love'], ['λόγος', 'love word god say'], ['ἀγαπάω', 'hate'], ['ἐγώ', 'you'], ['καί', 'but'],
+    ['ἄνθρωπος', 'woman'], ['Χριστός', 'Jesus'], ['δέ', 'hand'], ['μάλιστα', 'all'], ['περιπατέω', 'like'], ['κοινόω', 'I make holy']];
+  for (const [l, i] of yes) check(checkGloss(i, g(l)), `typed meaning "${i}" for ${l} should pass`);
+  for (const [l, i] of no) check(!checkGloss(i, g(l)), `typed meaning "${i}" for ${l} should fail`);
+  // every listed meaning of every drilled word is accepted
+  let n = 0;
+  for (const it of lexicon.items.filter((x) => x.count >= 10)) for (const piece of it.gloss.split(/[,;/]/)) if (piece.trim()) { n++; check(checkGloss(piece, it.gloss), `own meaning "${piece.trim()}" rejected for ${it.lemma}`); }
+  console.log(`meanings: ${yes.length + no.length} spot checks, ${n} listed meanings accepted`);
+}
+
 // ---- Lexicon search: lemmas, inflected forms (common and rare), transliteration, English ----
 {
   const { searchLexiconDetailed, buildFormIndex } = await import('../js/lexicon.js');

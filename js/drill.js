@@ -51,11 +51,62 @@ function levenshtein(a, b) {
   return prev[n];
 }
 
-/** Typed English gloss: exact alternative, or within one typo for words of 5+ letters. */
+// Little words that carry no meaning of their own in a gloss answer (never needed, never enough on their own).
+const STOP = new Set(('a an the of to i be am is are was were been being or and it he she they we you me him her them us ' +
+  'my his its our your their one ones someone something some thing things who which that this there so as').split(' '));
+// Object and possessive pronouns answer for the subject form: "me" for ἐγώ ("I"), "them" for "they".
+const PRONOUN = { me: 'i', my: 'i', mine: 'i', him: 'he', his: 'he', her: 'she', hers: 'she', them: 'they', their: 'they', us: 'we', our: 'we', your: 'you', yours: 'you' };
+
+/** Crude English stem so "loving / loved / loves / love" and "says / say" meet. */
+function stemEnglish(w) {
+  let s = w;
+  if (s.length > 4 && s.endsWith('ies')) s = `${s.slice(0, -3)}y`;
+  else if (s.length > 5 && s.endsWith('ing')) s = s.slice(0, -3);
+  else if (s.length > 4 && s.endsWith('ed')) s = s.slice(0, -2);
+  else if (s.length > 4 && s.endsWith('es')) s = s.slice(0, -2);
+  else if (s.length > 3 && s.endsWith('s') && !s.endsWith('ss')) s = s.slice(0, -1);
+  if (s.length > 3 && s.endsWith('e')) s = s.slice(0, -1);
+  return s;
+}
+// Light verbs and fillers: they can complete a match but never make one on their own ("I make holy" ≠ "I make unclean").
+const WEAK = new Set('make made give gave take took come came go went put set have had get got do did all most up out back down off over well into away'.split(' '));
+function sameWord(a, b) {
+  if (a === b || stemEnglish(a) === stemEnglish(b)) return true;
+  // typos only on longer words, where a one-letter slip can't turn one real word into another (live/like, heart/hear)
+  const n = Math.min(a.length, b.length);
+  return n >= 6 && levenshtein(a, b) <= (n >= 9 ? 2 : 1);
+}
+const contentWords = (s) => normalizeEnglish(s).split(' ').map((w) => PRONOUN[w] || w).filter((w) => w && !STOP.has(w));
+
+/**
+ * Typed English gloss, graded generously: the learner needs one meaning, not the whole gloss, in any wording.
+ *  1. The answer (or any piece of it split on , ; / & "or" "and") matches one listed meaning — within a typo.
+ *  2. Or its key words cover at least half the key words of one meaning ("divine speech" → "divine utterance",
+ *     "loving" → "love", "the word of God" → "word"), and at least half of what was typed is on target,
+ *     so a string of guesses ("love word god say") does not pass.
+ */
 export function checkGloss(input, gloss) {
-  const inp = normalizeEnglish(input).replace(LEAD, '').trim();
-  if (!inp) return false;
-  return glossAlternatives(gloss).some((alt) => alt === inp || (inp.length >= 5 && levenshtein(alt, inp) <= 1));
+  const raw = String(input || '');
+  const whole = normalizeEnglish(raw).replace(LEAD, '').trim();
+  if (!whole) return false;
+  const alts = glossAlternatives(gloss);
+  const canon = (p) => p.split(' ').map((w) => PRONOUN[w] || w).join(' ');
+  const exact = (p) => { const c = canon(p); return alts.some((alt) => alt === p || alt === c || (p.length >= 6 && levenshtein(alt, p) <= 1)); };
+  if (exact(whole)) return true;
+  const pieces = raw.split(/[,;/&]|\bor\b|\band\b/i).map((x) => normalizeEnglish(x).replace(LEAD, '').trim()).filter(Boolean);
+  if (pieces.some(exact)) return true;
+
+  const typed = [...new Set(contentWords(raw))];
+  if (!typed.length) return false;
+  // every meaning, with any parenthesised words kept ("northeaster (wind)")
+  const meanings = gloss.split(/[,;/]/).map((m) => [...new Set(contentWords(m.replace(/[()]/g, ' ')))]).filter((m) => m.length);
+  const onTarget = typed.filter((u) => meanings.some((m) => m.some((w) => sameWord(u, w)))).length;
+  if (onTarget * 2 < typed.length) return false;
+  return meanings.some((m) => {
+    const hits = m.filter((w) => typed.some((u) => sameWord(u, w)));
+    const strong = hits.some((w) => !WEAK.has(w)) || (m.every((w) => WEAK.has(w)) && hits.length === m.length);
+    return hits.length >= 1 && strong && hits.length * 2 >= m.length;
+  });
 }
 
 /** Typed Greek: accent-insensitive match against the lemma (or, for multi-form citations like "ὁ, ἡ, τό", any form). */
@@ -199,7 +250,7 @@ export function makeQuestion(step, lexicon, rng = Math.random, prefer = []) {
     const options = shuffle([item, ...pickDistractors(item, lexicon, 3, rng, prefer)], rng);
     q.options = options.map((o) => ({ id: o.id, text: o.lemma, item: o }));
   } else if (format === 'gloss-type') {
-    q.prompt = item.lemma; q.hint = `${item.pos} · type the meaning`; q.answerText = item.gloss;
+    q.prompt = item.lemma; q.hint = `${item.pos} · type a meaning (one is enough)`; q.answerText = item.gloss;
   } else {
     q.prompt = item.gloss; q.hint = `${item.pos} · type the Greek`; q.answerText = item.lemma;
   }

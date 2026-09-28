@@ -155,7 +155,7 @@
   }
 
   function formatLabel(f) {
-    return { 'gloss-mc': 'choose the meaning', 'greek-mc': 'choose the Greek', 'gloss-type': 'type the meaning', 'greek-type': 'type the Greek' }[f];
+    return { 'gloss-mc': 'choose the meaning', 'greek-mc': 'choose the Greek', 'gloss-type': 'type a meaning', 'greek-type': 'type the Greek' }[f];
   }
 
   function renderIntro(step) {
@@ -179,7 +179,7 @@
     const greekPrompt = q.format === 'gloss-mc' || q.format === 'gloss-type';
     const spec = { kicker: `${kicker(step)} · ${formatLabel(q.format)}`, prompt: q.prompt, promptGreek: greekPrompt, hint: q.hint, speak: greekPrompt ? q.item.lemma : null };
     if (q.options) spec.options = q.options.map((o) => ({ id: o.id, text: o.text, greek: q.format === 'greek-mc' }));
-    else spec.typed = { greek: q.format === 'greek-type', placeholder: q.format === 'greek-type' ? 'type in Greek' : 'type the meaning' };
+    else spec.typed = { greek: q.format === 'greek-type', placeholder: q.format === 'greek-type' ? 'type in Greek' : 'type a meaning in English' };
     view.renderQuestion(spec, (input) => answer(q, input));
   }
 
